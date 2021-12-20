@@ -1,20 +1,101 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello IndexController!{% endblock %}
+{% block title %}Catch Coming Soon{% endblock %}
 
 {% block body %}
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!--// Font-Awesome-CSS -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/jquery.countdown.css" />	<!-- Countdown-CSS -->
+    <!--fonts-->
+    <link href="//fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/zhongsheng/codes/hilaiya.com/src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/zhongsheng/codes/hilaiya.com/templates/index/index.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></li>
-    </ul>
+    <!--background-->
+    <div class="ban-head">
+        <h2></h2>
+        <h1>FUTURE</h1>
+        <p>COMING SOON !!</p>
+    </div>
+    <div class="clear"></div>
+    <!--//background-->
+    <!--timer-->
+    <div class="examples">
+        <div class="simply-countdown-losange" id="simply-countdown-losange"></div>
+        <div class="clear"></div>
+    </div>
+    <!--//timer-->
+    <!--				<div class="agileinfo-grids">-->
+    <!--					<div class="newsletter">-->
+    <!--				<h2>Subscribe Now</h2>-->
+    <!--				<form action="#" method="post">-->
+    <!--&lt;!&ndash;					<input type="email" name="email" size="30" required="" placeholder="Email" />&ndash;&gt;-->
+    <!--&lt;!&ndash;					<button class="btn1"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>&ndash;&gt;-->
+    <!--				</form>-->
 </div>
+    <!--//newsletter-->
+    <!--						<div class="agileinfo-social-grids">-->
+    <!--&lt;!&ndash;						<ul>&ndash;&gt;-->
+    <!--&lt;!&ndash;							<li><a href="#"><i class="fa fa-facebook"></i></a></li>&ndash;&gt;-->
+    <!--&lt;!&ndash;							<li><a href="#"><i class="fa fa-twitter"></i></a></li>&ndash;&gt;-->
+    <!--&lt;!&ndash;							<li><a href="#"><i class="fa fa-rss"></i></a></li>&ndash;&gt;-->
+    <!--&lt;!&ndash;							<li><a href="#"><i class="fa fa-vk"></i></a></li>&ndash;&gt;-->
+    <!--&lt;!&ndash;						</ul>&ndash;&gt;-->
+    <!--					</div>	-->
+    <!--				<div class="clear"></div>-->
+    </div>
+    <div class="w3layouts_copy_right">
+        <div class="container">
+            <p>© 2021  All rights reserved </p>
+        </div>
+    </div>
+    </div>
+    <!-- //footer -->
+</div>
+
+
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <!-- //js -->
+    <!-- /count down js -->
+    <script src="js/simplyCountdown.js"></script>
+    <script>
+        var d = new Date(new Date().getTime() + 22 * 120 * 120 * 2000);
+
+        // default example
+        simplyCountdown('.simply-countdown-one', {
+            year: d.getFullYear(),
+            month: d.getMonth() + 1,
+            day: d.getDate()
+        });
+
+        // inline example
+        simplyCountdown('.simply-countdown-inline', {
+            year: d.getFullYear(),
+            month: d.getMonth() + 1,
+            day: d.getDate(),
+            inline: true
+        });
+
+        //jQuery example
+        $('#simply-countdown-losange').simplyCountdown({
+            year: d.getFullYear(),
+            month: d.getMonth() + 1,
+            day: d.getDate(),
+            enableUtc: false
+        });
+    </script>
 {% endblock %}
