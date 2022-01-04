@@ -17,10 +17,15 @@ class DownInfo
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $name;
+    protected $cId;
 
     /**
-     * @MongoDB\Field(type="float")
+     * @MongoDB\Field(type="string")
      */
-    protected $price;
+    protected $title;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $url;
 }
