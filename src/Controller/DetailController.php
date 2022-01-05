@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\DocumentRepository\ListsRepository;
+use MongoDB\BSON\ObjectId;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,17 +11,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DetailController extends AbstractController
 {
-    #[Route('/detail/{id}', name: 'detail')]
+    #[Route('/detail/{id}', name: 'detail', methods: ['GET'])]
     public function index(ListsRepository $listsRepository, Request $request): Response
     {
-        $id = $request->query->get('id');
-
-
-        $listRes = $listsRepository->findOneBy(["id" => new \MongoId($id)]);
-        dump($listRes);
-
+        $id  = $request->get('id');
+        $res = $listsRepository->findOneBy(['id' => (new \MongoId($id))]);
         return $this->render('detail/index.html.twig', [
-            'listRes' => $listRes,
+            'res' => $res,
         ]);
     }
 }

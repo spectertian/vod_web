@@ -220,9 +220,57 @@ class Lists
     {
         return $this->area;
     }
+
     public function getPageDate(): ?string
     {
         return $this->pageDate;
+    }
+
+    public function getProductionDate(): ?string
+    {
+        return $this->productionDate;
+    }
+
+
+    public function getDoubanId(): ?string
+    {
+        return $this->doubanId;
+    }
+
+
+    public function getDoubanUrl(): ?string
+    {
+        return $this->doubanUrl;
+    }
+
+    public function getAlias(): ?array
+    {
+        return $this->alias;
+    }
+
+    public function getYear(): ?string
+    {
+        return $this->year;
+    }
+
+    public function getLanguage(): ?string
+    {
+        return $this->language;
+    }
+
+    public function getRunTime(): ?string
+    {
+        return $this->runTime;
+    }
+
+    public function getTags(): ?array
+    {
+        return $this->tags;
+    }
+
+    public function getDirector(): ?array
+    {
+        return $this->director;
     }
 
 
