@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\DocumentRepository\DownInfoRepository;
+use Doctrine\ORM\Tools\Pagination\paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,9 +14,10 @@ use Symfony\Component\HttpFoundation\Request;
 class ListController extends AbstractController
 {
     #[Route('/list_dy', name: 'dy')]
-    public function index(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    public function index(ListsRepository $listsRepository, Request $request): Response
     {
-        $listRes = $listsRepository->findAll();;
+        $listRes = $listsRepository->findAll();
+
         return $this->render('list_dy/index.html.twig', [
             'listRes' => $listRes,
         ]);
@@ -29,4 +31,6 @@ class ListController extends AbstractController
             'controller_name' => 'ListController',
         ]);
     }
+
+
 }

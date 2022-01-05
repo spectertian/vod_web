@@ -61,7 +61,7 @@
                                                                              style="display: block;">
                             <span class="rate badge">{{ dy.rating }}</span></a>
                         <div class="text_info">
-                            <h2><a href="https://www.domp4.cc/detail/7376.html">{{ dy.longTitle }}</a></h2>
+                            <h2><a href="{{ path('detail',{id:dy.id})}}">{{ dy.longTitle }}</a></h2>
                             <p class="actor">
                                 {% for star in dy.stars %}
 

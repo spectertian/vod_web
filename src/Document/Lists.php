@@ -163,6 +163,10 @@ class Lists
      */
     protected $downCount;
 
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
 
     public function getTitle(): ?string
     {
