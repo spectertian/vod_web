@@ -162,4 +162,64 @@ class Lists
      * @MongoDB\Field(type="int",name="down_count")
      */
     protected $downCount;
+
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    public function getLongTitle(): ?string
+    {
+        return $this->longTitle;
+    }
+
+    public function setLongTitle(string $longTitle): self
+    {
+        $this->longTitle = $longTitle;
+        return $this;
+    }
+
+    public function getPic(): ?string
+    {
+        return $this->pic;
+    }
+
+    public function setPic(string $pic): self
+    {
+        $this->pic = $pic;
+        return $this;
+    }
+
+    public function getRating(): ?string
+    {
+        return $this->rating;
+    }
+
+    public function getStars(): ?array
+    {
+        return $this->stars;
+    }
+
+    public function getIntroduction(): ?string
+    {
+        return $this->introduction;
+    }
+
+    public function getArea(): ?string
+    {
+        return $this->area;
+    }
+    public function getPageDate(): ?string
+    {
+        return $this->pageDate;
+    }
+
+
 }

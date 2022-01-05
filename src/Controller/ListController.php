@@ -16,9 +16,8 @@ class ListController extends AbstractController
     public function index(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
     {
         $listRes = $listsRepository->findAll();;
-        dump($listRes);
         return $this->render('list_dy/index.html.twig', [
-            'controller_name' => 'ListController',
+            'listRes' => $listRes,
         ]);
     }
 
@@ -26,7 +25,6 @@ class ListController extends AbstractController
     public function dsj(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
     {
         $listRes = $listsRepository->findAll();;
-        dump($listRes);
         return $this->render('list_dy/index.html.twig', [
             'controller_name' => 'ListController',
         ]);
