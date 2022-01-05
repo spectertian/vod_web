@@ -4,7 +4,8 @@
 <body data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
 <div class="container">
     <div id="top" class="header">
-        <div class="logo"><a href="http://www.hilaiya.com/"><img style="width:70px;hight:40px" src="./dy/logo1.jpeg"
+        <div class="logo"><a href="http://www.hilaiya.com/"><img style="width:70px;hight:40px"
+                                                                 src="{{ asset("dy/logo1.jpeg") }}"
                                                                  alt="MP4电影"></a></div>
         <div class="top_nav fright"><a href="https://www.domp4.cc/custom/update.html" style="color:red">今日更新</a>|
             <a rel="nofollow" href="https://www.domp4.cc/guestbook/1.html">留言</a>|
@@ -61,7 +62,7 @@
                                                                              style="display: block;">
                             <span class="rate badge">{{ dy.rating }}</span></a>
                         <div class="text_info">
-                            <h2><a href="{{ path('detail',{id:dy.id})}}">{{ dy.longTitle }}</a></h2>
+                            <h2><a href="{{ path('detail',{id:dy.id}) }}">{{ dy.longTitle }}</a></h2>
                             <p class="actor">
                                 {% for star in dy.stars %}
 
@@ -72,7 +73,8 @@
                                 {% endfor %}
 
                             </p>
-                            <p><span class="area">{{ dy.area}}</span><span class="update_time">{{ dy.pageDate}}</span></p>
+                            <p><span class="area">{{ dy.area }}</span><span class="update_time">{{ dy.pageDate }}</span>
+                            </p>
                             <p class="info">{{ dy.introduction[:60] ~ '...' }}</p>
                         </div>
                     </li>
@@ -93,7 +95,7 @@
     </div>
     <div class="vod_right">
         <div class="top">
-            <script src="./最新动作片电影下载_热门动作片电影迅雷下载-MP4电影_files/right.js"></script>
+            <script src="{{ asset("right.js") }}"></script>
         </div>
         <div class="list-group cclear">
             <div class="cclear" id="heading-text">近期下载排行</div>
@@ -152,13 +154,10 @@
             欢迎大家对网站内容侵犯版权等不合法和不健康行为进行监督和举报。<br> 邮箱: domp4#yahoo.com（替换#为@）<br>Copyright ©2020-2021 domp4. All rights
             reserved.
         </p></div>
-    <script charset="utf-8" src="./dy/base.js"></script>
+    <script charset="utf-8" src="{{ asset("dy/base.js") }}"></script>
     <a class="backtotop hidden-sm hidden-xs btn btn-default" href="#top" data-toggle="tooltip"
        data-placement="top" data-original-title="返回顶部"><i class="glyphicon glyphicon-arrow-up"></i></a>
-    <script src="./dy/search.js"></script>
-    <script src="./dy/rich-tf.js" id="richid" data="s=3515"></script>
-    <script src="./dy/beitou-tf.js" id="beitouid" data="s=3487"></script>
-    <span style="display:none"><script src="./dy/pcount.js"></script><span
-                id="cnzz_stat_icon_1254786789"></span><script src="./dy/stat.php"
-                                                              type="text/javascript"></script></span></div>
+    <script src="{{ asset("dy/search.js") }}"></script>
+    <span style="display:none"><script src="{{ asset("dy/pcount.js") }}"></script>
+</div>
 {% endblock %}

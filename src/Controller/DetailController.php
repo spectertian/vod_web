@@ -13,8 +13,12 @@ class DetailController extends AbstractController
     #[Route('/detail/{id}', name: 'detail')]
     public function index(ListsRepository $listsRepository, Request $request): Response
     {
-        $id      = $request->query->get('id');
-        $listRes = $listsRepository->findOneBy(['id' => $id]);
+        $id = $request->query->get('id');
+
+
+        $listRes = $listsRepository->findOneBy(["id" => new \MongoId($id)]);
+        dump($listRes);
+
         return $this->render('detail/index.html.twig', [
             'listRes' => $listRes,
         ]);

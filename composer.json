@@ -7,6 +7,7 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "alcaeus/mongo-php-adapter": "^1.2",
         "composer/package-versions-deprecated": "1.11.99.4",
         "doctrine/doctrine-bundle": "^2.5",
         "doctrine/doctrine-migrations-bundle": "^3.2",
@@ -38,7 +39,10 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "ext-mongo": "1.6.16"
+        }
     },
     "autoload": {
         "psr-4": {
