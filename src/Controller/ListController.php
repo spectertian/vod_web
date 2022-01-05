@@ -10,21 +10,24 @@ use App\DocumentRepository\ListsRepository;
 use Symfony\Component\HttpFoundation\Request;
 
 
-
-
 class ListController extends AbstractController
 {
-    #[Route('/list', name: 'list')]
+    #[Route('/list_dy', name: 'dy')]
     public function index(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
     {
-//        dump($listsRepository);
-//        $list = $listsRepository->findAll();
-        $list2 = $downInfoRepository->getClassMetadata();
-//        dump($list);
-//        print_r($list2);
-        dump($list2);
-//        dump($downInfoRepository);
-        return $this->render('list/index.html.twig', [
+        $listRes = $listsRepository->findAll();;
+        dump($listRes);
+        return $this->render('list_dy/index.html.twig', [
+            'controller_name' => 'ListController',
+        ]);
+    }
+
+    #[Route('/list_dsj', name: 'dsj')]
+    public function dsj(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    {
+        $listRes = $listsRepository->findAll();;
+        dump($listRes);
+        return $this->render('list_dy/index.html.twig', [
             'controller_name' => 'ListController',
         ]);
     }

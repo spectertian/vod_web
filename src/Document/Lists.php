@@ -5,7 +5,7 @@ namespace App\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
- * @MongoDB\Document
+ * @MongoDB\Document(collection="lists")
  */
 class Lists
 {
@@ -15,168 +15,151 @@ class Lists
     protected $id;
 
     /**
+     * @MongoDB\Field(type="string",name="c_id")
+     */
+    protected $cId;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $title;
+
+    /**
+     * @MongoDB\Field(type="string",name="long_title")
+     */
+    protected $longTitle;
+
+    /**
      * @MongoDB\Field(type="string")
      */
     protected $url;
 
     /**
-     * @MongoDB\Field(type="float")
+     * @MongoDB\Field(type="raw",name="down_url")
      */
-    protected $cid;
-    /**
-     * @MongoDB\Field(type="float")
-     */
-    protected $r_id;
-    /**
-     * @MongoDB\Field(type="float")
-     */
-    protected $title;
-    /**
-     * @MongoDB\Field(type="float")
-     */
-    protected $alias;
-    /**
-     * @MongoDB\Field(type="float")
-     */
-    protected $long_title;
-    /**
-     * @MongoDB\Field(type="float")
-     */
-    protected $pic;
-    /**
-     * @MongoDB\Field(type="float")
-     */
-    protected $imgUrl;
-    /**
-     * @MongoDB\Field(type="float")
-     */
-    protected $Director;
-    /**
-     * @MongoDB\Field(type="float")
-     */
-    protected $Stars;
-    /**
-     * @MongoDB\Field(type="float")
-     */
-    protected $DownStatus;
-    /**
-     * @MongoDB\Field(type="float")
-     */
-    protected $Introduction;
-    /**
-     * @MongoDB\Field(type="float")
-     */
-    protected $LastUpdated;
-    /**
-     * @MongoDB\Field(type="float")
-     */
-    protected $UpdatedDate;
-    /**
-     * @MongoDB\Field(type="float")
-     */
-    protected $Source;
+    protected $downUrl;
 
     /**
-     * @MongoDB\Field(type="string")
+     * @MongoDB\Field(type="raw")
      */
-    protected $UpdatedTime;
+    protected $type;
 
     /**
-     * @MongoDB\Field(type="string")
+     * @MongoDB\Field(type="raw",name="down_status")
+     */
+    protected $downStatus;
+
+    /**
+     * @MongoDB\Field(type="date",name="updated_time")
      */
     protected $updatedTime;
 
     /**
-     * @MongoDB\Field(type="string")
+     * @MongoDB\Field(type="date",name="created_time")
      */
-    protected $CreatedTime;
+    protected $createdTime;
+    /**
+     * @MongoDB\Field(type="raw")
+     */
+    protected $alias;
     /**
      * @MongoDB\Field(type="string")
+     */
+    protected $pic;
+    /**
+     * @MongoDB\Field(type="string",name="img_url")
+     */
+    protected $imgUrl;
+    /**
+     * @MongoDB\Field(type="raw")
+     */
+    protected $director;
+    /**
+     * @MongoDB\Field(type="raw")
+     */
+    protected $stars;
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $introduction;
+    /**
+     * @MongoDB\Field(type="string",name="last_updated")
+     */
+    protected $lastUpdated;
+    /**
+     * @MongoDB\Field(type="string",name="updated_date")
+     */
+    protected $updatedDate;
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $source;
+    /**
+     * @MongoDB\Field(type="string",name="production_date")
      */
     protected $productionDate;
     /**
-     * @MongoDB\Field(type="string")
+     * @MongoDB\Field(type="string",name="page_date")
      */
-    protected $PageDate;
+    protected $pageDate;
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $Rating;
+    protected $rating;
 
     /**
-     * @MongoDB\Field(type="string")
+     * @MongoDB\Field(type="string",name="douban_url")
      */
-    protected $DoubanUrl;
+    protected $doubanUrl;
 
     /**
-     * @MongoDB\Field(type="string")
+     * @MongoDB\Field(type="string",name="douban_id")
      */
-    protected $DoubanId;
-
-
-    /**
-     * @MongoDB\Field(type="string")
-     */
-    protected $Tags;
+    protected $doubanId;
 
     /**
-     * @MongoDB\Field(type="string")
+     * @MongoDB\Field(type="raw")
      */
-    protected $Type;
+    protected $tags;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $Year;
-
-
-    /**
-     * @MongoDB\Field(type="string")
-     */
-    protected $Area;
+    protected $year;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $RunTime;
+    protected $area;
 
+    /**
+     * @MongoDB\Field(type="string",name="run_time")
+     */
+    protected $runTime;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $Language;
+    protected $language;
 
     /**
-     * @MongoDB\Field(type="string")
-     */
-    protected $DownUrl;
-
-
-    /**
-     * @MongoDB\Field(type="string")
-     */
-    protected $Status;
-
-
-
-    /**
-     * @MongoDB\Field(type="string")
-     */
-    protected $ProductionCompany;
-
-
-    /**
-     * @MongoDB\Field(type="string")
+     * @MongoDB\Field(type="int")
      */
     protected $status;
 
     /**
-     * @MongoDB\Field(type="string")
+     * @MongoDB\Field(type="string",name="production_company")
      */
-    protected $ClickCount;
+    protected $productionCompany;
+
 
     /**
-     * @MongoDB\Field(type="string")
+     * @MongoDB\Field(type="int",name="click_count")
      */
-    protected $DownCount;
+    protected $clickCount;
+
+    /**
+     * @MongoDB\Field(type="int",name="down_count")
+     */
+    protected $downCount;
 }
