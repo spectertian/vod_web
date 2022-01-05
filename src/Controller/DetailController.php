@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\DocumentRepository\ListsRepository;
-use MongoDB\BSON\ObjectId;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
