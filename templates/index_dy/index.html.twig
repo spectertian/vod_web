@@ -1247,13 +1247,13 @@
             欢迎大家对网站内容侵犯版权等不合法和不健康行为进行监督和举报。<br> 邮箱: domp4#yahoo.com（替换#为@）<br>Copyright ©2020-2021 domp4. All rights
             reserved.
         </p></div>
-    <script charset="utf-8" src="./dy/base.js"></script>
+    <script charset="utf-8" src="{{ asset('dy/base.js') }}"></script>
     <a class="backtotop hidden-sm hidden-xs btn btn-default" href="#top" data-toggle="tooltip"
        data-placement="top" data-original-title="返回顶部"><i class="glyphicon glyphicon-arrow-up"></i></a>
-    <script src="./dy/search.js"></script>
-    <script src="./dy/rich-tf.js" id="richid" data="s=3515"></script>
-    <script src="./dy/beitou-tf.js" id="beitouid" data="s=3487"></script>
-    <span style="display:none"><script src="./dy/pcount.js"></script><span
-                id="cnzz_stat_icon_1254786789"></span><script src="./dy/stat.php"
-                                                              type="text/javascript"></script></span></div>
+    <script src="{{ asset('dy/search.js') }}"></script>
+    <script src="{{ asset('dy/rich-tf.js') }}" id="richid" data="s=3515"></script>
+    <script src="{{ asset('dy/beitou-tf.js') }}" id="beitouid" data="s=3487"></script>
+    <span style="display:none"><script src="{{ asset('dy/pcount.js') }}"></script></span>
+    <span id="cnzz_stat_icon_1254786789"></span>
+    <script src="{{ asset('dy/stat.php') }}" type="text/javascript"></script>
 {% endblock %}

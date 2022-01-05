@@ -4,8 +4,8 @@
 <body data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
 <div class="container">
     <div id="top" class="header">
-        <div class="logo"><a href="http://www.hilaiya.com/"><img style="width:70px;hight:40px" src="./dy/logo1.jpeg"
-                                                                 alt="MP4电影"></a></div>
+        <div class="logo"><a href="http://www.hilaiya.com/">
+                <img style="width:70px;hight:40px" src="{{ asset('dy/logo1.jpeg') }}" alt="MP4电影"></a></div>
         <div class="top_nav fright"><a href="https://www.domp4.cc/custom/update.html" style="color:red">今日更新</a>|
             <a rel="nofollow" href="https://www.domp4.cc/guestbook/1.html">留言</a>|
             <!--
@@ -462,17 +462,17 @@ ed2k://|file|【高清MP4电影www.domp4.cc】武林外传电影版.2011.BD1080p
         var listid = 1;
     </script>
     <div class="footer cclear"><p class="copyright">本网站内容收集于互联网，MP4电影不承担任何由于内容的合法性及健康性所引起的争议和法律责任。
-            欢迎大家对网站内容侵犯版权等不合法和不健康行为进行监督和举报。<br> 邮箱: domp4#yahoo.com（替换#为@）<br>Copyright ©2020-2021 domp4. All rights
+            欢迎大家对网站内容侵犯版权等不合法和不健康行为进行监督和举报。<br> 邮箱: domp4#yahoo.com（替换#为@）<br>Copyright ©2020-2022 domp4. All rights
             reserved.
         </p></div>
-    <script charset="utf-8" src="./dy/base.js"></script>
+    <script charset="utf-8" src="{{ asset('dy/base.js') }}"></script>
     <a class="backtotop hidden-sm hidden-xs btn btn-default" href="#top" data-toggle="tooltip"
        data-placement="top" data-original-title="返回顶部"><i class="glyphicon glyphicon-arrow-up"></i></a>
-    <script src="./dy/search.js"></script>
-    <script src="./dy/rich-tf.js" id="richid" data="s=3515"></script>
-    <script src="./dy/beitou-tf.js" id="beitouid" data="s=3487"></script>
-    <span style="display:none"><script src="./dy/pcount.js"></script></span>
+    <script src="{{ asset('dy/search.js') }}"></script>
+    <script src="{{ asset('dy/rich-tf.js') }}" id="richid" data="s=3515"></script>
+    <script src="{{ asset('dy/beitou-tf.js') }}" id="beitouid" data="s=3487"></script>
+    <span style="display:none"><script src="{{ asset('dy/pcount.js') }}"></script></span>
     <span id="cnzz_stat_icon_1254786789"></span>
-    <script src="./dy/stat.php" type="text/javascript"></script>
+    <script src="{{ asset('dy/stat.php') }}" type="text/javascript"></script>
 </div>
 {% endblock %}
