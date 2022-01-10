@@ -273,5 +273,9 @@ class Lists
         return $this->director;
     }
 
+    public function getDownUrl(): ?array
+    {
+        return $this->downUrl;
+    }
 
 }

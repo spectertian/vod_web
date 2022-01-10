@@ -281,7 +281,7 @@ jQuery(".thunder"+num+" li").each(function(i){
 				url=ThunderURIEncode(url);
 			}
 			jQuery(this).find("a:first").attr("href",url);
-			jQuery(this).find("div").before("<input type='checkbox' name='copy_sel' value='"+url+"'></div>");
+			// jQuery(this).find("div").before("<input type='checkbox' name='copy_sel' value='"+url+"'></div>");
 			jQuery(this).append("<div class='label-right'><a class='label label-info copybtn' data-toggle='collapse' data-parent='#download"+num+"' data-target='#texturl_"+num+"_"+i+"' data-clipboard-text='"+url+"'>复制地址</a></div>")
 			//jQuery(this).append("<div class='label-right'><input type='checkbox' name='copy_sel' value='"+url+"'></div>")
 			jQuery(this).after("<div id='texturl_"+num+"_"+i+"' class='collapse' ><textarea autoHeight='true' onclick='selects(this)'>"+url+"</textarea></div>")
