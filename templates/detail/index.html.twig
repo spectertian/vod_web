@@ -3,49 +3,7 @@
 
 <body data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
 <div class="container">
-    <div id="top" class="header">
-        <div class="logo"><a href="http://www.hilaiya.com/">
-                <img style="width:70px;hight:40px" src="{{ asset('dy/logo1.jpeg') }}" alt="MP4电影"></a></div>
-        <div class="top_nav fright"><a href="https://www.domp4.cc/custom/update.html" style="color:red">今日更新</a>|
-            <a rel="nofollow" href="https://www.domp4.cc/guestbook/1.html">留言</a>|
-            <!--
-            <a href="https://m.domp4.cc/?fulione.com">移动版</a>        --></div>
-        <nav class="navbar navbar-inverse cclear">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span
-                                class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="https://www.domp4.cc/">MP4电影</a></div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="https://www.domp4.cc/list/99-1.html">最新电影</a></li>
-                        <li><a href="https://www.domp4.cc/list/1-1.html">动作片</a></li>
-                        <li><a href="https://www.domp4.cc/list/2-1.html">科幻片</a></li>
-                        <li><a href="https://www.domp4.cc/list/3-1.html">爱情片</a></li>
-                        <li><a href="https://www.domp4.cc/list/4-1.html">喜剧片</a></li>
-                        <li><a href="https://www.domp4.cc/list/5-1.html">恐怖片</a></li>
-                        <li><a href="https://www.domp4.cc/list/6-1.html">战争片</a></li>
-                        <li><a href="https://www.domp4.cc/list/7-1.html">剧情片</a></li>
-                        <li><a href="https://www.domp4.cc/list/8-1.html">纪录片</a></li>
-                        <li><a href="https://www.domp4.cc/list/9-1.html">动画片</a></li>
-                        <li><a href="https://www.domp4.cc/list/10-1.html">电视剧</a></li>
-                        <li><a href="https://www.domp4.cc/slist/1.html">专题</a></li>
-                        <li><a href="https://www.domp4.cc/sort.html">索引</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="search">
-            <form class="navbar-form" action="https://www.domp4.cc/search/" method="post">
-                <div class="form-group input-group"><input type="text" class="form-control" id="wd" name="wd"
-                                                           placeholder="片名/主演/导演/标签">
-                    <button type="submit" class="btn btn-default glyphicon glyphicon-search">搜索</button>
-                </div>
-            </form>
-        </div>
-        <div class="header_top"></div>
-    </div>
+    {% include 'head.html.twig' %}
     <div class="article content cclear">
         <ul class="breadcrumb cclear">
             <li><a href="https://www.domp4.cc/">首页</a></li>
@@ -92,31 +50,6 @@
         <div class="article-related info"><h2>剧情介绍</h2>
             <p>{{ res.introduction }}</p>
         </div>
-{#        <script type="text/javascript">eval(function (p, a, c, k, e, d) {#}
-{#                e = function (c) {#}
-{#                    return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))#}
-{#                };#}
-{#                if (!''.replace(/^/, String)) {#}
-{#                    while (c--) {#}
-{#                        d[e(c)] = k[c] || e(c)#}
-{#                    }#}
-{#                    k = [function (e) {#}
-{#                        return d[e]#}
-{#                    }];#}
-{#                    e = function () {#}
-{#                        return '\\w+'#}
-{#                    };#}
-{#                    c = 1#}
-{#                }#}
-{#                ;#}
-{#                while (c--) {#}
-{#                    if (k[c]) {#}
-{#                        p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c])#}
-{#                    }#}
-{#                }#}
-{#                return p#}
-{#            }('p t=\'{\\"q\\":[\\"\\\\5\\\\7\\\\4\\\\3\\\\0\\\\2\\\\6\\",\\"\\\\r\\\\s\\\\n\\",\\"\\\\/m\\\\/1-1.i\\",\\"1\\"],\\"h\\":[{\\"j\\":[\\"\\\\5\\\\7\\\\4\\\\3\\\\0\\\\2\\\\6.c.e.\\\\d\\\\b\\\\a\\\\8.9$k:?l=o:E:G&C=[D.f.g]\\\\5\\\\7\\\\4\\\\3\\\\0\\\\2\\\\6.c.e.\\\\d\\\\b\\\\a\\\\8.9\\",\\"\\\\5\\\\7\\\\4\\\\3\\\\0\\\\2\\\\6.c.e.\\\\d\\\\b\\\\a\\\\8.9$F:\\\\/\\\\/|B|\\\\A\\\\u\\\\v\\\\0\\\\x.f.g\\\\y\\\\5\\\\7\\\\4\\\\3\\\\0\\\\2\\\\6.c.e.\\\\d\\\\b\\\\a\\\\8.9|z|w|\\\\/\\"]}]}\';', 43, 43, 'u7535||u5f71|u4f20|u5916|u6b66|u7248|u6797|u5b57|mp4|u4e2d|u8bed|2011|u56fd|BD1080p|domp4|cc|Data|html|downurls|magnet|xt|list|u7247|urn|var|Vod|u52a8|u4f5c|down_urls|u9ad8|u6e05MP4|0a443349dcf458ea9a8c2f706b28d87b|u5f71www|u3011|2803879475|u3010|file|dn|www|btih|ed2k|9334c3d743786bcb85a4cf20c457fabf758927c9'.split('|'), 0, {}))#}
-{#        </script>#}
         <div id="download1" class="article-related download_url"><h2>下载地址一</h2>
             <ul class="panel down-list thunder1">
 

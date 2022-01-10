@@ -13,22 +13,122 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ListController extends AbstractController
 {
-    #[Route('/list_dy', name: 'dy')]
-    public function index(ListsRepository $listsRepository, Request $request): Response
+
+    #[Route('/list_zx', name: 'zx')]
+    public function zx(ListsRepository $listsRepository, Request $request): Response
     {
-        $listRes = $listsRepository->findAll();
+        $listRes = $listsRepository->findBy(['type'=>'动作片']);
+
+        return $this->render('list_dy/index.html.twig', [
+            'listRes' => $listRes,
+        ]);
+    }
+    #[Route('/list_zt', name: 'zt')]
+    public function zt(ListsRepository $listsRepository, Request $request): Response
+    {
+        $listRes = $listsRepository->findBy(['type'=>'动作片']);
 
         return $this->render('list_dy/index.html.twig', [
             'listRes' => $listRes,
         ]);
     }
 
+    #[Route('/list_sy', name: 'sy')]
+    public function sy(ListsRepository $listsRepository, Request $request): Response
+    {
+        $listRes = $listsRepository->findBy(['type'=>'动作片']);
+
+        return $this->render('list_dy/index.html.twig', [
+            'listRes' => $listRes,
+        ]);
+    }
+
+    #[Route('/list_dz', name: 'dz')]
+    public function dz(ListsRepository $listsRepository, Request $request): Response
+    {
+        $listRes = $listsRepository->findBy(['type'=>'动作片']);
+
+        return $this->render('list_dy/index.html.twig', [
+            'listRes' => $listRes,
+        ]);
+    }
+
+    #[Route('/list_kh', name: 'kh')]
+    public function kh(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    {
+        $listRes = $listsRepository->findBy(['type'=>'科幻片']);
+        return $this->render('list_dy/index.html.twig', [
+            'listRes' => $listRes,
+        ]);
+    }
+
+    #[Route('/list_aq', name: 'aq')]
+    public function aq(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    {
+        $listRes = $listsRepository->findBy(['type'=>'爱情片']);
+        return $this->render('list_dy/index.html.twig', [
+            'listRes' => $listRes,
+        ]);
+    }
+
+
+    #[Route('/list_xj', name: 'xj')]
+    public function xj(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    {
+        $listRes = $listsRepository->findBy(['type'=>'喜剧片']);
+        return $this->render('list_dy/index.html.twig', [
+            'listRes' => $listRes,
+        ]);
+    }
+
+
+    #[Route('/list_kb', name: 'kb')]
+    public function kb(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    {
+        $listRes = $listsRepository->findBy(['type'=>'恐怖片']);
+        return $this->render('list_dy/index.html.twig', [
+            'listRes' => $listRes,
+        ]);
+    }
+
+    #[Route('/list_zz', name: 'zz')]
+    public function zz(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    {
+        $listRes = $listsRepository->findBy(['type'=>'战争片']);
+        return $this->render('list_dy/index.html.twig', [
+            'listRes' => $listRes,
+        ]);
+    }
+    #[Route('/list_jq', name: 'jq')]
+    public function jq(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    {
+        $listRes = $listsRepository->findBy(['type'=>'剧情片']);
+        return $this->render('list_dy/index.html.twig', [
+            'listRes' => $listRes,
+        ]);
+    }
+    #[Route('/list_kb', name: 'jl')]
+    public function jl(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    {
+        $listRes = $listsRepository->findBy(['type'=>'纪录片']);
+        return $this->render('list_dy/index.html.twig', [
+            'listRes' => $listRes,
+        ]);
+    }
+    #[Route('/list_dh', name: 'dh')]
+    public function dh(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    {
+        $listRes = $listsRepository->findBy(['type'=>'动画片']);
+        return $this->render('list_dy/index.html.twig', [
+            'listRes' => $listRes,
+        ]);
+    }
     #[Route('/list_dsj', name: 'dsj')]
     public function dsj(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
     {
-        $listRes = $listsRepository->findAll();;
+        $listRes = $listsRepository->findBy(['type'=>'电视剧']);
         return $this->render('list_dy/index.html.twig', [
-            'controller_name' => 'ListController',
+            'listRes' => $listRes,
         ]);
     }
 
