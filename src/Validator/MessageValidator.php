@@ -9,15 +9,10 @@ class MessageValidator extends ConstraintValidator
 {
     public function validate($value, Constraint $constraint)
     {
-        /* @var $constraint \App\Validator\Message */
+        if ($value == '' || mb_strlen($value) < 10)
+            $this->context->buildViolation($constraint->message)
+                ->setParameter('{{ value }}', $value)
+                ->addViolation();
 
-        if (null === $value || '' === $value) {
-            return;
-        }
-
-        // TODO: implement the validation here
-        $this->context->buildViolation($constraint->message)
-            ->setParameter('{{ value }}', $value)
-            ->addViolation();
     }
 }

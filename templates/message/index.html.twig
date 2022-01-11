@@ -1,6 +1,5 @@
 {% extends 'base_dy.html.twig' %}
 {% block body %}
-
     <body data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
 <div class="container">
     {% include 'head.html.twig' %}
@@ -23,25 +22,26 @@
                 </li>
             </ol>
         </div>
-        <form role="form" action="https://www.domp4.cc/index.php?s=Gb-Insert" method="post" name="guestbook"
+        <form role="form" action="{{ path('message') }}" method="post" name="message"
               id="guestbook">
-            <div class="form-group"><input name="gb_cid" type="hidden" value=""><textarea name="gb_content"
-                                                                                          id="gb_content"
-                                                                                          class="form-control"
-                                                                                          maxlength="200"
-                                                                                          placeholder="报错请说清楚下载环境与具体片名集数"></textarea><input
-                        id="gb_button" class="btn btn-default pull-right	" type="submit" value="发表留言"><label
-                        id="gb_tips"></label></div>
+            <div class="form-group">
+                {{ form(form) }}
+                <label id="gb_tips"></label></div>
         </form>
 
-        {{ form(form) }}
 
-        <div class="media">
-            <div class="media-left"><img class="media-object" style="width:45px" src={{ asset("dy/face_1.jpg") }}></div>
-            <div class="media-body"><h4 class="media-heading">游客<small><i> 第1楼</i></small></h4>
-                <p>复制地址总是网页的地址？。</p>
-                <p class="cclear text-danger">回复：检测自己的环境，是否开启了广告过滤插件导致功能失效</p></div>
-        </div>
+        {% for ly in res %}
+            <div class="media">
+
+                <div class="media-left"><img class="media-object" style="width:45px" src={{ asset("dy/face_1.jpg") }}>
+                </div>
+                <div class="media-body"><h4 class="media-heading">游客<small><i> 第1楼</i></small></h4>
+                    <p>{{ ly.question }}</p>
+                    <p class="cclear text-danger"></p>
+                </div>
+            </div>
+
+        {% endfor %}
     </div>
     <div class="footer cclear"><p class="copyright">本网站内容收集于互联网，MP4电影不承担任何由于内容的合法性及健康性所引起的争议和法律责任。
             欢迎大家对网站内容侵犯版权等不合法和不健康行为进行监督和举报。<br> 邮箱: domp4#yahoo.com（替换#为@）<br>Copyright ©2020-2022 domp4. All rights

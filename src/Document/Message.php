@@ -5,6 +5,11 @@ namespace App\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use MongoDB\BSON\UTCDateTimeInterface;
 
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use App\Validator\Message as MessageVail;
+
+
 /**
  * @MongoDB\Document(collection="message")
  */
@@ -40,6 +45,11 @@ class Message
      */
     protected $replayTime;
 
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('question', new MessageVail());
+    }
+
     public function getId(): ?float
     {
         return $this->id;
@@ -68,12 +78,12 @@ class Message
     }
 
 
-    public function getQuestionTime(): ?UTCDateTimeInterface
+    public function getQuestionTime(): ?\MongoDB\BSON\UTCDateTime
     {
         return $this->questionTime;
     }
 
-    public function setQuestionTime(UTCDateTimeInterface $questionTime): self
+    public function setQuestionTime(\MongoDB\BSON\UTCDateTime $questionTime): self
     {
         $this->questionTime = $questionTime;
         return $this;
@@ -91,12 +101,12 @@ class Message
         return $this;
     }
 
-    public function getReplayTime(): ?UTCDateTimeInterface
+    public function getReplayTime(): ?\MongoDB\BSON\UTCDateTime
     {
         return $this->replayTime;
     }
 
-    public function setReplayTime(UTCDateTimeInterface $replayTime): self
+    public function setReplayTime(\MongoDB\BSON\UTCDateTime $replayTime): self
     {
         $this->replayTime = $replayTime;
         return $this;
