@@ -5,7 +5,6 @@ namespace App\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use MongoDB\BSON\UTCDateTimeInterface;
 
-use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use App\Validator\Message as MessageVail;
 
@@ -50,7 +49,7 @@ class Message
         $metadata->addPropertyConstraint('question', new MessageVail());
     }
 
-    public function getId(): ?float
+    public function getId(): ?string
     {
         return $this->id;
     }

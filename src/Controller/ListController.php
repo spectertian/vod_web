@@ -19,7 +19,7 @@ class ListController extends AbstractController
     {
         $listRes = $listsRepository->findBy(['type' => '动作片']);
 
-        return $this->render('list_dy/index.html.twig', [
+        return $this->render('list/index.html.twig', [
             'listRes' => $listRes,
             'title'   => "最新电影",
         ]);
@@ -30,7 +30,7 @@ class ListController extends AbstractController
     {
         $listRes = $listsRepository->findBy(['type' => '动作片']);
 
-        return $this->render('list_dy/index.html.twig', [
+        return $this->render('list/index.html.twig', [
             'listRes' => $listRes,
             'title'   => "专题",
         ]);
@@ -40,7 +40,7 @@ class ListController extends AbstractController
     public function sy(ListsRepository $listsRepository, Request $request): Response
     {
         $listRes = $listsRepository->findBy(['type' => '动作片']);
-        return $this->render('list_dy/index.html.twig', [
+        return $this->render('list/index.html.twig', [
             'listRes' => $listRes,
             'title'   => "索引",
 
@@ -52,7 +52,7 @@ class ListController extends AbstractController
     {
         $listRes = $listsRepository->findBy(['type' => '动作片']);
 
-        return $this->render('list_dy/index.html.twig', [
+        return $this->render('list/index.html.twig', [
             'listRes' => $listRes,
             'title'   => "动作片",
         ]);
@@ -62,7 +62,7 @@ class ListController extends AbstractController
     public function kh(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
     {
         $listRes = $listsRepository->findBy(['type' => '科幻片']);
-        return $this->render('list_dy/index.html.twig', [
+        return $this->render('list/index.html.twig', [
             'listRes' => $listRes,
             'title'   => "科幻片",
         ]);
@@ -72,7 +72,7 @@ class ListController extends AbstractController
     public function aq(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
     {
         $listRes = $listsRepository->findBy(['type' => '爱情片']);
-        return $this->render('list_dy/index.html.twig', [
+        return $this->render('list/index.html.twig', [
             'listRes' => $listRes,
             'title'   => "爱情片",
         ]);
@@ -83,7 +83,7 @@ class ListController extends AbstractController
     public function xj(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
     {
         $listRes = $listsRepository->findBy(['type' => '喜剧片']);
-        return $this->render('list_dy/index.html.twig', [
+        return $this->render('list/index.html.twig', [
             'listRes' => $listRes,
             'title'   => "喜剧片",
         ]);
@@ -94,7 +94,7 @@ class ListController extends AbstractController
     public function kb(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
     {
         $listRes = $listsRepository->findBy(['type' => '恐怖片']);
-        return $this->render('list_dy/index.html.twig', [
+        return $this->render('list/index.html.twig', [
             'listRes' => $listRes,
             'title'   => "恐怖片",
         ]);
@@ -104,7 +104,7 @@ class ListController extends AbstractController
     public function zz(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
     {
         $listRes = $listsRepository->findBy(['type' => '战争片']);
-        return $this->render('list_dy/index.html.twig', [
+        return $this->render('list/index.html.twig', [
             'listRes' => $listRes,
             'title'   => "战争片",
         ]);
@@ -114,7 +114,7 @@ class ListController extends AbstractController
     public function jq(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
     {
         $listRes = $listsRepository->findBy(['type' => '剧情片']);
-        return $this->render('list_dy/index.html.twig', [
+        return $this->render('list/index.html.twig', [
             'listRes' => $listRes,
             'title'   => "剧情片",
         ]);
@@ -124,7 +124,7 @@ class ListController extends AbstractController
     public function jl(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
     {
         $listRes = $listsRepository->findBy(['type' => '纪录片']);
-        return $this->render('list_dy/index.html.twig', [
+        return $this->render('list/index.html.twig', [
             'listRes' => $listRes,
             'title'   => "纪录片",
         ]);
@@ -134,7 +134,7 @@ class ListController extends AbstractController
     public function dh(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
     {
         $listRes = $listsRepository->findBy(['type' => '动画片']);
-        return $this->render('list_dy/index.html.twig', [
+        return $this->render('list/index.html.twig', [
             'listRes' => $listRes,
             'title'   => "动画片",
         ]);
@@ -144,7 +144,7 @@ class ListController extends AbstractController
     public function dsj(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
     {
         $listRes = $listsRepository->findBy(['type' => '电视剧']);
-        return $this->render('list_dy/index.html.twig', [
+        return $this->render('list/index.html.twig', [
             'listRes' => $listRes,
             'title'   => "电视剧",
         ]);

@@ -1,12 +1,11 @@
 {% extends 'base_dy.html.twig' %}
 {% block body %}
-
 <body data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
 <div class="container">
     {% include 'head.html.twig' %}
     <div class="article content cclear">
         <ul class="breadcrumb cclear">
-            <li><a href="https://www.domp4.cc/">首页</a></li>
+            <li><a href="{{ path("index") }}">首页</a></li>
             <li><a href="https://www.domp4.cc/list/1-1.html">动作片</a></li>
             <li class="active">下载详情</li>
         </ul>
@@ -214,16 +213,6 @@
         </div>
     </div>
     <script type="text/javaScript" src="{{ asset("dy/down.js") }}" charset="UTF-8"></script>
-    <script type="text/javascript">
-        var lut = 1641263186;
-        var listid = 1;
-    </script>
-    <div class="footer cclear"><p class="copyright">本网站内容收集于互联网，MP4电影不承担任何由于内容的合法性及健康性所引起的争议和法律责任。
-            欢迎大家对网站内容侵犯版权等不合法和不健康行为进行监督和举报。<br> 邮箱: domp4#yahoo.com（替换#为@）<br>Copyright ©2020-2022 domp4. All rights
-            reserved.
-        </p></div>
-    <script charset="utf-8" src="{{ asset('dy/base.js') }}"></script>
-    <a class="backtotop hidden-sm hidden-xs btn btn-default" href="#top" data-toggle="tooltip"
-       data-placement="top" data-original-title="返回顶部"><i class="glyphicon glyphicon-arrow-up"></i></a>
+    {% include 'footer.html.twig' %}
 </div>
 {% endblock %}
