@@ -14,11 +14,12 @@ class TopicController extends AbstractController
     #[Route('/topic', name: 'topic')]
     public function index(TopicRepository $topicRepository): Response
     {
-
-        $topRe = $topicRepository->findAll();
+        $topRe   = $topicRepository->findAll();
+        $hotList = $topicRepository->findBy([], ['n_id' => 'desc'], 9, 3);
         return $this->render('topic/index.html.twig', [
-            'title' => '专题',
-            'topRe' => $topRe,
+            'title'   => '专题',
+            'topRe'   => $topRe,
+            'hotList' => $hotList,
         ]);
     }
 
@@ -29,7 +30,7 @@ class TopicController extends AbstractController
         $topListRe = $topicListRepository->findBy(['topic_id' => $id]);
         $top       = $topicRepository->findOneBy(['id' => (new \MongoId($id))]);
         $newList   = $topicRepository->findBy([], ['n_id' => 'desc'], 9);
-        $hotList   = $topicRepository->findBy([], ['date' => 'desc'], 9, 11);
+        $hotList   = $topicRepository->findBy([], ['n_id' => 'desc'], 9, 3);
 
         return $this->render('topic/list.html.twig', [
             'title'     => '专题',

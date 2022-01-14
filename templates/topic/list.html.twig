@@ -18,7 +18,9 @@
                     {% for topList in topListRe %}
 
                         <li><a href="{{ path('detail',{id:topList.infoId}) }}">
-                                <img class="lazy" data-original="{{ topList.pic }}" src="{{ topList.pic }}" alt="《{{ topList.title }}》" style="display: block;"></a>
+                                <img class="lazy" data-original="{{ topList.pic }}" src="{{ topList.pic }}" alt="《{{ topList.title }}》" style="display: block;">
+                                <span class="rate badge">{{ topList.rating }}</span>
+                            </a>
                             <div class="text_info"><h2><a href="{{ path('detail',{id:topList.infoId}) }}">{{ topList.title }}</a></h2>
                                 <p class="actor"><span>主演∶</span>
 

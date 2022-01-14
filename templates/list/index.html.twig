@@ -11,7 +11,7 @@
             <div id="list_all">
                 <ul>
                     {% for dy in listRes %}
-                        <li><a href="https://www.domp4.cc/detail/7376.html"><img class="lazy"
+                        <li><a href="{{ path('detail',{id:dy.id}) }}"><img class="lazy"
                                                                                  data-original="{{ dy.pic }}"
                                                                                  src="{{ dy.pic }}"
                                                                                  alt="《{{ dy.title }}》"
