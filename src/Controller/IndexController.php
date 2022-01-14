@@ -15,9 +15,9 @@ class IndexController extends AbstractController
     public function index(IndexListRepository $indexListRepository, TopicRepository $topicRepository): Response
     {
         $hotList        = $topicRepository->findBy([], ['n_id' => 'desc'], 16);
-        $todayRecommend = $indexListRepository->findBy([], ['type' => 'today_recommend'], 36);
-        $newMovie       = $indexListRepository->findBy([], ['type' => '最新电影下载'], 70);
-        $newTv          = $indexListRepository->findBy([], ['type' => '最新电视剧下载'], 70);
+        $todayRecommend = $indexListRepository->findBy(['type' => 'today_recommend'], ['sort' => 'asc'], 36);
+        $newMovie       = $indexListRepository->findBy(['type' => '最新电影下载'], ['sort' => 'asc'], 70);
+        $newTv          = $indexListRepository->findBy(['type' => '最新电视剧下载'], ['sort' => 'asc'], 70);
         return $this->render('index_dy/index.html.twig', [
             'hotList'        => $hotList,
             'todayRecommend' => $todayRecommend,
