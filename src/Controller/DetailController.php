@@ -15,7 +15,6 @@ class DetailController extends AbstractController
     {
         $id  = $request->get('id');
         $res = $listsRepository->findOneBy(['id' => (new \MongoId($id))]);
-//        dump($res);
         return $this->render('detail/index.html.twig', [
             'res' => $res,
         ]);
