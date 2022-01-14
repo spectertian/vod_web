@@ -13,7 +13,7 @@ class IndexController extends AbstractController
     {
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
-            'time'            => (strtotime("2022-01-07 00:00:00") - time())*1000,
+            'time'            => (strtotime("2022-01-16 00:00:00") - time())*1000,
         ]);
     }
 }
