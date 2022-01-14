@@ -9,37 +9,35 @@
                 <li class="active">{{ title }}</li>
             </ul>
             <ul>
-                <li class="list-group-item"><b>12-31</b><a href="{{ path('topic_list',{id:"id"}) }}"
-                                                           title="2017年1月贺岁档动画电影">2017年1月贺岁档动画电影</a></li>
+                {% for top in topRe %}
+                    <li class="list-group-item"><b>{{ top.date }}</b><a href="{{ path('topic_list',{id:top.id}) }}" title="{{ top.title }}">{{ top.title }}</a></li>
+                {% endfor %}
             </ul>
             <div class="text-center">
                 <ol class="pagination">
                     <li><a href="https://www.domp4.cc/slist/1.html">首页</a></li>
                     <li><a href="https://www.domp4.cc/slist/1.html">上一页</a></li>
-                    <li><a class="active" href="https://www.domp4.cc/slist/1.html">1</a></li>
-                    <li class="active"><span>2</span></li>
+                    <li><a class="active">1</a></li>
+                    <li class="active"  href="https://www.domp4.cc/slist/2.html"><span>2</span></li>
                     <li class="disabled"><span>下一页</span></li>
                 </ol>
             </div>
         </div>
         <div class="vod_right">
             <div class="top">
-                <script src="./专题电影_MP4电影_files/right.js"></script>
+                <script src="{{ asset("dy/right.js") }}"></script>
             </div>
             <div class="list-group cclear">
                 <div class="cclear" id="heading-text">热门专题排行</div>
                 <ul>
                     <li class="list-group-item"><a href="https://www.domp4.cc/special/34.html" title="2020奥斯卡获奖名单">2020奥斯卡获奖名单</a>
                     </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/special/33.html"
-                                                   title="2019年12月份好看电影佳片推荐">2019年12月份好看电影佳片推荐</a>
+                    <li class="list-group-item"><a href="https://www.domp4.cc/special/33.html" title="2019年12月份好看电影佳片推荐">2019年12月份好看电影佳片推荐</a>
                     </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/special/35.html"
-                                                   title="高口碑印度电影推荐">高口碑印度电影推荐</a></li>
+                    <li class="list-group-item"><a href="https://www.domp4.cc/special/35.html" title="高口碑印度电影推荐">高口碑印度电影推荐</a></li>
                     <li class="list-group-item"><a href="https://www.domp4.cc/special/31.html" title="2019评分最高华语电影合集">2019评分最高华语电影合集</a>
                     </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/special/21.html"
-                                                   title="2017年最值得期待的欧美院线大片合集">2017年最值得期待的欧美院线大片合集</a>
+                    <li class="list-group-item"><a href="https://www.domp4.cc/special/21.html" title="2017年最值得期待的欧美院线大片合集">2017年最值得期待的欧美院线大片合集</a>
                     </li>
                     <li class="list-group-item"><a href="https://www.domp4.cc/special/30.html" title="2019评分最高外语电影合集">2019评分最高外语电影合集</a>
                     </li>
