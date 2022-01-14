@@ -1130,22 +1130,9 @@
     <div class="index_special cclear">
         <div id="heading-text">最新专题</div>
         <ul>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/35.html">高口碑印度电影推荐</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/34.html">2020奥斯卡获奖名单</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/33.html">2019年12月份好看电影佳片推荐</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/32.html">2019年度冷门佳片合集</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/31.html">2019评分最高华语电影合集</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/30.html">2019评分最高外语电影合集</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/29.html">2019年中国十大票房电影排行榜</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/28.html">2019年11月份佳片推荐</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/27.html">2019最值得期待的华语电影合集</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/26.html">2019最值得期待的外语电影合集</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/25.html">2018评分最高的华语电影合集</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/23.html">2017年8月热门影片推荐</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/22.html">2017年3月内地上映的电影</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/21.html">2017年最值得期待的欧美院线大片合集</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/20.html">2017年2月内地上映的电影</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/special/19.html">2016年度最佳类型电影合集</a></li>
+            {% for hot in hotList %}
+                <li class="list-group-item"><a href="{{ path('topic_list',{id:hot.id}) }}" title="{{ hot.title }}">{{ hot.title }}</a></li>
+            {% endfor %}
         </ul>
     </div>
     <div class="index_coming cclear" style="display: none">
