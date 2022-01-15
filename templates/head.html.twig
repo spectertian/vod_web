@@ -26,7 +26,7 @@
                     <li><a href="{{ path('dh') }}">动画片</a></li>
                     <li><a href="{{ path('dsj') }}">电视剧</a></li>
                     <li><a href="{{ path('topic') }}">专题</a></li>
-                    <li><a href="{{ path('sy') }}">索引</a></li>
+                    <li><a href="{{ path('retrieve') }}">索引</a></li>
                 </ul>
             </div>
         </div>
@@ -35,7 +35,7 @@
         <form name="myform" class="navbar-form" action="{{ path("search") }}" method="post">
             <div class="form-group input-group">
                 <input type="text" class="form-control" id="wd" name="keyword" placeholder="片名/主演/导演/标签">
-                <input type="hidden" name="_token" value="{{ csrf_token('search-item') }}" />
+                <input type="hidden" name="_token" value="{{ csrf_token('search-item') }}"/>
                 <button type="submit" class="btn btn-default glyphicon glyphicon-search">搜索</button>
             </div>
         </form>

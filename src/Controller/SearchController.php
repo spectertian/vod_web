@@ -15,7 +15,7 @@ class SearchController extends AbstractController
     {
         $keyword        = $request->get("keyword");
         $submittedToken = $request->request->get('_token');
-        $res = $listsRepository->findBy(["title"]);
+        $res            = $listsRepository->findBy(["title"]);
         if ($this->isCsrfTokenValid('search-item', $submittedToken)) {
 
 
@@ -25,7 +25,8 @@ class SearchController extends AbstractController
 
 
         return $this->render('search/index.html.twig', [
-            'res' => $res,
+            'res'   => $res,
+            'title' => '搜索结果',
         ]);
     }
 }

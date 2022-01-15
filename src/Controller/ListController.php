@@ -13,40 +13,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ListController extends AbstractController
 {
-
-    #[Route('/list_zx', name: 'zx')]
-    public function zx(ListsRepository $listsRepository, Request $request): Response
-    {
-        $listRes = $listsRepository->findBy(['type' => '动作片']);
-
-        return $this->render('list/index.html.twig', [
-            'listRes' => $listRes,
-            'title'   => "最新电影",
-        ]);
-    }
-
-    #[Route('/list_zt', name: 'zt')]
-    public function zt(ListsRepository $listsRepository, Request $request): Response
-    {
-        $listRes = $listsRepository->findBy(['type' => '动作片']);
-
-        return $this->render('list/index.html.twig', [
-            'listRes' => $listRes,
-            'title'   => "专题",
-        ]);
-    }
-
-    #[Route('/list_sy', name: 'sy')]
-    public function sy(ListsRepository $listsRepository, Request $request): Response
-    {
-        $listRes = $listsRepository->findBy(['type' => '动作片']);
-        return $this->render('list/index.html.twig', [
-            'listRes' => $listRes,
-            'title'   => "索引",
-
-        ]);
-    }
-
     #[Route('/list_dz', name: 'dz')]
     public function dz(ListsRepository $listsRepository, Request $request): Response
     {
