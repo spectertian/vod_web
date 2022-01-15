@@ -32,9 +32,10 @@
         </div>
     </nav>
     <div class="search">
-        <form class="navbar-form" action="{{ path("search") }}" method="post">
-            <div class="form-group input-group"><input type="text" class="form-control" id="wd" name="wd"
-                                                       placeholder="片名/主演/导演/标签">
+        <form name="myform" class="navbar-form" action="{{ path("search") }}" method="post">
+            <div class="form-group input-group">
+                <input type="text" class="form-control" id="wd" name="keyword" placeholder="片名/主演/导演/标签">
+                <input type="hidden" name="_token" value="{{ csrf_token('search-item') }}" />
                 <button type="submit" class="btn btn-default glyphicon glyphicon-search">搜索</button>
             </div>
         </form>
