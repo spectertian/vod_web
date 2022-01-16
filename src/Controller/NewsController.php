@@ -17,9 +17,7 @@ class NewsController extends AbstractController
         $query      = $newsRepository->createQueryBuilder("n");
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
-            $request->query->getInt('page', 1), /*page number*/
-            10 /*limit per page*/
-        );
+            $request->query->getInt('page', 1), 20);
 
         return $this->render('news/index.html.twig', [
             'title'      => '最新电影',

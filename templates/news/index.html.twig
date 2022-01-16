@@ -18,20 +18,9 @@
                     {% endfor %}
 
                 </ul>
-                <div class="text-center">
-                    <ol class="pagination">
-                        <li class="disabled"><span>首页</span></li>
-                        <li class="disabled"><span>上一页</span></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a class="active" href="https://www.domp4.cc/list/99-2.html">2</a></li>
-                        <li><a class="active" href="https://www.domp4.cc/list/99-3.html">3</a></li>
-                        <li><a href="https://www.domp4.cc/list/99-2.html">下一页</a></li>
-                    </ol>
+                <div class="navigation text-center ">
+                    {{ knp_pagination_render(pagination) }}
                 </div>
-
-            </div>
-            <div class="navigation">
-                {{ knp_pagination_render(pagination) }}
             </div>
         </div>
         <div class="vod_right">
