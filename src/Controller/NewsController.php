@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\DocumentRepository\NewsRepository;
-use App\Service\MessageGenerator;
-use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,9 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class NewsController extends AbstractController
 {
     #[Route('/news', name: 'news')]
-    public function index(NewsRepository $newsRepository, Request $request, EntityManagerInterface $entityManager, PaginatorInterface $paginator): Response
+    public function index(NewsRepository $newsRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $listRes = $newsRepository->findAll();
+        $listRes    = $newsRepository->findAll();
         $query      = $newsRepository->createQueryBuilder("n");
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
