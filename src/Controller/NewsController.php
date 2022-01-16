@@ -14,7 +14,6 @@ class NewsController extends AbstractController
     #[Route('/news', name: 'news')]
     public function index(NewsRepository $newsRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $listRes    = $newsRepository->findAll();
         $query      = $newsRepository->createQueryBuilder("n");
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -24,7 +23,6 @@ class NewsController extends AbstractController
 
         return $this->render('news/index.html.twig', [
             'title'      => '最新电影',
-            'res'        => $listRes,
             'pagination' => $pagination
         ]);
     }
