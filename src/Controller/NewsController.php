@@ -14,7 +14,7 @@ class NewsController extends AbstractController
     #[Route('/news', name: 'news')]
     public function index(NewsRepository $newsRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $query      = $newsRepository->createQueryBuilder("n");
+        $query      = $newsRepository->createQueryBuilder();
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 20);

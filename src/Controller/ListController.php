@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\DocumentRepository\DownInfoRepository;
-use Doctrine\ORM\Tools\Pagination\paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\DocumentRepository\ListsRepository;
@@ -14,105 +14,156 @@ use Symfony\Component\HttpFoundation\Request;
 class ListController extends AbstractController
 {
     #[Route('/list_dz', name: 'dz')]
-    public function dz(ListsRepository $listsRepository, Request $request): Response
+    public function dz(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $listRes = $listsRepository->findBy(['type' => '动作片']);
+        $type       = '动作片';
+        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), 12);
 
         return $this->render('list/index.html.twig', [
-            'listRes' => $listRes,
-            'title'   => "动作片",
+            'pagination' => $pagination,
+            'title'      => $type,
         ]);
     }
 
     #[Route('/list_kh', name: 'kh')]
-    public function kh(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    public function kh(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $listRes = $listsRepository->findBy(['type' => '科幻片']);
+
+        $type       = '科幻片';
+        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), 10);
+
         return $this->render('list/index.html.twig', [
-            'listRes' => $listRes,
-            'title'   => "科幻片",
+            'pagination' => $pagination,
+            'title'      => $type,
         ]);
     }
 
     #[Route('/list_aq', name: 'aq')]
-    public function aq(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    public function aq(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $listRes = $listsRepository->findBy(['type' => '爱情片']);
+        $type       = '爱情片';
+        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), 12);
+
         return $this->render('list/index.html.twig', [
-            'listRes' => $listRes,
-            'title'   => "爱情片",
+            'pagination' => $pagination,
+            'title'      => $type,
         ]);
     }
 
 
     #[Route('/list_xj', name: 'xj')]
-    public function xj(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    public function xj(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $listRes = $listsRepository->findBy(['type' => '喜剧片']);
+        $type       = '喜剧片';
+        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), 20);
+
         return $this->render('list/index.html.twig', [
-            'listRes' => $listRes,
-            'title'   => "喜剧片",
+            'pagination' => $pagination,
+            'title'      => $type,
         ]);
     }
 
 
     #[Route('/list_kb', name: 'kb')]
-    public function kb(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    public function kb(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $listRes = $listsRepository->findBy(['type' => '恐怖片']);
+        $type       = '恐怖片';
+        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), 20);
+
         return $this->render('list/index.html.twig', [
-            'listRes' => $listRes,
-            'title'   => "恐怖片",
+            'pagination' => $pagination,
+            'title'      => $type,
         ]);
     }
 
     #[Route('/list_zz', name: 'zz')]
-    public function zz(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    public function zz(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $listRes = $listsRepository->findBy(['type' => '战争片']);
+        $type       = '战争片';
+        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), 20);
+
         return $this->render('list/index.html.twig', [
-            'listRes' => $listRes,
-            'title'   => "战争片",
+            'pagination' => $pagination,
+            'title'      => $type,
         ]);
     }
 
     #[Route('/list_jq', name: 'jq')]
-    public function jq(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    public function jq(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $listRes = $listsRepository->findBy(['type' => '剧情片']);
+        $type       = '剧情片';
+        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), 20);
+
         return $this->render('list/index.html.twig', [
-            'listRes' => $listRes,
-            'title'   => "剧情片",
+            'pagination' => $pagination,
+            'title'      => $type,
         ]);
     }
 
     #[Route('/list_kb', name: 'jl')]
-    public function jl(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    public function jl(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $listRes = $listsRepository->findBy(['type' => '纪录片']);
+        $type       = '纪录片';
+        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), 20);
+
         return $this->render('list/index.html.twig', [
-            'listRes' => $listRes,
-            'title'   => "纪录片",
+            'pagination' => $pagination,
+            'title'      => $type,
         ]);
     }
 
     #[Route('/list_dh', name: 'dh')]
-    public function dh(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    public function dh(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $listRes = $listsRepository->findBy(['type' => '动画片']);
+
+        $type       = '动画片';
+        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), 20);
+
         return $this->render('list/index.html.twig', [
-            'listRes' => $listRes,
-            'title'   => "动画片",
+            'pagination' => $pagination,
+            'title'      => $type,
         ]);
     }
 
     #[Route('/list_dsj', name: 'dsj')]
-    public function dsj(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request): Response
+    public function dsj(ListsRepository $listsRepository, DownInfoRepository $downInfoRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $listRes = $listsRepository->findBy(['type' => '电视剧']);
+        $type       = '电视剧';
+        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), 20);
+
         return $this->render('list/index.html.twig', [
-            'listRes' => $listRes,
-            'title'   => "电视剧",
+            'pagination' => $pagination,
+            'title'      => $type,
         ]);
     }
 

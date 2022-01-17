@@ -9,18 +9,12 @@
                 <li class="active">{{ title }}</li>
             </ul>
             <ul>
-                {% for top in topRe %}
+                {% for top in pagination %}
                     <li class="list-group-item"><b>{{ top.date }}</b><a href="{{ path('topic_list',{id:top.id}) }}" title="{{ top.title }}">{{ top.title }}</a></li>
                 {% endfor %}
             </ul>
-            <div class="text-center">
-                <ol class="pagination">
-                    <li><a href="https://www.domp4.cc/slist/1.html">首页</a></li>
-                    <li><a href="https://www.domp4.cc/slist/1.html">上一页</a></li>
-                    <li><a class="active">1</a></li>
-                    <li class="active" href="https://www.domp4.cc/slist/2.html"><span>2</span></li>
-                    <li class="disabled"><span>下一页</span></li>
-                </ol>
+            <div class="navigation text-center ">
+                {{ knp_pagination_render(pagination) }}
             </div>
         </div>
         <div class="vod_right">
