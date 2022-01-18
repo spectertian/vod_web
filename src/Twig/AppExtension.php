@@ -14,7 +14,7 @@ class AppExtension extends AbstractExtension
             // If your filter generates SAFE HTML, you should add a third
             // parameter: ['is_safe' => ['html']]
             // Reference: https://twig.symfony.com/doc/2.x/advanced.html#automatic-escaping
-            new TwigFilter('em_replace', [$this, 'doSomething']),
+            new TwigFilter('em_replace', [$this, 'doSomething'], ['pre_escape' => 'html', 'is_safe' => ['html']])
         ];
     }
 
@@ -30,9 +30,8 @@ class AppExtension extends AbstractExtension
         if ($replace_string == '') return $source;
 
         if ($source == "") return $source;
-        $source = '"' . $source . '"';
 
-        return str_replace($replace_string, "\"<em>" . $replace_string . "\"</em>", $source);
+        return str_replace($replace_string, "<em>" . $replace_string . "</em>", $source);
     }
 
 }
