@@ -7,37 +7,36 @@
             <ul class="breadcrumb cclear">
                 <li><a href="{{ path("index") }}">首页</a></li>
                 <li class="active">{{ title }}</li>
-                <span class="jieguo">找到相关结果约2个</span></ul>
-            <div id="list_all">
-                <ul>
-                    <li><a href="https://www.domp4.cc/detail/23620.html"><img class="lazy" data-original="https://img.domp4.cc/vod/e/5d495a2a0dcef.jpg" src="./搜索结果_files/5d495a2a0dcef.jpg" alt="《大漠悍刀行》" style="display: block;"></a>
-                        <div class="text_info"><h2><a href="https://www.domp4.cc/detail/23620.html">2019古装武侠《大漠<em>悍<em>刀行</em></em>》HD1080P.国语中字</a></h2>
-                            <p class="actor">主演∶<span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E8%91%A3%E6%B3%A2-1.html">董波</a></span> / <span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E8%B5%B5%E5%B8%85-1.html">赵帅</a></span> / <span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E7%AC%91%E8%B5%AB-1.html">笑赫</a></span> / <span><a rel="nofollow" target="_blank"
-                                                                                                                                                                                                                                                                                                                                                                                                                        href="https://www.domp4.cc/search/%E6%9D%83%E5%8F%8B-1.html">权友</a></span> / <span><a
-                                            rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E9%99%88%E7%A6%B9%E9%93%AD-1.html">陈禹铭</a></span> / <span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E6%9D%8E%E5%86%AC%E6%9E%9C-1.html">李冬果</a></span></p>
-                            <p>导演∶<span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E7%8E%8B%E4%BA%9A-1.html">王亚</a></span></p>
-                            <p class="info hidden-sm hidden-xs">光绪三十一年，清政府无力攘外，亦无法安内，民不聊生，揭竿而起之事频发，清政府为解此事，秘密训练京城七尸执行暗杀…</p></div>
-                    </li>
-                    <li><a href="https://www.domp4.cc/html/Zdp1JC11111C.html"><img class="lazy" data-original="https://img.domp4.cc/vod/5/5f21913684913.jpg" src="./搜索结果_files/5f21913684913.jpg" alt="《雪中悍刀行》" style="display: block;"></a>
-                        <div class="text_info"><h2><a href="https://www.domp4.cc/html/Zdp1JC11111C.html">2021国产古装剧《雪中<em>悍<em>刀行</em></em>》更新至38集</a></h2>
-                            <p>别名∶雪中行</p>
-                            <p class="actor">主演∶<span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E5%BC%A0%E8%8B%A5%E6%98%80-1.html">张若昀</a></span> / <span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E6%9D%8E%E5%BA%9A%E5%B8%8C-1.html">李庚希</a></span> / <span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E5%88%98%E7%AB%AF%E7%AB%AF-1.html">刘端端</a></span> / <span><a rel="nofollow" target="_blank"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                      href="https://www.domp4.cc/search/%E8%83%A1%E5%86%9B-1.html">胡军</a></span>
-                            </p>
-                            <p>导演∶<span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E5%AE%8B%E6%99%93%E9%A3%9E-1.html">宋晓飞</a></span></p>
-                            <p>标签∶网络小说改编,古装,国剧,武侠,电视剧,国产电视剧</p>
-                            <p class="info hidden-sm hidden-xs">嚣张跋扈的北凉王世子徐凤年，在饱受世人腹诽的痛苦后，如凤凰涅槃般兀自觉醒。千里历练，三进三出，徐凤年劣酒黄马行…</p></div>
-                    </li>
-                </ul>
-                <div class="text-center">
-                    <ol class="pagination">
-                        <li class="disabled"><span>首页</span></li>
-                        <li class="disabled"><span>上一页</span></li>
-                        <li class="active"><span>1</span></li>
-                        <li class="disabled"><span>下一页</span></li>
-                    </ol>
+                <span class="jieguo">找到相关结果约{{ pagination.getTotalItemCount }}个</span>
+            </ul>
+            {% if pagination.count >0 %}
+                <div id="list_all">
+                    <ul>
+                        {% for dy in pagination %}
+                            <li><a href="{{ path('detail',{id:dy.id}) }}"><img class="lazy" data-original="{{ dy.pic }}" src="{{ dy.pic }}" alt="《{{ dy.title }}》" style="display: block;"></a>
+                                <div class="text_info"><h2><a href="{{ path('detail',{id:dy.id}) }}">{{ dy.longTitle }}</a></h2>
+                                    <p class="actor">主演∶
+                                        {% for star in dy.stars %}
+                                            <span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E5%A7%9C%E8%B6%85-1.html">{{ star }}</a></span> /
+                                        {% endfor %}
+                                    </p>
+                                    <p>导演∶
+                                        {% for direc in dy.director %}
+                                            <span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E7%8E%8B%E4%BA%9A-1.htm;">{{ direc }}</a>/</span>/
+                                        {% endfor %}
+                                    </p>
+                                    <p class="info hidden-sm hidden-xs">{{ dy.introduction[:60] ~ '...' }}…</p>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
-            </div>
+                <div class="navigation text-center">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            {% else %}
+                <div class="text-center" style="padding:15px;">抱歉，没有找到相关内容！</div>
+            {% endif %}
         </div>
         <div class="vod_right">
             <div class="top">

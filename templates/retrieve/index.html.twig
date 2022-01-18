@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div id="list_alls">
-                {% if pagination.getItems|length >0 %}
+                {% if pagination.count>0 %}
                     <div id="list_all">
                         <ul>
                             {% for dy in pagination %}
@@ -133,7 +133,7 @@
                             {% endfor %}
                         </ul>
                     </div>
-                    <div class="navigation text-center ">
+                    <div class="navigation text-center" id="no_click">
                         {{ knp_pagination_render(pagination) }}
                     </div>
                 {% else %}
@@ -163,7 +163,7 @@
         }
 
         $(document).ready(function () {
-            $(".pagination a").click(function (e) {
+            $("#yes-click a").click(function (e) {
                 pagegooo($(this).attr('href'));
                 return false;
             });
@@ -207,7 +207,7 @@
                     $('img.lazy').lazyload();
 
 
-                    $(".pagination a").click(function (e) {
+                    $("#yes-click a").click(function (e) {
                         pagegooo($(this).attr('href'));
                         return false;
                     });

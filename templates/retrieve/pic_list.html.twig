@@ -1,13 +1,17 @@
-<div id="list_all" style="display:block; float:left;margin-right: 15px;">
-    {% for dy in pagination %}
-        <div class="col-xs-4 col-sm-3 pull-left" style="margin-bottom: 15px;">
-            <div class="img-responsive text-center">
-                <a href="{{ path('detail',{id:dy.id}) }}"><img style="height: 130px; display: inline-block;" class="lazy img-thumbnail" data-original="{{ dy.pic }}" src="{{ dy.pic }}" alt="《{{ dy.title }}》"></a>
-                <div class="caption"><h3>{{ dy.title }}</h3></div>
+{% if pagination.count >0 %}
+    <div id="list_all" style="display:block; float:left;margin-right: 15px;">
+        {% for dy in pagination %}
+            <div class="col-xs-4 col-sm-3 pull-left" style="margin-bottom: 15px;">
+                <div class="img-responsive text-center">
+                    <a href="{{ path('detail',{id:dy.id}) }}"><img style="height: 130px; display: inline-block;" class="lazy img-thumbnail" data-original="{{ dy.pic }}" src="{{ dy.pic }}" alt="《{{ dy.title }}》"></a>
+                    <div class="caption"><h3>{{ dy.title }}</h3></div>
+                </div>
             </div>
-        </div>
-    {% endfor %}
-</div>
-<div class="navigation text-center" style="margin-top: 10px">
-    {{ knp_pagination_render(pagination) }}
-</div>
+        {% endfor %}
+    </div>
+    <div class="navigation text-center" id="yes-click" style="margin-top: 10px">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% else %}
+    <div class="text-center" style="padding:15px;">抱歉，没有找到相关内容！</div>
+{% endif %}
