@@ -2,7 +2,7 @@
 {% block body %}
     <body data-new-gr-c-s-check-loaded="14.1044.0" data-gr-ext-installed=""><!--0-->
     <div class="container">
-        {% include 'head.html.twig' %}
+        {% include 'head.html.twig' with {'keyword': keyword} %}
         <div class="list_r cclear">
             <ul class="breadcrumb cclear">
                 <li><a href="{{ path("index") }}">首页</a></li>

@@ -18,7 +18,7 @@ class SearchController extends AbstractController
         $query   = $listsRepository->createQueryBuilder();
 //        $query->field('type')->equals($type);
 
-        $query->addOr($query->expr()->field('type')->equals(new \MongoRegex('/.*' . $keyword . '.*/i')));
+//        $query->addOr($query->expr()->field('type')->equals(new \MongoRegex('/.*' . $keyword . '.*/i')));
 //        $query->addOr($query->expr()->field('tags')->equals(new \MongoRegex('/.*' . $keyword . '.*/i')));
 //        $query->addOr($query->expr()->field('stars')->equals(new \MongoRegex('/.*' . $keyword . '.*/i')));
 //        $query->addOr($query->expr()->field('director')->equals(new \MongoRegex('/.*' . $keyword . '.*/i')));
@@ -30,6 +30,7 @@ class SearchController extends AbstractController
 
 //        dump($pagination);
 
+        $pagination->setParam('keyword', $keyword);
         return $this->render('search/index.html.twig', [
             'pagination' => $pagination,
             'title'      => '搜索结果',
