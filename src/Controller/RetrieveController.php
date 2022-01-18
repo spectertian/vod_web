@@ -22,9 +22,10 @@ class RetrieveController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
-        $down_one   = $indexListRepository->findBy(['type' => '本月电影下载排行'], ["id" => "desc", 'sort' => 'asc'], 5);
-        $down_two   = $indexListRepository->findBy(['type' => '本月电影下载排行'], ["id" => "desc", 'sort' => 'asc'], 5);
-        $down       = array_merge($down_one, $down_two);
+
+        $down_one = $indexListRepository->findBy(['type' => '本月电影下载排行'], ["id" => "desc", 'sort' => 'asc'], 5);
+        $down_two = $indexListRepository->findBy(['type' => '本月电影下载排行'], ["id" => "desc", 'sort' => 'asc'], 5);
+        $down     = array_merge($down_one, $down_two);
 
         return $this->render('retrieve/index.html.twig', [
             'title'      => '索引',
@@ -63,7 +64,6 @@ class RetrieveController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
-
         return $this->render($template, [
             'pagination' => $pagination
         ]);

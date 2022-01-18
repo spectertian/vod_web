@@ -110,31 +110,35 @@
                 </div>
             </div>
             <div id="list_alls">
-                <div id="list_all">
-                    <ul>
-                        {% for dy in pagination %}
-                            <li>
-                                <a href="{{ path('detail',{id:dy.id}) }}"><img class="lazy" data-original="{{ dy.pic }}" src="{{ dy.pic }}" alt="《{{ dy.title }}》" style="display: block;"> <span class="rate badge">{{ dy.rating }}</span></a>
-                                <div class="text_info">
-                                    <h2><a href="{{ path('detail',{id:dy.id}) }}">{{ dy.longTitle }}</a></h2>
-                                    <p class="actor">
-                                        {% for star in dy.stars %}
-                                            <span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E5%A7%9C%E8%B6%85-1.html">{{ star }}</a></span> /
-                                        {% endfor %}
-                                    </p>
-                                    <p>
-                                        <span class="area">{{ dy.area }}</span>
-                                        <span class="update_time">{{ dy.pageDate }}</span>
-                                    </p>
-                                    <p class="info">{{ dy.introduction[:60] ~ '...' }}</p>
-                                </div>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div class="navigation text-center ">
-                    {{ knp_pagination_render(pagination) }}
-                </div>
+                {% if pagination.getItems|length >0 %}
+                    <div id="list_all">
+                        <ul>
+                            {% for dy in pagination %}
+                                <li>
+                                    <a href="{{ path('detail',{id:dy.id}) }}"><img class="lazy" data-original="{{ dy.pic }}" src="{{ dy.pic }}" alt="《{{ dy.title }}》" style="display: block;"> <span class="rate badge">{{ dy.rating }}</span></a>
+                                    <div class="text_info">
+                                        <h2><a href="{{ path('detail',{id:dy.id}) }}">{{ dy.longTitle }}</a></h2>
+                                        <p class="actor">
+                                            {% for star in dy.stars %}
+                                                <span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E5%A7%9C%E8%B6%85-1.html">{{ star }}</a></span> /
+                                            {% endfor %}
+                                        </p>
+                                        <p>
+                                            <span class="area">{{ dy.area }}</span>
+                                            <span class="update_time">{{ dy.pageDate }}</span>
+                                        </p>
+                                        <p class="info">{{ dy.introduction[:60] ~ '...' }}</p>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="navigation text-center ">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                {% else %}
+                    <div class="text-center" style="padding:15px;">抱歉，没有找到相关内容！</div>
+                {% endif %}
             </div>
         </div>
         <div class="vod_right">
