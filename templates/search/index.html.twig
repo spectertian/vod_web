@@ -13,7 +13,7 @@
                 <div id="list_all">
                     <ul>
                         {% for dy in pagination %}
-                            <li><a href="{{ path('detail',{id:dy.id}) }}"><img class="lazy" data-original="{{ dy.pic }}" src="{{ dy.pic }}" alt="《{{ dy.title }}》" style="display: block;"></a>
+                            <li><a href="{{ path('detail',{id:dy.id}) }}"><img class="lazy" data-original="{{ path('img',{id:dy.imgUrl}) }}" src="{{ path('img',{id:dy.imgUrl}) }}" alt="《{{ dy.title }}》" style="display: block;"></a>
                                 <div class="text_info"><h2><a href="{{ path('detail',{id:dy.id}) }}">{{ em_replace( dy.longTitle,keyword) |raw }}</a></h2>
                                     <p>
                                         别名∶{{ em_replace(dy.alias|join(' / '),keyword) |raw }}

@@ -12,8 +12,8 @@
                 <ul>
                     {% for dy in pagination %}
                         <li><a href="{{ path('detail',{id:dy.id}) }}"><img class="lazy"
-                                                                           data-original="{{ dy.pic }}"
-                                                                           src="{{ dy.pic }}"
+                                                                           data-original="{{ path('img',{id:dy.imgUrl}) }}"
+                                                                           src="{{ path('img',{id:dy.imgUrl}) }}"
                                                                            alt="《{{ dy.title }}》"
                                                                            style="display: block;">
                                 <span class="rate badge">{{ dy.rating }}</span></a>

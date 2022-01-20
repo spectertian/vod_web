@@ -13,10 +13,24 @@ class ImgController extends AbstractController
     #[Route('/img/{id}.jpg', name: 'img')]
     public function index(ImageRepository $imageRepository, Request $request): StreamedResponse
     {
-        $id       = $request->get("id");
-        $stream   = $imageRepository->openDownloadStream($id);
+        $id   = $request->get("id");
+        $info = $imageRepository->find($id);
+        if (!$info) {
+            $id = "61e917cd4fcab9d94fc3ddd4";
+        }
+
+        $stream = $imageRepository->openDownloadStream($id);
+
         $response = new StreamedResponse();
+        $response->setPublic();
+        $response->setMaxAge(3600);
+        // (optional) set a custom Cache-Control directive
+        $response->headers->addCacheControlDirective('must-revalidate', true);
+
+// forces the response to return a proper 304 response with no content
+//        $response->setNotModified();
         $response->headers->set('Content-Type', "image/jpg");
+
 
         $response->setCallback(function () use ($stream) {
             fpassthru($stream);

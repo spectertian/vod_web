@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
@@ -255,6 +256,11 @@ class Lists
     public function getLanguage(): ?string
     {
         return $this->language;
+    }
+
+    public function getImgUrl(): ?string
+    {
+        return $this->imgUrl;
     }
 
     public function getRunTime(): ?string

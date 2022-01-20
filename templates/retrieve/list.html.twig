@@ -3,7 +3,7 @@
         <ul>
             {% for dy in pagination %}
                 <li>
-                    <a href="{{ path('detail',{id:dy.id}) }}"><img class="lazy" data-original="{{ dy.pic }}" src="{{ dy.pic }}" alt="《{{ dy.title }}》" style="display: block;"> <span class="rate badge">{{ dy.rating }}</span></a>
+                    <a href="{{ path('detail',{id:dy.id}) }}"><img class="lazy" data-original="{{ path('img',{id:dy.imgUrl}) }}" src="{{ path('img',{id:dy.imgUrl}) }}" alt="《{{ dy.title }}》" style="display: block;"> <span class="rate badge">{{ dy.rating }}</span></a>
                     <div class="text_info">
                         <h2><a href="{{ path('detail',{id:dy.id}) }}">{{ dy.longTitle }}</a></h2>
                         <p class="actor">

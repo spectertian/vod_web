@@ -17,7 +17,7 @@
                             target="_blank" rel="nofollow" href="{{ res.doubanUrl }}"
                             data-toggle="tooltip" data-placement="top"
                             data-original-title="到豆瓣网查看详情">{{ res.rating }}</a></span><em>|</em></div>
-            <div class="pic"><img src="{{ res.pic }}" alt="武林外传电影版海报"></div>
+            <div class="pic"><img src="{{ path('img',{res:dy.imgUrl}) }}" alt="武林外传电影版海报"></div>
             <div class="text"><p><em>名称：</em><span>{{ res.title }}</span></p>
                 <p><em>别名：</em><span>{{ res.alias|join(' / ') }}</span></p>
                 <p class="actor"><em>主演：</em><span class="attrs">

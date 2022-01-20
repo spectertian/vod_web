@@ -3,7 +3,7 @@
         {% for dy in pagination %}
             <div class="col-xs-4 col-sm-3 pull-left" style="margin-bottom: 15px;">
                 <div class="img-responsive text-center">
-                    <a href="{{ path('detail',{id:dy.id}) }}"><img style="height: 130px; display: inline-block;" class="lazy img-thumbnail" data-original="{{ dy.pic }}" src="{{ dy.pic }}" alt="《{{ dy.title }}》"></a>
+                    <a href="{{ path('detail',{id:dy.id}) }}"><img style="height: 130px; display: inline-block;" class="lazy img-thumbnail" data-original="{{ path('img',{id:dy.imgUrl}) }}" src="{{ path('img',{id:dy.imgUrl}) }}" alt="《{{ dy.title }}》"></a>
                     <div class="caption"><h3>{{ dy.title }}</h3></div>
                 </div>
             </div>
