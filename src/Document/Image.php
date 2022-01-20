@@ -4,9 +4,12 @@
 namespace App\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations\File;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use Doctrine\ODM\MongoDB\Mapping\Annotations\Id;
 
-/** @File(bucketName='image') */
+/**
+ * @File(bucketName="fs",db="image")
+ */
 class Image
 {
     /** @Id */
@@ -14,7 +17,6 @@ class Image
 
     /** @File\Filename */
     private $name;
-
     /** @File\UploadDate */
     private $uploadDate;
 
