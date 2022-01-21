@@ -30,6 +30,11 @@ class IndexList
     protected $date;
 
     /**
+     * @MongoDB\Field(type="string",name="production_date")
+     */
+    protected $productionDate;
+
+    /**
      * @MongoDB\Field(type="string",name="info_id")
      */
     protected $infoId;
@@ -57,5 +62,10 @@ class IndexList
     public function getInfoId(): ?string
     {
         return $this->infoId;
+    }
+
+    public function getProductionDate(): ?string
+    {
+        return $this->productionDate;
     }
 }
