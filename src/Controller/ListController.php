@@ -32,7 +32,7 @@ class ListController extends AbstractController
         ]);
     }
 
-    #[Route('/list_kh', name: 'kh')]
+    #[Route('/list_kh.html', name: 'kh')]
     public function kh(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
 
@@ -51,7 +51,7 @@ class ListController extends AbstractController
         ]);
     }
 
-    #[Route('/list_aq', name: 'aq')]
+    #[Route('/list_aq.html', name: 'aq')]
     public function aq(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
         $type  = '爱情片';
@@ -70,7 +70,7 @@ class ListController extends AbstractController
     }
 
 
-    #[Route('/list_xj', name: 'xj')]
+    #[Route('/list_xj.html', name: 'xj')]
     public function xj(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
         $type       = '喜剧片';
@@ -106,7 +106,7 @@ class ListController extends AbstractController
         ]);
     }
 
-    #[Route('/list_zz', name: 'zz')]
+    #[Route('/list_zz.html', name: 'zz')]
     public function zz(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
         $type  = '战争片';
@@ -124,7 +124,7 @@ class ListController extends AbstractController
         ]);
     }
 
-    #[Route('/list_jq', name: 'jq')]
+    #[Route('/list_jq.html', name: 'jq')]
     public function jq(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
         $type  = '剧情片';
@@ -143,7 +143,7 @@ class ListController extends AbstractController
         ]);
     }
 
-    #[Route('/list_kb', name: 'jl')]
+    #[Route('/list_kb.html', name: 'jl')]
     public function jl(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
         $type  = '纪录片';
@@ -161,7 +161,7 @@ class ListController extends AbstractController
         ]);
     }
 
-    #[Route('/list_dh', name: 'dh')]
+    #[Route('/list_dh.html', name: 'dh')]
     public function dh(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
 
@@ -180,7 +180,7 @@ class ListController extends AbstractController
         ]);
     }
 
-    #[Route('/list_dsj', name: 'dsj')]
+    #[Route('/list_dsj.html', name: 'dsj')]
     public function dsj(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
         $type  = '电视剧';
