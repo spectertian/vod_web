@@ -13,7 +13,7 @@
                 <ul>
                     {% for new in pagination %}
 
-                        <li><a href="{{ path('detail',{id:new.id}) }}">{{ new.title }}</a><span
+                        <li><a href="{{ path('detail',{id:new.infoId}) }}">{{ new.title }}</a><span
                                     class="time hidden-sm hidden-xs">{{ new.date }}</span></li>
                     {% endfor %}
 
