@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Document\IndexList;
 use App\DocumentRepository\IndexListRepository;
 use App\DocumentRepository\TopicRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
