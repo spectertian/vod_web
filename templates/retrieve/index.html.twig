@@ -120,7 +120,7 @@
                                         <h2><a href="{{ path('detail',{id:dy.id}) }}">{{ dy.longTitle }}</a></h2>
                                         <p class="actor">
                                             {% for star in dy.stars %}
-                                                <span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E5%A7%9C%E8%B6%85-1.html">{{ star }}</a></span> /
+                                                <span><a rel="nofollow" target="_blank" href="{{ path('search_keyword',{keyword:star}) }}">{{ star }}</a></span> /
                                             {% endfor %}
                                         </p>
                                         <p>
@@ -243,7 +243,7 @@
         });
 
         function parseurl(rr) {
-            return '/retrieve_category/' + getVal(rr, 'id') + '-' + getVal(rr, 'wd') + '-' + getVal(rr, 'area') + '-' + getVal(rr, 'view') + '-' + getVal(rr, 'year')
+            return '/retrieve_category/' + getVal(rr, 'id') + '-' + getVal(rr, 'wd') + '-' + getVal(rr, 'area') + '-' + getVal(rr, 'view') + '-' + getVal(rr, 'year') + '.html'
         }
 
         function getVal(rr, id) {

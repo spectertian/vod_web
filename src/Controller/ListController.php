@@ -14,11 +14,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ListController extends AbstractController
 {
-    #[Route('/list_dz', name: 'dz')]
+    #[Route('/list_dz.html', name: 'dz')]
     public function dz(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
-        $type       = '动作片';
-        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $type  = '动作片';
+        $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 12);
@@ -26,16 +27,18 @@ class ListController extends AbstractController
         return $this->render('list/index.html.twig', [
             'pagination' => $pagination,
             'title'      => $type,
+            'nav'        => $this->generateUrl('dz'),
             'recommend'  => $recommendList->getList(),
         ]);
     }
 
-    #[Route('/list_kh', name: 'kh')]
+    #[Route('/list_kh.html', name: 'kh')]
     public function kh(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
 
-        $type       = '科幻片';
-        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $type  = '科幻片';
+        $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 10);
@@ -44,15 +47,16 @@ class ListController extends AbstractController
             'pagination' => $pagination,
             'title'      => $type,
             'recommend'  => $recommendList->getList(),
-
+            'nav'        => $this->generateUrl('kh'),
         ]);
     }
 
-    #[Route('/list_aq', name: 'aq')]
+    #[Route('/list_aq.html', name: 'aq')]
     public function aq(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
-        $type       = '爱情片';
-        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $type  = '爱情片';
+        $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 12);
@@ -61,11 +65,12 @@ class ListController extends AbstractController
             'pagination' => $pagination,
             'title'      => $type,
             'recommend'  => $recommendList->getList(),
+            'nav'        => $this->generateUrl('aq'),
         ]);
     }
 
 
-    #[Route('/list_xj', name: 'xj')]
+    #[Route('/list_xj.html', name: 'xj')]
     public function xj(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
         $type       = '喜剧片';
@@ -78,6 +83,7 @@ class ListController extends AbstractController
             'pagination' => $pagination,
             'title'      => $type,
             'recommend'  => $recommendList->getList(),
+            'nav'        => $this->generateUrl('dz'),
         ]);
     }
 
@@ -85,8 +91,9 @@ class ListController extends AbstractController
     #[Route('/list_kb', name: 'kb')]
     public function kb(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
-        $type       = '恐怖片';
-        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $type  = '恐怖片';
+        $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 20);
@@ -95,14 +102,16 @@ class ListController extends AbstractController
             'pagination' => $pagination,
             'title'      => $type,
             'recommend'  => $recommendList->getList(),
+            'nav'        => $this->generateUrl('kb'),
         ]);
     }
 
-    #[Route('/list_zz', name: 'zz')]
+    #[Route('/list_zz.html', name: 'zz')]
     public function zz(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
-        $type       = '战争片';
-        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $type  = '战争片';
+        $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 20);
@@ -111,14 +120,16 @@ class ListController extends AbstractController
             'pagination' => $pagination,
             'title'      => $type,
             'recommend'  => $recommendList->getList(),
+            'nav'        => $this->generateUrl('zz'),
         ]);
     }
 
-    #[Route('/list_jq', name: 'jq')]
+    #[Route('/list_jq.html', name: 'jq')]
     public function jq(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
-        $type       = '剧情片';
-        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $type  = '剧情片';
+        $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 20);
@@ -128,14 +139,16 @@ class ListController extends AbstractController
             'pagination' => $pagination,
             'title'      => $type,
             'recommend'  => $recommendList->getList(),
+            'nav'        => $this->generateUrl('jq'),
         ]);
     }
 
-    #[Route('/list_kb', name: 'jl')]
+    #[Route('/list_kb.html', name: 'jl')]
     public function jl(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
-        $type       = '纪录片';
-        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $type  = '纪录片';
+        $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 20);
@@ -144,15 +157,17 @@ class ListController extends AbstractController
             'pagination' => $pagination,
             'title'      => $type,
             'recommend'  => $recommendList->getList(),
+            'nav'        => $this->generateUrl('jl'),
         ]);
     }
 
-    #[Route('/list_dh', name: 'dh')]
+    #[Route('/list_dh.html', name: 'dh')]
     public function dh(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
 
-        $type       = '动画片';
-        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $type  = '动画片';
+        $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 20);
@@ -161,14 +176,16 @@ class ListController extends AbstractController
             'pagination' => $pagination,
             'title'      => $type,
             'recommend'  => $recommendList->getList(),
+            'nav'        => $this->generateUrl('dh'),
         ]);
     }
 
-    #[Route('/list_dsj', name: 'dsj')]
+    #[Route('/list_dsj.html', name: 'dsj')]
     public function dsj(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
-        $type       = '电视剧';
-        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $type  = '电视剧';
+        $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 20);
@@ -177,6 +194,7 @@ class ListController extends AbstractController
             'pagination' => $pagination,
             'title'      => $type,
             'recommend'  => $recommendList->getList(),
+            'nav'        => $this->generateUrl('dsj'),
         ]);
     }
 

@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MessageController extends AbstractController
 {
-    #[Route('/message', name: 'message')]
+    #[Route('/message.html', name: 'message')]
     public function index(Request $request, DocumentManager $documentManager, MessageRepository $messageRepository): Response
     {
 

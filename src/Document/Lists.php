@@ -287,4 +287,9 @@ class Lists
         return $this->downUrl;
     }
 
+    public function getType(): ?array
+    {
+        return $this->type;
+    }
+
 }

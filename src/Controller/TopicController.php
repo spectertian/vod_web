@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TopicController extends AbstractController
 {
-    #[Route('/topic', name: 'topic')]
+    #[Route('/topic.html', name: 'topic')]
     public function index(TopicRepository $topicRepository, PaginatorInterface $paginator, Request $request): Response
     {
         $query      = $topicRepository->createQueryBuilder();
@@ -28,7 +28,7 @@ class TopicController extends AbstractController
         ]);
     }
 
-    #[Route('/topic_list/{id}', name: 'topic_list')]
+    #[Route('/topic_list/{id}.html', name: 'topic_list')]
     public function list(TopicListRepository $topicListRepository, TopicRepository $topicRepository, Request $request): Response
     {
         $id        = $request->get('id');
