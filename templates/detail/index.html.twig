@@ -20,7 +20,8 @@
             <div class="pic"><img src="{{ path('img',{id:res.imgUrl}) }}" alt="{{ res.title }}海报"></div>
             <div class="text"><p><em>名称：</em><span>{{ res.title }}</span></p>
                 <p><em>别名：</em><span>{{ res.alias|join(' / ') }}</span></p>
-                <p class="actor"><em>主演：</em><span class="attrs">
+                <p class="actor"><em>主演：</em>
+                    <span class="attrs">
                         {% for star in res.stars %}
                             <span><a rel="nofollow" target="_blank" href="{{ path('search_keyword',{keyword:star}) }}">{{ star }}</a> / </span>
                         {% endfor %}
@@ -36,10 +37,10 @@
                 <p><em>年份：</em><span>{{ res.year }}</span></p>
                 <p><em>语言：</em><span>{{ res.language }}</span></p>
                 <p><em>时长：</em><span>{{ res.runTime }}</span></p>
-                <p><em>更新：</em><span class="update_time">{{ res.productionDate }}</span></p>
+                <p><em>更新：</em><span class="update_time">{{ res.updatedDate }}</span></p>
                 <p class="tag"><em>标签：</em>
                     {% for tag in res.tags %}
-                        <a href="javascript:void(0);">{{ tag }}</a>&nbsp;
+                        <a href="{{ path('search_keyword',{keyword:tag}) }}">{{ tag }}</a>&nbsp;
                     {% endfor %}
                 </p></div>
         </div>
@@ -54,10 +55,8 @@
 
                 {% for key, downUrl in res.downUrl %}
                     <li>
-                        <div class="url-left"><input type="checkbox" style="float:left;margin-right:8px" name="copy_sel"
-                                                     value="{{ downUrl.url }}"><a
-                                    href="{{ downUrl.url }}"
-                                    title="{{ downUrl.title }}" target="_blank"><span>磁力链</span>{{ downUrl.title }}</a>
+                        <div class="url-left"><input type="checkbox" style="float:left;margin-right:8px" name="copy_sel" value="{{ downUrl.url }}">
+                            <a href="{{ downUrl.url }}" title="{{ downUrl.title }}" target="_blank"><span>磁力链</span>{{ downUrl.title }}</a>
                         </div>
                     </li>
                 {% endfor %}
@@ -66,7 +65,7 @@
         <div class="down-banner">
             <script src="{{ asset("dy/banner.js") }}"></script>
         </div>
-        <div class=" article-related download_help"><h2>武林外传电影版下载帮助</h2>
+        <div class=" article-related download_help"><h2>下载帮助</h2>
             <ul class="item">
                 <li style="color:red">0.推荐使用bt软件下载新资源磁力链。不保证电驴地址可正常下载。</li>
                 <li>1.如使用迅雷下载提示‘任务错误，未知错误，敏感资源，违规内容，版权‘等等，可留言报错</li>
