@@ -51,54 +51,10 @@
             <div class="list-group cclear">
                 <div class="cclear" id="heading-text">近期下载排行</div>
                 <ul>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/html/ySZVchDDDDDh.html"
-                                                   title="2021菲律宾犯罪动作《有坂》HD1080p.中文字幕">2021菲律宾犯罪动作《有坂》HD1080p.中文字幕</a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/html/zR634U22222U.html"
-                                                   title="2003日本暴力动作《少女杀手阿墨》BD1080p.中文字幕">2003日本暴力动作《少女杀手阿墨》BD1080p.中文字幕</a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/html/B8tr2C55555C.html"
-                                                   title="2008成龙李连杰功夫武侠《功夫之王》BD1080p.国英双语中字">2008成龙李连杰功夫武侠《功夫之王》BD1080p.国英双语中字</a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/detail/6241.html"
-                                                   title="1993经典古装武侠《新仙鹤神针》BD1080p.粤语中字"><font color="#17AC56">1993经典古装武侠《新仙鹤神针》BD1080p.粤语中字</font></a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/detail/3407.html"
-                                                   title="2011刘德华谢霆锋动作剧情《新少林寺》BD1080p.国粤双语中字">2011刘德华谢霆锋动作剧情《新少林寺》BD1080p.国粤双语中字</a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/html/tmtO6gOOOOOg.html"
-                                                   title="2021美国科幻动作《新生化危机》HD1080p.中英双字">2021美国科幻动作《新生化危机》HD1080p.中英双字</a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/detail/5187.html"
-                                                   title="1976邵氏7.7分古装武侠《流星蝴蝶剑》BD1080p.国语中字"><font color="#17AC56">1976邵氏7.7分古装武侠《流星蝴蝶剑》BD1080p.国语中字</font></a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/detail/23404.html"
-                                                   title="2019罪案动作《恶人传》BD1080p.中文字幕"><font color="#17AC56">2019罪案动作《恶人传》BD1080p.中文字幕</font></a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/html/f7cASCAAAAAC.html"
-                                                   title="2021基努·里维斯科幻动作《黑客帝国：矩阵重启》HD1080p.中英双字">2021基努·里维斯科幻动作《黑客帝国：矩阵重启》HD1080p.中英双字</a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/html/qDMZOR11111R.html"
-                                                   title="1979香港武侠动作《酒仙十八跌》HD1080p.国粤双语中字">1979香港武侠动作《酒仙十八跌》HD1080p.国粤双语中字</a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/html/i2dKzH11111H.html"
-                                                   title="2015美国暴力动作《绝命杀漠》BD1080p.中文字幕">2015美国暴力动作《绝命杀漠》BD1080p.中文字幕</a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/html/xQv84h00000h.html"
-                                                   title="1993元彪古装武侠《新碧血剑》HD1080p.国语中字">1993元彪古装武侠《新碧血剑》HD1080p.国语中字</a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/html/A8Y1CFDDDDDF.html"
-                                                   title="2021经典系列特工动作《007：无暇赴死》BD1080p.中英双字">2021经典系列特工动作《007：无暇赴死》BD1080p.中英双字</a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/html/NUgXrXSSSSSX.html"
-                                                   title="2021释彦能剧情动作《九龙城寨》HD1080p.国语中字">2021释彦能剧情动作《九龙城寨》HD1080p.国语中字</a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/html/zmQACPOOOOOP.html"
-                                                   title="2020美国科幻动作《沙丘》BD1080p.国英双语中字"><font color="#17AC56">2020美国科幻动作《沙丘》BD1080p.国英双语中字</font></a>
-                    </li>
-                    <li class="list-group-item"><a href="https://www.domp4.cc/html/MLqq1iWWWWWi.html"
-                                                   title="2021国产动作网大《生死速度》HD1080p.国语中字">2021国产动作网大《生死速度》HD1080p.国语中字</a>
-                    </li>
+                    {% for re in recommend %}
+                        <li class="list-group-item"><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ re.title }}">{{ re.title }}</a></li>
+                    {% endfor %}
+
                 </ul>
             </div>
         </div>

@@ -14,7 +14,7 @@ class DetailController extends AbstractController
     public function index(ListsRepository $listsRepository, Request $request): Response
     {
         $id  = $request->get('id');
-        $res = $listsRepository->findOneBy(['id' => (new \MongoId($id))]);
+        $res = $listsRepository->find($id);
         return $this->render('detail/index.html.twig', [
             'res' => $res,
         ]);

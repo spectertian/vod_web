@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\DocumentRepository\NewsRepository;
+use App\Service\RecommendList;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class NewsController extends AbstractController
 {
     #[Route('/news', name: 'news')]
-    public function index(NewsRepository $newsRepository, Request $request, PaginatorInterface $paginator): Response
+    public function index(NewsRepository $newsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
         $query      = $newsRepository->createQueryBuilder();
         $pagination = $paginator->paginate(
@@ -21,7 +22,8 @@ class NewsController extends AbstractController
 
         return $this->render('news/index.html.twig', [
             'title'      => '最新电影',
-            'pagination' => $pagination
+            'pagination' => $pagination,
+            'recommend'  => $recommendList->getList(),
         ]);
     }
 }
