@@ -292,4 +292,9 @@ class Lists
         return $this->type;
     }
 
+    public function getUpdatedDate(): ?string
+    {
+        return $this->updatedDate;
+    }
+
 }
