@@ -123,6 +123,7 @@ class ListController extends AbstractController
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 20);
 
+//        dump($pagination);
         return $this->render('list/index.html.twig', [
             'pagination' => $pagination,
             'title'      => $type,

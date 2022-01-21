@@ -20,12 +20,12 @@
                                     </p>
                                     <p class="actor">主演∶
                                         {% for star in dy.stars %}
-                                            <span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E5%A7%9C%E8%B6%85-1.html">{{ em_replace( star,keyword) |raw }}</a></span> /
+                                            <span><a rel="nofollow" target="_blank" href="{{ path('search_keyword',{keyword:star}) }}">{{ em_replace( star,keyword) |raw }}</a></span> /
                                         {% endfor %}
                                     </p>
                                     <p>导演∶
                                         {% for direc in dy.director %}
-                                            <span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E7%8E%8B%E4%BA%9A-1.htm;">{{ em_replace( direc,keyword) |raw }}</a>/</span>/
+                                            <span><a rel="nofollow" target="_blank" href="{{ path('search_keyword',{keyword:direc}) }}">{{ em_replace( direc,keyword) |raw }}</a>/</span>/
                                         {% endfor %}
                                     </p>
                                     <p class="info hidden-sm hidden-xs">{{ dy.introduction[:60] ~ '...' }}…</p>

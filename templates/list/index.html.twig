@@ -24,8 +24,9 @@
                                         <span><a rel="nofollow" target="_blank" href="{{ path('search_keyword',{keyword:star}) }}">{{ star }}</a></span> /
                                     {% endfor %}
                                 </p>
-                                <p><span class="area">{{ dy.area }}</span><span
-                                            class="update_time">{{ dy.pageDate }}</span>
+                                <p>
+                                    <span class="area">{{ dy.area }}</span>
+                                    <span class="update_time">{{ dy.pageDate }}</span>
                                 </p>
                                 <p class="info">{{ dy.introduction[:60] ~ '...' }}</p>
                             </div>

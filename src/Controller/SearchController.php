@@ -16,10 +16,12 @@ class SearchController extends AbstractController
     {
         $keyword = $request->get("keyword");
         $query   = $listsRepository->createQueryBuilder();
-        $query->addOr($query->expr()->field('director')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
-        $query->addOr($query->expr()->field('stars')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
-        $query->addOr($query->expr()->field('tags')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
-        $query->addOr($query->expr()->field('title')->equals(new \MongoDB\BSON\Regex($keyword, "i")));
+        if ($keyword != '') {
+            $query->addOr($query->expr()->field('director')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
+            $query->addOr($query->expr()->field('stars')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
+            $query->addOr($query->expr()->field('tags')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
+            $query->addOr($query->expr()->field('title')->equals(new \MongoDB\BSON\Regex($keyword, "i")));
+        }
         $query->sort('year', 'DESC');
 
         $pagination = $paginator->paginate(
@@ -35,14 +37,16 @@ class SearchController extends AbstractController
     }
 
 
-    #[Route('/search/{keyword}.html', name: 'search_keyword')]
+    #[Route('/search.html', name: 'search_keyword')]
     public function list(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, $keyword): Response
     {
         $query = $listsRepository->createQueryBuilder();
-        $query->addOr($query->expr()->field('director')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
-        $query->addOr($query->expr()->field('stars')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
-        $query->addOr($query->expr()->field('tags')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
-        $query->addOr($query->expr()->field('title')->equals(new \MongoDB\BSON\Regex($keyword, "i")));
+        if ($keyword != '') {
+            $query->addOr($query->expr()->field('director')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
+            $query->addOr($query->expr()->field('stars')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
+            $query->addOr($query->expr()->field('tags')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
+            $query->addOr($query->expr()->field('title')->equals(new \MongoDB\BSON\Regex($keyword, "i")));
+        }
         $query->sort('year', 'DESC');
 
         $pagination = $paginator->paginate(
