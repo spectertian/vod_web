@@ -8,11 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ErrorController extends AbstractController
 {
-    #[Route('/error', name: 'error')]
+    #[Route('/error.html', name: 'error')]
     public function index(): Response
     {
         return $this->render('error/index.html.twig', [
-            'controller_name' => 'ErrorController',
+            'title' => '搜索一下',
         ]);
     }
 }

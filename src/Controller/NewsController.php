@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class NewsController extends AbstractController
 {
-    #[Route('/news', name: 'news')]
+    #[Route('/news.html', name: 'news')]
     public function index(NewsRepository $newsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
         $query      = $newsRepository->createQueryBuilder();

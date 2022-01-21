@@ -13,7 +13,7 @@ use function PHPUnit\Framework\isInstanceOf;
 
 class RetrieveController extends AbstractController
 {
-    #[Route('/retrieve', name: 'retrieve')]
+    #[Route('/retrieve.html', name: 'retrieve')]
     public function index(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, IndexListRepository $indexListRepository): Response
     {
         $query      = $listsRepository->createQueryBuilder();
@@ -34,7 +34,7 @@ class RetrieveController extends AbstractController
         ]);
     }
 
-    #[Route('/retrieve_category/{type}-{tag}-{area}-{view}-{year}', name: 'retrieve_category', defaults: ['id' => '0', 'wd' => '', 'area' => '', 'view' => '', 'year' => ''])]
+    #[Route('/retrieve_category/{type}-{tag}-{area}-{view}-{year}.html', name: 'retrieve_category', defaults: ['id' => '0', 'wd' => '', 'area' => '', 'view' => '', 'year' => ''])]
     public function category(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, $type, $tag, $area, $view, $year): Response
     {
         $query = $listsRepository->createQueryBuilder();
