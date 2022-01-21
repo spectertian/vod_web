@@ -22,14 +22,14 @@
                 <p><em>别名：</em><span>{{ res.alias|join(' / ') }}</span></p>
                 <p class="actor"><em>主演：</em><span class="attrs">
                         {% for star in res.stars %}
-                            <span><a rel="nofollow" target="_blank" href="javascript:void(0);">{{ star }}</a> / </span>
+                            <span><a rel="nofollow" target="_blank" href="{{ path('search_keyword',{keyword:star}) }}">{{ star }}</a> / </span>
                         {% endfor %}
                        </span>
                 </p>
 
                 <p class="director"><em>导演：</em><span class="attrs">
                          {% for direc in res.director %}
-                             <span><a rel="nofollow" target="_blank" href="javascript:void(0);">{{ direc }}</a>/</span>
+                             <span><a rel="nofollow" target="_blank" href="{{ path('search_keyword',{keyword:direc}) }}">{{ direc }}</a>/</span>
                          {% endfor %}
                     </span></p>
                 <p><em>地区：</em><span>{{ res.area }}</span></p>

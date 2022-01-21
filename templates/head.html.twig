@@ -3,7 +3,7 @@
             <img style="width:70px;hight:40px" src="{{ asset('dy/logo1.jpeg') }}" alt="MP4电影"></a></div>
     <div class="top_nav fright"><a href="{{ path('update') }}" style="color:red">今日更新</a>|
         <a rel="nofollow" href="{{ path('message') }}">留言</a>|
-        <!-- <a href="https://m.domp4.cc/?fulione.com">移动版</a>        -->
+        <!-- <a href="https://m.hilaiya.com/?fulione.com">移动版</a>        -->
     </div>
     <nav class="navbar navbar-inverse cclear">
         <div class="container-fluid">
@@ -32,7 +32,7 @@
         </div>
     </nav>
     <div class="search">
-        <form name="myform" class="navbar-form" action="{{ path("search") }}" method="post">
+        <form name="myform" class="navbar-form" action="{{ path('search') }}" method="post">
             <div class="form-group input-group">
                 {% if keyword is defined %}
                     <input type="text" class="form-control" id="wd" value="{{ keyword }}" name="keyword" placeholder="片名/主演/导演/标签">

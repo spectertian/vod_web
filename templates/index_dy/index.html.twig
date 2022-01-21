@@ -251,48 +251,9 @@
     <div class="index_coming cclear" style="display: none">
         <div id="heading-text">即将上映</div>
         <ul>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/FVQuPL22222L.html" title="淘金">淘金</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/tMTwz9444449.html"
-                                           title="不会恋爱的我们">不会恋爱的我们</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/A8kjc4333334.html" title="繁花">繁花</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/Cl25B8000008.html" title="夺金">夺金</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/jQAGOSQQQQQS.html"
-                                           title="启航：当风起时">启航：当风起时</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/kxhxfKHHHHHK.html"
-                                           title="住我对面的小哥哥">住我对面的小哥哥</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/sl8eUJIIIIIJ.html" title="纵有疾风起">纵有疾风起</a>
-            </li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/oBGYKgQQQQQg.html" title="浣溪沙">浣溪沙</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/J1ChmQ99999Q.html" title="九州·朱颜记">九州·朱颜记</a>
-            </li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/Cm7ZQJHHHHHJ.html" title="乔家的儿女">乔家的儿女</a>
-            </li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/TLMtreddddde.html" title="公子倾城">公子倾城</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/qQCko9333339.html" title="舍我其谁">舍我其谁</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/wgKDGbBBBBBb.html" title="人生若如初见">人生若如初见</a>
-            </li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/3vc587333337.html" title="梦华录">梦华录</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/4EBzAnEEEEEn.html" title="爱的二八定律">爱的二八定律</a>
-            </li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/NEVTxQEEEEEQ.html" title="玉骨遥">玉骨遥</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/zPoEvYPPPPPY.html" title="好女好男">好女好男</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/BbzSt8222228.html" title="铁道英雄">铁道英雄</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/6XU97WHHHHHW.html" title="狙击手">狙击手</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/FV20BTNNNNNT.html" title="叛逆者">叛逆者</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/zphbLE55555E.html" title="完美伴侣">完美伴侣</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/gs1JCzPPPPPz.html" title="精灵旅社4：人间大冒险">精灵旅社4：人间大冒险</a>
-            </li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/1uqsQ3111113.html" title="王牌部队">王牌部队</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/HA4xcYHHHHHY.html" title="苍兰诀">苍兰诀</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/Amk7CL44444L.html" title="超能一家人">超能一家人</a>
-            </li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/cwCArTPPPPPT.html" title="四海">四海</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/bxDZDC00000C.html" title="两个半爸爸">两个半爸爸</a>
-            </li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/DK72EX44444X.html" title="扬名立万">扬名立万</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/CRVFLKAAAAAK.html" title="天下无拐">天下无拐</a></li>
-            <li class="list-group-item"><a href="https://www.domp4.cc/html/6LigCcTTTTTc.html" title="迷妹罗曼史">迷妹罗曼史</a>
-            </li>
+            {% for hot in hotList %}
+                <li class="list-group-item"><a href="{{ path('topic_list',{id:hot.id}) }}" title="{{ hot.title }}">{{ hot.title }}</a></li>
+            {% endfor %}
         </ul>
     </div>
     {% include 'footer.html.twig' %}
