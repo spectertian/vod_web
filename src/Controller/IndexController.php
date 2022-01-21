@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
-    #[Route('/index', name: 'index')]
+    #[Route('/index.html', name: 'index')]
     public function index(IndexListRepository $indexListRepository, TopicRepository $topicRepository): Response
     {
         $hotList        = $topicRepository->findBy([], ['n_id' => 'desc'], 16);
