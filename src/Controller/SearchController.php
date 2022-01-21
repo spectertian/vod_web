@@ -16,35 +16,15 @@ class SearchController extends AbstractController
     {
         $keyword = $request->get("keyword");
         $query   = $listsRepository->createQueryBuilder();
-        $keyword = "6";
-
-        $all = $listsRepository->findBy(array(
-            'title' => new \MongoRegex('/.*薇回.*/i'),
-        ));
-        dump($all);
-
-//        $query->field('type')->equals($type);
-
-//        $query->addOr($query->expr()->field('type')->equals(new \MongoRegex('/.*' . $keyword . '.*/i')));
-        $query->field('title')->equals(new \MongoDB\BSON\Regex('/.*' . $keyword . '.*/i'));
-//        $query->addOr($query->expr()->field('tags')->equals(new \MongoRegex('/.*' . $keyword . '.*/i')));
-//        $query->addOr($query->expr()->field('stars')->equals(new \MongoRegex('/.*' . $keyword . '.*/i')));
-//        $query->addOr($query->expr()->field('director')->equals(new \MongoRegex('/.*' . $keyword . '.*/i')));
-//        $query->addOr($query->expr()->field('title')->equals(new \MongoRegex('/.*' . $keyword . '.*/i')));
-//        $query->addOr($query->expr()->field('long_title')->equals(new \MongoRegex('/.*' . $keyword . '.*/i')));'
-
-//        $debug = $query->debug();
-//        dump($debug);
-
-//        $s = $query->getQuery();
-//        dump($s);
-
+        $query->addOr($query->expr()->field('director')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
+        $query->addOr($query->expr()->field('stars')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
+        $query->addOr($query->expr()->field('tags')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
+        $query->addOr($query->expr()->field('title')->equals(new \MongoDB\BSON\Regex($keyword, "i")));
+        $query->sort('year', 'DESC');
 
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 10);
-
-//        dump($pagination);
 
         $pagination->setParam('keyword', $keyword);
         return $this->render('search/index.html.twig', [

@@ -30,7 +30,7 @@ class RecommendList
 
     public function getToday()
     {
-        return $this->indexListRepository->findBy(['type' => 'today_recommend'], ["id" => "desc", 'sort' => 'asc'], 36);
+        return $this->indexListRepository->findBy(['type' => 'today_recommend'], ["id" => "desc", 'sort' => 'asc'], 10);
 
     }
 }
