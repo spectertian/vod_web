@@ -17,7 +17,7 @@
                             target="_blank" rel="nofollow" href="{{ res.doubanUrl }}"
                             data-toggle="tooltip" data-placement="top"
                             data-original-title="到豆瓣网查看详情">{{ res.rating }}</a></span><em>|</em></div>
-            <div class="pic"><img src="{{ path('img',{res:dy.imgUrl}) }}" alt="武林外传电影版海报"></div>
+            <div class="pic"><img src="{{ path('img',{id:res.imgUrl}) }}" alt="{{ res.title }}海报"></div>
             <div class="text"><p><em>名称：</em><span>{{ res.title }}</span></p>
                 <p><em>别名：</em><span>{{ res.alias|join(' / ') }}</span></p>
                 <p class="actor"><em>主演：</em><span class="attrs">
@@ -83,132 +83,26 @@
         <div class="list-group cclear">
             <div class="cclear" id="heading-text">猜你喜欢</div>
             <ul>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/ySZVchDDDDDh.html"
-                                               title="2021菲律宾犯罪动作《有坂》HD1080p.中文字幕">2021菲律宾犯罪动作《有坂》HD1080p.中文字幕</a></li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/zR634U22222U.html"
-                                               title="2003日本暴力动作《少女杀手阿墨》BD1080p.中文字幕">2003日本暴力动作《少女杀手阿墨》BD1080p.中文字幕</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/detail/3407.html"
-                                               title="2011刘德华谢霆锋动作剧情《新少林寺》BD1080p.国粤双语中字">2011刘德华谢霆锋动作剧情《新少林寺》BD1080p.国粤双语中字</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/B8tr2C55555C.html"
-                                               title="2008成龙李连杰功夫武侠《功夫之王》BD1080p.国英双语中字">2008成龙李连杰功夫武侠《功夫之王》BD1080p.国英双语中字</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/detail/6241.html"
-                                               title="1993经典古装武侠《新仙鹤神针》BD1080p.粤语中字"><font color="#17AC56">1993经典古装武侠《新仙鹤神针》BD1080p.粤语中字</font></a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/tmtO6gOOOOOg.html"
-                                               title="2021美国科幻动作《新生化危机》HD1080p.中英双字">2021美国科幻动作《新生化危机》HD1080p.中英双字</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/detail/23404.html"
-                                               title="2019罪案动作《恶人传》BD1080p.中文字幕"><font color="#17AC56">2019罪案动作《恶人传》BD1080p.中文字幕</font></a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/detail/5187.html"
-                                               title="1976邵氏7.7分古装武侠《流星蝴蝶剑》BD1080p.国语中字"><font color="#17AC56">1976邵氏7.7分古装武侠《流星蝴蝶剑》BD1080p.国语中字</font></a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/f7cASCAAAAAC.html"
-                                               title="2021基努·里维斯科幻动作《黑客帝国：矩阵重启》HD1080p.中英双字">2021基努·里维斯科幻动作《黑客帝国：矩阵重启》HD1080p.中英双字</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/qDMZOR11111R.html"
-                                               title="1979香港武侠动作《酒仙十八跌》HD1080p.国粤双语中字">1979香港武侠动作《酒仙十八跌》HD1080p.国粤双语中字</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/i2dKzH11111H.html"
-                                               title="2015美国暴力动作《绝命杀漠》BD1080p.中文字幕">2015美国暴力动作《绝命杀漠》BD1080p.中文字幕</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/xQv84h00000h.html"
-                                               title="1993元彪古装武侠《新碧血剑》HD1080p.国语中字">1993元彪古装武侠《新碧血剑》HD1080p.国语中字</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/A8Y1CFDDDDDF.html"
-                                               title="2021经典系列特工动作《007：无暇赴死》BD1080p.中英双字">2021经典系列特工动作《007：无暇赴死》BD1080p.中英双字</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/NUgXrXSSSSSX.html"
-                                               title="2021释彦能剧情动作《九龙城寨》HD1080p.国语中字">2021释彦能剧情动作《九龙城寨》HD1080p.国语中字</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/zmQACPOOOOOP.html"
-                                               title="2020美国科幻动作《沙丘》BD1080p.国英双语中字"><font color="#17AC56">2020美国科幻动作《沙丘》BD1080p.国英双语中字</font></a>
-                </li>
+                {% for re in like %}
+                    <li class="list-group-item"><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ re.title }}">{{ re.title }}</a></li>
+                {% endfor %}
             </ul>
         </div>
         <div class="list-group cclear">
             <div class="cclear" id="heading-text">新片推荐</div>
             <ul>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/fNPU26333336.html"
-                                               title="2013BBC8.9分地理纪录片《大陆的崛起》全4集"><font color="#EF4E1D">2013BBC8.9分地理纪录片《大陆的崛起》全4集</font></a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/gser82UUUUU2.html"
-                                               title="2020国产历史剧情《樟帮》HD1080p.国语中字">2020国产历史剧情《樟帮》HD1080p.国语中字</a></li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/d1WYzA77777A.html"
-                                               title="2021国产动漫《斗魂卫之玄月奇缘第五季》更新至54集">2021国产动漫《斗魂卫之玄月奇缘第五季》更新至54集</a></li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/eQUiVP00000P.html"
-                                               title="2022古装穿越网剧《小厨娘的少主夫君》更新至06集">2022古装穿越网剧《小厨娘的少主夫君》更新至06集</a></li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/1pfNvaWWWWWa.html"
-                                               title="1987美国惊悚吸血鬼《血尸夜》BD1080p.中英双字">1987美国惊悚吸血鬼《血尸夜》BD1080p.中英双字</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/xKmtnLIIIIIL.html"
-                                               title="1987美国7.4分剧情喜剧《西尔薇回故乡》BD1080p.中英双字"><font color="#17AC56">1987美国7.4分剧情喜剧《西尔薇回故乡》BD1080p.中英双字</font></a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/8I0D6ECCCCCE.html"
-                                               title="1991德国惊悚恐怖《困惑的浪漫2》BD1080p.德语中字">1991德国惊悚恐怖《困惑的浪漫2》BD1080p.德语中字</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/B8tr2C55555C.html"
-                                               title="2008成龙李连杰功夫武侠《功夫之王》BD1080p.国英双语中字">2008成龙李连杰功夫武侠《功夫之王》BD1080p.国英双语中字</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/ygEXuSQQQQQS.html"
-                                               title="2013日本7.6分剧情喜剧《去见小洋葱的母亲》BD1080p.中文字幕"><font color="#17AC56">2013日本7.6分剧情喜剧《去见小洋葱的母亲》BD1080p.中文字幕</font></a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/AiTHzNKKKKKN.html"
-                                               title="2021胡歌8.2分登上纪录片《无尽攀登》HD1080p.国语中字"><font color="#EF4E1D">2021胡歌8.2分登上纪录片《无尽攀登》HD1080p.国语中字</font></a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/rnPmqB99999B.html"
-                                               title="2007美国7.6分奇幻恐怖《幻影凶间》BD1080p.中文字幕"><font color="#17AC56">2007美国7.6分奇幻恐怖《幻影凶间》BD1080p.中文字幕</font></a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/zR634U22222U.html"
-                                               title="2003日本暴力动作《少女杀手阿墨》BD1080p.中文字幕">2003日本暴力动作《少女杀手阿墨》BD1080p.中文字幕</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/rpIuWjRRRRRj.html"
-                                               title="1998法国9.1分经典剧情《永恒和一日》BD1080p.中文字幕"><font color="#EF4E1D">1998法国9.1分经典剧情《永恒和一日》BD1080p.中文字幕</font></a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/EZuJB4333334.html"
-                                               title="2021Netflix9.0分动画《希尔达与山丘之王》HD1080p.中文字幕"><font color="#EF4E1D">2021Netflix9.0分动画《希尔达与山丘之王》HD1080p.中文字幕</font></a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/html/mbruZE00000E.html"
-                                               title="2021美国7.3分剧情《暗处的女儿》HD1080p.中文字幕"><font color="#17AC56">2021美国7.3分剧情《暗处的女儿》HD1080p.中文字幕</font></a>
-                </li>
+                {% for re in today %}
+                    <li class="list-group-item"><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ re.title }}">{{ re.title }}</a></li>
+                {% endfor %}
+
             </ul>
         </div>
         <div class="list-group cclear">
             <div class="cclear" id="heading-text">最新专题推荐</div>
             <ul>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/35.html"
-                                               title="高口碑印度电影推荐">高口碑印度电影推荐</a></li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/34.html" title="2020奥斯卡获奖名单">2020奥斯卡获奖名单</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/33.html" title="2019年12月份好看电影佳片推荐">2019年12月份好看电影佳片推荐</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/32.html" title="2019年度冷门佳片合集">2019年度冷门佳片合集</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/31.html" title="2019评分最高华语电影合集">2019评分最高华语电影合集</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/30.html" title="2019评分最高外语电影合集">2019评分最高外语电影合集</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/29.html" title="2019年中国十大票房电影排行榜">2019年中国十大票房电影排行榜</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/28.html" title="2019年11月份佳片推荐">2019年11月份佳片推荐</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/27.html" title="2019最值得期待的华语电影合集">2019最值得期待的华语电影合集</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/26.html" title="2019最值得期待的外语电影合集">2019最值得期待的外语电影合集</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/25.html" title="2018评分最高的华语电影合集">2018评分最高的华语电影合集</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/23.html" title="2017年8月热门影片推荐">2017年8月热门影片推荐</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/22.html" title="2017年3月内地上映的电影">2017年3月内地上映的电影</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/21.html" title="2017年最值得期待的欧美院线大片合集">2017年最值得期待的欧美院线大片合集</a>
-                </li>
-                <li class="list-group-item"><a href="https://www.domp4.cc/special/20.html" title="2017年2月内地上映的电影">2017年2月内地上映的电影</a>
-                </li>
+                {% for hot in topic %}
+                    <li class="list-group-item"><a href="{{ path('topic_list',{id:hot.id}) }}" title="{{ hot.title }}">{{ hot.title }}</a></li>
+                {% endfor %}
             </ul>
         </div>
     </div>

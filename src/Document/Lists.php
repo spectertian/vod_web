@@ -260,7 +260,11 @@ class Lists
 
     public function getImgUrl(): ?string
     {
-        return $this->imgUrl;
+        if ($this->imgUrl) {
+            return $this->imgUrl;
+        } else {
+            return '61e936609a14522cb9682aab';
+        }
     }
 
     public function getRunTime(): ?string
