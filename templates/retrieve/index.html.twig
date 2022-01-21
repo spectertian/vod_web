@@ -1,0 +1,258 @@
+{% extends 'base_dy.html.twig' %}
+{% block body %}
+    <body data-new-gr-c-s-check-loaded="14.1044.0" data-gr-ext-installed="">
+    <div class="container">
+        {% include 'head.html.twig' %}
+        <div class="list_r cclear">
+            <ul class="breadcrumb cclear">
+                <li><a href="{{ path("index") }}">首页</a></li>
+                <li class="active">{{ title }}</li>
+            </ul>
+            <div class="sort-box">
+                <div class="sort-title"><h3>影片索引</h3><span class="reset label label-info"><a href="javascript:void(0);" class="conreset">重置条件</a></span><span class="conbread"><em>列表</em></span></div>
+                <div class="sort-cnt">
+                    <div class="sort-list"><h5>类型：</h5>
+                        <ul>
+                            <li><a rel="nofollow" class="current" data="id-0" href="javascript:void(0);">全部</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="id-动作片">动作片</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="id-科幻片">科幻片</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="id-爱情片">爱情片</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="id-喜剧片">喜剧片</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="id-恐怖片">恐怖片</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="id-战争片">战争片</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="id-剧情片">剧情片</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="id-纪录片">纪录片</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="id-动画片">动画片</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="id-电视剧">电视剧</a></li>
+                        </ul>
+                    </div>
+                    <div class="sort-list"><h5>地区：</h5>
+                        <ul>
+                            <li><a rel="nofollow" class="current" data="area-0" href="javascript:void(0);">全部</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-大陆">大陆</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-香港">香港</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-美国">美国</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-英国">英国</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-日本">日本</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-韩国">韩国</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-法国">法国</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-德国">德国</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-加拿大">加拿大</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-意大利">意大利</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-台湾">台湾</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-印度">印度</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-泰国">泰国</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-西班牙">西班牙</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-澳大利亚">澳大利亚</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-瑞典">瑞典</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-比利时">比利时</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-俄罗斯">俄罗斯</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-荷兰">荷兰</a></li>
+                            <li><a rel="nofollow" href="javascript:void(0);" data="area-丹麦">丹麦</a></li>
+                        </ul>
+                    </div>
+                    <div class="sort-list"><h5>年代：</h5>
+                        <ul>
+                            <li><a rel="nofollow" class="current" data="year-0" href="javascript:void(0);">全部</a></li>
+                            <li><a rel="nofollow" data="year-2022" href="javascript:void(0);">2022</a></li>
+                            <li><a rel="nofollow" data="year-2021" href="javascript:void(0);">2021</a></li>
+                            <li><a rel="nofollow" data="year-2020" href="javascript:void(0);">2020</a></li>
+                            <li><a rel="nofollow" data="year-2019" href="javascript:void(0);">2019</a></li>
+                            <li><a rel="nofollow" data="year-2018" href="javascript:void(0);">2018</a></li>
+                            <li><a rel="nofollow" data="year-2017" href="javascript:void(0);">2017</a></li>
+                            <li><a rel="nofollow" data="year-2016" href="javascript:void(0);">2016</a></li>
+                            <li><a rel="nofollow" data="year-2015" href="javascript:void(0);">2015</a></li>
+                            <li><a rel="nofollow" data="year-2014" href="javascript:void(0);">2014</a></li>
+                            <li><a rel="nofollow" data="year-2013" href="javascript:void(0);">2013</a></li>
+                            <li><a rel="nofollow" data="year-2012" href="javascript:void(0);">2012</a></li>
+                            <li><a rel="nofollow" data="year-2011" href="javascript:void(0);">2011</a></li>
+                            <li><a rel="nofollow" data="year-2010" href="javascript:void(0);">2010</a></li>
+                            <li><a rel="nofollow" data="year-2009" href="javascript:void(0);">2009</a></li>
+                            <li><a rel="nofollow" data="year-2008" href="javascript:void(0);">2008</a></li>
+                            <li><a rel="nofollow" data="year-2007" href="javascript:void(0);">2007</a></li>
+                            <li><a rel="nofollow" data="year-2006" href="javascript:void(0);">2006</a></li>
+                            <li><a rel="nofollow" data="year-2005" href="javascript:void(0);">2005</a></li>
+                            <li><a rel="nofollow" data="year-2004" href="javascript:void(0);">2004</a></li>
+                            <li><a rel="nofollow" data="year-2003" href="javascript:void(0);">2003</a></li>
+                        </ul>
+                    </div>
+                    <div class="sort-list"><h5>标签：</h5>
+                        <ul>
+                            <li><a rel="nofollow" class="current" data="wd-0" href="javascript:void(0);">全部</a></li>
+                            <li><a rel="nofollow" data="wd-经典" href="javascript:void(0);">经典</a></li>
+                            <li><a rel="nofollow" data="wd-悬疑" href="javascript:void(0);">悬疑</a></li>
+                            <li><a rel="nofollow" data="wd-惊悚" href="javascript:void(0);">惊悚</a></li>
+                            <li><a rel="nofollow" data="wd-短片" href="javascript:void(0);">短片</a></li>
+                            <li><a rel="nofollow" data="wd-情色" href="javascript:void(0);">情色</a></li>
+                            <li><a rel="nofollow" data="wd-同性" href="javascript:void(0);">同性</a></li>
+                            <li><a rel="nofollow" data="wd-音乐" href="javascript:void(0);">音乐</a></li>
+                            <li><a rel="nofollow" data="wd-歌舞" href="javascript:void(0);">歌舞</a></li>
+                            <li><a rel="nofollow" data="wd-家庭" href="javascript:void(0);">家庭</a></li>
+                            <li><a rel="nofollow" data="wd-儿童" href="javascript:void(0);">儿童</a></li>
+                            <li><a rel="nofollow" data="wd-传记" href="javascript:void(0);">传记</a></li>
+                            <li><a rel="nofollow" data="wd-历史" href="javascript:void(0);">历史</a></li>
+                            <li><a rel="nofollow" data="wd-犯罪" href="javascript:void(0);">犯罪</a></li>
+                            <li><a rel="nofollow" data="wd-西部" href="javascript:void(0);">西部</a></li>
+                            <li><a rel="nofollow" data="wd-奇幻" href="javascript:void(0);">奇幻</a></li>
+                            <li><a rel="nofollow" data="wd-冒险" href="javascript:void(0);">冒险</a></li>
+                            <li><a rel="nofollow" data="wd-灾难" href="javascript:void(0);">灾难</a></li>
+                            <li><a rel="nofollow" data="wd-武侠" href="javascript:void(0);">武侠</a></li>
+                            <li><a rel="nofollow" data="wd-古装" href="javascript:void(0);">古装</a></li>
+                            <li><a rel="nofollow" data="wd-运动" href="javascript:void(0);">运动</a></li>
+                        </ul>
+                    </div>
+                    <div class="sort-list"><h5>视图：</h5>
+                        <ul>
+                            <li><a rel="nofollow" class="current" data="view-0" href="javascript:void(0);">列表</a></li>
+                            <li><a rel="nofollow" data="view-1" href="javascript:void(0);">海报</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="list_alls">
+                {% if pagination.count>0 %}
+                    <div id="list_all">
+                        <ul>
+                            {% for dy in pagination %}
+                                <li>
+                                    <a href="{{ path('detail',{id:dy.id}) }}"><img class="lazy" data-original="{{ path('img',{id:dy.imgUrl}) }}" src="{{ path('img',{id:dy.imgUrl}) }}" alt="《{{ dy.title }}》" style="display: block;"> <span class="rate badge">{{ dy.rating }}</span></a>
+                                    <div class="text_info">
+                                        <h2><a href="{{ path('detail',{id:dy.id}) }}">{{ dy.longTitle }}</a></h2>
+                                        <p class="actor">
+                                            {% for star in dy.stars %}
+                                                <span><a rel="nofollow" target="_blank" href="https://www.domp4.cc/search/%E5%A7%9C%E8%B6%85-1.html">{{ star }}</a></span> /
+                                            {% endfor %}
+                                        </p>
+                                        <p>
+                                            <span class="area">{{ dy.area }}</span>
+                                            <span class="update_time">{{ dy.pageDate }}</span>
+                                        </p>
+                                        <p class="info">{{ dy.introduction[:60] ~ '...' }}</p>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="navigation text-center" id="no_click">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                {% else %}
+                    <div class="text-center" style="padding:15px;">抱歉，没有找到相关内容！</div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="vod_right">
+            <div class="top">
+                <script src="{{ asset("dy/right.js") }}"></script>
+            </div>
+            <div class="list-group cclear">
+                <div class="cclear" id="heading-text">近期下载排行</div>
+                <ul>
+
+                    {% for info in down %}
+                        <li class="list-group-item"><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% include 'footer.html.twig' %}
+    </div>
+    <script type="text/javascript">
+        window.onerror = function () {
+            return true;
+        }
+
+        $(document).ready(function () {
+            $("#yes-click a").click(function (e) {
+                pagegooo($(this).attr('href'));
+                return false;
+            });
+        })
+
+        var parms = "{id: '0', wd: '', area: '', view: '', year: ''}"
+        var allurl = '';
+        $('.sort-list ul li a').click(function (e) {
+            var constr = '';
+            var curobj = $(this);
+            if (parms != undefined && parms != null) {
+                var curdata = $(this).attr('data').split('-');
+                parms[curdata[0]] = curdata[1];
+                url = parseurl(parms);
+                curobj.parent().siblings().children("a").removeClass('current');
+                curobj.addClass('current');
+                pagegooo(url);
+                $('.sort-list ul li a').each(function (e) {
+                    if ($(this).attr('class') == 'current') {
+                        if ($(this).html() == '全部')
+                            constr += ' ';
+                        else
+                            constr += '<em>' + $(this).html() + '</em>';
+                    }
+                });
+                if (constr != '') {
+                    $('.conbread').html(constr);
+                }
+            }
+            return false;
+        });
+
+
+        function pagegooo(url) {
+            $("#list_alls").html('<div class="text-center" style="padding:15px;"><label class="layui-icon layui-icon-loading">努力加载中……</label></div>');
+            $.get(url, function (r) {
+                    $("html,body").animate({scrollTop: $("#list_alls").offset().top - 350}, 500);
+
+                    // $("#list_alls").html('<div class="text-center" style="padding:15px;">抱歉，没有找到相关内容！</div>');
+                    $("#list_alls").html(r);
+                    $('img.lazy').lazyload();
+
+
+                    $("#yes-click a").click(function (e) {
+                        pagegooo($(this).attr('href'));
+                        return false;
+                    });
+                }, 'html'
+            );
+            return true;
+        }
+
+        var ids = 0;
+        parms = eval('({"id":' + ids + '})');
+
+        var constrf = '';
+        $('.sort-list ul li a').each(function (e) {
+            if ($(this).html() != '全部' && $(this).attr('class') == 'current') {
+                constrf += '<em>' + $(this).html() + '</em>';
+            }
+        });
+        if (constrf != '') {
+            $('.conbread').html(constrf);
+        }
+        $('.conreset').click(function (e) {
+            parms = eval('({"id":' + ids + '})');
+            url = parseurl(parms);
+            pagegooo(url);
+            $('.sort-list ul li a').each(function (e) {
+                $(this).removeClass('current');
+                if ($(this).html() == '全部') {
+                    $(this).attr('class', 'current');
+                    $('.conbread').html('');
+                }
+            });
+            return false;
+        });
+
+        function parseurl(rr) {
+            return '/retrieve_category/' + getVal(rr, 'id') + '-' + getVal(rr, 'wd') + '-' + getVal(rr, 'area') + '-' + getVal(rr, 'view') + '-' + getVal(rr, 'year')
+        }
+
+        function getVal(rr, id) {
+            if (rr[id] === undefined) {
+                return '0'
+            } else {
+                return rr[id]
+            }
+        }
+    </script>
+    </body>
+{% endblock %}

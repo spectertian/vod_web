@@ -1,0 +1,261 @@
+{% extends 'base_dy.html.twig' %}
+{% block body %}
+
+<body data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
+<div class="container">
+    {% include 'head.html.twig' %}
+    <div class="index_update cclear">
+        <ul>
+            <li class="fleft">
+                <div id="vod" class="list-group carousel slide">
+                    <div id="heading-text">最新电影下载</div>
+                    <div id="movie_add" class="carousel slide">
+                        <div class="carousel-inner">
+                            <ul class="item active">
+                                {% for k,info in newMovie %}
+                                <li class="list-group-item"><b>{{ info.date }}</b><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                                {% if (k+1)%10 ==0 and k>0 %}
+                            </ul>
+                            <ul class="item">
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <ol class="carousel-indicators">
+                            {% set newMoveLength = ((newMovie|length/10)|round) -1 %}
+                            {% for i in 0..newMoveLength %}
+                                {% if i == 0 %}
+                                    <li data-target="#movie_add" data-slide-to="{{ i }}" class="active">{{ i+1 }}</li>
+                                {% else %}
+                                    <li data-target="#movie_add" data-slide-to="{{ i }}">{{ i+1 }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+            </li>
+            <li class="fright">
+                <div id="tv" class="list-group">
+                    <div id="heading-text">最新电视剧下载</div>
+                    <div id="tv_add" class="carousel slide">
+                        <div class="carousel-inner">
+                            <ul class="item active">
+                                {% for k,info in newTv %}
+                                <li class="list-group-item"><b>{{ info.date }}</b><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                                {% if (k+1)%10 ==0 and k>0 %}
+                            </ul>
+                            <ul class="item">
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <ol class="carousel-indicators">
+                            {% set newTvLength = ((newTv|length/10)|round) -1 %}
+                            {% for i in 0..newTvLength %}
+                                {% if i == 0 %}
+                                    <li data-target="#tv_add" data-slide-to="{{ i }}" class="active">{{ i+1 }}</li>
+                                {% else %}
+                                    <li data-target="#tv_add" data-slide-to="{{ i }}">{{ i+1 }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="index_today cclear">
+        <div id="heading-text">今日推荐</div>
+        <ul>
+            {% for info in todayRecommend %}
+                <li class="list-group-item"><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="index_update cclear">
+        <ul>
+            <li class="fleft">
+                <div id="vod" class="list-group">
+                    <div id="heading-text">外语片</div>
+                    <ul>
+                        {% for info in wyp %}
+                            <li class="list-group-item"><b>{{ info.date }}</b><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+            <li class="fright">
+                <div id="tv" class="list-group">
+                    <div id="heading-text">国语片</div>
+                    <ul>
+                        {% for info in gyp %}
+                            <li class="list-group-item"><b>{{ info.date }}</b><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="index_update cclear">
+        <ul>
+            <li class="fleft">
+                <div id="vod" class="list-group">
+                    <div id="heading-text">经典电影</div>
+                    <ul>
+                        {% for info in jd %}
+                            <li class="list-group-item"><b>{{ info.date }}</b><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+            <li class="fright">
+                <div id="tv" class="list-group">
+                    <div id="heading-text">动画片</div>
+                    <ul>
+                        {% for info in dhp %}
+                            <li class="list-group-item"><b>{{ info.date }}</b><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="index_update cclear">
+        <ul>
+            <li class="fleft">
+                <div id="vod" class="list-group">
+                    <div id="heading-text">国产剧</div>
+                    <ul>
+                        {% for info in gcj %}
+                            <li class="list-group-item"><b>{{ info.date }}</b><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+            <li class="fright">
+                <div id="tv" class="list-group">
+                    <div id="heading-text">港台剧</div>
+                    <ul>
+                        {% for info in tvb %}
+                            <li class="list-group-item"><b>{{ info.date }}</b><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="index_update cclear">
+        <ul>
+            <li class="fleft">
+                <div id="vod" class="list-group">
+                    <div id="heading-text">日韩剧</div>
+                    <ul>
+                        {% for info in rhj %}
+                            <li class="list-group-item"><b>{{ info.date }}</b><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+            <li class="fright">
+                <div id="tv" class="list-group">
+                    <div id="heading-text">欧美剧</div>
+                    <ul>
+                        {% for info in om %}
+                            <li class="list-group-item"><b>{{ info.date }}</b><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="index_update cclear">
+        <ul>
+            <li class="fleft">
+                <div id="vod" class="list-group">
+                    <div id="heading-text">纪录片</div>
+                    <ul>
+                        {% for info in jlp %}
+                            <li class="list-group-item"><b>{{ info.date }}</b><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+            <li class="fright">
+                <div id="tv" class="list-group">
+                    <div id="heading-text">其它剧</div>
+                    <ul>
+                        {% for info in qtj %}
+                            <li class="list-group-item"><b>{{ info.date }}</b><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="index_hot cclear">
+        <ul>
+            <li class="fleft">
+                <div class="list-group">
+                    <div id="heading-text">本周电影下载排行</div>
+                    <ul>
+                        {% for info in bzdy %}
+                            <li class="list-group-item"><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+            <li class="fright">
+                <div class="list-group">
+                    <div id="heading-text">本周电视剧下载排行</div>
+                    <ul>
+                        {% for info in bzdsj %}
+                            <li class="list-group-item"><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="index_hot cclear">
+        <ul>
+            <li class="fleft">
+                <div class="list-group">
+                    <div id="heading-text">本月电影下载排行</div>
+                    <ul>
+                        {% for info in bydy %}
+                            <li class="list-group-item"><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+            <li class="fright">
+                <div class="list-group">
+                    <div id="heading-text">本月电视剧下载排行</div>
+                    <ul>
+                        {% for info in bydsj %}
+                            <li class="list-group-item"><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ info.title }}">{{ info.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="index_special cclear">
+        <div id="heading-text">最新专题</div>
+        <ul>
+            {% for hot in hotList %}
+                <li class="list-group-item"><a href="{{ path('topic_list',{id:hot.id}) }}" title="{{ hot.title }}">{{ hot.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="index_coming cclear" style="display: none">
+        <div id="heading-text">即将上映</div>
+        <ul>
+            {% for hot in hotList %}
+                <li class="list-group-item"><a href="{{ path('topic_list',{id:hot.id}) }}" title="{{ hot.title }}">{{ hot.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% include 'footer.html.twig' %}
+</div>
+{% endblock %}

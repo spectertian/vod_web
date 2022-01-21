@@ -1,0 +1,42 @@
+{% extends 'base_dy.html.twig' %}
+{% block body %}
+
+    <body data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
+    <div class="container">
+        {% include 'head.html.twig' %}
+        <div class="list_r cclear">
+            <ul class="breadcrumb cclear">
+                <li><a href="{{ path("index") }}">首页</a></li>
+                <li class="active">{{ title }}</li>
+            </ul>
+            <div id="list_dy">
+                <ul>
+                    {% for new in pagination %}
+
+                        <li><a href="{{ path('detail',{id:new.id}) }}">{{ new.title }}</a><span
+                                    class="time hidden-sm hidden-xs">{{ new.date }}</span></li>
+                    {% endfor %}
+
+                </ul>
+                <div class="navigation text-center ">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            </div>
+        </div>
+        <div class="vod_right">
+            <div class="top">
+                <script src="./最新电影下载_热门电影迅雷下载-MP4电影_files/right.js"></script>
+            </div>
+            <div class="list-group cclear">
+                <div class="cclear" id="heading-text">近期下载排行</div>
+                <ul>
+                    {% for re in recommend %}
+                        <li class="list-group-item"><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ re.title }}">{{ re.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% include 'footer.html.twig' %}
+    </div>
+    </body>
+{% endblock %}

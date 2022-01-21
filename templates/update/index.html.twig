@@ -1,0 +1,40 @@
+{% extends 'base_dy.html.twig' %}
+{% block body %}
+    <div class="container">
+        {% include 'head.html.twig' %}
+        <ul class="breadcrumb cclear">
+            <li><a href="{{ path("index") }}">首页</a></li>
+            <li class="active">{{ title }}</li>
+        </ul>
+        <div class="index_update cclear">
+            <ul>
+                <li class="fleft">
+                    <div id="vod" class="list-group">
+                        <div id="heading-text">最新电影下载</div>
+                        <ul>
+                            {% for vod in dy %}
+                                <li class="list-group-item">
+                                    <b>{{ vod.date }}</b>
+                                    <a href="{{ path('detail',{id:vod.infoId}) }}" title="{{ vod.title }}">{{ vod.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                <li class="fright">
+                    <div id="tv" class="list-group">
+                        <div id="heading-text">最新电视剧下载</div>
+                        <ul>
+                            {% for tv in dsj %}
+                                <li class="list-group-item">
+                                    <b>{{ tv.date }}</b>
+                                    <a href="{{ path('detail',{id:tv.infoId}) }}" title="{{ tv.title }}">{{ tv.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {% include 'footer.html.twig' %}
+{% endblock %}

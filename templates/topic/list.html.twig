@@ -1,0 +1,70 @@
+{% extends 'base_dy.html.twig' %}
+{% block body %}
+    <body data-new-gr-c-s-check-loaded="14.1043.0" data-gr-ext-installed="">
+    <div class="container">
+        {% include 'head.html.twig' %}
+        <div class="special list_r cclear">
+            <ul class="breadcrumb cclear">
+                <li><a href="{{ path("index") }}">首页</a></li>
+                <li><a href="{{ path("topic") }}">{{ title }}</a></li>
+                <li class="active">{{ top.title }}</li>
+            </ul>
+            <h1>2017年1月贺岁档动画电影</h1>
+            <div class="tips"><span class="film_nums">影片数：{{ top.filmNum }}部</span><span class="update_time">更新时间：{{ top.date }}</span>
+                <div class="special_content"><p>{{ top.content }}</p></div>
+            </div>
+            <div id="list_all">
+                <ul>
+                    {% for topList in topListRe %}
+
+                        <li><a href="{{ path('detail',{id:topList.infoId}) }}">
+                                <img class="lazy" data-original="{{ topList.pic }}" src="{{ topList.pic }}" alt="《{{ topList.title }}》" style="display: block;">
+                                <span class="rate badge">{{ topList.rating }}</span>
+                            </a>
+                            <div class="text_info"><h2><a href="{{ path('detail',{id:topList.infoId}) }}">{{ topList.title }}</a></h2>
+                                <p class="actor"><span>主演∶</span>
+
+                                    {% for star in topList.stars %}
+                                        <span><a rel="nofollow" target="_blank" href="javascript:void(0);">{{ star }}</a></span> /
+                                    {% endfor %}
+                                </p>
+                                <p class="director"><span>导演∶</span>
+                                    {% for direc in topList.director %}
+                                        <span><a rel="nofollow" target="_blank" href="javascript:void(0);">{{ direc }}</a>/</span>
+                                    {% endfor %}
+                                </p>
+                                <p><span>地区∶</span>{{ topList.area }}</p>
+                                <p class="info">{{ topList.introduction[:60] ~ '...' }}</p></div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="vod_right">
+            <div class="top">
+                <script src="{{ asset("dy/right.js") }}"></script>
+            </div>
+            <div class="list-group cclear">
+                <div class="cclear" id="heading-text">热门专题排行</div>
+                <ul>
+                    {% for hot in hotList %}
+                        <li class="list-group-item"><a href="{{ path('topic_list',{id:hot.id}) }}" title="{{ hot.title }}">{{ hot.title }}</a></li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+            <div class="list-group cclear">
+                <div class="cclear" id="heading-text">最新专题推荐</div>
+                <ul>
+                    {% for new in newList %}
+                        <li class="list-group-item"><a href="{{ path('topic_list',{id:new.id}) }}" title="{{ new.title }}">{{ new.title }}</a></li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html.twig' %}
+
+    </body>
+{% endblock %}

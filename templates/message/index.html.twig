@@ -1,0 +1,48 @@
+{% extends 'base_dy.html.twig' %}
+{% block body %}
+    <body data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
+<div class="container">
+    {% include 'head.html.twig' %}
+    <ul class="breadcrumb cclear">
+        <li><a href="https://www.domp4.cc/">首页</a></li>
+        <li class="active">留言反馈</li>
+    </ul>
+    <div class="gb">
+        <div class="well">
+            <ol class="">
+                <li>常见问题：<font color="blue"><br>近期有网友反馈音画不同步，有声音无图像，有图像无声音等问题，本站测试均正常,无上述情况发生。<br>测试环境:<br>pc端：系统win10，播放器potplayer，解码器K-Lite
+                        Codec Pack<br>IOS端：播放器nPlayer</font></li>
+                <li>下载须知</li>
+                <li>迅雷会员必备</li>
+                <li><font color="red">收藏好页面底部的邮箱。发邮件即可获取本站最新地址。</font></li>
+                <li><font color="red">新资源磁力链使用BT软件下载能更快的下完。</font></li>
+                <li><font color="red">=============寻片（<font color="blue">仅限电影</font>）格式：《片名》+豆瓣网址，例如（《见鬼》https://movie.douban.com/subject/1296026/）,一次求篇不超过2部。不符合规则会被无视。电视剧不超过7分的不会添加。站内已存在的可进行修复。</font>求片不再一一回复，随时关注本站即可。
+                </li>
+                <li><font color="red">=============<font color="blue">PC端下载后推荐使用Potplayer进行播放，手机端推荐保存进迅雷云盘可直接观看。</font>============</font>
+                </li>
+            </ol>
+        </div>
+        <form role="form" action="{{ path('message') }}" method="post" name="message"
+              id="guestbook">
+            <div class="form-group">
+                {{ form(form) }}
+                <label id="gb_tips"></label></div>
+        </form>
+
+
+        {% for ly in res %}
+            <div class="media">
+
+                <div class="media-left"><img class="media-object" style="width:45px" src={{ asset("dy/face_1.jpg") }}>
+                </div>
+                <div class="media-body"><h4 class="media-heading">游客<small><i> 第1楼</i></small></h4>
+                    <p>{{ ly.question }}</p>
+                    <p class="cclear text-danger"></p>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+    {% include 'footer.html.twig' %}
+</div>
+{% endblock %}

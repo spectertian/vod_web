@@ -1,0 +1,112 @@
+{% extends 'base_dy.html.twig' %}
+{% block body %}
+<body data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
+<div class="container">
+    {% include 'head.html.twig' %}
+    <div class="article content cclear">
+        <ul class="breadcrumb cclear">
+            <li><a href="{{ path("index") }}">首页</a></li>
+            <li><a href="https://www.domp4.cc/list/1-1.html">动作片</a></li>
+            <li class="active">下载详情</li>
+        </ul>
+        <div class="article-header"><h1>{{ res.longTitle }}</h1>
+            <hr>
+            <div class="post-meta"> 类型：<span><a href="https://www.domp4.cc/list/1-1.html">动作片</a></span><em>|</em> 发布时间：<span
+                        class="pubtime">{{ res.productionDate }}</span><em>|</em>评分：<span class="rating_num"
+                                                                                          subject="{{ res.doubanId }}"><a
+                            target="_blank" rel="nofollow" href="{{ res.doubanUrl }}"
+                            data-toggle="tooltip" data-placement="top"
+                            data-original-title="到豆瓣网查看详情">{{ res.rating }}</a></span><em>|</em></div>
+            <div class="pic"><img src="{{ path('img',{id:res.imgUrl}) }}" alt="{{ res.title }}海报"></div>
+            <div class="text"><p><em>名称：</em><span>{{ res.title }}</span></p>
+                <p><em>别名：</em><span>{{ res.alias|join(' / ') }}</span></p>
+                <p class="actor"><em>主演：</em><span class="attrs">
+                        {% for star in res.stars %}
+                            <span><a rel="nofollow" target="_blank" href="{{ path('search_keyword',{keyword:star}) }}">{{ star }}</a> / </span>
+                        {% endfor %}
+                       </span>
+                </p>
+
+                <p class="director"><em>导演：</em><span class="attrs">
+                         {% for direc in res.director %}
+                             <span><a rel="nofollow" target="_blank" href="{{ path('search_keyword',{keyword:direc}) }}">{{ direc }}</a>/</span>
+                         {% endfor %}
+                    </span></p>
+                <p><em>地区：</em><span>{{ res.area }}</span></p>
+                <p><em>年份：</em><span>{{ res.year }}</span></p>
+                <p><em>语言：</em><span>{{ res.language }}</span></p>
+                <p><em>时长：</em><span>{{ res.runTime }}</span></p>
+                <p><em>更新：</em><span class="update_time">{{ res.productionDate }}</span></p>
+                <p class="tag"><em>标签：</em>
+                    {% for tag in res.tags %}
+                        <a href="javascript:void(0);">{{ tag }}</a>&nbsp;
+                    {% endfor %}
+                </p></div>
+        </div>
+        <div class="down-banner">
+            <script src="{{ asset("dy/banner2.js") }}"></script>
+        </div>
+        <div class="article-related info"><h2>剧情介绍</h2>
+            <p>{{ res.introduction }}</p>
+        </div>
+        <div id="download1" class="article-related download_url"><h2>下载地址一</h2>
+            <ul class="panel down-list thunder1">
+
+                {% for key, downUrl in res.downUrl %}
+                    <li>
+                        <div class="url-left"><input type="checkbox" style="float:left;margin-right:8px" name="copy_sel"
+                                                     value="{{ downUrl.url }}"><a
+                                    href="{{ downUrl.url }}"
+                                    title="{{ downUrl.title }}" target="_blank"><span>磁力链</span>{{ downUrl.title }}</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="down-banner">
+            <script src="{{ asset("dy/banner.js") }}"></script>
+        </div>
+        <div class=" article-related download_help"><h2>武林外传电影版下载帮助</h2>
+            <ul class="item">
+                <li style="color:red">0.推荐使用bt软件下载新资源磁力链。不保证电驴地址可正常下载。</li>
+                <li>1.如使用迅雷下载提示‘任务错误，未知错误，敏感资源，违规内容，版权‘等等，可留言报错</li>
+                <li>2.出现以上情况与本站无关，因迅雷官方响应政策屏蔽资源导致。</li>
+                <li>4.如遇到老片迅雷下载速度过慢，可试着复制ed2k电驴地址或磁力链到迅雷网盘或百度网盘离线中下载，也可以试试迅雷会员速度加成。</li>
+                <li>5.如某片全部地址都无法下载，建议您到留言中心告知。</li>
+            </ul>
+        </div>
+    </div>
+    <div class="vod_right">
+        <div class="top">
+            <script src="{{ asset("dy/right.js") }}"></script>
+        </div>
+        <div class="list-group cclear">
+            <div class="cclear" id="heading-text">猜你喜欢</div>
+            <ul>
+                {% for re in like %}
+                    <li class="list-group-item"><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ re.title }}">{{ re.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="list-group cclear">
+            <div class="cclear" id="heading-text">新片推荐</div>
+            <ul>
+                {% for re in today %}
+                    <li class="list-group-item"><a href="{{ path('detail',{id:info.infoId}) }}" title="{{ re.title }}">{{ re.title }}</a></li>
+                {% endfor %}
+
+            </ul>
+        </div>
+        <div class="list-group cclear">
+            <div class="cclear" id="heading-text">最新专题推荐</div>
+            <ul>
+                {% for hot in topic %}
+                    <li class="list-group-item"><a href="{{ path('topic_list',{id:hot.id}) }}" title="{{ hot.title }}">{{ hot.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script type="text/javaScript" src="{{ asset("dy/down.js") }}" charset="UTF-8"></script>
+    {% include 'footer.html.twig' %}
+</div>
+{% endblock %}
