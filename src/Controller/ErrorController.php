@@ -12,7 +12,8 @@ class ErrorController extends AbstractController
     public function index(): Response
     {
         return $this->render('error/index.html.twig', [
-            'title' => '搜索一下',
+            'title'   => '搜索一下',
+            'keyword' => '',
         ]);
     }
 }
