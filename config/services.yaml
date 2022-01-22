@@ -24,7 +24,10 @@ services:
             - '../src/Tests/'
     App\DocumentRepository\:
         resource: '../src/DocumentRepository/*'
-
+    Symfony\Component\HttpFoundation\Session\Storage\Handler\MongoDbSessionHandler:
+        arguments:
+            - '@doctrine_mongodb.odm.default_connection'
+            - { database: 'customer_session', collection: 'guid'}
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
