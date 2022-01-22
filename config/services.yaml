@@ -6,6 +6,8 @@
 parameters:
     env(MONGODB_URL): ''
     env(MONGODB_DB): ''
+    router.request_context.scheme: 'https'
+    asset.request_context.secure: true
 
 services:
     # default configuration for services in *this* file
