@@ -14,7 +14,7 @@ class IndexController extends AbstractController
     public function index(IndexListRepository $indexListRepository, TopicRepository $topicRepository): Response
     {
         $hotList        = $topicRepository->findBy([], ['n_id' => 'desc'], 16);
-        $todayRecommend = $indexListRepository->findBy(['type' => 'today_recommend'], ["production_date" => "desc"], 36);
+        $todayRecommend = $indexListRepository->findBy(['type' => 'today_recommend'], ["production_date" => "desc"], 30);
         $newMovie       = $indexListRepository->findBy(['type' => '最新电影下载'], ["production_date" => "desc"], 70);
         $newTv          = $indexListRepository->findBy(['type' => '最新电视剧下载'], ["production_date" => "desc"], 70);
         $wyp            = $indexListRepository->findBy(['type' => '外语片'], ["production_date" => "desc"], 10);
@@ -50,6 +50,7 @@ class IndexController extends AbstractController
             'bzdsj'          => $bzdsj,
             'bydy'           => $bydy,
             'bydsj'          => $bydjs,
+            'title'          => "最新电影下载",
         ]);
     }
 }
