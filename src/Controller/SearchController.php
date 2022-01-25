@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SearchController extends AbstractController
 {
-    #[Route('/search.html', name: 'search')]
+    #[Route('/search.html', name: 'search', options: ['sitemap' => true])]
     public function index(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator): Response
     {
         $keyword = $request->get("keyword");
@@ -37,7 +37,7 @@ class SearchController extends AbstractController
     }
 
 
-    #[Route('/search.html', name: 'search_keyword')]
+    #[Route('/search.html', name: 'search_keyword', options: ['sitemap' => true])]
     public function list(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, $keyword): Response
     {
         $query = $listsRepository->createQueryBuilder();

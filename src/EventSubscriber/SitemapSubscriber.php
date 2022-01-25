@@ -1,0 +1,57 @@
+<?php
+
+namespace App\EventSubscriber;
+
+use App\DocumentRepository\ListsRepository;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Presta\SitemapBundle\Event\SitemapPopulateEvent;
+use Presta\SitemapBundle\Service\UrlContainerInterface;
+use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
+
+class SitemapSubscriber implements EventSubscriberInterface
+{
+    private $listsRepository;
+
+    public function __construct(ListsRepository $listsRepository)
+    {
+        $this->listsRepository = $listsRepository;
+    }
+
+    public function onEventSubscriberInterface($event)
+    {
+        // ...
+    }
+
+    public static function getSubscribedEvents()
+    {
+        return [
+            SitemapPopulateEvent::class => 'populate',
+        ];
+    }
+
+    /**
+     * @param SitemapPopulateEvent $event
+     */
+    public function populate(SitemapPopulateEvent $event): void
+    {
+        $this->registerDetailUrls($event->getUrlContainer());
+    }
+
+    /**
+     * @param UrlContainerInterface $urls
+     * @param UrlGeneratorInterface $router
+     */
+    public function registerDetailUrls(UrlContainerInterface $urls, UrlGeneratorInterface $router): void
+    {
+        $lists = $this->listsRepository->findAll();
+
+        foreach ($lists as $info) {
+            $urls->addUrl(
+                new UrlConcrete($router->generate('detail', ['id' => $info->id()], UrlGeneratorInterface::ABSOLUTE_URL)
+                ),
+                'detail'
+            );
+        }
+    }
+}

@@ -7,6 +7,7 @@ parameters:
     env(MONGODB_URL): ''
     env(MONGODB_DB): ''
     router.request_context.scheme: 'https'
+    router.request_context.host: 'www.hilaiya.com'
     asset.request_context.secure: true
 
 services:
@@ -30,6 +31,12 @@ services:
         arguments:
             - '@doctrine_mongodb.odm.default_connection'
             - { database: 'customer_session', collection: 'guid'}
+#    app.sitemap.blog_post_subscriber:
+#        class: App\EventListener\SitemapSubscriber
+#        arguments:
+#            - App\DocumentRepository\ListsRepository
+#        tags:
+#            - { name: "kernel.event_subscriber", priority: 100 }
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

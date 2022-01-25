@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UpdateController extends AbstractController
 {
-    #[Route('/update.html', name: 'update')]
+    #[Route('/update.html', name: 'update', options: ['sitemap' => true])]
     public function index(UpdateRepository $updateRepository): Response
     {
         $dy  = $updateRepository->findBy(['type' => '电影'], ['date' => 'desc'], 40);

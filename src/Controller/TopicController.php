@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TopicController extends AbstractController
 {
-    #[Route('/topic.html', name: 'topic')]
+    #[Route('/topic.html', name: 'topic', options: ['sitemap' => true])]
     public function index(TopicRepository $topicRepository, PaginatorInterface $paginator, Request $request): Response
     {
         $query = $topicRepository->createQueryBuilder();

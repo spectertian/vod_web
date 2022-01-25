@@ -13,7 +13,7 @@ use function PHPUnit\Framework\isInstanceOf;
 
 class RetrieveController extends AbstractController
 {
-    #[Route('/retrieve.html', name: 'retrieve')]
+    #[Route('/retrieve.html', name: 'retrieve', options: ['sitemap' => true])]
     public function index(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, IndexListRepository $indexListRepository): Response
     {
         $query      = $listsRepository->createQueryBuilder();

@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ListController extends AbstractController
 {
-    #[Route('/list_dz.html', name: 'dz')]
+    #[Route('/list_dz.html', name: 'dz', options: ['sitemap' => true])]
     public function dz(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
         $type  = '动作片';

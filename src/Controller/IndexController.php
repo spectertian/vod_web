@@ -4,15 +4,18 @@ namespace App\Controller;
 
 use App\DocumentRepository\IndexListRepository;
 use App\DocumentRepository\TopicRepository;
+use App\Message\UserClick;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
-    #[Route('/index.html', name: 'index')]
-    public function index(IndexListRepository $indexListRepository, TopicRepository $topicRepository): Response
+    #[Route('/index.html', name: 'index', options: ['sitemap' => true])]
+    public function index(IndexListRepository $indexListRepository, TopicRepository $topicRepository, MessageBusInterface $messageBus): Response
     {
+//        $messageBus->dispatch(new UserClick("Look! I created a message!"));
         $hotList        = $topicRepository->findBy([], ['n_id' => 'desc'], 16);
         $todayRecommend = $indexListRepository->findBy(['type' => 'today_recommend'], ["production_date" => "desc"], 30);
         $newMovie       = $indexListRepository->findBy(['type' => '最新电影下载'], ["production_date" => "desc"], 70);
