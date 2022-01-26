@@ -19,7 +19,7 @@ framework:
     #fragments: true
     php_errors:
         log: true
-    http_cache: true
+#    http_cache: true
 #    error_controller: App\Controller\ErrorController::index
 #when@prod:
 #    framework:

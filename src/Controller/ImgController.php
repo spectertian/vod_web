@@ -31,7 +31,6 @@ class ImgController extends AbstractController
 //        $response->setNotModified();
         $response->headers->set('Content-Type', "image/jpg");
 
-
         $response->setCallback(function () use ($stream) {
             fpassthru($stream);
         });
