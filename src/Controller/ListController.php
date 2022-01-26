@@ -19,6 +19,7 @@ class ListController extends AbstractController
     {
         $type  = '动作片';
         $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['updated_time' => 'desc']);
         $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -38,6 +39,7 @@ class ListController extends AbstractController
 
         $type  = '科幻片';
         $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['updated_time' => 'desc']);
         $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -56,6 +58,7 @@ class ListController extends AbstractController
     {
         $type  = '爱情片';
         $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['updated_time' => 'desc']);
         $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -73,8 +76,10 @@ class ListController extends AbstractController
     #[Route('/list_xj.html', name: 'xj')]
     public function xj(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
     {
-        $type       = '喜剧片';
-        $query      = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $type  = '喜剧片';
+        $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['updated_time' => 'desc']);
+        $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 20);
@@ -93,6 +98,7 @@ class ListController extends AbstractController
     {
         $type  = '恐怖片';
         $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['updated_time' => 'desc']);
         $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -111,6 +117,7 @@ class ListController extends AbstractController
     {
         $type  = '战争片';
         $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['updated_time' => 'desc']);
         $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -129,6 +136,7 @@ class ListController extends AbstractController
     {
         $type  = '剧情片';
         $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['updated_time' => 'desc']);
         $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -148,6 +156,7 @@ class ListController extends AbstractController
     {
         $type  = '纪录片';
         $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['updated_time' => 'desc']);
         $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -167,6 +176,7 @@ class ListController extends AbstractController
 
         $type  = '动画片';
         $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['updated_time' => 'desc']);
         $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -185,6 +195,7 @@ class ListController extends AbstractController
     {
         $type  = '电视剧';
         $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
+        $query->sort(['updated_time' => 'desc']);
         $query->sort(['year' => 'desc']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
