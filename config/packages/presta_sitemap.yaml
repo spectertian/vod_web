@@ -1,5 +1,6 @@
 presta_sitemap:
-  route_annotation_listener: false
-  items_by_set: 50000
-  generator: presta_sitemap.generator_default
-  dumper: presta_sitemap.dumper_default
+    route_annotation_listener: false
+    items_by_set: 50000
+    generator: presta_sitemap.generator_default
+    dumper: presta_sitemap.dumper_default
+    dump_directory: '%kernel.project_dir%/public'

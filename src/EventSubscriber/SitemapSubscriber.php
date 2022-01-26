@@ -35,7 +35,7 @@ class SitemapSubscriber implements EventSubscriberInterface
      */
     public function populate(SitemapPopulateEvent $event): void
     {
-        $this->registerDetailUrls($event->getUrlContainer());
+        $this->registerDetailUrls($event->getUrlContainer(), $event->getUrlGenerator());
     }
 
     /**
@@ -44,11 +44,21 @@ class SitemapSubscriber implements EventSubscriberInterface
      */
     public function registerDetailUrls(UrlContainerInterface $urls, UrlGeneratorInterface $router): void
     {
-        $lists = $this->listsRepository->findAll();
+        $all = [
+            'index', 'dz', 'kh', 'aq', 'xj', 'kb', 'zz', 'jq', 'jl', 'dh', 'dsj', 'message', 'news'
+        ];
+        foreach ($all as $v) {
+            $urls->addUrl(
+                new UrlConcrete($router->generate($v, [], UrlGeneratorInterface::ABSOLUTE_URL)
+                ),
+                'list'
+            );
+        }
 
+        $lists = $this->listsRepository->findAll();
         foreach ($lists as $info) {
             $urls->addUrl(
-                new UrlConcrete($router->generate('detail', ['id' => $info->id()], UrlGeneratorInterface::ABSOLUTE_URL)
+                new UrlConcrete($router->generate('detail', ['id' => $info->getId()], UrlGeneratorInterface::ABSOLUTE_URL)
                 ),
                 'detail'
             );
