@@ -16,7 +16,7 @@ class ImgController extends AbstractController
         $id   = $request->get("id");
         $info = $imageRepository->find($id);
         if (!$info) {
-            $id = "61e917cd4fcab9d94fc3ddd4";
+            $id = "61f23f8018ef6a4c4d7d5fd7";
         }
 
         $stream = $imageRepository->openDownloadStream($id);
