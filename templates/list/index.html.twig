@@ -12,8 +12,8 @@
                 <ul>
                     {% for dy in pagination %}
                         <li><a href="{{ path('detail',{id:dy.id}) }}"><img class="lazy"
-                                                                           data-original="{{ path('img',{id:dy.imgUrl}) }}"
-                                                                           src="{{ path('img',{id:dy.imgUrl}) }}"
+                                                                           data-original="http://image.hilaiya.com/img/61ea5c53e1d27c7bed1bbff9.jpg"
+                                                                           src="http://image.hilaiya.com/img/61ea5c53e1d27c7bed1bbff9.jpg"
                                                                            alt="《{{ dy.title }}》"
                                                                            style="display: block;">
                                 <span class="rate badge">{{ dy.rating }}</span></a>
