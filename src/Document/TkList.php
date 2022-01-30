@@ -7,7 +7,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
  * @MongoDB\Document(collection="tk_list")
  */
-class VodList
+class TkList
 {
     /**
      * @MongoDB\Id

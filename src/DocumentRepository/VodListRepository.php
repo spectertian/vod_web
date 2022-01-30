@@ -2,7 +2,7 @@
 
 namespace App\DocumentRepository;
 
-use App\Document\vodList;
+use App\Document\TkList;
 use Doctrine\Bundle\MongoDBBundle\ManagerRegistry;
 use Doctrine\Bundle\MongoDBBundle\Repository\ServiceDocumentRepository;
 
@@ -14,6 +14,6 @@ class VodListRepository extends ServiceDocumentRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, vodList::class);
+        parent::__construct($registry, TkList::class);
     }
 }
