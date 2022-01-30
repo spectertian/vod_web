@@ -14,12 +14,8 @@ class PlayController extends AbstractController
     #[Route('/play/{s_id}/{p_id}', name: 'play')]
     public function index(VodListRepository $vodListRepository, Request $request, RecommendList $recommendList, $s_id, $p_id): Response
     {
-
-        $res = $vodListRepository->find($s_id);
-
-//        $palay = $res
-        $play_url = "https://v10.dious.cc/20211124/XurNGHSQ/index.m3u8";
-
+        $res      = $vodListRepository->find($s_id);
+        $play_url = $res->getPlay()[1]['list'][$p_id]['url'];
         return $this->render('play/index.html.twig', [
             'res'      => $res,
             'today'    => $recommendList->getToday(),

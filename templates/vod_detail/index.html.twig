@@ -56,11 +56,7 @@
 
         <div class="article-related info"><h2>点播地址</h2>
             {% for key,vod in res.play.1.list %}
-                <li>
-                    <div class="url-left">
-                        <a href="{{ path('play',{s_id:res.id,p_id:key}) }}" title="{{ vod.title }}" target="_blank"><span>{{ vod.title }}</span></a>
-                    </div>
-                </li>
+                <a href="{{ path('play',{s_id:res.id,p_id:key}) }}" title="{{ vod.title }}" target="_self"><span>{{ vod.title }}</span></a> &nbsp;
             {% endfor %}
         </div>
         <div class="down-banner">
