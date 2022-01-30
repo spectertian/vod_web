@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\DocumentRepository\ListsRepository;
+use App\DocumentRepository\VodListRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,17 +11,19 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class VodSearchController extends AbstractController
 {
-    #[Route('/vod/search', name: 'vod_search', options: ['sitemap' => true])]
-    public function index(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator): Response
+    #[Route('/vod/search.html', name: 'vod_search', options: ['sitemap' => true])]
+    public function index(VodListRepository $vodListRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $keyword = $request->get("keyword");
-        $query   = $listsRepository->createQueryBuilder();
+        $keyword = $request->get("keyword", "");
+
+        $query = $vodListRepository->createQueryBuilder();
         if ($keyword != '') {
             $query->addOr($query->expr()->field('director')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
             $query->addOr($query->expr()->field('stars')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
             $query->addOr($query->expr()->field('tags')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
             $query->addOr($query->expr()->field('title')->equals(new \MongoDB\BSON\Regex($keyword, "i")));
         }
+
         $query->sort('year', 'DESC');
 
         $pagination = $paginator->paginate(

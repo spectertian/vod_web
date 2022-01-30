@@ -2,7 +2,7 @@
 {% block body %}
     <body data-new-gr-c-s-check-loaded="14.1044.0" data-gr-ext-installed=""><!--0-->
     <div class="container">
-        {% include 'head.html.twig' with {'keyword': keyword} %}
+        {% include 'head.vod.html.twig' with {'keyword': keyword} %}
         <div class="list_r cclear">
             <ul class="breadcrumb cclear">
                 <li><a href="{{ path("index") }}">首页</a></li>
@@ -13,19 +13,19 @@
                 <div id="list_all">
                     <ul>
                         {% for dy in pagination %}
-                            <li><a href="{{ path('detail',{id:dy.id}) }}"><img class="lazy" data-original="{{ path('img',{id:dy.imgUrl}) }}" src="{{ path('img',{id:dy.imgUrl}) }}" alt="《{{ dy.title }}》" style="display: block;"></a>
-                                <div class="text_info"><h2><a href="{{ path('detail',{id:dy.id}) }}">{{ em_replace( dy.longTitle,keyword) |raw }}</a></h2>
+                            <li><a href="{{ path('vod_detail',{id:dy.id}) }}"><img class="lazy" data-original="{{ path('img',{id:dy.imgUrl}) }}" src="{{ path('img',{id:dy.imgUrl}) }}" alt="《{{ dy.title }}》" style="display: block;"></a>
+                                <div class="text_info"><h2><a href="{{ path('vod_detail',{id:dy.id}) }}">{{ em_replace( dy.title,keyword) |raw }}</a></h2>
                                     <p>
                                         别名∶{{ em_replace(dy.alias|join(' / '),keyword) |raw }}
                                     </p>
                                     <p class="actor">主演∶
                                         {% for star in dy.stars %}
-                                            <span><a rel="nofollow" target="_blank" href="{{ path('search_keyword',{keyword:star}) }}">{{ em_replace( star,keyword) |raw }}</a></span> /
+                                            <span><a rel="nofollow" target="_blank" href="{{ path('vod_search',{keyword:star}) }}">{{ em_replace( star,keyword) |raw }}</a></span> /
                                         {% endfor %}
                                     </p>
                                     <p>导演∶
                                         {% for direc in dy.director %}
-                                            <span><a rel="nofollow" target="_blank" href="{{ path('search_keyword',{keyword:direc}) }}">{{ em_replace( direc,keyword) |raw }}</a>/</span>/
+                                            <span><a rel="nofollow" target="_blank" href="{{ path('vod_search',{keyword:direc}) }}">{{ em_replace( direc,keyword) |raw }}</a>/</span>/
                                         {% endfor %}
                                     </p>
                                     <p class="info hidden-sm hidden-xs">{{ dy.introduction[:60] ~ '...' }}…</p>

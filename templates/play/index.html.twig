@@ -1,0 +1,169 @@
+{% extends 'base_dy.html.twig' %}
+{% block title %} {{ res.longTitle }}{% endblock %}
+{% block keywords %}Mp4电影下载,迅雷电影下载,最新电影下载,热门电影下载 {{ res.type.0 }} {{ res.alias|join(' / ') }} {{ res.area }} {{ res.year }} {{ res.language }} {{ res.tags|join(' / ') }} {{ res.stars|join(' / ') }} {{ res.director|join(' / ') }}  {{ res.title }} {{ res.longTitle }}{% endblock %}
+{% block description %}Mp4电影_2020最新电影下载_高清MP4电影下载_迅雷电影下载 {{ res.introduction }} 伦理 三级 色情 免费在线 最新 豆瓣 高分 {{ res.type.0 }} {{ res.alias|join(' / ') }} {{ res.title }} {{ res.longTitle }}{% endblock %}
+{% block body %}
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<body data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
+<div class="container">
+    {% include 'head.vod.html.twig' %}
+    <div class="article content cclear">
+        <ul class="breadcrumb cclear">
+            <li><a href="{{ path("index") }}">首页</a></li>
+            {#            <li><a href="{{ nav }}">{{ res.type.0 }}</a></li> #}
+            <li class="active">点播:《{{ res.title }}》</li>
+        </ul>
+        <div class="article-header"><h1>{{ res.title }}</h1>
+            <video id="video" style="width:100%; height:100%; object-fit:fill"></video>
+
+        </div>
+        <div class="down-banner">
+            <script src="{{ asset("dy/banner2.js") }}"></script>
+        </div>
+        <div class="article-related info"><h2>剧情介绍</h2>
+            <p>{{ res.introduction }}</p>
+        </div>
+
+        <div class="article-related info"><h2>点播地址</h2>
+            {% for key,vod in res.play.0.list %}
+                {% if p_id == key %}
+                    <span>
+                        {{ vod.title }}
+                    </span>
+                {% else %}
+                    <span>
+                        <a href="{{ path('play',{s_id:res.id,p_id:key}) }}" title="{{ vod.title }}" target="_selfk">{{ vod.title }}</a>
+                    </span>
+                {% endif %}
+
+
+            {% endfor %}
+        </div>
+        <div class="down-banner">
+            <script src="{{ asset("dy/banner.js") }}"></script>
+        </div>
+    </div>
+    <div class="vod_right">
+        <div class="top">
+            <script src="{{ asset("dy/right.js") }}"></script>
+        </div>
+        <div class="list-group cclear">
+            <div class="cclear" id="heading-text">猜你喜欢</div>
+            <ul>
+                {% for re in like %}
+                    <li class="list-group-item"><a href="{{ path('detail',{id:re.infoId}) }}" title="{{ re.title }}">{{ re.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="list-group cclear">
+            <div class="cclear" id="heading-text">新片推荐</div>
+            <ul>
+                {% for re in today %}
+                    <li class="list-group-item"><a href="{{ path('detail',{id:re.infoId}) }}" title="{{ re.title }}">{{ re.title }}</a></li>
+                {% endfor %}
+
+            </ul>
+        </div>
+        <div class="list-group cclear">
+            <div class="cclear" id="heading-text">最新专题推荐</div>
+            <ul>
+                {% for hot in topic %}
+                    <li class="list-group-item"><a href="{{ path('topic_list',{id:hot.id}) }}" title="{{ hot.title }}">{{ hot.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script type="text/javaScript" src="{{ asset("dy/down.js") }}" charset="UTF-8"></script>
+    {% include 'footer.html.twig' %}
+</div>
+<script>
+    var video = document.getElementById('video');
+    var videoSrc = '{{ play_url }}';
+
+    var config = {
+        autoStartLoad: true,
+        startPosition: -1,
+        capLevelToPlayerSize: false,
+        debug: false,
+        defaultAudioCodec: undefined,
+        initialLiveManifestSize: 1,
+        maxBufferLength: 30,
+        maxMaxBufferLength: 600,
+        maxBufferSize: 60 * 1000 * 1000,
+        maxBufferHole: 0.5,
+        maxSeekHole: 2,
+        lowBufferWatchdogPeriod: 0.5,
+        highBufferWatchdogPeriod: 3,
+        nudgeOffset: 0.1,
+        nudgeMaxRetry: 3,
+        maxFragLookUpTolerance: 0.2,
+        liveSyncDurationCount: 3,
+        liveMaxLatencyDurationCount: 10,
+        enableWorker: true,
+        enableSoftwareAES: true,
+        manifestLoadingTimeOut: 10000,
+        manifestLoadingMaxRetry: 1,
+        manifestLoadingRetryDelay: 500,
+        manifestLoadingMaxRetryTimeout: 64000,
+        startLevel: undefined,
+        levelLoadingTimeOut: 10000,
+        levelLoadingMaxRetry: 4,
+        levelLoadingRetryDelay: 500,
+        levelLoadingMaxRetryTimeout: 64000,
+        fragLoadingTimeOut: 20000,
+        fragLoadingMaxRetry: 6,
+        fragLoadingRetryDelay: 500,
+        fragLoadingMaxRetryTimeout: 64000,
+        startFragPrefetch: false,
+        appendErrorMaxRetry: 3,
+        // loader: customLoader,
+        // fLoader: customFragmentLoader,
+        // pLoader: customPlaylistLoader,
+        // xhrSetup: XMLHttpRequestSetupCallback,
+        // fetchSetup: FetchSetupCallback,
+        // abrController: customAbrController,
+        // timelineController: TimelineController,
+        enableCEA708Captions: true,
+        stretchShortVideoTrack: false,
+        forceKeyFrameOnDiscontinuity: true,
+        abrEwmaFastLive: 5.0,
+        abrEwmaSlowLive: 9.0,
+        abrEwmaFastVoD: 4.0,
+        abrEwmaSlowVoD: 15.0,
+        abrEwmaDefaultEstimate: 500000,
+        abrBandWidthFactor: 0.8,
+        abrBandWidthUpFactor: 0.7,
+        minAutoBitrate: 0
+    };
+
+
+    if (Hls.isSupported()) {
+        var hls = new Hls(config);
+        hls.loadSource(videoSrc);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            video.play();
+        });
+    }
+        // hls.js is not supported on platforms that do not have Media Source
+        // Extensions (MSE) enabled.
+        //
+        // When the browser has built-in HLS support (check using `canPlayType`),
+        // we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video
+        // element through the `src` property. This is using the built-in support
+        // of the plain video element, without using hls.js.
+        //
+        // Note: it would be more normal to wait on the 'canplay' event below however
+        // on Safari (where you are most likely to find built-in HLS support) the
+        // video.src URL must be on the user-driven white-list before a 'canplay'
+        // event will be emitted; the last video event that can be reliably
+    // listened-for when the URL is not on the white-list is 'loadedmetadata'.
+    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = videoSrc;
+        video.addEventListener('loadedmetadata', function () {
+            video.play();
+        });
+    }
+</script>
+{% endblock %}
+

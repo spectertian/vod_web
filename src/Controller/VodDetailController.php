@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\DocumentRepository\ListsRepository;
+use App\DocumentRepository\VodListRepository;
 use App\Service\RecommendList;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,10 +12,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class VodDetailController extends AbstractController
 {
     #[Route('/vod/detail/{id}.html', name: 'vod_detail', methods: ['GET'])]
-    public function index(ListsRepository $listsRepository, Request $request, RecommendList $recommendList): Response
+    public function index(VodListRepository $vodListRepository, Request $request, RecommendList $recommendList): Response
     {
         $id   = $request->get('id');
-        $res  = $listsRepository->find($id);
+        $res  = $vodListRepository->find($id);
+
+//        dump($res);
         $type = $res->getType()[0];
 
         $rute = [
@@ -35,7 +37,7 @@ class VodDetailController extends AbstractController
             'today' => $recommendList->getToday(),
             'topic' => $recommendList->getTopic(),
             'like'  => $recommendList->getList(),
-            'nav'   => $this->generateUrl($rute[$type]),
+//            'nav'   => $this->generateUrl($rute[$type]),
         ]);
     }
 }

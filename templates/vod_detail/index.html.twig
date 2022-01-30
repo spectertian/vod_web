@@ -1,20 +1,103 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello VodDetailController!{% endblock %}
-
+{% extends 'base_dy.html.twig' %}
+{% block title %} {{ res.longTitle }}{% endblock %}
+{% block keywords %}Mp4电影下载,迅雷电影下载,最新电影下载,热门电影下载 {{ res.type.0 }} {{ res.alias|join(' / ') }} {{ res.area }} {{ res.year }} {{ res.language }} {{ res.tags|join(' / ') }} {{ res.stars|join(' / ') }} {{ res.director|join(' / ') }}  {{ res.title }} {{ res.longTitle }}{% endblock %}
+{% block description %}Mp4电影_2020最新电影下载_高清MP4电影下载_迅雷电影下载 {{ res.introduction }} 伦理 三级 色情 免费在线 最新 豆瓣 高分 {{ res.type.0 }} {{ res.alias|join(' / ') }} {{ res.title }} {{ res.longTitle }}{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<body data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
+<div class="container">
+    {% include 'head.vod.html.twig' %}
+    <div class="article content cclear">
+        <ul class="breadcrumb cclear">
+            <li><a href="{{ path("index") }}">首页</a></li>
+            {#            <li><a href="{{ nav }}">{{ res.type.0 }}</a></li> #}
+            <li class="active">点播详情</li>
+        </ul>
+        <div class="article-header"><h1>{{ res.longTitle }}</h1>
+            <hr>
+            <div class="post-meta"> 类型：<span>{{ res.tags.0 }}</span><em>|</em> 发布时间：<span
+                        class="pubtime">{{ res.productionDate }}</span><em>|</em>评分：<span class="rating_num"
+                                                                                          subject="{{ res.doubanId }}"><a
+                            target="_blank" rel="nofollow" href="{{ res.doubanUrl }}"
+                            data-toggle="tooltip" data-placement="top"
+                            data-original-title="到豆瓣网查看详情">{{ res.rating }}</a></span><em>|</em></div>
+            <div class="pic"><img src="{{ path('img',{id:res.imgUrl}) }}" alt="{{ res.title }}海报"></div>
+            <div class="text"><p><em>名称：</em><span>{{ res.title }}</span></p>
+                <p><em>别名：</em><span>{{ res.alias|join(' / ') }}</span></p>
+                <p class="actor"><em>主演：</em>
+                    <span class="attrs">
+                        {% for star in res.stars %}
+                            <span><a rel="nofollow" target="_blank" href="{{ path('vod_search',{keyword:star}) }}">{{ star }}</a> / </span>
+                        {% endfor %}
+                       </span>
+                </p>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                <p class="director"><em>导演：</em><span class="attrs">
+                         {% for direc in res.director %}
+                             <span><a rel="nofollow" target="_blank" href="{{ path('vod_search',{keyword:direc}) }}">{{ direc }}</a>/</span>
+                         {% endfor %}
+                    </span></p>
+                <p><em>地区：</em><span>{{ res.area }}</span></p>
+                <p><em>年份：</em><span>{{ res.year }}</span></p>
+                <p><em>语言：</em><span>{{ res.language }}</span></p>
+                <p><em>时长：</em><span>{{ res.runTime }}</span></p>
+                <p><em>更新：</em><span class="update_time">{{ res.updatedDate }}</span></p>
+                <p class="tag"><em>标签：</em>
+                    {% for tag in res.tags %}
+                        <a href="{{ path('vod_search',{keyword:tag}) }}">{{ tag }}</a>&nbsp;
+                    {% endfor %}
+                </p></div>
+        </div>
+        <div class="down-banner">
+            <script src="{{ asset("dy/banner2.js") }}"></script>
+        </div>
+        <div class="article-related info"><h2>剧情介绍</h2>
+            <p>{{ res.introduction }}</p>
+        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/zhongsheng/codes/hilaiya.com/src/Controller/VodDetailController.php'|file_link(0) }}">src/Controller/VodDetailController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/zhongsheng/codes/hilaiya.com/templates/vod_detail/index.html.twig'|file_link(0) }}">templates/vod_detail/index.html.twig</a></code></li>
-    </ul>
+        <div class="article-related info"><h2>点播地址</h2>
+            {% for key,vod in res.play.1.list %}
+                <li>
+                    <div class="url-left">
+                        <a href="{{ path('play',{s_id:res.id,p_id:key}) }}" title="{{ vod.title }}" target="_blank"><span>{{ vod.title }}</span></a>
+                    </div>
+                </li>
+            {% endfor %}
+        </div>
+        <div class="down-banner">
+            <script src="{{ asset("dy/banner.js") }}"></script>
+        </div>
+    </div>
+    <div class="vod_right">
+        <div class="top">
+            <script src="{{ asset("dy/right.js") }}"></script>
+        </div>
+        <div class="list-group cclear">
+            <div class="cclear" id="heading-text">猜你喜欢</div>
+            <ul>
+                {% for re in like %}
+                    <li class="list-group-item"><a href="{{ path('detail',{id:re.infoId}) }}" title="{{ re.title }}">{{ re.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="list-group cclear">
+            <div class="cclear" id="heading-text">新片推荐</div>
+            <ul>
+                {% for re in today %}
+                    <li class="list-group-item"><a href="{{ path('detail',{id:re.infoId}) }}" title="{{ re.title }}">{{ re.title }}</a></li>
+                {% endfor %}
+
+            </ul>
+        </div>
+        <div class="list-group cclear">
+            <div class="cclear" id="heading-text">最新专题推荐</div>
+            <ul>
+                {% for hot in topic %}
+                    <li class="list-group-item"><a href="{{ path('topic_list',{id:hot.id}) }}" title="{{ hot.title }}">{{ hot.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script type="text/javaScript" src="{{ asset("dy/down.js") }}" charset="UTF-8"></script>
+    {% include 'footer.html.twig' %}
 </div>
 {% endblock %}
