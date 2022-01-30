@@ -24,7 +24,7 @@ class VodSearchController extends AbstractController
             $query->addOr($query->expr()->field('title')->equals(new \MongoDB\BSON\Regex($keyword, "i")));
         }
 
-        $query->sort('year', 'DESC');
+        $query->sort('page_date', 'DESC');
 
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
