@@ -19,7 +19,7 @@ class DetailController extends AbstractController
         $res  = $listsRepository->find($id);
         $type = $res->getType()[0];
 
-        $rute = [
+        $rute     = [
             "动作片" => 'dz',
             "科幻片" => 'kh',
             "爱情片" => 'aq',
@@ -31,8 +31,8 @@ class DetailController extends AbstractController
             "动画片" => 'dh',
             "电视剧" => 'dsj',
         ];
-//        $vod_list = $vodService->getListByDoubanId($res->getDoubanId());
-        $vod_list = $vodService->getListByDoubanId('35006328');
+        $vod_list = $vodService->getListByDoubanId($res->getDoubanId());
+//        $vod_list = $vodService->getListByDoubanId('35006328');
 //        dump($vod_list);exit;
         return $this->render('detail/index.html.twig', [
             'res'      => $res,
