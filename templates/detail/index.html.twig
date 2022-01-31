@@ -53,6 +53,17 @@
         <div class="article-related info"><h2>剧情介绍</h2>
             <p>{{ res.introduction }}</p>
         </div>
+
+        <div id="download1" class="article-related download_url"><h2>点播地址：</h2>
+            {% if vod_list|length >0 %}
+                {% for key,vod in vod_list.play.1.list %}
+                    <a href="{{ path('play',{s_id:vod_list.id,p_id:key}) }}" title="{{ vod.title }}" target="_self"><span>{{ vod.title }}</span></a> &nbsp;
+                {% endfor %}
+            {% else %}
+                <span>&nbsp;&nbsp;<font color="red">暂无</font></span>
+            {% endif %}
+        </div>
+
         <div id="download1" class="article-related download_url"><h2>下载地址一</h2>
             <ul class="panel down-list thunder1">
 
