@@ -13,7 +13,9 @@
                 <div id="list_all">
                     <ul>
                         {% for dy in pagination %}
-                            <li><a href="{{ path('vod_detail',{id:dy.id}) }}"><img class="lazy" data-original="{{ path('img',{id:dy.imgUrl}) }}" src="{{ path('img',{id:dy.imgUrl}) }}" alt="《{{ dy.title }}》" style="display: block;"></a>
+                            <li><a href="{{ path('vod_detail',{id:dy.id}) }}"><img class="lazy" data-original="{{ path('img',{id:dy.imgUrl}) }}" src="{{ path('img',{id:dy.imgUrl}) }}" alt="《{{ dy.title }}》" style="display: block;">
+                                    <span class="rate badge">{{ dy.rating }}</span>
+                                </a>
                                 <div class="text_info"><h2><a href="{{ path('vod_detail',{id:dy.id}) }}">{{ em_replace( dy.title,keyword) |raw }}</a></h2>
                                     <p>
                                         别名∶{{ em_replace(dy.alias|join(' / '),keyword) |raw }}
