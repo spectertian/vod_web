@@ -21,6 +21,7 @@ class VodSearchController extends AbstractController
             $query->addOr($query->expr()->field('director')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
             $query->addOr($query->expr()->field('stars')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
             $query->addOr($query->expr()->field('tags')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
+            $query->addOr($query->expr()->field('class')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
             $query->addOr($query->expr()->field('title')->equals(new \MongoDB\BSON\Regex($keyword, "i")));
         }
 
