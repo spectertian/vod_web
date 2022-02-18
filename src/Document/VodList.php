@@ -59,9 +59,14 @@ class VodList
      */
     protected $stars;
     /**
-     * @MongoDB\Field(type="string",name="vod_content")
+     * @MongoDB\Field(type="string",name="vod_blurb")
      */
     protected $introduction;
+
+    /**
+     * @MongoDB\Field(type="string",name="vod_content")
+     */
+    protected $blurb;
 
     /**
      * @MongoDB\Field(type="string",name="vod_time")
@@ -198,10 +203,7 @@ class VodList
         return $this->area;
     }
 
-    public function getPageDate(): ?string
-    {
-        return $this->pageDate;
-    }
+
 
     public function getProductionDate(): ?string
     {
@@ -217,7 +219,7 @@ class VodList
 
     public function getDoubanUrl(): ?string
     {
-        return $this->doubanUrl;
+        return $this->doubanId;
     }
 
     public function getAlias(): ?array
@@ -268,6 +270,13 @@ class VodList
     public function getUpdatedDate(): ?string
     {
         return $this->updatedDate;
+    }
+
+
+
+    public function getBlurb(): ?string
+    {
+        return $this->blurb;
     }
 
 }
