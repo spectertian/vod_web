@@ -34,7 +34,7 @@ class IndexController extends AbstractController
         $bzdsj          = $indexListRepository->findBy(['type' => '本周电视剧下载排行'], ["production_date" => "desc"], 10);
         $bydy           = $indexListRepository->findBy(['type' => '本月电影下载排行'], ["production_date" => "desc"], 10);
         $bydjs          = $indexListRepository->findBy(['type' => '本月电视剧下载排行'], ["production_date" => "desc"], 10);
-        return $this->render('index_dy/index.html.twig', [
+        return $this->render('index/index.html.twig', [
             'hotList'        => $hotList,
             'todayRecommend' => $todayRecommend,
             'newMovie'       => $newMovie,

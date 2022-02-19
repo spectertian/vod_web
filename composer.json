@@ -92,6 +92,7 @@
         }
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.36"
+        "symfony/maker-bundle": "^1.36",
+        "symfony/web-profiler-bundle": "5.4.*"
     }
 }
