@@ -2369,7 +2369,7 @@ a, a:hover, a:active, a:visited, a:link, a:focus {
     padding-top: 24px;
     padding-bottom: 24px;
     background-color: hsla(0, 0%, 100%, .02);
-    background-image: url(../images/footer-logo-dark.png);
+    background-image: url(./footer-logo-dark.png);
     background-position: 50%;
     background-repeat: no-repeat
 }
@@ -2750,14 +2750,14 @@ a, a:hover, a:active, a:visited, a:link, a:focus {
     border-radius: 50px;
     overflow: hidden;
     position: relative;
-    background: url(../images/score-bg.gif) 0 0 no-repeat
+    background: url(./score-bg.gif) 0 0 no-repeat
 }
 
 .score .rating-bar-item {
     height: 10px;
     overflow: hidden;
     border: 1px solid #75b442;
-    background: url(../images/score-bg.gif) 0 -20px no-repeat
+    background: url(./score-bg.gif) 0 -20px no-repeat
 }
 
 .score #detail-rating {
@@ -2789,11 +2789,11 @@ a, a:hover, a:active, a:visited, a:link, a:focus {
     width: 24px;
     height: 24px;
     text-indent: -99px;
-    background: url(../images/rating.png) 0 0 no-repeat
+    background: url(./rating.png) 0 0 no-repeat
 }
 
 .score #rating .rating li.active, .score #rating .rating li.hover {
-    background: url(../images/rating.png) 0 -24px no-repeat
+    background: url(./rating.png) 0 -24px no-repeat
 }
 
 .style-detail .score {

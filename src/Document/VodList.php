@@ -139,6 +139,44 @@ class VodList
      */
     protected $play;
 
+    /**
+     * @MongoDB\Field(type="string",name="vod_remarks")
+     */
+    protected $vodRemarks;
+
+    /**
+     * @MongoDB\Field(type="int",name="type_id")
+     */
+    protected $typeId;
+    /**
+     * @MongoDB\Field(type="int",name="type_id_1")
+     */
+    protected $typeId1;
+
+    /**
+     * @MongoDB\Field(type="int",name="vod_total")
+     */
+    protected $vodTotal;
+
+    public function getVodTotal(): int
+    {
+        return $this->vodTotal;
+    }
+
+    public function getTypeId1(): int
+    {
+        return $this->typeId1;
+    }
+
+    public function getTypeId(): int
+    {
+        return $this->typeId;
+    }
+
+    public function getVodRemarks(): string
+    {
+        return $this->vodRemarks;
+    }
 
     public function getPlay(): ?array
     {
@@ -202,7 +240,6 @@ class VodList
     {
         return $this->area;
     }
-
 
 
     public function getProductionDate(): ?string
@@ -271,8 +308,6 @@ class VodList
     {
         return $this->updatedDate;
     }
-
-
 
     public function getBlurb(): ?string
     {

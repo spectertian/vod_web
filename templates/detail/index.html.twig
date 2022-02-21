@@ -4,30 +4,30 @@
         <div class="ec-pianku"></div>
         <div class="returl cf wwp">
             <div class="l wow fadeInLeft">
-                <div class="s-cover box"><a href="javascript:;" title="冰雪之名海报图片" class="g-playicon s-cover-img"><img src="/upload/vod/20220205-1/83566511002229db737542ad5351f15a.jpg"></a></div>
+                <div class="s-cover box"><a href="javascript:;" title="{{ info.title }}海报图片" class="g-playicon s-cover-img"><img src="{{ path('img',{id:info.imgUrl}) }}"></a></div>
             </div>
             <div class="s-top-right">
-                <div class="s-top-info-title cf wow fadeInDownBig"><h1 title="冰雪之名详细剧情" class="fyy">冰雪之名</h1></div>
+                <div class="s-top-info-title cf wow fadeInDownBig"><h1 title="{{ info.title }}详细剧情" class="fyy">{{ info.title }}</h1></div>
                 <div class="s-top-info-detail cf fyy wow lightSpeedIn">
-                    <p class="item-desc js-open-wrap">状态：更新至27集</p>
-                    <p class="item-desc js-open-wrap hidden">演员：<a href="/index.php/vod/search/actor/%E9%99%88%E8%8B%A5%E8%BD%A9.html" target="_blank">陈若轩</a>&nbsp;<a href="/index.php/vod/search/actor/%E5%BD%AD%E5%B0%8F%E8%8B%92.html" target="_blank">彭小苒</a>&nbsp;<a href="/index.php/vod/search/actor/%E6%AC%A7%E8%B1%AA.html" target="_blank">欧豪</a>&nbsp;<a href="/index.php/vod/search/actor/%E6%A2%81%E6%B4%81.html" target="_blank">梁洁</a>&nbsp;<a
-                                href="/index.php/vod/search/actor/%E8%92%8B%E6%AC%A3.html" target="_blank">蒋欣</a>&nbsp;<a href="/index.php/vod/search/actor/%E4%BC%8A%E4%B8%BD%E5%AA%9B.html" target="_blank">伊丽媛</a>&nbsp;<a href="/index.php/vod/search/actor/%E5%BC%A0%E5%B3%BB%E9%B8%A3.html" target="_blank">张峻鸣</a>&nbsp;<a href="/index.php/vod/search/actor/%E5%88%98%E5%A4%A9%E4%BD%90.html" target="_blank">刘天佐</a>&nbsp;<a href="/index.php/vod/search/actor/%E6%AF%9B%E4%BF%8A%E6%9D%B0.html"
-                                                                                                                                                                                                                                                                                                                                                                                                                                      target="_blank">毛俊杰</a>&nbsp;<a
-                                href="/index.php/vod/search/actor/%E9%82%B5%E5%85%B5.html" target="_blank">邵兵</a>&nbsp;<a href="/index.php/vod/search/actor/%E7%8E%8B%E7%A7%80%E7%AB%B9.html" target="_blank">王秀竹</a>&nbsp;<a href="/index.php/vod/search/actor/%E9%BB%91%E6%B3%BD.html" target="_blank">黑泽</a>&nbsp;<a href="/index.php/vod/search/actor/%E6%9D%8E%E5%81%A5.html" target="_blank">李健</a>&nbsp;<a href="/index.php/vod/search/actor/%E6%A2%81%E7%88%B1%E7%90%AA.html"
-                                                                                                                                                                                                                                                                                                                                                                                                                  target="_blank">梁爱琪</a>&nbsp;<a href="/index.php/vod/search/actor/%E6%9E%97%E9%B9%8F.html"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                  target="_blank">林鹏</a>&nbsp;<a
-                                href="/index.php/vod/search/actor/%E6%B4%9B%E8%91%B3.html" target="_blank">洛葳</a>&nbsp;<a href="/index.php/vod/search/actor/%E5%88%98%E6%98%BE%E8%BE%BE.html" target="_blank">刘显达</a>&nbsp;<a href="/index.php/vod/search/actor/%E5%88%98%E5%90%91%E4%BA%AC.html" target="_blank">刘向京</a>&nbsp;<a href="/index.php/vod/search/actor/%E5%A8%81%E5%8A%9B%E6%96%AF.html" target="_blank">威力斯</a>&nbsp;<a href="/index.php/vod/search/actor/%E9%83%AD%E5%AE%B6%E9%93%AD.html"
-                                                                                                                                                                                                                                                                                                                                                                                                                                      target="_blank">郭家铭</a>&nbsp;<a
-                                href="/index.php/vod/search/actor/%E8%94%A1%E5%AD%90%E4%BC%A6.html" target="_blank">蔡子伦</a>&nbsp;<a href="/index.php/vod/search/actor/%E4%B8%87%E7%B1%BD%E9%BA%9F.html" target="_blank">万籽麟</a>&nbsp;<a href="/index.php/vod/search/actor/%E4%BB%BB%E6%80%A1%E7%91%84.html" target="_blank">任怡瑄</a>&nbsp;</p>
-                    <p class="item-desc js-open-wrap hidden">导演：<a href="/index.php/vod/search/director/%E5%90%95%E8%A1%8C.html" target="_blank">吕行</a>&nbsp;<a href="/index.php/vod/search/director/%E7%99%BD%E6%B6%9B.html" target="_blank">白涛</a>&nbsp;</p>
-                    <p class="item"><span>地区：</span> <a href="/index.php/vod/search/area/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86.html" target="_blank">中国大陆</a>&nbsp;</p>
-                    <p class="item item-actor"><span>年代：</span> <a href="/index.php/vod/search/year/2022.html" target="_blank">2022</a>&nbsp; </p>
-                    <p class="item item-actor"><span>语言：</span> 汉语普通话</p>
+                    <p class="item-desc js-open-wrap">{{ info.vodRemarks }}</p>
+                    <p class="item-desc js-open-wrap hidden">演员：
+                        {% for star in info.stars %}
+                            <a href="/index.php/vod/search/actor/%E9%99%88%E8%8B%A5%E8%BD%A9.html" target="_blank">{{ star }}</a>&nbsp;
+                        {% endfor %}
+                    </p>
+                    <p class="item-desc js-open-wrap hidden">导演：
+                        {% for direct in info.director %}
+                            <a href="/index.php/vod/search/director/%E5%90%95%E8%A1%8C.html" target="_blank">{{ direct }}</a>&nbsp;
+                        {% endfor %}
+                    </p>
+                    <p class="item"><span>地区：</span> <a href="/index.php/vod/search/area/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86.html" target="_blank">{{ info.area }}</a>&nbsp;</p>
+                    <p class="item item-actor"><span>年代：</span> <a href="/index.php/vod/search/year/2022.html" target="_blank">{{ info.year }}</a>&nbsp; </p>
+                    <p class="item item-actor"><span>语言：</span> {{ info.language }}</p>
                     <p style="clear:both"></p>
-                    <p class="item item-director"><span>类型：</span><a href="/index.php/vod/search/class/%E5%9B%BD%E4%BA%A7.html" target="_blank">国产</a>&nbsp; </p>
+                    <p class="item item-director"><span>类型：</span><a href="/index.php/vod/search/class/%E5%9B%BD%E4%BA%A7.html" target="_blank">{{ info.type }}</a>&nbsp; </p>
                     <p class="item item-actor">上映：<a href="/index.php/vod/search/year/2022.html" target="_blank">2022</a>&nbsp;</p>
                     <p class="item item-type">片源：正片</p>
-                    <p class="item-desc js-open-wrap hidden"><span class="desc">简介：</span><span id="cText">1980年，乡村教师严义国儿子严振华和学生唐剑被选拔到哈尔滨的重点体校，从小在雪原中长大的两人带着希望一路拼搏，<a class="cor1" href="#desc">&nbsp;详细&nbsp;&gt;</a></span></p>
+                    <p class="item-desc js-open-wrap hidden"><span class="desc">简介：</span><span id="cText">{{ info.introduction }}</span></p>
                 </div>
                 <div class="content_detail cf">
                     <div class="playbtn">
@@ -57,30 +57,31 @@
             </div>
             <div class="score wow fadeInUp r">
                 <div class="rating-box cf" id="rating-main" style="display: block;">
-                    <div class="rating-total fn-clear l">6.0</div>
+                    <div class="rating-total fn-clear l">{{ info.rating }}</div>
                     <div class="rating-panle l cor4">
                         <div>影片评分</div>
                         <div class="rating-bar">
-                            <div class="rating-bar-item" id="fenshu" style="width: 60%;">&nbsp;</div>
+                            <div class="rating-bar-item" id="fenshu" style="width: {{ info.rating*10 }}%;">&nbsp;</div>
                         </div>
                     </div>
                 </div>
                 <div id="detail-rating" class="fn-clear cf cor4">
-                    <div id="rating" class="fn-left" data-mid="1" data-id="300722" data-score="3">
+                    <div id="rating" class="fn-left" data-mid="1" data-id="300722" data-score="{{ info.rating }}">
+                        {% set ss = "" %}
                         <ul class="rating" id="fenshu">
-                            <li class="one  current active" title="很差" val="1">很差</li>
-                            <li class="two  current active" title="较差" val="2">较差</li>
-                            <li class="three  current active" title="还行" val="3">还行</li>
-                            <li class="four " title="推荐" val="4">推荐</li>
-                            <li class="five " title="力荐" val="5">力荐</li>
+                            <li class="one  {% if info.rating <=2 %}{% set ss="很差" %} current active{% endif %}" title="很差" val="1">很差</li>
+                            <li class="two  {% if info.rating >3 %}{% set ss="较差" %} current active{% endif %}" title="较差" val="2">较差</li>
+                            <li class="three {% if info.rating >6 %}{% set ss="还行" %} current active{% endif %}" title="还行" val="3">还行</li>
+                            <li class="four {% if info.rating >=7 %}{% set ss="推荐" %} current active{% endif %}" title="推荐" val="4">推荐</li>
+                            <li class="five {% if info.rating >=8 %}{% set ss="力荐" %} current active{% endif %}" title="力荐" val="5">力荐</li>
                         </ul>
-                        <span id="ratewords">还行</span>
+                        <span id="ratewords">{{ ss }}</span>
                     </div>
-                    <script type="text/javascript" src="/template/Ds-pc/js/qireobj.js"></script>
-                    <script type="text/javascript" src="/template/Ds-pc/js/gold.js"></script>
+                    <script type="text/javascript" src="{{ asset("cy/qireobj.js") }}"></script>
+                    <script type="text/javascript" src="{{ asset("cyy/gold.js") }}"></script>
                 </div>
-                <div class="weixin"><img width="140" height="140" src="/upload/site/20211019-1/5f37a34dc0cf1ce059cc50dd549474e8.png">
-                    <div><p>扫描一扫关注公众号</p></div>
+                <div class="weixin"><img width="140" height="140" src="{{ path('img',{id:info.imgUrl}) }}">
+                    <div><p>{{ info.title }}</p></div>
                 </div>
             </div>
         </div>
@@ -89,96 +90,24 @@
     <div class="palyconnt cf top20 wwp">
         <div class="l playlist ecleft">
             <div class="play-detail">
-                <h1 class="title"><span class="name" title="冰雪之名">冰雪之名详情简介</span><span class="remarks">状态：更新至27集</span></h1>
+                <h1 class="title"><span class="name" title="{{ info.title }}">{{ info.title }}详情简介</span><span class="remarks">状态：{{ info.vodRemarks }}</span></h1>
             </div>
             <div class="desc_txt cf ec-palytcji cor3">
-                <span>1980年，乡村教师严义国儿子严振华和学生唐剑被选拔到哈尔滨的重点体校，从小在雪原中长大的两人带着希望一路拼搏，唐剑因为一次意外折戟速滑战场。严振华跟城中姑娘李冰河成为双人滑搭档并相恋，但经历了种种波折，两人遗憾分手，严振华转向短道速滑继续奋斗，三人最终分道扬镳。2019年，中国正在为2022年冬奥会做充足准备。严振华儿子严阳从地方俱乐部入选短道速滑国家奥运训练营，结识了唐寒、金莹等优秀队员，也遇到了冠军教练陈谨、队医李念雪等。他从女队员的陪练一路奋进到正式队员，对体育精神、奥运精神的理解逐渐深刻，找寻到父辈故事的他更加坚定自己奋斗的道路，也收获了爱情和友情。上一代的冬奥征程充满着拓荒的遗憾和无尽的惋惜，而新时代的冰雪人接过接力棒，奋斗不止。</span>
+                <span>{{ info.introduction }}</span>
                 <a href="javascript:;" class="show_btn" id="desc_txt"><i class="fa mr2">&#xe62e;</i>展开全部</a>
             </div>
-            <div class="swiper-container3 top20">
-                <div class="cf swiper-wrapper">
-<span class="swiper-slide actorlist_item" style="display: inline-block;">
-<div class="actorlist_box ecdy back t-u">
-<a class="vodlist_thumb" href="/index.php/actor/detail/id/22612.html" title="李健"><img src="/upload/actor/20210821-14/4d3047ed6d0551a8d33908ab3de7d7bd.jpg" class="role-img"></a>
-<div class="actorlist_tit anthology-wrap">
-<a class="albumtitle cor2" href="/index.php/actor/detail/id/22612.html" title="李健">李健</a>
-</div>
-</div>
-</span>
-                    <span class="swiper-slide actorlist_item" style="display: inline-block;">
-<div class="actorlist_box ecdy back t-u">
-<a class="vodlist_thumb" href="/index.php/actor/detail/id/22061.html" title="刘天佐"><img src="/upload/actor/20210821-13/ae18020affb569ecbede214582f3ae40.jpg" class="role-img"></a>
-<div class="actorlist_tit anthology-wrap">
-<a class="albumtitle cor2" href="/index.php/actor/detail/id/22061.html" title="刘天佐">刘天佐</a>
-</div>
-</div>
-</span>
-                    <span class="swiper-slide actorlist_item" style="display: inline-block;">
-<div class="actorlist_box ecdy back t-u">
-<a class="vodlist_thumb" href="/index.php/actor/detail/id/22002.html" title="邵兵"><img src="/upload/actor/20210821-13/5645c5b96b2de0fa3f768e074e856c71.jpg" class="role-img"></a>
-<div class="actorlist_tit anthology-wrap">
-<a class="albumtitle cor2" href="/index.php/actor/detail/id/22002.html" title="邵兵">邵兵</a>
-</div>
-</div>
-</span>
-                    <span class="swiper-slide actorlist_item" style="display: inline-block;">
-<div class="actorlist_box ecdy back t-u">
-<a class="vodlist_thumb" href="/index.php/actor/detail/id/21496.html" title="刘向京"><img src="/upload/actor/20210821-13/2c33877710d69e99b353f38d618c8060.jpg" class="role-img"></a>
-<div class="actorlist_tit anthology-wrap">
-<a class="albumtitle cor2" href="/index.php/actor/detail/id/21496.html" title="刘向京">刘向京</a>
-</div>
-</div>
-</span>
-                    <span class="swiper-slide actorlist_item" style="display: inline-block;">
-<div class="actorlist_box ecdy back t-u">
-<a class="vodlist_thumb" href="/index.php/actor/detail/id/21303.html" title="郭家铭"><img src="/upload/actor/20210821-13/0dcb979a1c6379153399ebe810ee19b2.jpg" class="role-img"></a>
-<div class="actorlist_tit anthology-wrap">
-<a class="albumtitle cor2" href="/index.php/actor/detail/id/21303.html" title="郭家铭">郭家铭</a>
-</div>
-</div>
-</span>
-                    <span class="swiper-slide actorlist_item" style="display: inline-block;">
-<div class="actorlist_box ecdy back t-u">
-<a class="vodlist_thumb" href="/index.php/actor/detail/id/20118.html" title="蒋欣"><img src="/upload/actor/20210821-11/8d4625b30178c70ddad065b9305a3cc4.jpg" class="role-img"></a>
-<div class="actorlist_tit anthology-wrap">
-<a class="albumtitle cor2" href="/index.php/actor/detail/id/20118.html" title="蒋欣">蒋欣</a>
-</div>
-</div>
-</span>
-                    <span class="swiper-slide actorlist_item" style="display: inline-block;">
-<div class="actorlist_box ecdy back t-u">
-<a class="vodlist_thumb" href="/index.php/actor/detail/id/19871.html" title="毛俊杰"><img src="/upload/actor/20210821-11/fbedb6083f0486e5fd69f280175d8473.jpg" class="role-img"></a>
-<div class="actorlist_tit anthology-wrap">
-<a class="albumtitle cor2" href="/index.php/actor/detail/id/19871.html" title="毛俊杰">毛俊杰</a>
-</div>
-</div>
-</span>
-                    <span class="swiper-slide actorlist_item" style="display: inline-block;">
-<div class="actorlist_box ecdy back t-u">
-<a class="vodlist_thumb" href="/index.php/actor/detail/id/19558.html" title="林鹏"><img src="/upload/actor/20210821-11/e3a6f9ef662c91c71833654001fbeaea.jpg" class="role-img"></a>
-<div class="actorlist_tit anthology-wrap">
-<a class="albumtitle cor2" href="/index.php/actor/detail/id/19558.html" title="林鹏">林鹏</a>
-</div>
-</div>
-</span>
-                    <span class="swiper-slide actorlist_item" style="display: inline-block;">
-<div class="actorlist_box ecdy back t-u">
-<a class="vodlist_thumb" href="/index.php/actor/detail/id/19428.html" title="梁爱琪"><img src="/upload/actor/20210821-11/9d87fc7417001be282b989ba02dac6a2.jpg" class="role-img"></a>
-<div class="actorlist_tit anthology-wrap">
-<a class="albumtitle cor2" href="/index.php/actor/detail/id/19428.html" title="梁爱琪">梁爱琪</a>
-</div>
-</div>
-</span>
-                    <span class="swiper-slide actorlist_item" style="display: inline-block;">
-<div class="actorlist_box ecdy back t-u">
-<a class="vodlist_thumb" href="/index.php/actor/detail/id/19037.html" title="洛葳"><img src="/upload/actor/20210821-10/d93b17654fd9c8bd7455406b2dd449aa.jpg" class="role-img"></a>
-<div class="actorlist_tit anthology-wrap">
-<a class="albumtitle cor2" href="/index.php/actor/detail/id/19037.html" title="洛葳">洛葳</a>
-</div>
-</div>
-</span>
-                </div>
-            </div>
+            {#            <div class="swiper-container3 top20"> #}
+            {#                <div class="cf swiper-wrapper"> #}
+            {#                    {% for star in info.stars %} #}
+            {#                        <span class="swiper-slide actorlist_item" style="display: inline-block;"> #}
+            {#                            <div class="actorlist_box ecdy back t-u"> #}
+            {#                                <a class="vodlist_thumb" href="/index.php/actor/detail/id/22612.html" title="{{ star }}"><img src="#" class="role-img"></a> #}
+            {#                                <div class="actorlist_tit anthology-wrap"><a class="albumtitle cor2" href="/index.php/actor/detail/id/22612.html" title="{{ star }}">{{ star }}</a></div> #}
+            {#                            </div> #}
+            {#                        </span> #}
+            {#                    {% endfor %} #}
+            {#                </div> #}
+            {#            </div> #}
             <div></div>
             <div class="pannel cf wow fadeInUp top20">
                 <div class="title-a cf">
@@ -188,8 +117,11 @@
                 <div class="play_source">
                     <div class="play_source_tab b-t swiper-container1" id="tag">
                         <div class="cf swiper-wrapper">
-                            <a class="channelname swiper-slide active"><i class="fa">&#xe8b4;</i>&nbsp;无广高清(27)</a>
-                            <a class="channelname swiper-slide "><i class="fa">&#xe8b4;</i>&nbsp;高清2(27)</a>
+                            <a class="channelname swiper-slide active "><i class="fa">&#xe8b4;</i>&nbsp;高清({% if info.vodTotal >0 %}{{ info.vodTotal }} {% else %}1{% endif %})</a>
+
+
+                            {# <a class="channelname swiper-slide active"><i class="fa">&#xe8b4;</i>&nbsp;无广高清(27)</a> #}
+                            {# <a class="channelname swiper-slide "><i class="fa">&#xe8b4;</i>&nbsp;高清2(27)</a> #}
                         </div>
                     </div>
                     <div id="tagContent">
@@ -197,412 +129,81 @@
                             <div class="player_infotip cor3"><i class="fa mr2">&#xe8d1;</i>当前资源由无广高清提供--看视频 - 上冲TM TV，无VIP会员</div>
                             <div class="playlist_notfull">
                                 <ul class="content_playlist cf">
-                                    <li><a class="t-u" href="{{ path('play',{s_id:"620ef4f4e803bb4d425b2c65",p_id:"0"}) }}">1</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/2.html">2</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/3.html">3</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/4.html">4</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/5.html">5</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/6.html">6</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/7.html">7</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/8.html">8</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/9.html">9</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/10.html">10</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/11.html">11</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/12.html">12</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/13.html">13</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/14.html">14</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/15.html">15</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/16.html">16</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/17.html">17</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/18.html">18</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/19.html">19</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/20.html">20</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/21.html">21</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/22.html">22</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/23.html">23</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/24.html">24</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/25.html">25</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/26.html">26</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/2/nid/27.html">27</a></li>
+                                    {% for key,vod in info.play.1.list %}
+                                        <li><a class="t-u" href="{{ path('play',{s_id:info.id,p_id:key}) }}">{{ vod.title }}</a></li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
-                        <div id="playsx" class='play_list_box '>
-                            <div class="player_infotip cor3"><i class="fa mr2">&#xe8d1;</i>当前资源由高清2提供--看视频 - 上冲TM TV，无VIP会员</div>
-                            <div class="playlist_notfull">
-                                <ul class="content_playlist cf">
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/1.html">第01集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/2.html">第02集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/3.html">第03集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/4.html">第04集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/5.html">第05集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/6.html">第06集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/7.html">第07集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/8.html">第08集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/9.html">第09集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/10.html">第10集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/11.html">第11集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/12.html">第12集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/13.html">第13集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/14.html">第14集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/15.html">第15集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/16.html">第16集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/17.html">第17集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/18.html">第18集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/19.html">第19集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/20.html">第20集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/21.html">第21集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/22.html">第22集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/23.html">第23集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/24.html">第24集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/25.html">第25集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/26.html">第26集</a></li>
-                                    <li><a class="t-u" href="/index.php/vod/play/id/300722/sid/1/nid/27.html">第27集</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        {#                        <div id="playsx" class='play_list_box '> #}
+                        {#                            <div class="player_infotip cor3"><i class="fa mr2">&#xe8d1;</i>当前资源由高清2提供--看视频 - 上冲TM TV，无VIP会员</div> #}
+                        {#                            <div class="playlist_notfull"> #}
+                        {#                                <ul class="content_playlist cf"> #}
+                        {#                                    {% for key,vod in info.play.1.list %} #}
+                        {#                                        <li><a class="t-u" href="{{ path('play',{s_id:info.id,p_id:key}) }}">{{ vod.title }}</a></li> #}
+                        {#                                    {% endfor %} #}
+                        {#                                </ul> #}
+                        {#                            </div> #}
+                        {#                        </div> #}
                     </div>
                 </div>
             </div>
             <div class='index-hotnow wow fadeInUp top20'>
                 <div class="title-a cf">
                     <h2 class="title-name l cf">
-                        <span>《冰雪之名》相关影视</span></a>
+                        <span>《{{ info.title }}》相关影视</span></a>
                     </h2>
                 </div>
                 <div class="vodlist hotgrow size listdh">
-                    <div class="pack-ykpack play-vod-list playhid1">
-                        <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="/index.php/vod/detail/id/145228.html" title="扫黑风暴">
-                                <div class="bj eclazy" data-original="http://img.kuaibozy.net/upload/vod/20210809-1/7c7d1a05cc1f5acaae25bd42b9f0dcc5.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">28集全</span>
-                            </a>
+                    {% for key,info in recommend_list %}
+                        <div class="pack-ykpack play-vod-list playhid{{ key+1 }}">
+                            <div class="pack-packcover returl list-top-b">
+                                <a class="aplus-exp ecimgbor" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
+                                    <div class="bj eclazy" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/f5a053342f2ddf5ee8002e77d7d2b001.png") }});"></div>
+                                    <span class="pack-bg"></span>
+                                    <span class="pack-prb hidden">{{ info.vodRemarks }}</span>
+                                </a>
+                            </div>
+                            <div class="pack-infolist">
+                                <a class="vodname hidden" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}</a>
+                                <div class="pack-subtitle cor3 hidden">{{ info.stars| join(',') }}</div>
+                            </div>
                         </div>
-                        <div class="pack-infolist">
-                            <a class="vodname hidden" target="_self" href="/index.php/vod/detail/id/145228.html" title="扫黑风暴">扫黑风暴</a>
-                            <div class="pack-subtitle cor3 hidden">真实按键改变 一网打尽黑恶势力</div>
-                        </div>
-                    </div>
-                    <div class="pack-ykpack play-vod-list playhid2">
-                        <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="/index.php/vod/detail/id/285822.html" title="斛珠夫人">
-                                <div class="bj eclazy" data-original="/upload/vod/20211110-1/8e8a4e1f9f841a33f2689e57a3d4dcfe.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">共48集,完结</span>
-                            </a>
-                        </div>
-                        <div class="pack-infolist">
-                            <a class="vodname hidden" target="_self" href="/index.php/vod/detail/id/285822.html" title="斛珠夫人">斛珠夫人</a>
-                            <div class="pack-subtitle cor3 hidden">杨幂陈伟霆宿命交织</div>
-                        </div>
-                    </div>
-                    <div class="pack-ykpack play-vod-list playhid3">
-                        <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="/index.php/vod/detail/id/252809.html" title="八角亭谜雾">
-                                <div class="bj eclazy" data-original="/upload/vod/20211013-1/4a1304eae8b90b3c6e7b63654dd53def.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">共12集,完结</span>
-                            </a>
-                        </div>
-                        <div class="pack-infolist">
-                            <a class="vodname hidden" target="_self" href="/index.php/vod/detail/id/252809.html" title="八角亭谜雾">八角亭谜雾</a>
-                            <div class="pack-subtitle cor3 hidden">段奕宏,郝蕾,祖峰,吴越,邢岷山,白宇帆,米拉,艾丽娅,温峥嵘</div>
-                        </div>
-                    </div>
-                    <div class="pack-ykpack play-vod-list playhid4">
-                        <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="/index.php/vod/detail/id/250569.html" title="启航：当风起时">
-                                <div class="bj eclazy" data-original="/upload/vod/20210928-1/b19ec7deb324eb0e201279ec39536dc1.png" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至36集</span>
-                            </a>
-                        </div>
-                        <div class="pack-infolist">
-                            <a class="vodname hidden" target="_self" href="/index.php/vod/detail/id/250569.html" title="启航：当风起时">启航：当风起时</a>
-                            <div class="pack-subtitle cor3 hidden">吴磊,侯明昊,毛晓慧,向涵之,王新军,高海鹏,张晓谦,方文强</div>
-                        </div>
-                    </div>
-                    <div class="pack-ykpack play-vod-list playhid5">
-                        <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="/index.php/vod/detail/id/246582.html" title="云南虫谷">
-                                <div class="bj eclazy" data-original="http://pic.wujinpic.com/upload/vod/20210830-1/11c19d0c66e313d96c3e4cf21cfd6ac8.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">16集全</span>
-                            </a>
-                        </div>
-                        <div class="pack-infolist">
-                            <a class="vodname hidden" target="_self" href="/index.php/vod/detail/id/246582.html" title="云南虫谷">云南虫谷</a>
-                            <div class="pack-subtitle cor3 hidden">铁三角归来！潘粤明张雨绮姜超突破虫围</div>
-                        </div>
-                    </div>
-                    <div class="pack-ykpack play-vod-list playhid6">
-                        <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="/index.php/vod/detail/id/253166.html" title="第十二秒">
-                                <div class="bj eclazy" data-original="/upload/vod/20211018-1/fa99c66e7a3585e2780588de4cf82ae7.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">共37集,完结</span>
-                            </a>
-                        </div>
-                        <div class="pack-infolist">
-                            <a class="vodname hidden" target="_self" href="/index.php/vod/detail/id/253166.html" title="第十二秒">第十二秒</a>
-                            <div class="pack-subtitle cor3 hidden">万茜,任重,赵毅,石兆琪,张秋歌,屈菁菁,巫迪文,郭冬冬,李卓阳,卫莱,窦若兮</div>
-                        </div>
-                    </div>
-                    <div class="pack-ykpack play-vod-list playhid7">
-                        <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="/index.php/vod/detail/id/287097.html" title="雪中悍刀行">
-                                <div class="bj eclazy" data-original="/upload/vod/20211202-1/e8b4361f57dba5e0d8f2046b96792adf.png" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">38集全</span>
-                            </a>
-                        </div>
-                        <div class="pack-infolist">
-                            <a class="vodname hidden" target="_self" href="/index.php/vod/detail/id/287097.html" title="雪中悍刀行">雪中悍刀行</a>
-                            <div class="pack-subtitle cor3 hidden">张若昀,胡军,李庚希,刘端端,邱心志,田小洁,王天辰,张天爱,李纯,王晓晨,杜玉明,刘天佐,沈保平,陶海,王同辉,宣言,杨皓宇,于洋,张天阳,丁笑滢,董颜,廖慧佳,孟子义,隋俊波,张艺上,荣梓杉,韩昊霖</div>
-                        </div>
-                    </div>
-                    <div class="pack-ykpack play-vod-list playhid8">
-                        <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="/index.php/vod/detail/id/247701.html" title="一生一世">
-                                <div class="bj eclazy" data-original="http://pic.wujinimg.com/upload/vod/20210906-1/686cf0bfae58685b5e6d3501abf84bbe.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">30集全</span>
-                            </a>
-                        </div>
-                        <div class="pack-infolist">
-                            <a class="vodname hidden" target="_self" href="/index.php/vod/detail/id/247701.html" title="一生一世">一生一世</a>
-                            <div class="pack-subtitle cor3 hidden">任嘉伦白鹿演绎小火慢炖的浪漫童话</div>
-                        </div>
-                    </div>
-                    <div class="pack-ykpack play-vod-list playhid9">
-                        <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="/index.php/vod/detail/id/248035.html" title="双探">
-                                <div class="bj eclazy" data-original="http://pic.wujinimg.com/upload/vod/20210909-1/2f61b05e73cfeb9d01783ed69ee019c2.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">16集全</span>
-                            </a>
-                        </div>
-                        <div class="pack-infolist">
-                            <a class="vodname hidden" target="_self" href="/index.php/vod/detail/id/248035.html" title="双探">双探</a>
-                            <div class="pack-subtitle cor3 hidden">段奕宏大鹏雪原探案，双重真相 探无虚发</div>
-                        </div>
-                    </div>
-                    <div class="pack-ykpack play-vod-list playhid10">
-                        <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="/index.php/vod/detail/id/145230.html" title="理想之城">
-                                <div class="bj eclazy" data-original="http://img.kuaibozy.net/upload/vod/20210812-1/fb4589765e3088c4291362ed81c8f1da.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">40集全</span>
-                            </a>
-                        </div>
-                        <div class="pack-infolist">
-                            <a class="vodname hidden" target="_self" href="/index.php/vod/detail/id/145230.html" title="理想之城">理想之城</a>
-                            <div class="pack-subtitle cor3 hidden">孙俪,赵又廷,于和伟,陈明昊,高叶,李传缨,张澍,李洪涛,赵君,钱漪,刘泊潇,杨超越,刘奕畅,任重,张天阳,代旭,张瑶,田昊,傅首尔</div>
-                        </div>
-                    </div>
-                    <div class="pack-ykpack play-vod-list playhid11">
-                        <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="/index.php/vod/detail/id/299230.html" title="输赢">
-                                <div class="bj eclazy" data-original="/upload/vod/20211221-1/0bf771bad0efd7dee4702190551647e0.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">共40集,完结</span>
-                            </a>
-                        </div>
-                        <div class="pack-infolist">
-                            <a class="vodname hidden" target="_self" href="/index.php/vod/detail/id/299230.html" title="输赢">输赢</a>
-                            <div class="pack-subtitle cor3 hidden">陈坤辛芷蕾先敌后爱商场交锋</div>
-                        </div>
-                    </div>
-                    <div class="pack-ykpack play-vod-list playhid12">
-                        <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="/index.php/vod/detail/id/300117.html" title="开端">
-                                <div class="bj eclazy" data-original="/upload/vod/20220111-1/6de925526e337e3f183dd5af99b367bf.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">15集全</span>
-                            </a>
-                        </div>
-                        <div class="pack-infolist">
-                            <a class="vodname hidden" target="_self" href="/index.php/vod/detail/id/300117.html" title="开端">开端</a>
-                            <div class="pack-subtitle cor3 hidden">白敬亭赵今麦循环逃生</div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
         <div class="ecright r">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <span>国产剧 · TOP</span><a class="url" href="/index.php/label/rb.html">更多<i class="fa tb3">&#xe62d;</i></a>
+                    <span>{{ info.type }} · TOP</span><a class="url" href="/index.php/label/rb.html">更多<i class="fa tb3">&#xe62d;</i></a>
                 </h2>
             </div>
             <div class="hot-modular">
                 <ul class="rank-list">
-                    <li class="rank-item cf">
-                        <a href="/index.php/vod/detail/id/145228.html" class="rank-item-link" title="扫黑风暴">
-                            <div class="mod-left">
-                                <div class="rank-num-box">
-                                    <span class="ecrank-no">NO</span><i class="rank-nub cohot1 cor3">1</i>
+                    {% for k,info in topic %}
+                        <li class="rank-item cf">
+                            <a href="{{ path('detail',{id:info.id}) }}" class="rank-item-link" title="{{ info.title }}">
+                                <div class="mod-left">
+                                    <div class="rank-num-box">
+                                        <span class="ecrank-no">NO</span><i class="rank-nub cohot{{ k+1 }} cor3">{{ k+1 }}</i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mod-right">
-                                <h3 class="anthology-wrap main-title">扫黑风暴</h3>
-                                <div class="sub-box">
-                                    <div class="sub-right"><i class="fa">&#xe713;</i><span class="count cor3">605148</span></div>
-                                    <p class="sub-des cor3 hidden">孙红雷,张艺兴,刘奕君,吴越,王志飞,刘之冰,吴晓亮,江疏影,苏可,谭凯,侯长荣,孙浩,周晓鸥,宁理,车晓</p>
+                                <div class="mod-right">
+                                    <h3 class="anthology-wrap main-title">{{ info.title }}</h3>
+                                    <div class="sub-box">
+                                        <div class="sub-right"><i class="fa">&#xe713;</i><span class="count cor3">{{ info.vodRemarks }}</span></div>
+                                        <p class="sub-des cor3 hidden">{{ info.stars| join(',') }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="rank-item cf">
-                        <a href="/index.php/vod/detail/id/285822.html" class="rank-item-link" title="斛珠夫人">
-                            <div class="mod-left">
-                                <div class="rank-num-box">
-                                    <span class="ecrank-no">NO</span><i class="rank-nub cohot2 cor3">2</i>
-                                </div>
-                            </div>
-                            <div class="mod-right">
-                                <h3 class="anthology-wrap main-title">斛珠夫人</h3>
-                                <div class="sub-box">
-                                    <div class="sub-right"><i class="fa">&#xe713;</i><span class="count cor3">568821</span></div>
-                                    <p class="sub-des cor3 hidden">杨幂,陈伟霆,徐开骋,陈小纭,王森,袁雨萱</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="rank-item cf">
-                        <a href="/index.php/vod/detail/id/252809.html" class="rank-item-link" title="八角亭谜雾">
-                            <div class="mod-left">
-                                <div class="rank-num-box">
-                                    <span class="ecrank-no">NO</span><i class="rank-nub cohot3 cor3">3</i>
-                                </div>
-                            </div>
-                            <div class="mod-right">
-                                <h3 class="anthology-wrap main-title">八角亭谜雾</h3>
-                                <div class="sub-box">
-                                    <div class="sub-right"><i class="fa">&#xe713;</i><span class="count cor3">462615</span></div>
-                                    <p class="sub-des cor3 hidden">段奕宏,郝蕾,祖峰,吴越,邢岷山,白宇帆,米拉,艾丽娅,温峥嵘</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="rank-item cf">
-                        <a href="/index.php/vod/detail/id/250569.html" class="rank-item-link" title="启航：当风起时">
-                            <div class="mod-left">
-                                <div class="rank-num-box">
-                                    <i class="rank-nub cohot4 cor3">4</i>
-                                </div>
-                            </div>
-                            <div class="mod-right">
-                                <h3 class="anthology-wrap main-title">启航：当风起时</h3>
-                                <div class="sub-box">
-                                    <div class="sub-right"><i class="fa">&#xe713;</i><span class="count cor3">396184</span></div>
-                                    <p class="sub-des cor3 hidden">吴磊,侯明昊,毛晓慧,向涵之,王新军,高海鹏,张晓谦,方文强</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="rank-item cf">
-                        <a href="/index.php/vod/detail/id/246582.html" class="rank-item-link" title="云南虫谷">
-                            <div class="mod-left">
-                                <div class="rank-num-box">
-                                    <i class="rank-nub cohot5 cor3">5</i>
-                                </div>
-                            </div>
-                            <div class="mod-right">
-                                <h3 class="anthology-wrap main-title">云南虫谷</h3>
-                                <div class="sub-box">
-                                    <div class="sub-right"><i class="fa">&#xe713;</i><span class="count cor3">365821</span></div>
-                                    <p class="sub-des cor3 hidden">潘粤明,张雨绮,姜超</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="rank-item cf">
-                        <a href="/index.php/vod/detail/id/253166.html" class="rank-item-link" title="第十二秒">
-                            <div class="mod-left">
-                                <div class="rank-num-box">
-                                    <i class="rank-nub cohot6 cor3">6</i>
-                                </div>
-                            </div>
-                            <div class="mod-right">
-                                <h3 class="anthology-wrap main-title">第十二秒</h3>
-                                <div class="sub-box">
-                                    <div class="sub-right"><i class="fa">&#xe713;</i><span class="count cor3">316254</span></div>
-                                    <p class="sub-des cor3 hidden">万茜,任重,赵毅,石兆琪,张秋歌,屈菁菁,巫迪文,郭冬冬,李卓阳,卫莱,窦若兮</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="rank-item cf">
-                        <a href="/index.php/vod/detail/id/287097.html" class="rank-item-link" title="雪中悍刀行">
-                            <div class="mod-left">
-                                <div class="rank-num-box">
-                                    <i class="rank-nub cohot7 cor3">7</i>
-                                </div>
-                            </div>
-                            <div class="mod-right">
-                                <h3 class="anthology-wrap main-title">雪中悍刀行</h3>
-                                <div class="sub-box">
-                                    <div class="sub-right"><i class="fa">&#xe713;</i><span class="count cor3">298372</span></div>
-                                    <p class="sub-des cor3 hidden">张若昀,胡军,李庚希,刘端端,邱心志,田小洁,王天辰,张天爱,李纯,王晓晨,杜玉明,刘天佐,沈保平,陶海,王同辉,宣言,杨皓宇,于洋,张天阳,丁笑滢,董颜,廖慧佳,孟子义,隋俊波,张艺上,荣梓杉,韩昊霖</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="rank-item cf">
-                        <a href="/index.php/vod/detail/id/247701.html" class="rank-item-link" title="一生一世">
-                            <div class="mod-left">
-                                <div class="rank-num-box">
-                                    <i class="rank-nub cohot8 cor3">8</i>
-                                </div>
-                            </div>
-                            <div class="mod-right">
-                                <h3 class="anthology-wrap main-title">一生一世</h3>
-                                <div class="sub-box">
-                                    <div class="sub-right"><i class="fa">&#xe713;</i><span class="count cor3">281682</span></div>
-                                    <p class="sub-des cor3 hidden">任嘉伦,白鹿,此沙,骆明劼,王瑞欣,王悦伊,罗海琼,冯嘉怡,刘若谷</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="rank-item cf">
-                        <a href="/index.php/vod/detail/id/248035.html" class="rank-item-link" title="双探">
-                            <div class="mod-left">
-                                <div class="rank-num-box">
-                                    <i class="rank-nub cohot9 cor3">9</i>
-                                </div>
-                            </div>
-                            <div class="mod-right">
-                                <h3 class="anthology-wrap main-title">双探</h3>
-                                <div class="sub-box">
-                                    <div class="sub-right"><i class="fa">&#xe713;</i><span class="count cor3">268512</span></div>
-                                    <p class="sub-des cor3 hidden">段奕宏,大鹏,曾美慧孜,郑楚一,张国强,邢佳栋,刘威葳,刘亦然,申琦,张林,衣云鹤,冯兵,董博,朱梓瑜,程禹森,魏震,李乃文,陈明昊,高峰,周铁,朱辉,赵芮</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="rank-item cf">
-                        <a href="/index.php/vod/detail/id/145230.html" class="rank-item-link" title="理想之城">
-                            <div class="mod-left">
-                                <div class="rank-num-box">
-                                    <i class="rank-nub cohot10 cor3">10</i>
-                                </div>
-                            </div>
-                            <div class="mod-right">
-                                <h3 class="anthology-wrap main-title">理想之城</h3>
-                                <div class="sub-box">
-                                    <div class="sub-right"><i class="fa">&#xe713;</i><span class="count cor3">265143</span></div>
-                                    <p class="sub-des cor3 hidden">孙俪,赵又廷,于和伟,陈明昊,高叶,李传缨,张澍,李洪涛,赵君,钱漪,刘泊潇,杨超越,刘奕畅,任重,张天阳,代旭,张瑶,田昊,傅首尔</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
+                            </a>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
     </div>
-    <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/5.1.0/js/swiper.min.js"></script>
+    <script src="{{ asset("cy/swiper.min.js") }}"></script>
     <script>
         var mySwiper1 = new Swiper('.swiper-container1', {
             paginationClickable: true,
@@ -612,6 +213,30 @@
             paginationClickable: true,
             slidesPerView: 'auto',
         });
+        var viewHeight = document.documentElement.clientHeight//获取可视区高度
+        function lazyload() {
+            var eles = document.querySelectorAll('div[data-original]')
+            Array.prototype.forEach.call(eles, function (item, index) {
+                var rect
+                if (item.dataset.original === "")
+                    return
+                rect = item.getBoundingClientRect()// 用于获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
+                if (rect.bottom >= 0 && rect.top < viewHeight) {
+                    !function () {
+                        var img = new Image()
+                        img.src = item.dataset.original
+                        img.onload = function () {
+                            item.style.backgroundImage = "url(" + img.src + ")";
+
+                        }
+                        item.removeAttribute("data-original")//移除属性，下次不再遍历
+                        item.removeAttribute("lazyload")
+                    }()
+                }
+            })
+        }
+
+        lazyload()//刚开始还没滚动屏幕时，要先触发一次函数，初始化首页的页面图片
+        document.addEventListener("scroll", lazyload)
     </script>
 {% endblock %}
-

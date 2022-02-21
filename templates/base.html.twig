@@ -11,17 +11,16 @@
     <script>var maccms = {"path": "", "mid": "", "aid": "1", "url": "chongtmtv.com", "wapurl": "chongtmtv.com", "mob_status": "2"};</script>
     <script src="{{ asset("cy/home.js") }}"></script>
     <script src="{{ asset("cy/ec.js") }}"></script>
-    {#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> #}
     <script>if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))) {
             new WOW().init();
         }
         ;</script>
-    <link rel="shortcut icon" href="{{ asset("cy/cc6b86aa3bdc7498119a0ed1c67f32d4.png") }}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{ asset("cy/favicon.ico") }}" type="image/x-icon"/>
 </head>
 <body>
 <div class="header [name]">
     <div class="header-container cf [width] wwp" id="header-contain">
-        <a class="head-logo l" href="/" title="冲TMTV - 专属于新西兰华人,海外华人的在线视频媒体平台,海量高清视频在线观看"><img src="{{ asset("cy/527de2407384b74b94ecf6469868134a.png") }}" alt="冲TMTV - 专属于新西兰华人,海外华人的在线视频媒体平台,海量高清视频在线观看"/></a>
+        <a class="head-logo l" href="{{ path("index") }}" title="冲TMTV - 专属于新西兰华人,海外华人的在线视频媒体平台,海量高清视频在线观看"><img src="{{ asset("cy/527de2407384b74b94ecf6469868134a.png") }}" alt="冲TMTV - 专属于新西兰华人,海外华人的在线视频媒体平台,海量高清视频在线观看"/></a>
         <div class="ecnav-nav l cf">
             <div class="nav-channel xiaoyinqing l">
                 <a href="/index.php/vod/type/id/1.html" class='main-nav'>电影</a>
@@ -131,7 +130,7 @@
     <div class="popup-bg"></div>
     <div class="popup-box notice back topfadeInUp animated" style="height:440px;width:360px">
         <h2 class="popup-title cor2">冲TM TV公告</h2>
-        <div class="popup-content cor2" style="max-height:324px;"><img class="popup-img" src="/upload/site/20211109-1/ca2773a1be2d903a386e4c654728c46d.png"><h4 style="color:#4e96f5">视频评论功能已正式上线啦，大家速速踊跃在视频下方评论您的观后感吧</h4>
+        <div class="popup-content cor2" style="max-height:324px;"><img class="popup-img" src="{{ asset("cy/ca2773a1be2d903a386e4c654728c46d.png") }}"><h4 style="color:#4e96f5">视频评论功能已正式上线啦，大家速速踊跃在视频下方评论您的观后感吧</h4>
             <br/>
             <p style="color:#0694FF">求片：搜索不到您要看的视频? 不满意视频清晰度？点击右下角的留言板链接并留言您要的视频名字，我们会尽快处理！</p>
             <br/>
@@ -139,7 +138,8 @@
         <div class="popup-btn"><a class="popup-conch buthide ol2" style="margin-right:9px;" href="javascript:;">朕已阅</a><a class="popup-subs buthide ol7" href="javascript:;">取消</a></div>
     </div>
 </div>
-<style>.ecrank-no, .vod-rank-list .head-en {
+<style>
+    .ecrank-no, .vod-rank-list .head-en {
         opacity: .9;
         background-image: -webkit-linear-gradient(270deg, rgba(24, 25, 30, .13), rgba(24, 25, 30, .04));
         color: #333
@@ -157,7 +157,6 @@
         background-color: #fff;
     }
 </style>
-
 
 </body>
 </html>

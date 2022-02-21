@@ -2,35 +2,94 @@
 
 namespace App\Service;
 
-use App\DocumentRepository\IndexListRepository;
-use App\DocumentRepository\TopicRepository;
+use App\DocumentRepository\VodListRepository;
 
 class RecommendList
 {
-    private $indexListRepository;
-    private $topicRepository;
+    private $vodListRepository;
 
-    public function __construct(IndexListRepository $indexListRepository, TopicRepository $topicRepository)
+    public function __construct(VodListRepository $vodListRepository)
     {
-        $this->indexListRepository = $indexListRepository;
-        $this->topicRepository     = $topicRepository;
+        $this->vodListRepository = $vodListRepository;
     }
 
-    public function getList()
+    public function getTopic($limit = 9)
     {
-        return $this->indexListRepository->findBy(['type' => '本周电影下载排行'], ["id" => "desc", 'sort' => 'asc'], 10);
-
+        return $this->vodListRepository->findBy([], ['vod_time' => 'desc'], $limit);
     }
 
-    public function getTopic()
+    public function getHotPlay($limit = 16)
     {
-        return $this->topicRepository->findBy([], ['n_id' => 'desc'], 10);
-
+        return $this->vodListRepository->findBy([], ['vod_time' => 'desc'], $limit);
     }
 
-    public function getToday()
+    public function getHotDsj($limit = 12)
     {
-        return $this->indexListRepository->findBy(['type' => 'today_recommend'], ["id" => "desc", 'sort' => 'asc'], 10);
+        return $this->vodListRepository->findBy(["type_id_1" => 2], ['vod_time' => 'desc'], $limit);
+    }
 
+    public function getHotMovie($limit = 12)
+    {
+        return $this->vodListRepository->findBy(["type_id_1" => 1], ['vod_time' => 'desc'], $limit);
+    }
+
+    public function getHotPlayDsj($limit = 8)
+    {
+        return $this->vodListRepository->findBy(["type_id_1" => 2], ['vod_time' => 'desc', 'vod_douban_score' => 'desc'], $limit);
+    }
+
+    public function getHotPlayMovie($limit = 8)
+    {
+        return $this->vodListRepository->findBy(["type_id_1" => 1], ['vod_time' => 'desc', 'vod_douban_score' => 'desc'], $limit);
+    }
+
+    public function getHotPlayDm($limit = 8)
+    {
+        return $this->vodListRepository->findBy(["type_id_1" => 4], ['vod_time' => 'desc', 'vod_douban_score' => 'desc'], $limit);
+    }
+
+    public function getHotPlayJlp($limit = 8)
+    {
+        return $this->vodListRepository->findBy(["type_id" => 21], ['vod_time' => 'desc', 'vod_douban_score' => 'desc'], $limit);
+    }
+
+    public function getHotZy($limit = 12)
+    {
+        return $this->vodListRepository->findBy(["type_id_1" => 3], ['vod_time' => 'desc'], $limit);
+    }
+
+    public function getHotDm($limit = 12)
+    {
+        return $this->vodListRepository->findBy(["type_id_1" => 4], ['vod_time' => 'desc'], $limit);
+    }
+
+    public function getHotJlp($limit = 12)
+    {
+        return $this->vodListRepository->findBy(["type_id" => 21], ['vod_time' => 'desc'], $limit);
+    }
+
+    public function getHotSport($limit = 12)
+    {
+        return $this->vodListRepository->findBy(["type_id_1" => 38], ['vod_time' => 'desc'], $limit);
+    }
+
+    public function getHotByTypeName($type_name, $limit = 10)
+    {
+        return $this->vodListRepository->findBy(["type_name" => $type_name], ['vod_time' => 'desc'], $limit);
+    }
+
+    public function getHotByTypeId($type_id, $limit = 12)
+    {
+        return $this->vodListRepository->findBy(["type_id" => $type_id], ['vod_time_add' => 'desc'], $limit);
+    }
+
+    public function getOneGoodZy()
+    {
+        return $this->vodListRepository->findOneBy(['vod_id' => 27791]);
+    }
+
+    public function getOneGoodTy()
+    {
+        return $this->vodListRepository->findOneBy(['vod_id' => 28533]);
     }
 }
