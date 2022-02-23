@@ -1334,7 +1334,7 @@ a, a:hover, a:active, a:visited, a:link, a:focus {
     display: block;
     width: 100%;
     height: 100%;
-    background: url(../images/bofang.png) no-repeat;
+    background: url(./bofang.png) no-repeat;
     background-size: contain
 }
 
@@ -1342,7 +1342,7 @@ a, a:hover, a:active, a:visited, a:link, a:focus {
     display: block;
     width: 100%;
     height: 100%;
-    background: url(../images/shoyucang.png) no-repeat;
+    background: url(./shoyucang.png) no-repeat;
     background-size: contain
 }
 
