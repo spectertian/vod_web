@@ -1,0 +1,223 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div id="block-B" data-focus="" class="qy-carousel-wrap">
+        <div class="qy-carousel">
+            <div class="qy-carousel-fixed">
+                <div class="qy-carousel-inner bd">
+                    <ul class="qy-carousel-ul" style="position: relative; width: 1674px; height: 600px;">
+                        {% for k,info in topicList %}
+                            <li class="qy-carousel-li" style="position: absolute; width: 1674px; left: 0px; top: 0px; display: none;">
+                                <a href="{{ path('detail',{id:info.id}) }}"><span class="qy-pc-carousel" style="background-image: url({{ path('img',{id:info.imgUrl}) }});"></span></a>
+                                <div class="wwp returl">
+                                    <div class="focussidebarswiper_video_control">
+                                        <a class="focussidebarswiper_bt_wrap" href="{{ path('detail',{id:info.id}) }}" target="_blank" title="{{ info.title }}"><span class="focussidebarswiper_bt_icon_play"></span></a>
+                                        <a href="javascript:;" class="mac_ulog focussidebarswiper_bt_wrap" data-type="2" data-mid="1" data-id="299240"><span class="focussidebarswiper_bt_icon_add"></span></a>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="qy-pc-carousel-maskl"></div>
+                    <div class="qy-pc-carousel-maskr"></div>
+                    <div class="qy-carousel-top"></div>
+                    <div class="qy-carousel-maskbottom" style="height:200px;"></div>
+                </div>
+                <div class="qy-carousel-con-gray">
+                    <div class="qy-carousel-side-panel hd wwp">
+                        <div class="qy-carousel-side-box">
+                            <ul class="qy-carousel-panel-list">
+                                {% for k,info in topicList %}
+                                    <li class="pagination-item">
+                                        <a href="{{ path('detail',{id:info.id}) }}" target="_blank" class="channelname pagination-block">
+                                            <p class="pagination-title channelname hidden">{{ info.title }}</p>
+                                            <p class="pagination-subname channelname hidden">{{ info.title }}</p>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="qy-carousel-maskbottom"></div>
+        <div class="typetag wwp returl cf" style="z-index: 9">
+            <div class="module_mod">
+                <div class="common_container cf">
+                    <div class="mod_list_filter">
+                        <dl class="fed-col-sx12">
+                            <dt>地区<a class="title" href="/index.php/vod/show/id/4.html">全部<span class="fa tb3">&#xe62d;</span></a></dt>
+                            <dd><a href="/index.php/vod/show/area/%E5%9B%BD%E4%BA%A7/id/4.html">国产</a></dd>
+                            <dd><a href="/index.php/vod/show/area/%E6%97%A5%E6%9C%AC/id/4.html">日本</a></dd>
+                            <dd><a href="/index.php/vod/show/area/%E6%AC%A7%E7%BE%8E/id/4.html">欧美</a></dd>
+                            <dd><a href="/index.php/vod/show/area/%E5%85%B6%E4%BB%96/id/4.html">其他</a></dd>
+                        </dl>
+                        <div class="homepage_cut_line l"></div>
+                        <dl class="fed-col-sx12">
+                            <dt>年代<a class="title" href="/index.php/vod/show/id/4.html">全部<span class="fa tb3">&#xe62d;</span></a></dt>
+                            <dd><a href="/index.php/vod/show/id/4/year/2022.html">2022</a></dd>
+                            <dd><a href="/index.php/vod/show/id/4/year/2021.html">2021</a></dd>
+                            <dd><a href="/index.php/vod/show/id/4/year/2020.html">2020</a></dd>
+                            <dd><a href="/index.php/vod/show/id/4/year/2019.html">2019</a></dd>
+                            <dd><a href="/index.php/vod/show/id/4/year/2018.html">2018</a></dd>
+                            <dd><a href="/index.php/vod/show/id/4/year/2017.html">2017</a></dd>
+                            <dd><a href="/index.php/vod/show/id/4/year/2016.html">2016</a></dd>
+                            <dd><a href="/index.php/vod/show/id/4/year/2015.html">2015</a></dd>
+                            <dd><a href="/index.php/vod/show/id/4/year/2014.html">2014</a></dd>
+                            <dd><a href="/index.php/vod/show/id/4/year/2013.html">2013</a></dd>
+                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2012.html">2012</a></dd>
+                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2011.html">2011</a></dd>
+                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2010.html">2010</a></dd>
+                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2009.html">2009</a></dd>
+                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2008.html">2008</a></dd>
+                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2007.html">2007</a></dd>
+                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2006.html">2006</a></dd>
+                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2005.html">2005</a></dd>
+                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2004.html">2004</a></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>.homepage_main_tabs_title:first-child {
+            margin-bottom: 14px
+        }</style>
+    <script type="text/javascript">jQuery(".qy-carousel-fixed").slide({mainCell: ".bd ul", effect: "fold", autoPlay: true});
+        jQuery(".typetag").slide({mainCell: ".bd ul", autoPage: true, effect: "left", autoPlay: true});</script>
+    <div class="wwp index-hotnow wow fadeInUp top20 animated" style="visibility: visible; animation-name: fadeInUp;">
+        <div class="title-a cf">
+            <h2 class="title-name l cf">
+                <img src="{{ asset("cy/7.png") }}"><span>正在热播</span><a class="url" href="https://chongtmtv.com/index.php/label/rb.html" onselectstart="return false;">更多<i class="fa tb3"></i></a>
+            </h2>
+        </div>
+        <div class="vodlist hotgrow size listdh" id="hot1">
+            {% for k,info in hotList %}
+                <div class="pack-ykpack hot{{ k+1 }}">
+                    <div class="pack-packcover returl list-top-b">
+                        <a class="aplus-exp ecimgbor" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
+                            <div class="bj eclazy" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }}); display: block;"></div>
+                            <span class="pack-bg"></span>
+                            <span class="pack-prb hidden">{{ info.vodRemarks }}</span>
+                        </a>
+                    </div>
+                    <div class="pack-infolist">
+                        <a class="vodname hidden" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}</a>
+                        <div class="pack-subtitle cor3 hidden">{{ info.stars| join(',') }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="wwp">
+        <div class="ec-ad top20"><a href="https://chongtmtv.com/index.php/vod/type/id/1.html" target="_blank"><img src="{{ asset("cy//c368ab3bd91d2cf894a9f78d02cec598.png") }}" alt="影视列表分类横幅广告位"></a></div>
+    </div>
+    <div class="wwp wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+        <div class="wwp public wow fadeInUp top20 animated" style="visibility: visible; animation-name: fadeInUp;">
+            <div class="title-a cf">
+                <h2 class="title-name l cf">
+                    <span>国产动漫</span><a class="url" href="https://chongtmtv.com/index.php/vod/show/id/20.html">更多<i class="fa tb3"></i></a>
+                </h2>
+                <div class="title-tab l">
+                </div>
+            </div>
+            <div class="vodlist hotgrow size listdh">
+                {% for k,info in gcList %}
+                    <div class="pack-ykpack hide{{ k+1 }}">
+                        <div class="pack-packcover returl list-top-b">
+                            <a class="aplus-exp ecimgbor" target="_self" href="{{ path('detail',{id:info.id}) }}l" title="{{ info.title }}">
+                                <div class="bj eclazy" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }}); display: block;"></div>
+                                <span class="pack-bg"></span>
+                                <span class="pack-prb hidden">{{ info.vodRemarks }}</span>
+                            </a>
+                        </div>
+                        <div class="pack-infolist">
+                            <a class="vodname hidden" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}</a>
+                            <div class="pack-subtitle cor3 hidden">{{ info.stars| join(',') }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="wwp public wow fadeInUp top20 animated" style="visibility: visible; animation-name: fadeInUp;">
+            <div class="title-a cf">
+                <h2 class="title-name l cf">
+                    <span>日韩动漫</span><a class="url" href="https://chongtmtv.com/index.php/vod/show/id/21.html">更多<i class="fa tb3"></i></a>
+                </h2>
+                <div class="title-tab l">
+                </div>
+            </div>
+            <div class="vodlist hotgrow size listdh">
+                {% for k,info in rhList %}
+                    <div class="pack-ykpack hide{{ k+1 }}">
+                        <div class="pack-packcover returl list-top-b">
+                            <a class="aplus-exp ecimgbor" target="_self" href="{{ path('detail',{id:info.id}) }}l" title="{{ info.title }}">
+                                <div class="bj eclazy" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }}); display: block;"></div>
+                                <span class="pack-bg"></span>
+                                <span class="pack-prb hidden">{{ info.vodRemarks }}</span>
+                            </a>
+                        </div>
+                        <div class="pack-infolist">
+                            <a class="vodname hidden" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}</a>
+                            <div class="pack-subtitle cor3 hidden">{{ info.stars| join(',') }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="wwp public wow fadeInUp top20 animated" style="visibility: visible; animation-name: fadeInUp;">
+            <div class="title-a cf">
+                <h2 class="title-name l cf">
+                    <span>欧美动漫</span><a class="url" href="https://chongtmtv.com/index.php/vod/show/id/22.html">更多<i class="fa tb3"></i></a>
+                </h2>
+                <div class="title-tab l">
+                </div>
+            </div>
+            <div class="vodlist hotgrow size listdh">
+                {% for k,info in omList %}
+                    <div class="pack-ykpack hide{{ k+1 }}">
+                        <div class="pack-packcover returl list-top-b">
+                            <a class="aplus-exp ecimgbor" target="_self" href="{{ path('detail',{id:info.id}) }}l" title="{{ info.title }}">
+                                <div class="bj eclazy" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }}); display: block;"></div>
+                                <span class="pack-bg"></span>
+                                <span class="pack-prb hidden">{{ info.vodRemarks }}</span>
+                            </a>
+                        </div>
+                        <div class="pack-infolist">
+                            <a class="vodname hidden" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}</a>
+                            <div class="pack-subtitle cor3 hidden">{{ info.stars| join(',') }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script>
+        var viewHeight = document.documentElement.clientHeight//获取可视区高度
+        function lazyload() {
+            var eles = document.querySelectorAll('div[data-original]')
+            Array.prototype.forEach.call(eles, function (item, index) {
+                var rect
+                if (item.dataset.original === "")
+                    return
+                rect = item.getBoundingClientRect()// 用于获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
+                if (rect.bottom >= 0 && rect.top < viewHeight) {
+                    !function () {
+                        var img = new Image()
+                        img.src = item.dataset.original
+                        img.onload = function () {
+                            item.style.backgroundImage = "url(" + img.src + ")";
+
+                        }
+                        item.removeAttribute("data-original")//移除属性，下次不再遍历
+                        item.removeAttribute("lazyload")
+                    }()
+                }
+            })
+        }
+
+        lazyload()//刚开始还没滚动屏幕时，要先触发一次函数，初始化首页的页面图片
+        document.addEventListener("scroll", lazyload)
+    </script>
+{% endblock %}
+

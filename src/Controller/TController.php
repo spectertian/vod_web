@@ -16,72 +16,66 @@ use Symfony\Component\HttpFoundation\Request;
 class TController extends AbstractController
 {
     #[Route('/t_dy.html', name: 'dy', options: ['sitemap' => true])]
-    public function dy(VodListRepository $vodListRepository, Request $request, TypeRecommendList $recommendList): Response
+    public function dy(TypeRecommendList $typeRecommendList): Response
     {
-        $type = '1';
-        $vodListRepository->findBy(['type_id_1' => 1], ["vod_time" => 'desc', 'vod_douban_score' => 'desc'], 8);
-        return $this->render('t/index.html.twig', [
-            'title' => $recommendList->getReByDy(),
-            'nav'   => $this->generateUrl('dz'),
+        return $this->render('t/index.dy.html.twig', [
+            'topicList' => $typeRecommendList->getTopicByDy(),
+            'hotList'   => $typeRecommendList->getDyByHot(),
+            'dzList'    => $typeRecommendList->getDyByTypeName("动作片"),
+            'xjList'    => $typeRecommendList->getDyByTypeName("喜剧片"),
+            'aqList'    => $typeRecommendList->getDyByTypeName("爱情片"),
+            'khList'    => $typeRecommendList->getDyByTypeName("科幻片"),
+            'kbList'    => $typeRecommendList->getDyByTypeName("恐怖片"),
+            'fzList'    => $typeRecommendList->getDyByTypeName("犯罪片"),
+            'zzList'    => $typeRecommendList->getDyByTypeName("战争片"),
+            'dhList'    => $typeRecommendList->getDyByTypeName("动画片"),
+            'jqList'    => $typeRecommendList->getDyByTypeName("剧情片"),
+            'xyList'    => $typeRecommendList->getDyByTypeName("悬疑片"),
+            'qhList'    => $typeRecommendList->getDyByTypeName("奇幻片"),
         ]);
     }
 
-    #[Route('/list_tv.html', name: 'tv')]
-    public function tv(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
+    #[Route('/t_tv.html', name: 'tv')]
+    public function tv(TypeRecommendList $typeRecommendList): Response
     {
 
-        $type  = '科幻片';
-        $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
-        $query->sort(['year' => 'desc']);
-        $query->sort(['updated_time' => 'desc']);
-        $pagination = $paginator->paginate(
-            $query, /* query NOT result */
-            $request->query->getInt('page', 1), 10);
-
-        return $this->render('t/index.html.twig', [
-            'pagination' => $pagination,
-            'title'      => $type,
-            'recommend'  => $recommendList->getList(),
-            'nav'        => $this->generateUrl('kh'),
+        return $this->render('t/index.tv.html.twig', [
+            'topicList' => $typeRecommendList->getTopicByTv(),
+            'hotList'   => $typeRecommendList->getTvByHot(),
+            'gcList'    => $typeRecommendList->getTvByTypeName("国产剧"),
+            'twList'    => $typeRecommendList->getTvByTypeName("台湾剧"),
+            'xgList'    => $typeRecommendList->getTvByTypeName("香港剧"),
+            'rbList'    => $typeRecommendList->getTvByTypeName("日本剧"),
+            'tList'     => $typeRecommendList->getTvByTypeName("泰剧"),
+            'hwList'    => $typeRecommendList->getTvByTypeName("海外剧"),
+            'mgList'    => $typeRecommendList->getTvByTypeName("美国剧"),
+            'hgList'    => $typeRecommendList->getTvByTypeName("韩国剧"),
         ]);
     }
 
-    #[Route('/list_dm.html', name: 'dm')]
-    public function dm(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
+    #[Route('/t_dm.html', name: 'dm')]
+    public function dm(TypeRecommendList $typeRecommendList): Response
     {
-        $type  = '爱情片';
-        $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
-        $query->sort(['year' => 'desc']);
-        $query->sort(['updated_time' => 'desc']);
-        $pagination = $paginator->paginate(
-            $query, /* query NOT result */
-            $request->query->getInt('page', 1), 12);
-
-        return $this->render('t/index.html.twig', [
-            'pagination' => $pagination,
-            'title'      => $type,
-            'recommend'  => $recommendList->getList(),
-            'nav'        => $this->generateUrl('aq'),
+        return $this->render('t/index.dm.html.twig', [
+            'topicList' => $typeRecommendList->getTopicByDm(),
+            'hotList'   => $typeRecommendList->getDmByHot(),
+            'gcList'    => $typeRecommendList->getDmByTypeName("国产动漫"),
+            'rhList'    => $typeRecommendList->getDmByTypeName("日韩动漫"),
+            'omList'    => $typeRecommendList->getDmByTypeName("欧美动漫"),
         ]);
     }
 
 
-    #[Route('/list_zy.html', name: 'zy')]
-    public function zy(ListsRepository $listsRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList): Response
+    #[Route('/t_zy.html', name: 'zy')]
+    public function zy(TypeRecommendList $typeRecommendList): Response
     {
-        $type  = '喜剧片';
-        $query = $listsRepository->createQueryBuilder()->field('type')->equals($type);
-        $query->sort(['updated_time' => 'desc']);
-        $query->sort(['year' => 'desc']);
-        $pagination = $paginator->paginate(
-            $query, /* query NOT result */
-            $request->query->getInt('page', 1), 20);
-
-        return $this->render('t/index.html.twig', [
-            'pagination' => $pagination,
-            'title'      => $type,
-            'recommend'  => $recommendList->getList(),
-            'nav'        => $this->generateUrl('dz'),
+        return $this->render('t/index.zy.html.twig', [
+            'topicList' => $typeRecommendList->getTopicByZy(),
+            'hotList'   => $typeRecommendList->getZyByHot(),
+            'dlList'    => $typeRecommendList->getZyByTypeName("大陆综艺"),
+            'rhList'    => $typeRecommendList->getZyByTypeName("日韩综艺"),
+            'gtList'    => $typeRecommendList->getZyByTypeName("港台动漫"),
+            'omList'    => $typeRecommendList->getZyByTypeName("欧美动漫"),
         ]);
     }
 }
