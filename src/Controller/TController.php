@@ -74,8 +74,8 @@ class TController extends AbstractController
             'hotList'   => $typeRecommendList->getZyByHot(),
             'dlList'    => $typeRecommendList->getZyByTypeName("大陆综艺"),
             'rhList'    => $typeRecommendList->getZyByTypeName("日韩综艺"),
-            'gtList'    => $typeRecommendList->getZyByTypeName("港台动漫"),
-            'omList'    => $typeRecommendList->getZyByTypeName("欧美动漫"),
+            'gtList'    => $typeRecommendList->getZyByTypeName("港台综艺"),
+            'omList'    => $typeRecommendList->getZyByTypeName("欧美综艺"),
         ]);
     }
 }
