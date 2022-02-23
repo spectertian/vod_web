@@ -19,6 +19,7 @@ class PlayController extends AbstractController
         return $this->render('play/index.html.twig', [
             'info'           => $info,
             'recommend_list' => $recommendList->getHotByTypeId($info->getTypeId()),
+            'topic'          => $recommendList->getHotByTypeName($info->getType()),
             'p_id'           => $p_id,
             'play_url'       => $play_url,
         ]);
