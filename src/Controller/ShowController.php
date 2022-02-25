@@ -37,7 +37,7 @@ class ShowController extends AbstractController
         $pagination = $paginator->paginate(
             $query,
             $request->query->getInt('page', 1),
-            4
+            32
         );
         $pagination->setTemplate('show/pagination.html.twig');
 

@@ -337,7 +337,7 @@ a, a:hover, a:active, a:visited, a:link, a:focus {
 
 .head-logo img {
     display: inline-block;
-    height: 48px;
+    height: 100px;
     width: 150px;
     margin-right: 0
 }

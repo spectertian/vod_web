@@ -43,18 +43,18 @@
                         <span class="tag ico_1"><a href="{{ path("dy") }}"><img src="{{ asset("cy/1.png") }}" class=" homepage_logo"/>电&nbsp;&nbsp;&nbsp;影</a></span>
                         <div class="lks ellipsis">
                             <a href="{{ path("show_category",{'type':"1",'tag':'动作片'}) }}" target="_blank">动作片</a>
-                            <a href="/index.php/vod/show/id/21.html" target="_blank">喜剧片<span class="cut-line"></span></a>
-                            <a class="arthide12" href="/index.php/vod/show/id/23.html" target="_blank">科幻片<span class="cut-line"></span></a>
-                            <a class="slide-tagc" href="/index.php/vod/show/area/%E7%BE%8E%E5%9B%BD/id/1.html" target="_blank">美国大片<span class="cut-line"></span></a>
+                            <a href="{{ path("show_category",{'type':"1",'tag':'喜剧片'}) }}" target="_blank">喜剧片<span class="cut-line"></span></a>
+                            <a class="arthide12" href="{{ path("show_category",{'type':"1",'tag':'科幻片'}) }}" target="_blank">科幻片<span class="cut-line"></span></a>
+                            <a class="slide-tagc" href="{{ path("show_category",{'type':"1",'tag':'犯罪片'}) }}" target="_blank">犯罪片<span class="cut-line"></span></a>
                         </div>
                     </div>
                     <div class="row hidden top10">
                         <span class="tag ico_2"><a href="{{ path("tv") }}"><img src="{{ asset("cy/2.png") }}" class="homepage_logo"/>电视剧</a></span>
                         <div class="lks ellipsis">
-                            <a href="/index.php/vod/show/id/30.html" target="_blank">国产剧</a>
-                            <a href="/index.php/vod/show/id/33.html" target="_blank">欧美剧<span class="cut-line"></span></a>
-                            <a class="arthide12" href="/index.php/vod/show/id/50.html" target="_blank">韩国剧<span class="cut-line"></span></a>
-                            <a class="slide-tagc" href="/index.php/vod/show/id/32.html" target="_blank">日本剧<span class="cut-line"></span></a>
+                            <a href="{{ path("show_category",{'type':"2",'tag':'国产剧'}) }}" target="_blank">国产剧</a>
+                            <a href="{{ path("show_category",{'type':"2",'tag':'欧美剧'}) }}" target="_blank">欧美剧<span class="cut-line"></span></a>
+                            <a class="arthide12" href="{{ path("show_category",{'type':"2",'tag':'韩国剧'}) }}" target="_blank">韩国剧<span class="cut-line"></span></a>
+                            <a class="slide-tagc" href="{{ path("show_category",{'type':"2",'tag':'日本剧'}) }}" target="_blank">日本剧<span class="cut-line"></span></a>
                         </div>
                     </div>
                 </div>
@@ -62,39 +62,40 @@
                     <div class="row hidden">
                         <span class="tag ico_3"><a href="{{ path("dm") }}" title="动漫"><img src="{{ asset("cy/4.png") }}" class="homepage_logo"/>动&nbsp;&nbsp;&nbsp;漫</a></span>
                         <div class="lks ellipsis">
-                            <a href="/index.php/vod/show/id/38.html">国产动漫</a>
-                            <a href="/index.php/vod/show/area/%E6%97%A5%E6%9C%AC/id/4.html">日本动漫<span class="cut-line"></span></a>
-                            <a class="arthide12" href="/index.php/vod/show/id/41.html">海外动漫<span class="cut-line"></span></a>
-                            <a class="slide-tagc" href="=/index.php/vod/show/id/40.html">欧美动漫<span class="cut-line"></span></a>
+                            <a href="{{ path("show_category",{'type':"4",'tag':'国产动漫'}) }}">国产动漫</a>
+                            <a href="{{ path("show_category",{'type':"4",'tag':'日本动漫'}) }}">日本动漫<span class="cut-line"></span></a>
+                            <a class="arthide12" href="{{ path("show_category",{'type':"4",'tag':'海外动漫'}) }}">海外动漫<span class="cut-line"></span></a>
+                            <a class="slide-tagc" href="{{ path("show_category",{'type':"4",'tag':'欧美动漫'}) }}">欧美动漫<span class="cut-line"></span></a>
                         </div>
                     </div>
                     <div class="row hidden  top10">
                         <span class="tag ico_4"><a href="{{ path("zy") }}" title="综艺"><img src="{{ asset("cy/3.png") }}" class="homepage_logo"/>综&nbsp;&nbsp;&nbsp;艺</a></span>
                         <div class="lks ellipsis">
-                            <a href="/index.php/vod/show/id/34.html">大陆综艺</a>
-                            <a href="/index.php/vod/show/id/35.html">日韩综艺<span class="cut-line"></span></a>
-                            <a class="arthide12" href="/index.php/vod/show/id/36.html">港台综艺<span class="cut-line"></span></a>
-                            <a class="slide-tagc" href="/index.php/vod/show/id/37.html">欧美综艺<span class="cut-line"></span></a>
+                            <a href="{{ path("show_category",{'type':"3",'tag':'大陆综艺'}) }}">大陆综艺</a>
+                            <a href="{{ path("show_category",{'type':"3",'tag':'日韩综艺'}) }}">日韩综艺<span class="cut-line"></span></a>
+                            <a class="arthide12" href="{{ path("show_category",{'type':"3",'tag':'港台综艺'}) }}">港台综艺<span class="cut-line"></span></a>
+                            <a class="slide-tagc" href="{{ path("show_category",{'type':"3",'tag':'欧美综艺'}) }}">欧美综艺<span class="cut-line"></span></a>
                         </div>
                     </div>
                 </div>
                 <div class="l col_3">
                     <div class="size row_1">
-                        <a href="https://chongtmtv.com/index.php/vod/show/id/42.html" class="tag_zt back">体育频道</a>
-                        <a href="/index.php/vod/show/id/29/year/2021.html" class="tag_zt back">纪录片</a>
-                        <a href="/index.php/topic/index.html" class="tag_zt back">专题</a>
+                        <a href="{{ path("show_category",{'type':"38"}) }}" class="tag_zt back">体育频道</a>
+                        <a href="{{ path("show_category",{'tag':'录片'}) }}" class="tag_zt back">纪录片</a>
                         <a href="/index.php/gbook/index.html" class="tag_zt back">留言版</a>
                     </div>
-                    <div class="size row_2 top10">
-                        <a href="https://chongtmtv.com/template/Ds-pc/weixinKeFu/index.html" class="tag_zt back" target="_blank">广告投放</a>
-                        <a href="/index.php/label/rank.html" class="tag_zt ol5 cor4" target="_blank">影视排行</a>
-                        <a href="#" target="_blank" class="tag_zt ol6 cor4" rel="nofollow">午夜版</a>
-                    </div>
+
+                    {#                    <div class="size row_2 top10"> #}
+                    {#                        <a href="https://chongtmtv.com/template/Ds-pc/weixinKeFu/index.html" class="tag_zt back" target="_blank">广告投放</a> #}
+                    {#                        <a href="/index.php/label/rank.html" class="tag_zt ol5 cor4" target="_blank">影视排行</a> #}
+                    {#                        <a href="#" target="_blank" class="tag_zt ol6 cor4" rel="nofollow">午夜版</a> #}
+                    {#                    </div> #}
                 </div>
+
                 <div class="homepage_opt_wrap">
-                    <a href="https://chongtmtv.com/ds.php/live?type=1" class=" aplus_exp aplus_clk"><img src="{{ asset("cy/35f0a2caf31e0be36a9e9e0b3d7ffd4f.png") }}"/></a>
-                    <a href="https://chongtmtv.com/ds.php/viv" class="homepage_opt_hide_1 aplus_exp aplus_clk ec_aplus_clk"><img src="{{ asset("cy/laifeng.png") }}"/></a>
-                    <a href="/index.php/vod/show/id/1.html" class="homepage_opt_hide_1 aplus_exp aplus_clk"><img src="{{ asset("cy/pianku.png") }}"/></a>
+                    <a href="{{ path("show_category") }}" class="homepage_opt_hide_1 aplus_exp aplus_clk"><img src="{{ asset("cy/pianku.png") }}"/></a>
+                    <a href="javascript:void(0);" class=" aplus_exp aplus_clk"><img src="{{ asset("cy/35f0a2caf31e0be36a9e9e0b3d7ffd4f.png") }}"/></a>
+                    <a href="javascript:void(0);" class="homepage_opt_hide_1 aplus_exp aplus_clk ec_aplus_clk"><img src="{{ asset("cy/laifeng.png") }}"/></a>
                 </div>
             </div>
         </div>
