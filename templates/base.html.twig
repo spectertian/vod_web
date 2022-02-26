@@ -78,7 +78,7 @@
                 <form class="search-input cf" id="search" name="search" method="get" action="/index.php/vod/search.html">
                     <input type="text" name="wd" class="search-input mac_wd l" value="" placeholder="输入影片或演员名称"/>
                     <div class="qh-search cor5"><a href="javascript:" class="cor5 mac-navs-name">视频</a><i class="fa">&#xe62e;</i></div>
-                    <a class="search-hot l cor5" href="/index.php/label/rank.html" class="search-right-entry"><i class="fa icon-hot cor5" style="font-size:20px">&#xe782;</i></a>
+                    <a class="search-hot l cor5" href="{{ path("rank") }}" class="search-right-entry"><i class="fa icon-hot cor5" style="font-size:20px">&#xe782;</i></a>
                     <button type="submit" id="searchbutton" class="sllogo l ol2">全网搜</button>
                 </form>
                 <div class="hot-search-list box">
@@ -98,35 +98,35 @@
                     <a href="javascript:;" class="qh-navs-name" value="/index.php/actor/search.html">明星</a>
                 </div>
             </div>
-{#            <div class="ucenter l mac_history">#}
-{#                <a class="cor5" href="javascript:;"><span class="fa fa-clock-o" style="font-size:24px;">&#xe8b0;</span><span class="icon-title">播放记录</span></a>#}
-{#                <div class="play-record mac_history_box box topfadeInUp animated">#}
-{#                    <div class="list">#}
-{#                        <i class="triangle triangle"></i>#}
-{#                        <a class="more-button ol2 button" href="/index.php/user/plays.html">查看更多</a>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="ucenter l"><a class="cor5" href="/index.php/topic/index.html"><span class="fa fa-bookmark-o" style="font-size:24px">&#xe67e;</span><span class="icon-title">专题</span></a></div>#}
-{#            <div class="ucenter l"><a class="cor5" href="/index.php/label/app.html"><span class="fa fa-tablet" style="font-size:24px;">&#xe60a;</span><span class="icon-title">安卓TV端</span></a></div>#}
-{#            <div class="ucenter l login-after">#}
-{#                <a class="avatar mac_ulog" href="javascript:;">#}
-{#                    <img class="vip-border" src="{{ asset("cy/240c3b39ac935a30fa1d227698f0aa33.png") }}" alt="游客"/>#}
-{#                    <img class="avatar-pass" src="{{ asset("cy/avatar-pass.png") }}"/>#}
-{#                </a>#}
-{#                <div id="panel" class="panel-asgkf box topfadeInUp animated" style="width:198px">#}
-{#                    <i class="triangle"></i>#}
-{#                    <div class="index-denglu">#}
-{#                        <div class="text-content b-t">登录后可享受</div>#}
-{#                        <div class="text-alink"><i class="fa cor1">&#xe71e;</i>尊享极清观影体验</div>#}
-{#                        <div class="text-alink"><i class="fa cor1">&#xe6ad;</i>同步多端播放记录</div>#}
-{#                        <div class="text-alink"><i class="fa cor1">&#xe713;</i>热播精彩及时追</div>#}
-{#                        <div class="button-area"><a class="mac_ulog button ol2" href="javascript:;">立即登录</a></div>#}
-{#                    </div>#}
-{#                </div>#}
-            </div>
+            {#            <div class="ucenter l mac_history"> #}
+            {#                <a class="cor5" href="javascript:;"><span class="fa fa-clock-o" style="font-size:24px;">&#xe8b0;</span><span class="icon-title">播放记录</span></a> #}
+            {#                <div class="play-record mac_history_box box topfadeInUp animated"> #}
+            {#                    <div class="list"> #}
+            {#                        <i class="triangle triangle"></i> #}
+            {#                        <a class="more-button ol2 button" href="/index.php/user/plays.html">查看更多</a> #}
+            {#                    </div> #}
+            {#                </div> #}
+            {#            </div> #}
+            {#            <div class="ucenter l"><a class="cor5" href="/index.php/topic/index.html"><span class="fa fa-bookmark-o" style="font-size:24px">&#xe67e;</span><span class="icon-title">专题</span></a></div> #}
+            {#            <div class="ucenter l"><a class="cor5" href="/index.php/label/app.html"><span class="fa fa-tablet" style="font-size:24px;">&#xe60a;</span><span class="icon-title">安卓TV端</span></a></div> #}
+            {#            <div class="ucenter l login-after"> #}
+            {#                <a class="avatar mac_ulog" href="javascript:;"> #}
+            {#                    <img class="vip-border" src="{{ asset("cy/240c3b39ac935a30fa1d227698f0aa33.png") }}" alt="游客"/> #}
+            {#                    <img class="avatar-pass" src="{{ asset("cy/avatar-pass.png") }}"/> #}
+            {#                </a> #}
+            {#                <div id="panel" class="panel-asgkf box topfadeInUp animated" style="width:198px"> #}
+            {#                    <i class="triangle"></i> #}
+            {#                    <div class="index-denglu"> #}
+            {#                        <div class="text-content b-t">登录后可享受</div> #}
+            {#                        <div class="text-alink"><i class="fa cor1">&#xe71e;</i>尊享极清观影体验</div> #}
+            {#                        <div class="text-alink"><i class="fa cor1">&#xe6ad;</i>同步多端播放记录</div> #}
+            {#                        <div class="text-alink"><i class="fa cor1">&#xe713;</i>热播精彩及时追</div> #}
+            {#                        <div class="button-area"><a class="mac_ulog button ol2" href="javascript:;">立即登录</a></div> #}
+            {#                    </div> #}
+            {#                </div> #}
         </div>
     </div>
+</div>
 </div>
 {% block body %}{% endblock %}
 {% include 'footer.html.twig' %}
