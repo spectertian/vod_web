@@ -6,63 +6,27 @@
         <div class="show-filter back br top20">
             <div class="filter_line">
                 <span class="filter_label cor3">频道</span>
-                <a class="filter_item zbs" href="/index.php/vod/show/id/1.html">电影</a>
-                <a class="filter_item" href="/index.php/vod/show/id/2.html">电视剧</a>
-                <a class="filter_item" href="/index.php/vod/show/id/3.html">综艺</a>
-                <a class="filter_item" href="/index.php/vod/show/id/4.html">动漫</a>
-                <a class="filter_item" href="/index.php/vod/show/id/29.html">纪录片</a>
-                <a class="filter_item" href="/index.php/vod/show/id/42.html">体育频道</a>
+                {% for k,info in typeList.class %}
+                    <a class="filter_item {% if type == k %}zbs{% endif %}" href="{{ path("show_category",{'type':k}) }}">{{ info }}</a>
+                {% endfor %}
             </div>
             <div class="filter_line">
                 <span class="filter_label cor3">分类</span>
-                <a class="filter_item zbs" href="/index.php/vod/show.html">全部</a>
-                <a class="filter_item" href="/index.php/vod/show/id/20.html">动作片</a>
-                <a class="filter_item" href="/index.php/vod/show/id/21.html">喜剧片</a>
-                <a class="filter_item" href="/index.php/vod/show/id/22.html">爱情片</a>
-                <a class="filter_item" href="/index.php/vod/show/id/23.html">科幻片</a>
-                <a class="filter_item" href="/index.php/vod/show/id/24.html">恐怖片</a>
-                <a class="filter_item" href="/index.php/vod/show/id/25.html">犯罪片</a>
-                <a class="filter_item" href="/index.php/vod/show/id/26.html">战争片</a>
-                <a class="filter_item" href="/index.php/vod/show/id/27.html">动画片</a>
-                <a class="filter_item" href="/index.php/vod/show/id/28.html">剧情片</a>
-                <a class="filter_item" href="/index.php/vod/show/id/60.html">悬疑片</a>
-                <a class="filter_item" href="/index.php/vod/show/id/61.html">奇幻片</a>
+                {% for k,info in attribute(typeList.list,type).tag %}
+                    <a class="filter_item {% if tag == k %}zbs{% endif %}" href="{{ path("show_category",{'type':type, 'tag' : info, 'area' :area, 'year' :year}) }}">{{ info }}</a>
+                {% endfor %}
             </div>
             <div class="filter_line">
                 <span class="filter_label cor3">地区</span>
-                <a class="filter_item zbs" href="/index.php/vod/show/id/1.html">全部</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E5%A4%A7%E9%99%86/id/1.html">大陆</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E9%A6%99%E6%B8%AF/id/1.html">香港</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E5%8F%B0%E6%B9%BE/id/1.html">台湾</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E7%BE%8E%E5%9B%BD/id/1.html">美国</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E6%B3%95%E5%9B%BD/id/1.html">法国</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E8%8B%B1%E5%9B%BD/id/1.html">英国</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E6%97%A5%E6%9C%AC/id/1.html">日本</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E9%9F%A9%E5%9B%BD/id/1.html">韩国</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E5%BE%B7%E5%9B%BD/id/1.html">德国</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E6%B3%B0%E5%9B%BD/id/1.html">泰国</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E5%8D%B0%E5%BA%A6/id/1.html">印度</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E6%84%8F%E5%A4%A7%E5%88%A9/id/1.html">意大利</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E8%A5%BF%E7%8F%AD%E7%89%99/id/1.html">西班牙</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E5%8A%A0%E6%8B%BF%E5%A4%A7/id/1.html">加拿大</a>
-                <a class="filter_item" href="/index.php/vod/show/area/%E5%85%B6%E4%BB%96/id/1.html">其他</a>
+                {% for k,info in attribute(typeList.list,type).area %}
+                    <a class="filter_item {% if area == k %}zbs{% endif %}" href="{{ path("show_category",{'type' : type, 'tag' : tag, 'area' : info, 'year' : year}) }}">{{ info }}</a>
+                {% endfor %}
             </div>
             <div class="filter_line">
                 <span class="filter_label cor3">年代</span>
-                <a class="filter_item zbs" href="/index.php/vod/show/id/1.html">全部</a>
-                <a class="filter_item" href="/index.php/vod/show/id/1/year/2022.html">2022</a>
-                <a class="filter_item" href="/index.php/vod/show/id/1/year/2021.html">2021</a>
-                <a class="filter_item" href="/index.php/vod/show/id/1/year/2020.html">2020</a>
-                <a class="filter_item" href="/index.php/vod/show/id/1/year/2019.html">2019</a>
-                <a class="filter_item" href="/index.php/vod/show/id/1/year/2018.html">2018</a>
-                <a class="filter_item" href="/index.php/vod/show/id/1/year/2017.html">2017</a>
-                <a class="filter_item" href="/index.php/vod/show/id/1/year/2016.html">2016</a>
-                <a class="filter_item" href="/index.php/vod/show/id/1/year/2015.html">2015</a>
-                <a class="filter_item" href="/index.php/vod/show/id/1/year/2014.html">2014</a>
-                <a class="filter_item" href="/index.php/vod/show/id/1/year/2013.html">2013</a>
-                <a class="filter_item" href="/index.php/vod/show/id/1/year/2012.html">2012</a>
-                <a class="filter_item" href="/index.php/vod/show/id/1/year/2011.html">2011</a>
-                <a class="filter_item" href="/index.php/vod/show/id/1/year/2010.html">2010</a>
+                {% for k,info in attribute(typeList.list,type).year %}
+                    <a class="filter_item {% if year == k %}zbs{% endif %}" href="{{ path("show_category",{'type' : type, 'tag' :tag, 'area' : area, 'year':info}) }}">{{ info }}</a>
+                {% endfor %}
             </div>
         </div>
         {% if pagination.count >0 %}

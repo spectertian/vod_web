@@ -2,15 +2,13 @@
 
 namespace App\Controller;
 
-use App\DocumentRepository\IndexListRepository;
-use App\DocumentRepository\ListsRepository;
 use App\DocumentRepository\VodListRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use function PHPUnit\Framework\isInstanceOf;
+use Symfony\Component\Yaml\Yaml;
 
 class ShowController extends AbstractController
 {
@@ -34,15 +32,25 @@ class ShowController extends AbstractController
             $query->field('year')->equals($year);
         }
 
+        $typeList = Yaml::parseFile(dirname(__DIR__) . '/../config/packages/web_tag.yaml');
+
         $pagination = $paginator->paginate(
             $query,
             $request->query->getInt('page', 1),
             32
         );
+
+
         $pagination->setTemplate('show/pagination.html.twig');
 
+
         return $this->render('show/index.html.twig', [
-            'pagination' => $pagination
+            'pagination' => $pagination,
+            'typeList'   => $typeList,
+            'tag'        => $tag,
+            'type'       => $type,
+            'area'       => $area,
+            'year'       => $year,
         ]);
     }
 
