@@ -1,5 +1,5 @@
 {% if pageCount > 1 %}
-    <div class="page_tip cor3">共{{ pageCount }}条数据,当前{{ current }}/{{ endPage }}页</div>
+    <div class="page_tip cor3">共{{ pageCount }}条数据,当前{{ current }}/{{ pageCount }}页</div>
     <div class="page_info">
         {% if previous is defined %}
             <a class="page_link back" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&laquo;&nbsp;{{ 'label_previous'|trans([], 'KnpPaginatorBundle') }}</a>

@@ -2,7 +2,7 @@
 {% block body %}
     <div class="headtopnull"></div>
     <div class="wwp">
-        <div class="ec-ad top20"><a href="" target="_blank"><img src="{{ asset("cy/e45c2d9264b1b521ee163a4e8b7f9ea4.png") }}" alt="影视筛选页广告位"></a></div>
+        <div class="ec-ad top20"><a href="" target="_blank"><img src="#" alt="影视筛选页广告位"></a></div>
         <div class="show-filter back br top20">
             <div class="filter_line">
                 <span class="filter_label cor3">频道</span>
@@ -13,19 +13,19 @@
             <div class="filter_line">
                 <span class="filter_label cor3">分类</span>
                 {% for k,info in attribute(typeList.list,type).tag %}
-                    <a class="filter_item {% if tag == k %}zbs{% endif %}" href="{{ path("show_category",{'type':type, 'tag' : info, 'area' :area, 'year' :year}) }}">{{ info }}</a>
+                    <a class="filter_item {% if tag == k %}zbs{% endif %}" href="{{ path("show_category",{'type':type, 'tag' : k, 'area' :area, 'year' :year}) }}">{{ info }}</a>
                 {% endfor %}
             </div>
             <div class="filter_line">
                 <span class="filter_label cor3">地区</span>
                 {% for k,info in attribute(typeList.list,type).area %}
-                    <a class="filter_item {% if area == k %}zbs{% endif %}" href="{{ path("show_category",{'type' : type, 'tag' : tag, 'area' : info, 'year' : year}) }}">{{ info }}</a>
+                    <a class="filter_item {% if area == k %}zbs{% endif %}" href="{{ path("show_category",{'type' : type, 'tag' : tag, 'area' : k, 'year' : year}) }}">{{ info }}</a>
                 {% endfor %}
             </div>
             <div class="filter_line">
                 <span class="filter_label cor3">年代</span>
                 {% for k,info in attribute(typeList.list,type).year %}
-                    <a class="filter_item {% if year == k %}zbs{% endif %}" href="{{ path("show_category",{'type' : type, 'tag' :tag, 'area' : area, 'year':info}) }}">{{ info }}</a>
+                    <a class="filter_item {% if year == k %}zbs{% endif %}" href="{{ path("show_category",{'type' : type, 'tag' :tag, 'area' : area, 'year':k}) }}">{{ info }}</a>
                 {% endfor %}
             </div>
         </div>

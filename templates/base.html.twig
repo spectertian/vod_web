@@ -9,12 +9,12 @@
     <script src="{{ asset("cy/jquery.min.js") }}"></script>
     <script src="{{ asset("cy/assembly.js") }}"></script>
     <script>var maccms = {"path": "", "mid": "", "aid": "1", "url": "chongtmtv.com", "wapurl": "chongtmtv.com", "mob_status": "2"};</script>
-    <script src="{{ asset("cy/home.js") }}"></script>
-    <script src="{{ asset("cy/ec.js") }}"></script>
-    <script>if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))) {
-            new WOW().init();
-        }
-        ;</script>
+    {#    <script src="{{ asset("cy/home.js") }}"></script> #}
+    {#    <script src="{{ asset("cy/ec.js") }}"></script> #}
+    {#    <script>if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))) { #}
+    {#            new WOW().init(); #}
+    {#        } #}
+    {#        ;</script> #}
     <link rel="shortcut icon" href="{{ asset("cy/favicon.ico") }}" type="image/x-icon"/>
 </head>
 <body>
@@ -23,55 +23,55 @@
         <a class="head-logo l" href="{{ path("index") }}" title="老虎TV - 专属于华人,海外华人的在线视频媒体平台,海量高清视频在线观看"><img src="{{ asset("cy/kt.png") }}" alt="老虎TV - 专属于华人,海外华人的在线视频媒体平台,海量高清视频在线观看"/></a>
         <div class="ecnav-nav l cf">
             <div class="nav-channel xiaoyinqing l">
-                <a href="/index.php/vod/type/id/1.html" class='main-nav'>电影</a>
-                <a href="/index.php/vod/type/id/2.html" class='main-nav'>电视剧</a>
-                <a href="/index.php/vod/type/id/3.html" class='main-nav'>综艺</a>
-                <a href="/index.php/vod/type/id/4.html" class='main-nav'>动漫</a>
+                <a href="{{ path("dy") }}" class='main-nav'>电影</a>
+                <a href="{{ path("tv") }}" class='main-nav'>电视剧</a>
+                <a href="{{ path("zy") }}" class='main-nav'>综艺</a>
+                <a href="{{ path("dm") }}" class='main-nav'>动漫</a>
             </div>
-            <div id="dhBtn" class="nav-guide l">
-                <a href="javascript:;">更多<i class="fa nav-more">&#xe62e;</i></a>
-                <div class="ec-allnav box">
-                    <li class="triangle"></li>
-                    <ul class="cf">
-                        <li class="dayinqing"><a href="/index.php/vod/type/id/1.html" class='nav-link'><i class="co1 fa">&#xe8b6;</i>
-                                <spam>电影</spam>
-                            </a></li>
-                        <li class="dayinqing"><a href="/index.php/vod/type/id/2.html" class='nav-link'><i class="co2 fa">&#xe8b6;</i>
-                                <spam>电视剧</spam>
-                            </a></li>
-                        <li class="dayinqing"><a href="/index.php/vod/type/id/3.html" class='nav-link'><i class="co3 fa">&#xe8b6;</i>
-                                <spam>综艺</spam>
-                            </a></li>
-                        <li class="dayinqing"><a href="/index.php/vod/type/id/4.html" class='nav-link'><i class="co4 fa">&#xe8b6;</i>
-                                <spam>动漫</spam>
-                            </a></li>
-                        <li><a href="/index.php/label/rank.html" class='nav-link'><i class="co3 fa">&#xe7c4;</i>
-                                <spam>影视排行</spam>
-                            </a></li>
-                        <li><a href="/index.php/map/index.html" class='nav-link'><i class="co1 fa">&#xe71e;</i>
-                                <spam>最新更新</spam>
-                            </a></li>
-                        <li><a href="/index.php/gbook/index.html" class='nav-link'><i class="co2 fa">&#xe642;</i>
-                                <spam>留言板</spam>
-                            </a></li>
-                        <li><a href="/index.php/user/plays.html" class='nav-link'><i class="co3 fa">&#xe8b0;</i>
-                                <spam>观看记录</spam>
-                            </a></li>
-                        <li><a href="/index.php/actor/index.html" class='nav-link'><i class="co7 fa">&#xe8bc;</i>
-                                <spam>明星广场</spam>
-                            </a></li>
-                        <li><a href="/ds.php/live" class='nav-link'><i class="co2 fa">&#xe8d5;</i>
-                                <spam>看直播</spam>
-                            </a></li>
-                        <li><a href="/ds.php/viv" class='nav-link'><i class="co4 fa">&#xe60a;</i>
-                                <spam>电视直播</spam>
-                            </a></li>
-                        <li><a href="/index.php/topic/index.html" class='nav-link'><i class="co2 fa">&#xe67e;</i>
-                                <spam>影视专题</spam>
-                            </a></li>
-                    </ul>
-                </div>
-            </div>
+{#            <div id="dhBtn" class="nav-guide l">#}
+{#                <a href="javascript:;">更多<i class="fa nav-more">&#xe62e;</i></a>#}
+{#                <div class="ec-allnav box">#}
+{#                    <li class="triangle"></li>#}
+{#                    <ul class="cf">#}
+{#                        <li class="dayinqing"><a href="{{ path("dy") }}" class='nav-link'><i class="co1 fa">&#xe8b6;</i>#}
+{#                                <spam>电影</spam>#}
+{#                            </a></li>#}
+{#                        <li class="dayinqing"><a href="{{ path("tv") }}" class='nav-link'><i class="co2 fa">&#xe8b6;</i>#}
+{#                                <spam>电视剧</spam>#}
+{#                            </a></li>#}
+{#                        <li class="dayinqing"><a href="{{ path("zy") }}" class='nav-link'><i class="co3 fa">&#xe8b6;</i>#}
+{#                                <spam>综艺</spam>#}
+{#                            </a></li>#}
+{#                        <li class="dayinqing"><a href="{{ path("dm") }}" class='nav-link'><i class="co4 fa">&#xe8b6;</i>#}
+{#                                <spam>动漫</spam>#}
+{#                            </a></li>#}
+{#                        <li><a href="/index.php/label/rank.html" class='nav-link'><i class="co3 fa">&#xe7c4;</i>#}
+{#                                <spam>影视排行</spam>#}
+{#                            </a></li>#}
+{#                        <li><a href="/index.php/map/index.html" class='nav-link'><i class="co1 fa">&#xe71e;</i>#}
+{#                                <spam>最新更新</spam>#}
+{#                            </a></li>#}
+{#                        <li><a href="/index.php/gbook/index.html" class='nav-link'><i class="co2 fa">&#xe642;</i>#}
+{#                                <spam>留言板</spam>#}
+{#                            </a></li>#}
+{#                        <li><a href="/index.php/user/plays.html" class='nav-link'><i class="co3 fa">&#xe8b0;</i>#}
+{#                                <spam>观看记录</spam>#}
+{#                            </a></li>#}
+{#                        <li><a href="/index.php/actor/index.html" class='nav-link'><i class="co7 fa">&#xe8bc;</i>#}
+{#                                <spam>明星广场</spam>#}
+{#                            </a></li>#}
+{#                        <li><a href="/ds.php/live" class='nav-link'><i class="co2 fa">&#xe8d5;</i>#}
+{#                                <spam>看直播</spam>#}
+{#                            </a></li>#}
+{#                        <li><a href="/ds.php/viv" class='nav-link'><i class="co4 fa">&#xe60a;</i>#}
+{#                                <spam>电视直播</spam>#}
+{#                            </a></li>#}
+{#                        <li><a href="/index.php/topic/index.html" class='nav-link'><i class="co2 fa">&#xe67e;</i>#}
+{#                                <spam>影视专题</spam>#}
+{#                            </a></li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </div>#}
         </div>
         <div class="r cf">
             <div class="so-home l cf [id] mg-search">
@@ -157,6 +157,42 @@
         background-color: #fff;
     }
 </style>
+
+
+<script>
+
+    var startY = $('.header').position().top + $('.header').outerHeight()
+    // var startY = position = $(this).scrollTop();;
+
+    $(window).scroll(function () {
+        checkY();
+    });
+
+    function checkY() {
+        if ($(window).scrollTop() > startY) {
+            $('.fixedDiv').slideDown();
+            $('.header').addClass('highlight')
+
+        } else {
+            $('.header').removeClass('highlight')
+
+        }
+    }
+
+    // Do this on load just in case the user starts half way down the page
+    checkY();
+    // $(window).scroll(function () {
+    //     var position = $(this).scrollTop();
+    //     console.log('position', position)
+    //     $('.section').each(function () {
+    //         var target = $(this).offset().top;
+    //
+    //         if (position >= target) {
+    //             $('.header').addClass('highlight')
+    //         }
+    //     });
+    // });
+</script>
 
 </body>
 </html>
