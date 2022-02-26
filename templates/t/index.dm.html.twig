@@ -46,34 +46,30 @@
                 <div class="common_container cf">
                     <div class="mod_list_filter">
                         <dl class="fed-col-sx12">
-                            <dt>地区<a class="title" href="/index.php/vod/show/id/4.html">全部<span class="fa tb3">&#xe62d;</span></a></dt>
-                            <dd><a href="/index.php/vod/show/area/%E5%9B%BD%E4%BA%A7/id/4.html">国产</a></dd>
-                            <dd><a href="/index.php/vod/show/area/%E6%97%A5%E6%9C%AC/id/4.html">日本</a></dd>
-                            <dd><a href="/index.php/vod/show/area/%E6%AC%A7%E7%BE%8E/id/4.html">欧美</a></dd>
-                            <dd><a href="/index.php/vod/show/area/%E5%85%B6%E4%BB%96/id/4.html">其他</a></dd>
+                            <dt>分类<a class="title" href="{{ path("show_category",{'type':type}) }}">全部<span class="fa tb3">&#xe62d;</span></a></dt>
+                            {% for k,info in attribute(typeList.list,type).tag %}
+                                {% if k!=0 %}
+                                    <dd><a href="{{ path("show_category",{'type':type,'tag':k}) }}">{{ info }}</a></dd>
+                                {% endif %}
+                            {% endfor %}
                         </dl>
                         <div class="homepage_cut_line l"></div>
                         <dl class="fed-col-sx12">
-                            <dt>年代<a class="title" href="/index.php/vod/show/id/4.html">全部<span class="fa tb3">&#xe62d;</span></a></dt>
-                            <dd><a href="/index.php/vod/show/id/4/year/2022.html">2022</a></dd>
-                            <dd><a href="/index.php/vod/show/id/4/year/2021.html">2021</a></dd>
-                            <dd><a href="/index.php/vod/show/id/4/year/2020.html">2020</a></dd>
-                            <dd><a href="/index.php/vod/show/id/4/year/2019.html">2019</a></dd>
-                            <dd><a href="/index.php/vod/show/id/4/year/2018.html">2018</a></dd>
-                            <dd><a href="/index.php/vod/show/id/4/year/2017.html">2017</a></dd>
-                            <dd><a href="/index.php/vod/show/id/4/year/2016.html">2016</a></dd>
-                            <dd><a href="/index.php/vod/show/id/4/year/2015.html">2015</a></dd>
-                            <dd><a href="/index.php/vod/show/id/4/year/2014.html">2014</a></dd>
-                            <dd><a href="/index.php/vod/show/id/4/year/2013.html">2013</a></dd>
-                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2012.html">2012</a></dd>
-                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2011.html">2011</a></dd>
-                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2010.html">2010</a></dd>
-                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2009.html">2009</a></dd>
-                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2008.html">2008</a></dd>
-                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2007.html">2007</a></dd>
-                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2006.html">2006</a></dd>
-                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2005.html">2005</a></dd>
-                            <dd class="fed-hide-sm"><a href="/index.php/vod/show/id/4/year/2004.html">2004</a></dd>
+                            <dt>地区<a class="title" href="{{ path("show_category",{'type':type}) }}">全部<span class="fa tb3">&#xe62d;</span></a></dt>
+                            {% for k,info in attribute(typeList.list,type).area %}
+                                {% if k!=0 %}
+                                    <dd><a href="{{ path("show_category",{'type':type,'area':k}) }}">{{ info }}</a></dd>
+                                {% endif %}
+                            {% endfor %}
+                        </dl>
+                        <div class="homepage_cut_line l"></div>
+                        <dl class="fed-col-sx12">
+                            <dt>年代<a class="title" href="{{ path("show_category",{'type':type}) }}">全部<span class="fa tb3">&#xe62d;</span></a></dt>
+                            {% for k,info in attribute(typeList.list,type).year %}
+                                {% if k!=0 %}
+                                    <dd><a href="{{ path("show_category",{'type':type,'year':k}) }}">{{ info }}</a></dd>
+                                {% endif %}
+                            {% endfor %}
                         </dl>
                     </div>
                 </div>

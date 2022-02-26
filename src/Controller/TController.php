@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\DocumentRepository\ListsRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Yaml\Yaml;
 
 
 class TController extends AbstractController
@@ -32,6 +33,9 @@ class TController extends AbstractController
             'jqList'    => $typeRecommendList->getDyByTypeName("剧情片"),
             'xyList'    => $typeRecommendList->getDyByTypeName("悬疑片"),
             'qhList'    => $typeRecommendList->getDyByTypeName("奇幻片"),
+            'type'      => 1,
+            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/packages/web_tag.yaml')
+
         ]);
     }
 
@@ -50,6 +54,8 @@ class TController extends AbstractController
             'hwList'    => $typeRecommendList->getTvByTypeName("海外剧"),
             'mgList'    => $typeRecommendList->getTvByTypeName("美国剧"),
             'hgList'    => $typeRecommendList->getTvByTypeName("韩国剧"),
+            'type'      => 2,
+            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/packages/web_tag.yaml')
         ]);
     }
 
@@ -62,6 +68,8 @@ class TController extends AbstractController
             'gcList'    => $typeRecommendList->getDmByTypeName("国产动漫"),
             'rhList'    => $typeRecommendList->getDmByTypeName("日韩动漫"),
             'omList'    => $typeRecommendList->getDmByTypeName("欧美动漫"),
+            'type'      => 4,
+            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/packages/web_tag.yaml')
         ]);
     }
 
@@ -76,6 +84,8 @@ class TController extends AbstractController
             'rhList'    => $typeRecommendList->getZyByTypeName("日韩综艺"),
             'gtList'    => $typeRecommendList->getZyByTypeName("港台综艺"),
             'omList'    => $typeRecommendList->getZyByTypeName("欧美综艺"),
+            'type'      => 3,
+            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/packages/web_tag.yaml')
         ]);
     }
 }
