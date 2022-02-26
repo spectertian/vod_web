@@ -18,7 +18,7 @@ class SearchController extends AbstractController
 
         $topicList = $recommendList->getTopic(8);
 
-        $keyword = $request->get("keyword");
+        $keyword = $request->get("wd");
         $query   = $vodListRepository->createQueryBuilder();
         if ($keyword != '') {
             $query->addOr($query->expr()->field('director')->in([new \MongoDB\BSON\Regex($keyword, "i")]));
@@ -32,11 +32,13 @@ class SearchController extends AbstractController
             $query, /* query NOT result */
             $request->query->getInt('page', 1), 10);
 
-        $pagination->setParam('keyword', $keyword);
+        $pagination->setParam('wd', $keyword);
+        $pagination->setTemplate('show/pagination.html.twig');
+
         return $this->render('search/index.html.twig', [
             'pagination' => $pagination,
             'title'      => '搜索结果',
-            'keyword'    => $keyword,
+            'wd'         => $keyword,
             'topicList'  => $topicList,
         ]);
     }

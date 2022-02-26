@@ -29,31 +29,31 @@
                     <p class="item item-type">片源：正片</p>
                     <p class="item-desc js-open-wrap hidden"><span class="desc">简介：</span><span id="cText">{{ info.introduction }}</span></p>
                 </div>
-                <div class="content_detail cf">
-                    <div class="playbtn">
-                        <a class="btn ol2 play_eq" href="javascript:"><i class="fa">&#xe607;</i>&nbsp;立即播放</a>
-                    </div>
-                    <div class="playbtn o_share play_share">
-                        <a class="btn ol7" href="javascript:;"><i class="fa">&#xe8b7;</i>&nbsp;分享</a>
-                        <div class="ecfnx fn-panel topfadeInUp animated" style="left:inherit;right:0">
-                            <div class="arrow" style="left:320px;"></div>
-                            <div class="modpop-actionhd"></div>
-                            <div class="fn-panel-body box cf">
-                                <dl class="share-panel-left l">
-                                    <dt style="margin:26px 0">复制地址分享给你的好友</dt>
-                                    <dt style="position:relative;">
-                                        <input type="text" class="videoURL fn-share-input box" value="https://chongtmtv.com/index.php/vod/detail/id/300722.html">
-                                        <div class="fn-share-code-btn fn-sharebtn-container ol2">复制地址</div>
-                                    </dt>
-                                </dl>
-                                <dl class="share-panel-right l b-l">
-                                    <dt><img class="ecerwiema" src="https://api.pwmqr.com/qrcode/create/?url=http://chongtmtv.com/index.php/vod/detail/id/300722.html"/></dt>
-                                    <dd>扫二维码直接进入</dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+{#                <div class="content_detail cf">#}
+{#                    <div class="playbtn">#}
+{#                        <a class="btn ol2 play_eq" href="javascript:"><i class="fa">&#xe607;</i>&nbsp;立即播放</a>#}
+{#                    </div>#}
+{#                    <div class="playbtn o_share play_share">#}
+{#                        <a class="btn ol7" href="javascript:;"><i class="fa">&#xe8b7;</i>&nbsp;分享</a>#}
+{#                        <div class="ecfnx fn-panel topfadeInUp animated" style="left:inherit;right:0">#}
+{#                            <div class="arrow" style="left:320px;"></div>#}
+{#                            <div class="modpop-actionhd"></div>#}
+{#                            <div class="fn-panel-body box cf">#}
+{#                                <dl class="share-panel-left l">#}
+{#                                    <dt style="margin:26px 0">复制地址分享给你的好友</dt>#}
+{#                                    <dt style="position:relative;">#}
+{#                                        <input type="text" class="videoURL fn-share-input box" value="{{ path('detail',{id:info.id}) }}">#}
+{#                                        <div class="fn-share-code-btn fn-sharebtn-container ol2">复制地址</div>#}
+{#                                    </dt>#}
+{#                                </dl>#}
+{#                                <dl class="share-panel-right l b-l">#}
+{#                                    <dt><img class="ecerwiema" src="https://api.pwmqr.com/qrcode/create/?url={{ path('detail',{id:info.id}) }}"/></dt>#}
+{#                                    <dd>扫二维码直接进入</dd>#}
+{#                                </dl>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
             </div>
             <div class="score wow fadeInUp r">
                 <div class="rating-box cf" id="rating-main" style="display: block;">
