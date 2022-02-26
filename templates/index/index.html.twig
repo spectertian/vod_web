@@ -82,7 +82,7 @@
                     <div class="size row_1">
                         <a href="{{ path("show_category",{'type':"38"}) }}" class="tag_zt back">体育频道</a>
                         <a href="{{ path("show_category",{'tag':'纪录片'}) }}" class="tag_zt back">纪录片</a>
-{#                        <a href="/index.php/gbook/index.html" class="tag_zt back">留言版</a>#}
+                        {#                        <a href="/index.php/gbook/index.html" class="tag_zt back">留言版</a> #}
                     </div>
 
                     {#                    <div class="size row_2 top10"> #}
@@ -252,12 +252,13 @@
     <div class='wwp index-hotnow wow fadeInUp top20'>
         <div class="title-a cf">
             <h2 class="title-name l cf">
-                <img src="{{ asset("cy/7.png") }}"><span>每周热播</span><a class="url" href="/index.php/label/rb.html" onselectstart="return false;">更多<i class="fa tb3">&#xe62d;</i></a>
+                <img src="{{ asset("cy/7.png") }}"><span>每周热播</span>
+                {#                <a class="url" href="/index.php/label/rb.html" onselectstart="return false;">更多<i class="fa tb3">&#xe62d;</i></a> #}
             </h2>
             <div class="title-tips l cor3">
-                今日更新<span class="orange">119</span>部,共<span class="orange">36045</span>部
+                {#                今日更新<span class="orange">119</span>部,共<span class="orange">36045</span>部 #}
             </div>
-            <a class="title-button r cor3 module-rightcontent" title="换一换" onselectstart="return false;"><i class="fa mr2">&#xe8c8;</i>换一换</a>
+            {#            <a class="title-button r cor3 module-rightcontent" title="换一换" onselectstart="return false;"><i class="fa mr2">&#xe8c8;</i>换一换</a> #}
         </div>
         <div class="vodlist hotgrow size listdh" id="hot1">
             {% for k,info in hotPlay %}
@@ -286,15 +287,15 @@
         <div class="l playlist ecleft">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <img src="{{ asset("cy/2.png") }}"><span>电视剧</span><a class="url" href="/index.php/vod/show/id/2.html">更多<i class="fa tb3">&#xe62d;</i></a>
+                    <img src="{{ asset("cy/2.png") }}"><span>电视剧</span><a class="url" href="{{ path("show_category",{'type':"2"}) }}">更多<i class="fa tb3">&#xe62d;</i></a>
                 </h2>
                 <div class="title-tab l">
-                    <a class="back" href="/index.php/vod/show/id/30.html" title="">国产剧</a>
-                    <a class="back" href="/index.php/vod/show/id/33.html" title="">欧美剧</a>
-                    <a class="back" href="/index.php/vod/show/id/50.html" title="">韩国剧</a>
-                    <a class="back" href="/index.php/vod/show/id/31.html" title="">香港剧</a>
-                    <a class="back" href="/index.php/vod/show/id/32.html" title="">日本剧</a>
-                    <a class="back" href="/index.php/vod/show/id/49.html" title="">海外剧</a>
+                    <a class="back" href="{{ path("show_category",{'type':"2",'tag':'国产剧'}) }}" title="">国产剧</a>
+                    <a class="back" href="{{ path("show_category",{'type':"2",'tag':'欧美剧'}) }}" title="">欧美剧</a>
+                    <a class="back" href="{{ path("show_category",{'type':"2",'tag':'韩国剧'}) }}" title="">韩国剧</a>
+                    <a class="back" href="{{ path("show_category",{'type':"2",'tag':'香港剧'}) }}" title="">香港剧</a>
+                    <a class="back" href="{{ path("show_category",{'type':"2",'tag':'日本剧'}) }}" title="">日本剧</a>
+                    <a class="back" href="{{ path("show_category",{'type':"2",'tag':'海外剧'}) }}" title="">海外剧</a>
                 </div>
             </div>
             <div class="vodlist hotgrow size listdh">
@@ -318,7 +319,8 @@
         <div class="ecright r index-vodList-right wide-c-b">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <span>热播榜</span><a class="url" href="/index.php/label/rb.html">更多<i class="fa tb3">&#xe62d;</i></a>
+                    <span>热播榜</span>
+                    {#                    <a class="url" href="/index.php/label/rb.html">更多<i class="fa tb3">&#xe62d;</i></a> #}
                 </h2>
             </div>
             <div class="hot-modular back index-hot-right">
@@ -347,15 +349,15 @@
         <div class="l playlist ecleft">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <img src="{{ asset("cy/1.png") }}"><span>电影</span><a class="url" href="/index.php/vod/show/id/1.html">更多<i class="fa tb3">&#xe62d;</i></a>
+                    <img src="{{ asset("cy/1.png") }}"><span>电影</span><a class="url" href="{{ path("show_category",{'type':"1"}) }}">更多<i class="fa tb3">&#xe62d;</i></a>
                 </h2>
                 <div class="title-tab l">
-                    <a class="back" href="/index.php/vod/show/id/20.html" title="">动作片</a>
-                    <a class="back" href="/index.php/vod/show/id/21.html" title="">喜剧片</a>
-                    <a class="back" href="/index.php/vod/show/id/22.html" title="">爱情片</a>
-                    <a class="back" href="/index.php/vod/show/id/23.html" title="">科幻片</a>
-                    <a class="back" href="/index.php/vod/show/id/24.html" title="">恐怖片</a>
-                    <a class="back" href="/index.php/vod/show/id/25.html" title="">犯罪片</a>
+                    <a class="back" href="{{ path("show_category",{'type':"1",'tag':'动作片'}) }}" title="">动作片</a>
+                    <a class="back" href="{{ path("show_category",{'type':"1",'tag':'喜剧片'}) }}" title="">喜剧片</a>
+                    <a class="back" href="{{ path("show_category",{'type':"1",'tag':'爱情片'}) }}" title="">爱情片</a>
+                    <a class="back" href="{{ path("show_category",{'type':"1",'tag':'科幻片'}) }}" title="">科幻片</a>
+                    <a class="back" href="{{ path("show_category",{'type':"1",'tag':'恐怖片'}) }}" title="">恐怖片</a>
+                    <a class="back" href="{{ path("show_category",{'type':"1",'tag':'犯罪片'}) }}" title="">犯罪片</a>
                 </div>
             </div>
             <div class="vodlist hotgrow size listdh">
@@ -379,7 +381,8 @@
         <div class="ecright r index-vodList-right wide-c-b">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <span>热播榜</span><a class="url" href="/index.php/label/rb.html">更多<i class="fa tb3">&#xe62d;</i></a>
+                    <span>热播榜</span>
+                    {#                    <a class="url" href="/index.php/label/rb.html">更多<i class="fa tb3">&#xe62d;</i></a> #}
                 </h2>
             </div>
             <div class="hot-modular back index-hot-right">
@@ -410,13 +413,13 @@
     <div class="wwp top20">
         <div class="title-a cf">
             <h2 class="title-name l cf">
-                <img src="{{ asset("cy/3.png") }}"><span>综艺</span><a class="url" href="/index.php/vod/show/id/3.html">更多<i class="fa tb3">&#xe62d;</i></a>
+                <img src="{{ asset("cy/3.png") }}"><span>综艺</span><a class="url" href="{{ path("show_category",{'type':"3"}) }}">更多<i class="fa tb3">&#xe62d;</i></a>
             </h2>
             <div class="title-tab l" none>
-                <a class="back" href="/index.php/vod/show/id/34.html" title="">大陆</a>
-                <a class="back" href="/index.php/vod/show/id/35.html" title="">日韩综艺</a>
-                <a class="back" href="/index.php/vod/show/id/36.html" title="">港台综艺</a>
-                <a class="back" href="/index.php/vod/show/id/37.html" title="">欧美综艺</a>
+                <a class="back" href="{{ path("show_category",{'type':"3",'tag':'大陆综艺'}) }}" title="">大陆综艺</a>
+                <a class="back" href={{ path("show_category",{'type':"3",'tag':'日韩综艺'}) }}l" title="">日韩综艺</a>
+                <a class="back" href="{{ path("show_category",{'type':"3",'tag':'港台综艺'}) }}" title="">港台综艺</a>
+                <a class="back" href="{{ path("show_category",{'type':"3",'tag':'欧美综艺'}) }}" title="">欧美综艺</a>
             </div>
         </div>
         <div class="indexart">
@@ -453,13 +456,13 @@
         <div class="l playlist ecleft">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <img src="{{ asset("cy/4.png") }}"><span>动漫</span><a class="url" href="/index.php/vod/show/id/4.html">更多<i class="fa tb3">&#xe62d;</i></a>
+                    <img src="{{ asset("cy/4.png") }}"><span>动漫</span><a class="url" href="{{ path("show_category",{'type':"4"}) }}">更多<i class="fa tb3">&#xe62d;</i></a>
                 </h2>
                 <div class="title-tab l">
-                    <a class="back" href="/index.php/vod/show/id/38.html" title="">国产动漫</a>
-                    <a class="back" href="/index.php/vod/show/id/39.html" title="">日本动漫</a>
-                    <a class="back" href="/index.php/vod/show/id/40.html" title="">欧美动漫</a>
-                    <a class="back" href="/index.php/vod/show/id/41.html" title="">海外动漫</a>
+                    <a class="back" href="{{ path("show_category",{'type':"4",'tag':'国产动漫'}) }}" title="">国产动漫</a>
+                    <a class="back" href="{{ path("show_category",{'type':"4",'tag':'日本动漫'}) }}" title="">日本动漫</a>
+                    <a class="back" href="{{ path("show_category",{'type':"4",'tag':'欧美动漫'}) }}" title="">欧美动漫</a>
+                    <a class="back" href="{{ path("show_category",{'type':"4",'tag':'海外动漫'}) }}" title="">海外动漫</a>
                 </div>
             </div>
             <div class="vodlist hotgrow size listdh">
@@ -483,7 +486,8 @@
         <div class="ecright r index-vodList-right wide-c-b">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <span>热播榜</span><a class="url" href="/index.php/label/rb.html">更多<i class="fa tb3">&#xe62d;</i></a>
+                    <span>热播榜</span>
+                    {#                    <a class="url" href="/index.php/label/rb.html">更多<i class="fa tb3">&#xe62d;</i></a> #}
                 </h2>
             </div>
             <div class="hot-modular back index-hot-right">
@@ -515,7 +519,8 @@
         <div class="l playlist ecleft">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <img src="{{ asset("cy/6.png") }}"><span>纪录片</span><a class="url" href="/index.php/vod/show/id/29.html">更多<i class="fa tb3">&#xe62d;</i></a>
+                    <img src="{{ asset("cy/6.png") }}"><span>纪录片</span>
+                    {#                    <a class="url" href="/index.php/vod/show/id/29.html">更多<i class="fa tb3">&#xe62d;</i></a> #}
                 </h2>
                 <div class="title-tab l">
                 </div>
@@ -541,7 +546,8 @@
         <div class="ecright r index-vodList-right wide-c-b">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <span>热播榜</span><a class="url" href="/index.php/label/rb.html">更多<i class="fa tb3">&#xe62d;</i></a>
+                    <span>热播榜</span>
+                    {#                    <a class="url" href="/index.php/label/rb.html">更多<i class="fa tb3">&#xe62d;</i></a> #}
                 </h2>
             </div>
             <div class="hot-modular back index-hot-right">
@@ -567,15 +573,15 @@
     <div class="wwp top20">
         <div class="title-a cf">
             <h2 class="title-name l cf">
-                <img src="{{ asset("cy/2.png") }}"><span>体育</span><a class="url" href="/index.php/vod/show/id/42.html">更多<i class="fa tb3">&#xe62d;</i></a>
+                <img src="{{ asset("cy/2.png") }}"><span>体育</span><a class="url" href="{{ path("show_category",{'type':"38"}) }}">更多<i class="fa tb3">&#xe62d;</i></a>
             </h2>
             <div class="title-tab l" style="display:none">
-                <a class="back" href="/index.php/vod/show/id/43.html" title="">WWE摔跤娱乐</a>
-                <a class="back" href="/index.php/vod/show/id/44.html" title="">赛车</a>
-                <a class="back" href="/index.php/vod/show/id/45.html" title="">UFC终极格斗</a>
-                <a class="back" href="/index.php/vod/show/id/46.html" title="">网球</a>
-                <a class="back" href="/index.php/vod/show/id/47.html" title="">篮球</a>
-                <a class="back" href="/index.php/vod/show/id/48.html" title="">足球</a>
+                <a class="back" href="{{ path("show_category",{'type':"3",'tag':'WWE摔跤娱乐'}) }}" title="">WWE摔跤娱乐</a>
+                <a class="back" href="{{ path("show_category",{'type':"38",'tag':'赛车'}) }}" title="">赛车</a>
+                <a class="back" href="{{ path("show_category",{'type':"38",'tag':'UFC终极格斗'}) }}" title="">UFC终极格斗</a>
+                <a class="back" href="{{ path("show_category",{'type':"38",'tag':'网球'}) }}" title="">网球</a>
+                <a class="back" href="{{ path("show_category",{'type':"38",'tag':'篮球'}) }}" title="">篮球</a>
+                <a class="back" href="{{ path("show_category",{'type':"38",'tag':'足球'}) }}" title="">足球</a>
             </div>
         </div>
         <div class="indexart">
