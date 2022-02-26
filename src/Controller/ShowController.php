@@ -32,7 +32,7 @@ class ShowController extends AbstractController
             $query->field('year')->equals($year);
         }
 
-        $typeList = Yaml::parseFile(dirname(__DIR__) . '/../config/packages/web_tag.yaml');
+        $typeList = Yaml::parseFile(dirname(__DIR__) . '/../config/web_tag.yaml');
 
         $pagination = $paginator->paginate(
             $query,

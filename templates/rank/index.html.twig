@@ -1,820 +1,133 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<div class="vod-rank-banner"></div>
-<div class="vod-rank-tab">
-    <ul>
-        <li class="tab-item"><a href="/index.php/label/rank.html" class="tab-link">影视排行</a></li>
-        <li class="tab-item"><a href="/index.php/label/rb.html" class="tab-link active">热映精选</a></li>
-        <li class="tab-item"><a href="/index.php/map/index.html" class="tab-link">最新更新</a></li>
-        <li class="tab-item"><a href="/index.php/label/xrank.html" class="tab-link">明星人气榜</a></li>
-    </ul>
-</div>
-<div class="wwp top20">
-    <div class="listdh size">
-        <div class="vod-rank-list t-u">
-            <div class="vod-sum-head">
-                <span class="head-en">dianying</span>
-                <h3 class="head-txt">电影</h3>
+    <div class="vod-rank-banner"></div>
+    <div class="vod-rank-tab">
+        <ul>
+            <li class="tab-item"><a href="javascript:void(0)" class="tab-link active">最新更新</a></li>
+        </ul>
+    </div>
+    <div class="wwp top20">
+        <div class="listdh size">
+            <div class="vod-rank-list t-u">
+                <div class="vod-sum-head">
+                    <span class="head-en">dianying</span>
+                    <h3 class="head-txt">电影</h3>
+                </div>
+                <ul>
+                    {% for k,info in movie %}
+                        <li class="sum-li cf">
+                            <a class="cor3 item-link" href="{{ path('detail',{id:info.id}) }}" target="_blank">
+                                <div class="mod-left cf">
+                                    <div class="rank-num">
+                                        <span class="ecrank-no">NO</span>
+                                        <div class="list-rank-num cohot{{ k+1 }} cor3">{{ k+1 }}</div>
+                                    </div>
+                                    <div class="mod-img-link">
+                                        <img src="{{ path('img',{id:info.imgUrl}) }}" alt="{{ info.title }}" title="{{ info.title }}">
+                                        <span class="pack-bg"></span>
+                                        <span class="pack-prb hidden">{{ info.vodRemarks }}</span>
+                                    </div>
+                                </div>
+                                <div class="mod-right cor2">
+                                    <h3 class="main-title hidden">{{ info.title }}</h3>
+                                    <p title="{{ info.title }}" class="sub-des hidden cor3">{{ info.stars| join(',') }}</p>
+                                    <div class="sub-title cor3"><i class="fa">&#xe713;</i>{{ info.vodRemarks }}</div>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
-            <ul>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/301222.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <span class="ecrank-no">NO</span>
-                                <div class="list-rank-num cohot1 cor3">1</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20220226-1/86091fe5c8648eebd776b5bc307f3225.jpg" alt="反贪风暴5：最终章(粤)" title="反贪风暴5：最终章(粤)">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">12777播放</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">反贪风暴5：最终章(粤)</h3>
-                            <p title="反贪风暴5：最终章(粤)" class="sub-des hidden cor3">古天乐,张智霖,郑嘉颖,宣萱,黄宗泽,谢天华,张继聪,叶晞月</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>12777</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/286239.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <span class="ecrank-no">NO</span>
-                                <div class="list-rank-num cohot2 cor3">2</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211119-1/5cd0f42f878f9ceeb4599c931eae4d4f.jpg" alt="扬名立万" title="扬名立万">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">329414播放</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">扬名立万</h3>
-                            <p title="扬名立万" class="sub-des hidden cor3">尹正,邓家佳,喻恩泰,杨皓宇,陈明昊,秦霄贤,张本煜,柯达,邓恩熙,余皑磊,白客,赵文瑄,小爱,周奇</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>329414</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/287072.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <span class="ecrank-no">NO</span>
-                                <div class="list-rank-num cohot3 cor3">3</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211202-1/89b05f2c184a65c003cc48e7b8872f7f.jpg" alt="蜘蛛侠：英雄无归" title="蜘蛛侠：英雄无归">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">311909播放</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">蜘蛛侠：英雄无归</h3>
-                            <p title="蜘蛛侠：英雄无归" class="sub-des hidden cor3">汤姆·赫兰德,赞达亚,本尼迪克特·康伯巴奇,玛丽莎·托梅,乔恩·费儒,雅各布·巴特朗,安格瑞·赖斯,本尼迪克特·王,阿尔弗雷德·莫里纳,威廉·达福,瑞斯·伊凡斯,托马斯·哈登·丘奇,杰米·福克斯,查理·考克斯,J·K·西蒙斯,马丁·斯塔尔,托尼·雷沃罗利,宝拉·纽瑟姆,小豪尔赫·兰登伯格,哈里·赫兰德,J·B·斯穆夫,汉尼拔·布勒斯,格伦·基奥,何塞·阿尔弗雷多·费尔南德斯,约翰尼·塞雷,罗伯特·廷斯利,托比·马奎尔,安德鲁·加菲尔德,克斯汀·邓斯特,汤姆·哈迪</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>311909</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/285627.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot4 cor3">4</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211106-1/12a392555f2fb3a085ea2f8dc4806b10.jpg" alt="永恒族" title="永恒族">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">58播放</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">永恒族</h3>
-                            <p title="永恒族" class="sub-des hidden cor3">安吉丽娜·朱莉,嘉玛·陈,理查德·麦登,萨尔玛·海耶克,基特·哈灵顿,库梅尔·南贾尼</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>58</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/251613.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot5 cor3">5</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211003-1/10cdf9d6369e7d7e6a79978b28c16866.png" alt="毒液2" title="毒液2">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">修复HD</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">毒液2</h3>
-                            <p title="毒液2" class="sub-des hidden cor3">超级英雄和邪恶反派的宿命之战即将开始</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>392621</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/287202.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot6 cor3">6</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211206-1/1bf6c92bc4dc32f92a3af07bfa5a94a8.jpg" alt="国王理查德" title="国王理查德">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">10766播放</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">国王理查德</h3>
-                            <p title="国王理查德" class="sub-des hidden cor3">威尔·史密斯,黛米·辛格顿,萨尼雅·西德尼,安洁纽·艾莉丝,乔·博恩瑟,托尼·戈德温,米凯拉·拉沙·巴塞洛缪,达尼埃莱·劳森,莱拉·克劳福德,埃里卡·林格,诺亚·比恩,克雷格·泰特,乔赛亚·克罗斯,,小卡尔文·克劳塞尔,沃恩·W·希伯伦,小吉米·沃克,凯文·杜恩,布拉德·格林奎斯特,布兰顿·莫拉莱斯,爱丽珂谢弗,安迪·比恩,朱迪思•查普曼,切特·格里索姆,乔纳森·贝莱,卡特里娜·贝恩,里奇·索莫,艾琳·库明斯,汤姆·德格南,弗吉尼亚·施奈德,瓦莱丽·戴维森,汉娜·巴尔福特,梅尔·法尔,玛丽·帕斯科</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>10766</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/285904.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot7 cor3">7</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211112-1/3b43d297d1ddfcdf61bcb2f7cc4ece0b.jpg" alt="红色通缉令" title="红色通缉令">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">HD</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">红色通缉令</h3>
-                            <p title="红色通缉令" class="sub-des hidden cor3">瑞安·雷诺兹,道恩·强森,盖尔·加朵,里图·阿亚,克里斯·迪亚曼托普洛斯,伊万·姆巴科普,温琴佐·阿马托,帕斯卡尔·佩塔尔迪,Jay,Romero,Jeramie,Julian,塞思·迈克尔斯,罗伯特·廷斯利,MWW,Michael,Wilkerson,Melissa,Kennemore,汤姆·蔡,马丁·威廉·哈里斯,盖·纳尔杜利,杰伊·古铁雷斯,Ray,Siegle,詹姆斯·威廉·巴拉德,埃尔文·费利西达,约瑟夫·波多尔斯基,维多利亚·佩吉·沃特金斯,Christopher,Cocke</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>9342</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/285286.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot8 cor3">8</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="https://img.52swat.cn/upload/vod/20211029-1/f201976de2cda264d010e07e09010a1b.jpg" alt="峰爆" title="峰爆">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">HD</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">峰爆</h3>
-                            <p title="峰爆" class="sub-des hidden cor3">朱一龙,黄志忠,陈数,焦俊艳,成泰燊,王戈,卢思宇,洪剑涛,周晓鸥,斌子,孙一理,黄超,闫鹏,张国立,张译,白客,乔欣,李光洁,乔振宇,章申,于莎莎,陶虹</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>196895</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/285583.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot9 cor3">9</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211105-1/8787deacdb9eadd0e0d856c2d2b6377b.jpg" alt="芬奇" title="芬奇">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">1080</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">芬奇</h3>
-                            <p title="芬奇" class="sub-des hidden cor3">汤姆·汉克斯,卡赖伯·兰德里·琼斯,洛拉·玛汀内斯-康宁安,玛丽·瓦根曼,Christopher,Farrar,Oscar,Avila,Kennedi,Butler</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>206611</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/145706.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot10 cor3">10</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="http://img.kuaibozy.net/upload/vod/20210806-1/14860d9c2bea66714cdffa0d6a7c9849.jpg" alt="X特遣队：全员集结" title="X特遣队：全员集结">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">HD中字</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">X特遣队：全员集结</h3>
-                            <p title="X特遣队：全员集结" class="sub-des hidden cor3">X特遣队全员高燃集结，超强打击感让您身临其境</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>619217</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="vod-rank-list t-u">
-            <div class="vod-sum-head">
-                <span class="head-en">dianshiju</span>
-                <h3 class="head-txt">电视剧</h3>
+            <div class="vod-rank-list t-u">
+                <div class="vod-sum-head">
+                    <span class="head-en">dianshiju</span>
+                    <h3 class="head-txt">电视剧</h3>
+                </div>
+                <ul>
+                    {% for k,info in dsj %}
+                        <li class="sum-li cf">
+                            <a class="cor3 item-link" href="{{ path('detail',{id:info.id}) }}" target="_blank">
+                                <div class="mod-left cf">
+                                    <div class="rank-num">
+                                        <span class="ecrank-no">NO</span>
+                                        <div class="list-rank-num cohot{{ k+1 }} cor3">{{ k+1 }}</div>
+                                    </div>
+                                    <div class="mod-img-link">
+                                        <img src="{{ path('img',{id:info.imgUrl}) }}" alt="{{ info.title }}" title="{{ info.title }}">
+                                        <span class="pack-bg"></span>
+                                        <span class="pack-prb hidden">{{ info.vodRemarks }}</span>
+                                    </div>
+                                </div>
+                                <div class="mod-right cor2">
+                                    <h3 class="main-title hidden">{{ info.title }}</h3>
+                                    <p title="{{ info.title }}" class="sub-des hidden cor3">{{ info.stars| join(',') }}</p>
+                                    <div class="sub-title cor3"><i class="fa">&#xe713;</i>{{ info.vodRemarks }}</div>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
-            <ul>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/245138.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <span class="ecrank-no">NO</span>
-                                <div class="list-rank-num cohot1 cor3">1</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20210829-1/d23a4205e99f80fdc68ead6e9bfa3cf2.jpg" alt="行尸走肉第十一季" title="行尸走肉第十一季">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至10集</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">行尸走肉第十一季</h3>
-                            <p title="行尸走肉第十一季" class="sub-des hidden cor3">劳伦·科汉,诺曼·瑞杜斯,梅丽莎·麦克布莱德,克里斯蒂·瑟拉图斯,乔什·麦克德米特,塞斯·吉列姆,罗斯·马昆德,卡里·佩顿,杰弗里·迪恩·摩根,卡兰·麦克奥利菲,埃莉诺·松浦,库珀·安德鲁斯,纳迪娅·希尔克,凯莱·弗莱明,卡萨迪·麦克林西,丹·福勒,劳伦·利德洛夫,马格特·宾汉,C·托马斯·豪威尔</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>95184</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/298846.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <span class="ecrank-no">NO</span>
-                                <div class="list-rank-num cohot2 cor3">2</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211212-1/2c8cacb50bae0a15f45146e67483aee7.jpg" alt="沉睡花园" title="沉睡花园">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">完结</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">沉睡花园</h3>
-                            <p title="沉睡花园" class="sub-des hidden cor3">龚俊,乔欣,经超,孙铱,张铎,周奇奇,王泽轩</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>210422</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/299089.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <span class="ecrank-no">NO</span>
-                                <div class="list-rank-num cohot3 cor3">3</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211217-1/67cc04d79d61c6c6f23a4097cae9d7f6.jpg" alt="问天" title="问天">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">36集全</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">问天</h3>
-                            <p title="问天" class="sub-des hidden cor3">大国飞天,问天</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>221125</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/298919.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot4 cor3">4</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211214-1/38d505e2866f6da30ee2073af63520db.jpg" alt="你是我最甜蜜的心事" title="你是我最甜蜜的心事">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">共24集,完结</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">你是我最甜蜜的心事</h3>
-                            <p title="你是我最甜蜜的心事" class="sub-des hidden cor3">醋包竹马攻陷糖精姐姐</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>9093</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/299578.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot5 cor3">5</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211231-1/7980262c06d3a4ed964f5a9cd7514b12.jpg" alt="别惹白鸽" title="别惹白鸽">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">12集全</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">别惹白鸽</h3>
-                            <p title="别惹白鸽" class="sub-des hidden cor3">王玥兮,郑英辰,巩容尔,蒋昀霖,张皓然,李俊霆</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>220649</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/287246.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot6 cor3">6</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211206-1/9532bffc349aa3722a5067f391309769.jpg" alt="也平凡" title="也平凡">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">31集全</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">也平凡</h3>
-                            <p title="也平凡" class="sub-des hidden cor3">郑恺,张国立,林峯,吕凉,种丹妮,汤梦佳,高晓菲,郭振迦,郭耘奇</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>7620</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/287299.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot7 cor3">7</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211207-1/8e6cfe89588bf6afd0226fa198b4ae2e.jpg" alt="布局" title="布局">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">共27集,完结</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">布局</h3>
-                            <p title="布局" class="sub-des hidden cor3">刘述,张经纬,花昆,张羽,刘亭作,陈保元,吴宥萱,边熙蕾,齐乐,曾江,卢惠光,石修,王俊棠,徐忠信,沈威,千叶真一,崔心心</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>9132</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/286513.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot8 cor3">8</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211202-1/debf0223e654d90c710fa37b85b8a90c.png" alt="风起洛阳" title="风起洛阳">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">共39集,完结</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">风起洛阳</h3>
-                            <p title="风起洛阳" class="sub-des hidden cor3">二郎思月营救高秉烛</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>6192</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/287350.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot9 cor3">9</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211208-1/725efc8d4cba5fbcf4d5cb144dfda89b.jpg" alt="人海之中遇见你" title="人海之中遇见你">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">共24集,完结</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">人海之中遇见你</h3>
-                            <p title="人海之中遇见你" class="sub-des hidden cor3">邓超元,张稀也,赵尧珂,周锐,梁振伦,陈诗敏,李星辰,周麟嘉,孙绍龙,王九龙</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>211995</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/286391.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot10 cor3">10</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211122-1/2656b30a8ca98316a3dba3bc8a259281.jpg" alt="民警老林的幸福生活" title="民警老林的幸福生活">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">共40集,完结</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">民警老林的幸福生活</h3>
-                            <p title="民警老林的幸福生活" class="sub-des hidden cor3">林永健,梅婷,林源,宋美萱,肖顺尧</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>195628</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="vod-rank-list t-u">
-            <div class="vod-sum-head">
-                <span class="head-en">zongyi</span>
-                <h3 class="head-txt">综艺</h3>
+            <div class="vod-rank-list t-u">
+                <div class="vod-sum-head">
+                    <span class="head-en">zongyi</span>
+                    <h3 class="head-txt">综艺</h3>
+                </div>
+                <ul>
+                    {% for k,info in zy %}
+                        <li class="sum-li cf">
+                            <a class="cor3 item-link" href="{{ path('detail',{id:info.id}) }}" target="_blank">
+                                <div class="mod-left cf">
+                                    <div class="rank-num">
+                                        <span class="ecrank-no">NO</span>
+                                        <div class="list-rank-num cohot{{ k+1 }} cor3">{{ k+1 }}</div>
+                                    </div>
+                                    <div class="mod-img-link">
+                                        <img src="{{ path('img',{id:info.imgUrl}) }}" alt="{{ info.title }}" title="{{ info.title }}">
+                                        <span class="pack-bg"></span>
+                                        <span class="pack-prb hidden">{{ info.vodRemarks }}</span>
+                                    </div>
+                                </div>
+                                <div class="mod-right cor2">
+                                    <h3 class="main-title hidden">{{ info.title }}</h3>
+                                    <p title="{{ info.title }}" class="sub-des hidden cor3">{{ info.stars| join(',') }}</p>
+                                    <div class="sub-title cor3"><i class="fa">&#xe713;</i>{{ info.vodRemarks }}</div>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
-            <ul>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/176074.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <span class="ecrank-no">NO</span>
-                                <div class="list-rank-num cohot1 cor3">1</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="https://pic.monidai.com/img/f642996e9553e10a1cff9e4f360dd042.jpg" alt="老郭有新番" title="老郭有新番">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至20220221期</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">老郭有新番</h3>
-                            <p title="老郭有新番" class="sub-des hidden cor3">大陆大陆</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>92841</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/287213.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <span class="ecrank-no">NO</span>
-                                <div class="list-rank-num cohot2 cor3">2</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211206-1/380bf7388ee9d4ebe2749383ee860c37.jpg" alt="哎呀好身材 第三季" title="哎呀好身材 第三季">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至20220213(第11期)</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">哎呀好身材 第三季</h3>
-                            <p title="哎呀好身材 第三季" class="sub-des hidden cor3">沙漏岛岛民集结 李治廷王子异上头比拼</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>28693</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/176826.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <span class="ecrank-no">NO</span>
-                                <div class="list-rank-num cohot3 cor3">3</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="https://img.52swat.cn/upload/vod/20210104-1/6eed135ba2e721fe6134feb96e989ae6.jpg" alt="天天向上 2021" title="天天向上 2021">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至20220116期</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">天天向上 2021</h3>
-                            <p title="天天向上 2021" class="sub-des hidden cor3">汪涵,钱枫,大张伟,王一博</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>415</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/299429.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot4 cor3">4</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211227-1/7b9baac0492b482acb514c31a0ef5f8f.jpg" alt="单身即地狱" title="单身即地狱">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至第8期</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">单身即地狱</h3>
-                            <p title="单身即地狱" class="sub-des hidden cor3">李多熙,Jin,Kyeong,Hong,曹圭贤,Jung,Han-hae</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>235508</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/287409.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot5 cor3">5</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211209-1/e179e43a7f4cbf72298fa311894f0345.jpg" alt="令人心动的offer 第三季" title="令人心动的offer 第三季">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至20220113期</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">令人心动的offer 第三季</h3>
-                            <p title="令人心动的offer 第三季" class="sub-des hidden cor3">孟非,张纯烨,胡海泉,周深,毛不易,易立竞,陶勇</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>222305</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/253621.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot6 cor3">6</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211024-1/3c7c18c983127cc85c1ba47c9764f9cf.jpg" alt="最美中国戏" title="最美中国戏">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至20211211期</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">最美中国戏</h3>
-                            <p title="最美中国戏" class="sub-des hidden cor3">汪涵,张颜齐,刘佳艺,周恩旭,姜美伊,张晓涵,王蒲实</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>86548</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/249541.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot7 cor3">7</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="https://pic.monidai.com/img/f27f91edac90ea5af668b3ebcde3dc27.jpg" alt="我们的歌第三季" title="我们的歌第三季">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">20211212期</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">我们的歌第三季</h3>
-                            <p title="我们的歌第三季" class="sub-des hidden cor3">大陆大陆</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>96568</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/248803.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot8 cor3">8</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="https://img.52swat.cn/upload/vod/20210914-1/6128f08d5a33870ad2d34e9ceb094998.jpg" alt="90婚介所" title="90婚介所">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至第20211029期</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">90婚介所</h3>
-                            <p title="90婚介所" class="sub-des hidden cor3">孟非,阚清子,沈奕斐,孟常</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>76594</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/251046.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot9 cor3">9</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="https://pic.monidai.com/img/p2678028075.jpg" alt="机智的恋爱" title="机智的恋爱">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至20211116期</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">机智的恋爱</h3>
-                            <p title="机智的恋爱" class="sub-des hidden cor3">大陆大陆</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>56221</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/247832.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot10 cor3">10</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="http://pic.wujinimg.com/upload/vod/20210908-1/be1846d548d7c6c1913140280d09a8a5.jpg" alt="大有可为的我" title="大有可为的我">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至20211028期</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">大有可为的我</h3>
-                            <p title="大有可为的我" class="sub-des hidden cor3">杨天真,易立竞,朱一旦,Anita,陈雅函,段思婧,大艳,郭雨,鬼月,姬夕文,橘子,Keely,柳柳,罗曼莉,玛丽莲,蔓野,莫泱泱,肉泥,石原泥美,敖珞珈,小牛杨,萧谦,渝函,徐若昕,筱雅,阳光雨露,玥玥,芝草,赵丽</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>95264</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="vod-rank-list t-u">
-            <div class="vod-sum-head">
-                <span class="head-en">dongman</span>
-                <h3 class="head-txt">动漫</h3>
+            <div class="vod-rank-list t-u">
+                <div class="vod-sum-head">
+                    <span class="head-en">dongman</span>
+                    <h3 class="head-txt">动漫</h3>
+                </div>
+                <ul>
+                    {% for k,info in dm %}
+                        <li class="sum-li cf">
+                            <a class="cor3 item-link" href="{{ path('detail',{id:info.id}) }}" target="_blank">
+                                <div class="mod-left cf">
+                                    <div class="rank-num">
+                                        <span class="ecrank-no">NO</span>
+                                        <div class="list-rank-num cohot{{ k+1 }} cor3">{{ k+1 }}</div>
+                                    </div>
+                                    <div class="mod-img-link">
+                                        <img src="{{ path('img',{id:info.imgUrl}) }}" alt="{{ info.title }}" title="{{ info.title }}">
+                                        <span class="pack-bg"></span>
+                                        <span class="pack-prb hidden">{{ info.vodRemarks }}</span>
+                                    </div>
+                                </div>
+                                <div class="mod-right cor2">
+                                    <h3 class="main-title hidden">{{ info.title }}</h3>
+                                    <p title="{{ info.title }}" class="sub-des hidden cor3">{{ info.stars| join(',') }}</p>
+                                    <div class="sub-title cor3"><i class="fa">&#xe713;</i>{{ info.vodRemarks }}</div>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
-            <ul>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/299087.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <span class="ecrank-no">NO</span>
-                                <div class="list-rank-num cohot1 cor3">1</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211217-1/c72e43cf26dc4d866b96050063984ba1.jpg" alt="风起洛阳之神机少年" title="风起洛阳之神机少年">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至13集</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">风起洛阳之神机少年</h3>
-                            <p title="风起洛阳之神机少年" class="sub-des hidden cor3">大陆动漫</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>12141</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/252866.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <span class="ecrank-no">NO</span>
-                                <div class="list-rank-num cohot2 cor3">2</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211015-1/4db516cf5041433642a9e47b269fb363.jpg" alt="国王排名" title="国王排名">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至19集</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">国王排名</h3>
-                            <p title="国王排名" class="sub-des hidden cor3">日向未南,村瀬步,梶裕贵,佐藤利奈,江口拓也,上田耀司,安元洋贵,田所阳向,山下大辉,三宅健太,本田贵子,坂本真绫,下山吉光,樱井孝宏</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>593216</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/175977.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <span class="ecrank-no">NO</span>
-                                <div class="list-rank-num cohot3 cor3">3</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="https://pic.monidai.com/img/75eeb8b9631151f7e000017f5e060168.jpg" alt="独步逍遥" title="独步逍遥">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至185集</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">独步逍遥</h3>
-                            <p title="独步逍遥" class="sub-des hidden cor3">莫谦,时生,雅澜,萧悦</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>107</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/176358.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot4 cor3">4</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="https://pic.monidai.com/img/5c75620506ba4.jpg" alt="名侦探柯南" title="名侦探柯南">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至1094集</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">名侦探柯南</h3>
-                            <p title="名侦探柯南" class="sub-des hidden cor3">高山南,山崎和佳奈,神谷明,小山力也,林原惠美,山口胜平,田中秀幸,岛本须美</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>196265</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/285313.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot5 cor3">5</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211106-1/49f1fb33b8fee14ff96a13bced3fcfd4.png" alt="仙王的日常生活第二季" title="仙王的日常生活第二季">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至12集</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">仙王的日常生活第二季</h3>
-                            <p title="仙王的日常生活第二季" class="sub-des hidden cor3">中国大陆国产动漫</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>327</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/252702.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot6 cor3">6</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211012-1/264412573099e4651b972268d9de3327.jpg" alt="鬼灭之刃 无限列车篇" title="鬼灭之刃 无限列车篇">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至7集</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">鬼灭之刃 无限列车篇</h3>
-                            <p title="鬼灭之刃 无限列车篇" class="sub-des hidden cor3">鬼灭之刃 无限列车篇TV版,鬼灭之刃 无限列车篇 鬼滅の刃 無限列車編</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>162654</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/176054.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot7 cor3">7</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="https://pic.monidai.com/img/76d223e6bb9fbbc07a27f6a06d17b51a.jpg" alt="精灵幻想记" title="精灵幻想记">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至12集</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">精灵幻想记</h3>
-                            <p title="精灵幻想记" class="sub-des hidden cor3">松冈祯丞,藤田茜,楠木灯,铃代纱弓,金子彩花,田丸笃志,东山奈央,首藤志奈</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>184</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/252060.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot8 cor3">8</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="https://img.52swat.cn/upload/vod/20211007-1/babd4af51ab375cb099ec4f2988fae2b.jpg" alt="世界顶尖的暗杀者转生为异世界贵族" title="世界顶尖的暗杀者转生为异世界贵族">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至12集</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">世界顶尖的暗杀者转生为异世界贵族</h3>
-                            <p title="世界顶尖的暗杀者转生为异世界贵族" class="sub-des hidden cor3">世界最强暗杀者转生为异世界贵族,世界顶尖的暗杀者转生为异世界贵族 世界最高の暗殺者、異世界貴族に転生する</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>126512</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/287403.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot9 cor3">9</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="/upload/vod/20211209-1/83fcc0485ed4a3783fff921e6885e5c4.jpg" alt="武庚纪 第四季" title="武庚纪 第四季">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">更新至24集</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">武庚纪 第四季</h3>
-                            <p title="武庚纪 第四季" class="sub-des hidden cor3">梁达伟,Dawei,Liang,陶典,Dian,Tao,吴磊,黄莺,林簌,Su,Lin,苏鑫,李元韬,王宇航,许棕哲,潘丹妮,孙晔,郭易峰,汤旸,刘圣博</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>13541</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="sum-li cf">
-                    <a class="cor3 item-link" href="/index.php/vod/detail/id/251820.html" target="_blank">
-                        <div class="mod-left cf">
-                            <div class="rank-num">
-                                <div class="list-rank-num cohot10 cor3">10</div>
-                            </div>
-                            <div class="mod-img-link">
-                                <img src="https://img.52swat.cn/upload/vod/20211004-1/93074be3d203e92f911c06cd31d28104.jpg" alt="无职转生：到了异世界就拿出真本事第二季" title="无职转生：到了异世界就拿出真本事第二季">
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">12集全</span>
-                            </div>
-                        </div>
-                        <div class="mod-right cor2">
-                            <h3 class="main-title hidden">无职转生：到了异世界就拿出真本事第二季</h3>
-                            <p title="无职转生：到了异世界就拿出真本事第二季" class="sub-des hidden cor3">无职转生：到了异世界就拿出真本事 part2 無職転生～異世界行ったら本気だす～ part22021,无职转生：到了异世界就拿出真本事 part2 無職転生～異世界行ったら本気だす～ part2</p>
-                            <div class="sub-title cor3"><i class="fa">&#xe713;</i>95626</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
         </div>
     </div>
-</div>
 {% endblock %}

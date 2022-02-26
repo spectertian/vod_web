@@ -34,7 +34,7 @@ class TController extends AbstractController
             'xyList'    => $typeRecommendList->getDyByTypeName("悬疑片"),
             'qhList'    => $typeRecommendList->getDyByTypeName("奇幻片"),
             'type'      => 1,
-            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/packages/web_tag.yaml')
+            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/web_tag.yaml')
 
         ]);
     }
@@ -55,7 +55,7 @@ class TController extends AbstractController
             'mgList'    => $typeRecommendList->getTvByTypeName("美国剧"),
             'hgList'    => $typeRecommendList->getTvByTypeName("韩国剧"),
             'type'      => 2,
-            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/packages/web_tag.yaml')
+            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/web_tag.yaml')
         ]);
     }
 
@@ -69,7 +69,7 @@ class TController extends AbstractController
             'rhList'    => $typeRecommendList->getDmByTypeName("日韩动漫"),
             'omList'    => $typeRecommendList->getDmByTypeName("欧美动漫"),
             'type'      => 4,
-            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/packages/web_tag.yaml')
+            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/web_tag.yaml')
         ]);
     }
 
@@ -85,7 +85,7 @@ class TController extends AbstractController
             'gtList'    => $typeRecommendList->getZyByTypeName("港台综艺"),
             'omList'    => $typeRecommendList->getZyByTypeName("欧美综艺"),
             'type'      => 3,
-            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/packages/web_tag.yaml')
+            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/web_tag.yaml')
         ]);
     }
 }

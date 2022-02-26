@@ -1,55 +1,411 @@
-{% extends 'base_dy.html.twig' %}
+{% extends 'base.html.twig' %}
 {% block body %}
-    <body data-new-gr-c-s-check-loaded="14.1044.0" data-gr-ext-installed=""><!--0-->
-    <div class="container">
-        {% include 'head.html.twig' with {'keyword': keyword} %}
-        <div class="list_r cclear">
-            <ul class="breadcrumb cclear">
-                <li><a href="{{ path("index") }}">首页</a></li>
-                <li class="active">{{ title }}</li>
-                <span class="jieguo">找到相关结果约{{ pagination.getTotalItemCount }}个</span>
+    <div class="m-search">
+        <div class="sbg"></div>
+        <div class="m-search-case m-tosearch-long">
+            <form id="search" name="search" method="get" action="/index.php/vod/search.html">
+                <input type="text" name="wd" value="" placeholder="输入影片或演员名称" class="input jq-focus">
+                <button type="submit" class="btn"><i class="fa cor1">&#xe8c9;</i></button>
+            </form>
+        </div>
+        <div class="m-search-card wwp">
+            <ul class="clearfix">
+                <li class="focus"><a href="/index.php/vod/search.html?wd=">视频</a><span class="tips ol7"><strong class="mac_total"></strong></span></li>
+                <li><a href="/index.php/actor/search.html?wd=">明星</a></li>
             </ul>
-            {% if pagination.count >0 %}
-                <div id="list_all">
-                    <ul>
-                        {% for dy in pagination %}
-                            <li><a href="{{ path('detail',{id:dy.id}) }}"><img class="lazy" data-original="{{ path('img',{id:dy.imgUrl}) }}" src="{{ path('img',{id:dy.imgUrl}) }}" alt="《{{ dy.title }}》" style="display: block;">
-                                    <span class="rate badge">{{ dy.rating }}</span>
+            <a href="/index.php/label/rank.html" target="_blank" class="hotrank"><i class="fa icon-hot">&#xe782;</i>热搜榜</a>
+        </div>
+    </div>
+    <div class="wwp cf top40">
+        <div class="ecleft l">
+            <div class="ec-search">
+                <ul>
+                    <li class="search-list cf">
+                        <div class="l" style="width:220px;">
+                            <div class="pack-packcover returl list-top-b">
+                                <a class="aplus-exp ecimgbor" href="/index.php/vod/detail/id/300289.html" title="终末的后宫" title="终末的后宫">
+                                    <div class="bj eclazy" data-original="/upload/vod/20220115-1/755e3cea22cc33bd7a03b3e3d88ee070.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                    <span class="pack-bg"></span>
+                                    <span class="pack-prt">动漫</span>
+                                    <span class="pack-prb">更新至08集</span>
                                 </a>
-                                <div class="text_info"><h2><a href="{{ path('detail',{id:dy.id}) }}">{{ em_replace( dy.longTitle,keyword) |raw }}</a></h2>
-                                    <p>
-                                        别名∶{{ em_replace(dy.alias|join(' / '),keyword) |raw }}
-                                    </p>
-                                    <p class="actor">主演∶
-                                        {% for star in dy.stars %}
-                                            <span><a rel="nofollow" target="_blank" href="{{ path('search_keyword',{keyword:star}) }}">{{ em_replace( star,keyword) |raw }}</a></span> /
-                                        {% endfor %}
-                                    </p>
-                                    <p>导演∶
-                                        {% for direc in dy.director %}
-                                            <span><a rel="nofollow" target="_blank" href="{{ path('search_keyword',{keyword:direc}) }}">{{ em_replace( direc,keyword) |raw }}</a>/</span>/
-                                        {% endfor %}
-                                    </p>
-                                    <p class="info hidden-sm hidden-xs">{{ dy.introduction[:60] ~ '...' }}…</p>
+                            </div>
+                        </div>
+                        <div class="right cor3">
+                            <a class="title cor1" href="/index.php/vod/detail/id/300289.html">终末的后宫<span class="cor2">2022</span></a>
+                            <div class="ec-item">
+                                <p class="ec_indezb"><span>状态：</span><span class="author">更新至08集</span><span>导演：</span>信田祐</p>
+                                <p class="albumtitle"><span>演员：</span>市川太一,白石晴香,大地叶,山根綺,渡部恵子,小坂井祐莉絵,首藤志奈,江口拓也,石上静香,天野聪美,竹达彩奈</p>
+                            </div>
+                            <p class="ecitem-desc weaken">时间是西元2040年。罹患罕见疾病的青年·怜人，在与青梅竹马绘理沙相约再会之后接受了冷冻睡眠治疗。过了5年后，怜人醒来之后等待他的却是全世界99.9%的男性皆感染病毒而死，现存50亿人口大多为女性的世</p>
+                            <div class="content_detail">
+                                <div class="playbtn"><a class="btn ol2" href="/index.php/vod/detail/id/300289.html"><i class="fa"></i>立即播放</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-list cf">
+                        <div class="l" style="width:220px;">
+                            <div class="pack-packcover returl list-top-b">
+                                <a class="aplus-exp ecimgbor" href="/index.php/vod/detail/id/300286.html" title="解读恶之心的人们" title="解读恶之心的人们">
+                                    <div class="bj eclazy" data-original="/upload/vod/20220115-1/23244961e187f72166f8b927dd86f1b5.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                    <span class="pack-bg"></span>
+                                    <span class="pack-prt">韩国</span>
+                                    <span class="pack-prb">更新至07集</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="right cor3">
+                            <a class="title cor1" href="/index.php/vod/detail/id/300286.html">解读恶之心的人们<span class="cor2">2022</span></a>
+                            <div class="ec-item">
+                                <p class="ec_indezb"><span>状态：</span><span class="author">更新至07集</span><span>导演：</span>朴宝览</p>
+                                <p class="albumtitle"><span>演员：</span>金南佶,陈善圭,金素真,厉云,李代延,高健汉</p>
+                            </div>
+                            <p class="ecitem-desc weaken">此剧讲述在没有侧写师、精神病概念的年代，因为极恶的犯人连环出现，使得大韩民国陷入恐惧之中，为了追捕那些恶魔，需要倾听他们内心声音的侧写师们的犯罪推理故事。故事改编自权日勇和高纳穆创作的犯罪小说《追逐怪</p>
+                            <div class="content_detail">
+                                <div class="playbtn"><a class="btn ol2" href="/index.php/vod/detail/id/300286.html"><i class="fa"></i>立即播放</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-list cf">
+                        <div class="l" style="width:220px;">
+                            <div class="pack-packcover returl list-top-b">
+                                <a class="aplus-exp ecimgbor" href="/index.php/vod/detail/id/299929.html" title="少女前线" title="少女前线">
+                                    <div class="bj eclazy" data-original="/upload/vod/20220108-1/9908340dac5232655a96c62718c0051e.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                    <span class="pack-bg"></span>
+                                    <span class="pack-prt">动漫</span>
+                                    <span class="pack-prb">更新至08集</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="right cor3">
+                            <a class="title cor1" href="/index.php/vod/detail/id/299929.html">少女前线<span class="cor2">2022</span></a>
+                            <div class="ec-item">
+                                <p class="ec_indezb"><span>状态：</span><span class="author">更新至08集</span><span>导演：</span>上田繁</p>
+                                <p class="albumtitle"><span>演员：</span>户松遥,山根希美,加藤英美里,田村由香里,福原绫香,能登麻美子,岭内知美,野中蓝,高桥李依,生天目仁美,丰崎爱生,伊藤静,大久保瑠美,大坪由佳,奥野香耶,高田忧希,大西沙织,诹访彩花,上坂堇,松井惠理子,小松未可子,东山奈央,大塚明夫,奈波果林</p>
+                            </div>
+                            <p class="ecitem-desc weaken">2045年，坍缩液的污染已蔓延到整个地球。为了争夺食与住这两项人类最原始的需求，第三次世界大战席卷了全世界。战争结束后，世界已是寸草不生。在文明濒临毁灭的同时，战争与伴随战争产生的劳动力紧缺促使机械技</p>
+                            <div class="content_detail">
+                                <div class="playbtn"><a class="btn ol2" href="/index.php/vod/detail/id/299929.html"><i class="fa"></i>立即播放</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-list cf">
+                        <div class="l" style="width:220px;">
+                            <div class="pack-packcover returl list-top-b">
+                                <a class="aplus-exp ecimgbor" href="/index.php/vod/detail/id/300290.html" title="可爱的谎言～温柔的黑暗～" title="可爱的谎言～温柔的黑暗～">
+                                    <div class="bj eclazy" data-original="/upload/vod/20220115-1/043fe24a53e80baef228b804e6eac7ba.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                    <span class="pack-bg"></span>
+                                    <span class="pack-prt">日本</span>
+                                    <span class="pack-prb">更新至07集</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="right cor3">
+                            <a class="title cor1" href="/index.php/vod/detail/id/300290.html">可爱的谎言～温柔的黑暗～<span class="cor2">2022</span></a>
+                            <div class="ec-item">
+                                <p class="ec_indezb"><span>状态：</span><span class="author">更新至07集</span><span>导演：</span>树下直美</p>
+                                <p class="albumtitle"><span>演员：</span>波瑠,林遣都,沟端淳平,本仮屋唯佳,黑川智花,松村沙友理,新川优爱</p>
+                            </div>
+                            <p class="ecitem-desc weaken">改编自同名漫画，由波瑠主演，林遣都饰演男主角，原作为悬疑剧，日剧版将会有原创故事展开，讲述女主角今井望绪，一个漫画家出道失败的女子，在同学会上遇见了初恋情人雨宫秀一，然而同学会后同学们却相继过世??</p>
+                            <div class="content_detail">
+                                <div class="playbtn"><a class="btn ol2" href="/index.php/vod/detail/id/300290.html"><i class="fa"></i>立即播放</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-list cf">
+                        <div class="l" style="width:220px;">
+                            <div class="pack-packcover returl list-top-b">
+                                <a class="aplus-exp ecimgbor" href="/index.php/vod/detail/id/300811.html" title="第三次初恋" title="第三次初恋">
+                                    <div class="bj eclazy" data-original="/upload/vod/20220212-1/af31765a19dea41a45c51f5b5f5c9828.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                    <span class="pack-bg"></span>
+                                    <span class="pack-prt">电视</span>
+                                    <span class="pack-prb">更新至03集</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="right cor3">
+                            <a class="title cor1" href="/index.php/vod/detail/id/300811.html">第三次初恋<span class="cor2">2022</span></a>
+                            <div class="ec-item">
+                                <p class="ec_indezb"><span>状态：</span><span class="author">更新至03集</span><span>导演：</span>未知</p>
+                                <p class="albumtitle"><span>演员：</span>未知</p>
+                            </div>
+                            <p class="ecitem-desc weaken">《第三次初恋》讲述了处于第三次人生的男主角在今生遇见自己前世初恋的故事。</p>
+                            <div class="content_detail">
+                                <div class="playbtn"><a class="btn ol2" href="/index.php/vod/detail/id/300811.html"><i class="fa"></i>立即播放</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-list cf">
+                        <div class="l" style="width:220px;">
+                            <div class="pack-packcover returl list-top-b">
+                                <a class="aplus-exp ecimgbor" href="/index.php/vod/detail/id/301200.html" title="在你心之所向的地方" title="在你心之所向的地方">
+                                    <div class="bj eclazy" data-original="/upload/vod/20220226-1/9f511359c092ade911ab10fa0da026b0.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                    <span class="pack-bg"></span>
+                                    <span class="pack-prt">台湾</span>
+                                    <span class="pack-prb">更新至05集</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="right cor3">
+                            <a class="title cor1" href="/index.php/vod/detail/id/301200.html">在你心之所向的地方<span class="cor2">2022</span></a>
+                            <div class="ec-item">
+                                <p class="ec_indezb"><span>状态：</span><span class="author">更新至05集</span><span>导演：</span>李韵铭</p>
+                                <p class="albumtitle"><span>演员：</span>胡博文,胡世闻,黄博智,孟月晨,余乐欣,庄雨尘,荆民强,王薪媛,张佳浩,刘卓,李海燕,康华</p>
+                            </div>
+                            <p class="ecitem-desc weaken">凌梓铭和程一是从小一起长大的好朋友，他们来自两个不算完整的家庭，凌梓铭从小和二姨一起生活，程一由奶奶抚养长大，也正因如此，两个男孩在情感上相互搀扶，一同长大。进入青春期的两个人，逐渐在心理上产生了变化</p>
+                            <div class="content_detail">
+                                <div class="playbtn"><a class="btn ol2" href="/index.php/vod/detail/id/301200.html"><i class="fa"></i>立即播放</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-list cf">
+                        <div class="l" style="width:220px;">
+                            <div class="pack-packcover returl list-top-b">
+                                <a class="aplus-exp ecimgbor" href="/index.php/vod/detail/id/300628.html" title="永生" title="永生">
+                                    <div class="bj eclazy" data-original="/upload/vod/20220130-1/66955e882b41bf751df7a9f52ac5e155.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                    <span class="pack-bg"></span>
+                                    <span class="pack-prt">动漫</span>
+                                    <span class="pack-prb">更新至06集</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="right cor3">
+                            <a class="title cor1" href="/index.php/vod/detail/id/300628.html">永生<span class="cor2">2021</span></a>
+                            <div class="ec-item">
+                                <p class="ec_indezb"><span>状态：</span><span class="author">更新至06集</span><span>导演：</span>曲艺</p>
+                                <p class="albumtitle"><span>演员：</span>刘思岑,文潇,刘晴</p>
+                            </div>
+                            <p class="ecitem-desc weaken">故事发生在历史架空的多元宇宙世界，通过仙道十门之一的羽化门展开。羽化门麾下的大离王朝是一个拥有几十亿人口的人类王朝，每年都会向羽化门进贡宝物和人才，而经过羽化门训教出来的道人以及炼制的法宝，则是玄幻世</p>
+                            <div class="content_detail">
+                                <div class="playbtn"><a class="btn ol2" href="/index.php/vod/detail/id/300628.html"><i class="fa"></i>立即播放</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-list cf">
+                        <div class="l" style="width:220px;">
+                            <div class="pack-packcover returl list-top-b">
+                                <a class="aplus-exp ecimgbor" href="/index.php/vod/detail/id/301129.html" title="尚食" title="尚食">
+                                    <div class="bj eclazy" data-original="/upload/vod/20220222-1/bc545874abe074e85ee5e0323c601a38.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                    <span class="pack-bg"></span>
+                                    <span class="pack-prt">电视</span>
+                                    <span class="pack-prb">更新至14集</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="right cor3">
+                            <a class="title cor1" href="/index.php/vod/detail/id/301129.html">尚食<span class="cor2">2022</span></a>
+                            <div class="ec-item">
+                                <p class="ec_indezb"><span>状态：</span><span class="author">更新至14集</span><span>导演：</span>王威,白云默</p>
+                                <p class="albumtitle"><span>演员：</span>许凯,吴谨言,王楚然,王一哲,张楠,何奉天,刘敏,何瑞贤,王艳,练练,于荣光,洪剑涛,张芷溪,王雨,邓莎,程莉莎</p>
+                            </div>
+                            <p class="ecitem-desc weaken">大明永乐年间，少女姚子衿（吴谨言饰）入选为尚食局宫女，一路坚持对中华美食技艺的追求，结识友情并邂逅爱情，最终与英明神武的皇太孙朱瞻基(许凯饰)相知相伴的励志情感故事，展现出明朝三位杰出帝王的历史功绩与</p>
+                            <div class="content_detail">
+                                <div class="playbtn"><a class="btn ol2" href="/index.php/vod/detail/id/301129.html"><i class="fa"></i>立即播放</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-list cf">
+                        <div class="l" style="width:220px;">
+                            <div class="pack-packcover returl list-top-b">
+                                <a class="aplus-exp ecimgbor" href="/index.php/vod/detail/id/300596.html" title="江照黎明" title="江照黎明">
+                                    <div class="bj eclazy" data-original="/upload/vod/20220127-1/4a637b1001e9b25e11fe98a4256f8a1a.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                    <span class="pack-bg"></span>
+                                    <span class="pack-prt">国产</span>
+                                    <span class="pack-prb">完结</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="right cor3">
+                            <a class="title cor1" href="/index.php/vod/detail/id/300596.html">江照黎明<span class="cor2">2022</span></a>
+                            <div class="ec-item">
+                                <p class="ec_indezb"><span>状态：</span><span class="author">完结</span><span>导演：</span>牛超,王涛涛</p>
+                                <p class="albumtitle"><span>演员：</span>马思纯,白客,刘凯,张瑶,高旭阳,张本煜,史可,郎月婷,赵淑珍,袁文康</p>
+                            </div>
+                            <p class="ecitem-desc weaken">《江照黎明》是由牛超、王涛涛执导，马思纯、白客、刘凯、张瑶、高旭阳、张本煜、史可、郎月婷、赵淑珍、袁文康主演的现实主义女性悬疑话题剧
+                                　　该剧讲述了一个努力生活只求安稳的平凡女性，面对丈夫的背叛与恶意</p>
+                            <div class="content_detail">
+                                <div class="playbtn"><a class="btn ol2" href="/index.php/vod/detail/id/300596.html"><i class="fa"></i>立即播放</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-list cf">
+                        <div class="l" style="width:220px;">
+                            <div class="pack-packcover returl list-top-b">
+                                <a class="aplus-exp ecimgbor" href="/index.php/vod/detail/id/301152.html" title="相逢时节" title="相逢时节">
+                                    <div class="bj eclazy" data-original="/upload/vod/20220223-1/1ba2feba703b208587f7a0bdafe7e5ed.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                    <span class="pack-bg"></span>
+                                    <span class="pack-prt">电视</span>
+                                    <span class="pack-prb">更新至07集</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="right cor3">
+                            <a class="title cor1" href="/index.php/vod/detail/id/301152.html">相逢时节<span class="cor2">2022</span></a>
+                            <div class="ec-item">
+                                <p class="ec_indezb"><span>状态：</span><span class="author">更新至07集</span><span>导演：</span>简川訸</p>
+                                <p class="albumtitle"><span>演员：</span>雷佳音,袁泉,张艺兴,贾乃亮,罗海琼,梁冠华,练练,李乃文,孙宁,严晓频,周放,赵冉,周铁,刘秋实,王楚然,张俪</p>
+                            </div>
+                            <p class="ecitem-desc weaken">临水市农机二厂厂长简志国的儿子简宏成在大学里对文静漂亮的宁宥一见倾心，却一再遭到拒绝，直到毕业后宁宥嫁人，简宏成才死心。简志国因早年与职工崔浩发生口角被刺伤，身体大不如前，为了给年幼的简宏成保住厂子的</p>
+                            <div class="content_detail">
+                                <div class="playbtn"><a class="btn ol2" href="/index.php/vod/detail/id/301152.html"><i class="fa"></i>立即播放</a></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ui-bar list-page fn-clear">
+                <div class="mac_pages">
+                    <div class="page_tip cor3">共36224条数据,当前1/3623页</div>
+                    <div class="page_info">
+                        <a class="page_link back" href="/index.php/vod/search/page/1.html" title="首页">首页</a>
+                        <a class="page_link back" href="/index.php/vod/search/page/1.html" title="上一页">上一页</a>
+                        <a class="page_link back zbs" href="javascript:;" title="第1页">1</a>
+                        <a class="page_link back" href="/index.php/vod/search/page/2.html" title="第2页">2</a>
+                        <a class="page_link back" href="/index.php/vod/search/page/3.html" title="第3页">3</a>
+                        <a class="page_link back" href="/index.php/vod/search/page/4.html" title="第4页">4</a>
+                        <a class="page_link back" href="/index.php/vod/search/page/5.html" title="第5页">5</a>
+                        <a class="page_link back" href="/index.php/vod/search/page/2.html" title="下一页">下一页</a>
+                        <a class="page_link back" href="/index.php/vod/search/page/3623.html" title="尾页">尾页</a>
+                    </div>
+                </div>
+            </div>
+            <script>
+                $('.mac_total').html('36224');
+            </script>
+        </div>
+        <div class="ecright r">
+            <div class="list-a">
+                <div class="title-a"><h3>最新资讯</h3><a href="/index.php/label/arthot.html" class="cor3 r">更多<i class="fa">&#xe62d;</i></a></div>
+                <ul>
+                </ul>
+            </div>
+            <div>
+                <div class="title-a"><h3>热播影视</h3><a href="/index.php/label/rb.html" class="cor3 r">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="hot-modular">
+                    <ul class="rank-list">
+                        <li class="rank-item cf">
+                            <a href="/index.php/vod/detail/id/301222.html" class="rank-item-link" title="反贪风暴5：最终章(粤)">
+                                <div class="mod-left">
+                                    <div class="rank-num-box">
+                                        <i class="rank-nub cohot1 cor3">1</i>
+                                    </div>
                                 </div>
-                            </li>
-                        {% endfor %}
+                                <div class="mod-right">
+                                    <h3 class="anthology-wrap main-title">反贪风暴5：最终章(粤)</h3>
+                                    <div class="sub-box">
+                                        <p class="sub-des cor3 hidden">古天乐,张智霖,郑嘉颖,宣萱,黄宗泽,谢天华,张继聪,叶晞月</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="rank-item cf">
+                            <a href="/index.php/vod/detail/id/299087.html" class="rank-item-link" title="风起洛阳之神机少年">
+                                <div class="mod-left">
+                                    <div class="rank-num-box">
+                                        <i class="rank-nub cohot2 cor3">2</i>
+                                    </div>
+                                </div>
+                                <div class="mod-right">
+                                    <h3 class="anthology-wrap main-title">风起洛阳之神机少年</h3>
+                                    <div class="sub-box">
+                                        <p class="sub-des cor3 hidden">大陆动漫</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="rank-item cf">
+                            <a href="/index.php/vod/detail/id/252866.html" class="rank-item-link" title="国王排名">
+                                <div class="mod-left">
+                                    <div class="rank-num-box">
+                                        <i class="rank-nub cohot3 cor3">3</i>
+                                    </div>
+                                </div>
+                                <div class="mod-right">
+                                    <h3 class="anthology-wrap main-title">国王排名</h3>
+                                    <div class="sub-box">
+                                        <p class="sub-des cor3 hidden">日向未南,村瀬步,梶裕贵,佐藤利奈,江口拓也,上田耀司,安元洋贵,田所阳向,山下大辉,三宅健太,本田贵子,坂本真绫,下山吉光,樱井孝宏</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="rank-item cf">
+                            <a href="/index.php/vod/detail/id/175977.html" class="rank-item-link" title="独步逍遥">
+                                <div class="mod-left">
+                                    <div class="rank-num-box">
+                                        <i class="rank-nub cohot4 cor3">4</i>
+                                    </div>
+                                </div>
+                                <div class="mod-right">
+                                    <h3 class="anthology-wrap main-title">独步逍遥</h3>
+                                    <div class="sub-box">
+                                        <p class="sub-des cor3 hidden">莫谦,时生,雅澜,萧悦</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="rank-item cf">
+                            <a href="/index.php/vod/detail/id/176074.html" class="rank-item-link" title="老郭有新番">
+                                <div class="mod-left">
+                                    <div class="rank-num-box">
+                                        <i class="rank-nub cohot5 cor3">5</i>
+                                    </div>
+                                </div>
+                                <div class="mod-right">
+                                    <h3 class="anthology-wrap main-title">老郭有新番</h3>
+                                    <div class="sub-box">
+                                        <p class="sub-des cor3 hidden">大陆大陆</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="rank-item cf">
+                            <a href="/index.php/vod/detail/id/245138.html" class="rank-item-link" title="行尸走肉第十一季">
+                                <div class="mod-left">
+                                    <div class="rank-num-box">
+                                        <i class="rank-nub cohot6 cor3">6</i>
+                                    </div>
+                                </div>
+                                <div class="mod-right">
+                                    <h3 class="anthology-wrap main-title">行尸走肉第十一季</h3>
+                                    <div class="sub-box">
+                                        <p class="sub-des cor3 hidden">劳伦·科汉,诺曼·瑞杜斯,梅丽莎·麦克布莱德,克里斯蒂·瑟拉图斯,乔什·麦克德米特,塞斯·吉列姆,罗斯·马昆德,卡里·佩顿,杰弗里·迪恩·摩根,卡兰·麦克奥利菲,埃莉诺·松浦,库珀·安德鲁斯,纳迪娅·希尔克,凯莱·弗莱明,卡萨迪·麦克林西,丹·福勒,劳伦·利德洛夫,马格特·宾汉,C·托马斯·豪威尔</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="rank-item cf">
+                            <a href="/index.php/vod/detail/id/287213.html" class="rank-item-link" title="哎呀好身材 第三季">
+                                <div class="mod-left">
+                                    <div class="rank-num-box">
+                                        <i class="rank-nub cohot7 cor3">7</i>
+                                    </div>
+                                </div>
+                                <div class="mod-right">
+                                    <h3 class="anthology-wrap main-title">哎呀好身材 第三季</h3>
+                                    <div class="sub-box">
+                                        <p class="sub-des cor3 hidden">陈宥维,罗予彤,李治廷,宋妍霏,赵小棠,王子异,徐梦洁,周九良</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="rank-item cf">
+                            <a href="/index.php/vod/detail/id/176358.html" class="rank-item-link" title="名侦探柯南">
+                                <div class="mod-left">
+                                    <div class="rank-num-box">
+                                        <i class="rank-nub cohot8 cor3">8</i>
+                                    </div>
+                                </div>
+                                <div class="mod-right">
+                                    <h3 class="anthology-wrap main-title">名侦探柯南</h3>
+                                    <div class="sub-box">
+                                        <p class="sub-des cor3 hidden">高山南,山崎和佳奈,神谷明,小山力也,林原惠美,山口胜平,田中秀幸,岛本须美</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-                <div class="navigation text-center">
-                    {{ knp_pagination_render(pagination) }}
-                </div>
-            {% else %}
-                <div class="text-center" style="padding:15px;">抱歉，没有找到相关内容！</div>
-            {% endif %}
-        </div>
-        <div class="vod_right">
-            <div class="top">
-                <script src="{{ asset("dy/right.js") }}"></script>
             </div>
         </div>
     </div>
-
-    {% include 'footer.html.twig' %}
-    </body>
 {% endblock %}
