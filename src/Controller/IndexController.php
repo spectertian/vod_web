@@ -24,6 +24,7 @@ class IndexController extends AbstractController
         $zy        = $recommendList->getHotZy();
         $dm        = $recommendList->getHotDm();
         $jlp       = $recommendList->getHotJlp();
+        $llp       = $recommendList->getLlp();
         $sport     = $recommendList->getHotSport();
         $hotDsj    = $recommendList->getHotPlayDsj();
         $hotMovie  = $recommendList->getHotPlayMovie();
@@ -44,6 +45,7 @@ class IndexController extends AbstractController
             'hotDm'     => $hotDm,
             'hotJlp'    => $hotJlp,
             'hotMovie'  => $hotMovie,
+            'llp'       => $llp,
             'goodTy'    => $goodTy,
             'goodZy'    => $goodZy,
         ]);

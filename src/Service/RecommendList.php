@@ -43,6 +43,11 @@ class RecommendList
         return $this->vodListRepository->findBy(["type_id_1" => 1], ['vod_time' => 'desc', 'vod_douban_score' => 'desc'], $limit);
     }
 
+    public function getLlp($limit = 16)
+    {
+        return $this->vodListRepository->findBy(["type_id" => 20], ['vod_time' => 'desc'], $limit);
+    }
+
     public function getHotPlayDm($limit = 8)
     {
         return $this->vodListRepository->findBy(["type_id_1" => 4], ['vod_time' => 'desc', 'vod_douban_score' => 'desc'], $limit);
