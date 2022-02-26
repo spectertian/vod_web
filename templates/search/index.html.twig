@@ -3,7 +3,7 @@
     <div class="m-search">
         <div class="sbg"></div>
         <div class="m-search-case m-tosearch-long">
-            <form id="search" name="search" method="get" action="/index.php/vod/search.html">
+            <form id="search" name="search" method="get" action="{{ path("search") }}">
                 <input type="text" name="wd" value="" placeholder="输入影片或演员名称" class="input jq-focus">
                 <button type="submit" class="btn"><i class="fa cor1">&#xe8c9;</i></button>
             </form>
@@ -11,9 +11,9 @@
         <div class="m-search-card wwp">
             <ul class="clearfix">
                 <li class="focus"><a href="/index.php/vod/search.html?wd=">视频</a><span class="tips ol7"><strong class="mac_total"></strong></span></li>
-                <li><a href="/index.php/actor/search.html?wd=">明星</a></li>
+                {#                <li><a href="/index.php/actor/search.html?wd=">明星</a></li> #}
             </ul>
-            <a href="/index.php/label/rank.html" target="_blank" class="hotrank"><i class="fa icon-hot">&#xe782;</i>热搜榜</a>
+            {#            <a href="/index.php/label/rank.html" target="_blank" class="hotrank"><i class="fa icon-hot">&#xe782;</i>热搜榜</a> #}
         </div>
     </div>
     <div class="wwp cf top40">
@@ -274,135 +274,27 @@
             </script>
         </div>
         <div class="ecright r">
-            <div class="list-a">
-                <div class="title-a"><h3>最新资讯</h3><a href="/index.php/label/arthot.html" class="cor3 r">更多<i class="fa">&#xe62d;</i></a></div>
-                <ul>
-                </ul>
-            </div>
             <div>
                 <div class="title-a"><h3>热播影视</h3><a href="/index.php/label/rb.html" class="cor3 r">更多<i class="fa">&#xe62d;</i></a></div>
                 <div class="hot-modular">
                     <ul class="rank-list">
-                        <li class="rank-item cf">
-                            <a href="/index.php/vod/detail/id/301222.html" class="rank-item-link" title="反贪风暴5：最终章(粤)">
-                                <div class="mod-left">
-                                    <div class="rank-num-box">
-                                        <i class="rank-nub cohot1 cor3">1</i>
+                        {% for k,info in topicList %}
+                            <li class="rank-item cf">
+                                <a href="{{ path('detail',{id:info.id}) }}" class="rank-item-link" title="{{ info.title }}">
+                                    <div class="mod-left">
+                                        <div class="rank-num-box">
+                                            <i class="rank-nub cohot{{ k+1 }} cor3">{{ k+1 }}</i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mod-right">
-                                    <h3 class="anthology-wrap main-title">反贪风暴5：最终章(粤)</h3>
-                                    <div class="sub-box">
-                                        <p class="sub-des cor3 hidden">古天乐,张智霖,郑嘉颖,宣萱,黄宗泽,谢天华,张继聪,叶晞月</p>
+                                    <div class="mod-right">
+                                        <h3 class="anthology-wrap main-title">{{ info.title }}</h3>
+                                        <div class="sub-box">
+                                            <p class="sub-des cor3 hidden">{{ info.stars| join(',') }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="rank-item cf">
-                            <a href="/index.php/vod/detail/id/299087.html" class="rank-item-link" title="风起洛阳之神机少年">
-                                <div class="mod-left">
-                                    <div class="rank-num-box">
-                                        <i class="rank-nub cohot2 cor3">2</i>
-                                    </div>
-                                </div>
-                                <div class="mod-right">
-                                    <h3 class="anthology-wrap main-title">风起洛阳之神机少年</h3>
-                                    <div class="sub-box">
-                                        <p class="sub-des cor3 hidden">大陆动漫</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="rank-item cf">
-                            <a href="/index.php/vod/detail/id/252866.html" class="rank-item-link" title="国王排名">
-                                <div class="mod-left">
-                                    <div class="rank-num-box">
-                                        <i class="rank-nub cohot3 cor3">3</i>
-                                    </div>
-                                </div>
-                                <div class="mod-right">
-                                    <h3 class="anthology-wrap main-title">国王排名</h3>
-                                    <div class="sub-box">
-                                        <p class="sub-des cor3 hidden">日向未南,村瀬步,梶裕贵,佐藤利奈,江口拓也,上田耀司,安元洋贵,田所阳向,山下大辉,三宅健太,本田贵子,坂本真绫,下山吉光,樱井孝宏</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="rank-item cf">
-                            <a href="/index.php/vod/detail/id/175977.html" class="rank-item-link" title="独步逍遥">
-                                <div class="mod-left">
-                                    <div class="rank-num-box">
-                                        <i class="rank-nub cohot4 cor3">4</i>
-                                    </div>
-                                </div>
-                                <div class="mod-right">
-                                    <h3 class="anthology-wrap main-title">独步逍遥</h3>
-                                    <div class="sub-box">
-                                        <p class="sub-des cor3 hidden">莫谦,时生,雅澜,萧悦</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="rank-item cf">
-                            <a href="/index.php/vod/detail/id/176074.html" class="rank-item-link" title="老郭有新番">
-                                <div class="mod-left">
-                                    <div class="rank-num-box">
-                                        <i class="rank-nub cohot5 cor3">5</i>
-                                    </div>
-                                </div>
-                                <div class="mod-right">
-                                    <h3 class="anthology-wrap main-title">老郭有新番</h3>
-                                    <div class="sub-box">
-                                        <p class="sub-des cor3 hidden">大陆大陆</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="rank-item cf">
-                            <a href="/index.php/vod/detail/id/245138.html" class="rank-item-link" title="行尸走肉第十一季">
-                                <div class="mod-left">
-                                    <div class="rank-num-box">
-                                        <i class="rank-nub cohot6 cor3">6</i>
-                                    </div>
-                                </div>
-                                <div class="mod-right">
-                                    <h3 class="anthology-wrap main-title">行尸走肉第十一季</h3>
-                                    <div class="sub-box">
-                                        <p class="sub-des cor3 hidden">劳伦·科汉,诺曼·瑞杜斯,梅丽莎·麦克布莱德,克里斯蒂·瑟拉图斯,乔什·麦克德米特,塞斯·吉列姆,罗斯·马昆德,卡里·佩顿,杰弗里·迪恩·摩根,卡兰·麦克奥利菲,埃莉诺·松浦,库珀·安德鲁斯,纳迪娅·希尔克,凯莱·弗莱明,卡萨迪·麦克林西,丹·福勒,劳伦·利德洛夫,马格特·宾汉,C·托马斯·豪威尔</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="rank-item cf">
-                            <a href="/index.php/vod/detail/id/287213.html" class="rank-item-link" title="哎呀好身材 第三季">
-                                <div class="mod-left">
-                                    <div class="rank-num-box">
-                                        <i class="rank-nub cohot7 cor3">7</i>
-                                    </div>
-                                </div>
-                                <div class="mod-right">
-                                    <h3 class="anthology-wrap main-title">哎呀好身材 第三季</h3>
-                                    <div class="sub-box">
-                                        <p class="sub-des cor3 hidden">陈宥维,罗予彤,李治廷,宋妍霏,赵小棠,王子异,徐梦洁,周九良</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="rank-item cf">
-                            <a href="/index.php/vod/detail/id/176358.html" class="rank-item-link" title="名侦探柯南">
-                                <div class="mod-left">
-                                    <div class="rank-num-box">
-                                        <i class="rank-nub cohot8 cor3">8</i>
-                                    </div>
-                                </div>
-                                <div class="mod-right">
-                                    <h3 class="anthology-wrap main-title">名侦探柯南</h3>
-                                    <div class="sub-box">
-                                        <p class="sub-des cor3 hidden">高山南,山崎和佳奈,神谷明,小山力也,林原惠美,山口胜平,田中秀幸,岛本须美</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
