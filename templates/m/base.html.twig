@@ -35,7 +35,7 @@
         <div class="sidenv-top" style="background:#29abe2">
             <a class="sidenv_exit" href="https://hilaiya.com/index.php/user/login.html"><i class="fa rg6"></i>登陆</a>
             <a href="https://hilaiya.com/index.php/user/login.html" class="sidenv_user">
-                <em><img src="./老虎TV - 专属于新西兰华人,海外华人的在线视频媒体平台,海量高清视频在线观看_files/240c3b39ac935a30fa1d227698f0aa33.png"></em>
+                <em><img src="{{ asset("cy/240c3b39ac935a30fa1d227698f0aa33.png") }}"></em>
                 <p class="fyy">登陆后发现更多精彩...</p>
             </a>
             <div class="comiis_svg_box">
@@ -45,27 +45,21 @@
         </div>
         <div class="bottom ">
             <ul>
-                <li><a href="https://hilaiya.com/"><i class="co6 fa"></i>首页</a></li>
+                <li><a href="{{ path("index") }}"><i class="co6 fa"></i>首页</a></li>
                 <li>
-                    <a href="https://hilaiya.com/index.php/vod/type/id/1.html" title="电影"><i class="co0 fa"></i><span>电影</span></a>
+                    <a href="{{ path("dy") }}" title="电影"><i class="co0 fa"></i><span>电影</span></a>
                 </li>
                 <li>
-                    <a href="https://hilaiya.com/index.php/vod/type/id/2.html" title="电视剧"><i class="co1 fa"></i><span>电视剧</span></a>
+                    <a href="{{ path("tv") }}l" title="电视剧"><i class="co1 fa"></i><span>电视剧</span></a>
                 </li>
                 <li>
-                    <a href="https://hilaiya.com/index.php/vod/type/id/3.html" title="综艺"><i class="co2 fa"></i><span>综艺</span></a>
+                    <a href="{{ path("zy") }}" title="综艺"><i class="co2 fa"></i><span>综艺</span></a>
                 </li>
                 <li>
-                    <a href="https://hilaiya.com/index.php/vod/type/id/4.html" title="动漫"><i class="co3 fa"></i><span>动漫</span></a>
+                    <a href="{{ path("dy") }}l" title="动漫"><i class="co3 fa"></i><span>动漫</span></a>
                 </li>
-                <li><a href="https://hilaiya.com/index.php/label/rank.html"><i class="co3 fa"></i>影视排行</a></li>
-                <li><a href="https://hilaiya.com/index.php/map/index.html"><i class="co1 fa"></i>最新更新</a></li>
-                <li><a href="https://hilaiya.com/index.php/gbook/index.html"><i class="co2 fa"></i>留言板</a></li>
-                <li><a href="https://hilaiya.com/index.php/user/plays.html"><i class="co3 fa"></i>观看记录</a></li>
-                <li><a href="https://hilaiya.com/index.php/actor/index.html"><i class="co7 fa"></i>明星</a></li>
-                <li><a href="https://hilaiya.com/ds.php/live"><i class="co2 fa"></i>直播</a></li>
-                <li><a href="https://hilaiya.com/ds.php/viv"><i class="co4 fa"></i>电视直播</a></li>
-                <li><a href="https://hilaiya.com/index.php/topic/index.html"><i class="co2 fa"></i>专题</a></li>
+                {#                <li><a href="https://hilaiya.com/index.php/label/rank.html"><i class="co3 fa"></i>影视排行</a></li> #}
+                {#                <li><a href="https://hilaiya.com/index.php/map/index.html"><i class="co1 fa"></i>最新更新</a></li> #}
             </ul>
         </div>
     </div>
@@ -81,7 +75,10 @@
 <div class="ec-footer_scroll">
     <div class="ec-lrmenu">
         <a href="javascript:;" style="display:none" id="scrollUp" title="返回顶部"><i class="fa"></i></a>
-        <a href="https://hilaiya.com/template/Ds-pc/weixinKeFu/index.html" title="客服"><i class="fa"></i></a><a href="https://hilaiya.com/index.php/label/search.html" title="搜索"><i class="fa"></i></a><a href="https://hilaiya.com/index.php/gbook/index.html" title="留言"><i class="fa"></i></a> <a href="javascript:;" onclick="location.reload()" title="刷新"><i class="fa"></i></a>
+        <a href="https://hilaiya.com/template/Ds-pc/weixinKeFu/index.html" title="客服"><i class="fa"></i></a>
+        <a href="{{ path("search") }}" title="搜索"><i class="fa"></i></a>
+        <a href="https://hilaiya.com/index.php/gbook/index.html" title="留言"><i class="fa"></i></a>
+        <a href="javascript:;" onclick="location.reload()" title="刷新"><i class="fa"></i></a>
     </div>
     <a href="javascript:;" title="菜单" class="ec-lrmenukey ol2"><i class="fa"></i></a>
 </div>

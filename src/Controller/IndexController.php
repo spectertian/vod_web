@@ -2,17 +2,11 @@
 
 namespace App\Controller;
 
-use App\DocumentRepository\IndexListRepository;
-use App\DocumentRepository\TopicRepository;
 use App\DocumentRepository\VodListRepository;
-use App\Message\UserClick;
 use App\Service\RecommendList;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
-
 use Mobile_Detect;
 
 class IndexController extends AbstractController
@@ -38,6 +32,13 @@ class IndexController extends AbstractController
 
 
         if ($mobile_Detect->isMobile()) {
+            $topicList = $recommendList->getTopic(6);
+            $llp       = $recommendList->getLlp(9);
+            $dsj       = $recommendList->getHotDsj(9);
+            $movie     = $recommendList->getHotMovie(9);
+            $zy        = $recommendList->getHotZy(9);
+            $dm        = $recommendList->getHotDm(9);
+
             $tmp = 'm/index/index.html.twig';
         } else {
             $tmp = 'index/index.html.twig';
