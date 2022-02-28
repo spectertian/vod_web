@@ -11,14 +11,13 @@
     </style>
     <div class="navbody stretch nav-a lcb bottomb-b f-head-bj">
         <div class="l"><a class="f-head-color fa" href="javascript:MAC.GoBack()">&#xe716;</a></div>
-        <h2 id="zhankai"><a class="f-head-color" href="javascript:;">喜剧片<i class="fa gengduo nav1">&#xe62e;</i><i class="fa gengduo nav2">&#xe62c;</i></a></h2>
+        <h2 id="zhankai"><a class="f-head-color" href="javascript:;">{{attribute(typeList.class,type)}}<i class="fa gengduo nav1">&#xe62e;</i><i class="fa gengduo nav2">&#xe62c;</i></a></h2>
         <div class="r cf"><a style="font-size:.56rem" class="f-head-color fa r" href="{{ path("search") }}">&#xe632;</a>
             {#            <a class="fa r f-head-color" href="/index.php/label/rank.html">&#xe782;</a> #}
         </div>
         <div class="show-zhankai lcb bottomb-b f-head-bj">
             <ul>
                 {% for k,info in typeList.class %}
-                    <a class="filter_item {% if type == k %}zbs{% endif %}" href="{{ path("show_category",{'type':k}) }}">{{ info }}</a>
                     <li><a class="f-head-color" href="{{ path("show_category",{'type':k}) }}">{{ info }}</a></li>
                 {% endfor %}
             </ul>
@@ -133,5 +132,24 @@
 
         lazyload()//刚开始还没滚动屏幕时，要先触发一次函数，初始化首页的页面图片
         document.addEventListener("scroll", lazyload)
+
+        $("#zhankai").click(function (e) {
+            var hasC = $(".navbody").hasClass('navshow')
+            if (hasC) {
+                $(".navbody").removeClass('navshow')
+            } else {
+                $(".navbody").addClass('navshow')
+
+            }
+            e.preventDefault();
+        })
+
+        // var nav = document.getElementById('zhankai');
+        // var body = document.getElementsByClassName('navbody');
+        //
+        // nav.addEventListener('click', function (e) {
+        //     body.className = body.className ? '' : 'navshow';
+        //     e.preventDefault();
+        // });
     </script>
 {% endblock %}
