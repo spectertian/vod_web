@@ -1918,14 +1918,14 @@ a {
     height: .5rem;
     margin-right: .1rem;
     display: block;
-    background: url(../img/rating.png) 0 0 no-repeat;
+    background: url(./rating.png) 0 0 no-repeat;
     background-size: cover;
     text-indent: -.8rem;
     cursor: pointer
 }
 
 #rating .rating li.active, #rating .rating li.hover {
-    background: url(../img/rating.png) 0 -.515rem no-repeat;
+    background: url(./rating.png) 0 -.515rem no-repeat;
     background-size: cover
 }
 

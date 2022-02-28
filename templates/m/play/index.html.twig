@@ -1,255 +1,250 @@
-{% extends 'base.html.twig' %}
+{% extends 'm/base.html.twig' %}
 {% block body %}
-    <div class="player-bj">
-        <div class="player cf wwp">
-            <div class="player-left l cf">
-                <div class="player-height" id="bofang_box">
-                    <div id="mse"></div>
-                </div>
-                <div class="cf">
-                    <div class="player-menu l">
-                        <a href="javascript:;" onclick="MAC.Gbook.Report('编号【{{ info.id }}】名称【{{ info.title }}】不能观看请检查修复，页面地址' + location.href,'{{ info.id }}')"><i class="fa" aria-hidden="true">&#xe8ca;</i>报错</a>
-                        <a href="javascript:;" class="mac_ulog" data-type="2" data-mid="1" data-id="{{ info.id }}"><i class="fa" aria-hidden="true">&#xe8d0;</i>收藏</a>
-                        <div class="play_share" style="width:100%;position:relative">
-                            <a href="javascript:;"><i class="fa" aria-hidden="true">&#xe8b7;</i>分享</a>
-                            <div class="ecfnx fn-panel topfadeInUp animated">
-                                <div class="arrow"></div>
-                                <div class="modpop-actionhd"></div>
-                                <div class="fn-panel-body box cf">
-                                    <dl class="share-panel-left l">
-                                        <dt style="margin:26px 0">复制地址分享给你的好友</dt>
-                                        <dt style="position:relative;">
-                                            <input type="text" class="videoURL fn-share-input box" value="{{ path('detail',{id:info.id}) }}">
-                                            <div class="fn-share-code-btn fn-sharebtn-container ol2">复制地址</div>
-                                        </dt>
-                                    </dl>
-                                    <dl class="share-panel-right l b-l">
-                                        <dt><img class="ecerwiema" src="https://api.pwmqr.com/qrcode/create/?url=http://chongtmtv.com/index.php/vod/detail/id/301055.html"/></dt>
-                                        <dd>扫二维码直接进入</dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="play_share hidden_xs ecfx" style="width: 100%;position: relative;"><a href="javascript:;"><i class="fa" aria-hidden="true">&#xe6e0;</i>打赏</a>
-                            <div class="ecdash fn-panel topfadeInUp animated">
-                                <div class="arrow"></div>
-                                <div class="modpop-actionhd"></div>
-                                <div class="fn-panel-body box cf">
-                                    <div class="share-panel-bd clear">
-                                        <span class="title col1b">感谢您的支持，我会继续努力的!</span>
-                                        {#                                        <span class="qrcode"><img width="100%" src="" alt="支付宝打赏二维码"/><p>支付宝</p></span> #}
-                                        {#                                        <span class="qrcode"><img width="100%" src="" alt="微信打赏二维码"/><p>微信</p></span> #}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="" class="btns_disad"><i class="fa" aria-hidden="true">&#xe7ea;</i>上集</a>
-                        <a href="/index.php/vod/play/id/301055/sid/1/nid/2.html" class="">下集<i class="fa" style="margin-left:6px" aria-hidden="true">&#xe7eb;</i></a>
+    <section class="playtopfixed">
+        <div id="detail-box">
+            <div class="player-height" id="bofang_box">
+                <div id="mse"></div>
+            </div>
+        </div>
+        <div class="play-catalog b-b lcb cf cor2">
+            <div class="l">
+                {#                <span class="on mr">视频<i></i></span> #}
+                {#                <span class="ml">评论<i></i></span> #}
+            </div>
+            <div class="r qiansebei">
+                {#                <a href="" class="btns_disad cor4"><i class="fa">&#xe7ea;</i>上集</a> #}
+                {#                <a href="/index.php/vod/play/id/300378/sid/3/nid/2.html" class="">下集<i class="fa">&#xe7eb;</i></a> #}
+                {#            </div> #}
+            </div>
+    </section>
+    <div style="height:6.6rem"></div>
+    <section class="play-detail">
+        <div class="box">
+            <div class="ec-playnam stretch">
+                <h2 class="play-title cor2"><span class="buttom">{{ info.type }}</span>{{ info.title }}</h2>
+                <div class="play-news cor4">{{ info.language }}<span>/</span>{{ info.area }}<span>/</span>{{ info.vodRemarks }}</div>
+                <a id="zhankai" class="play-details cor4">详情<i class="fa gengduo nav1">&#xe62e;</i><i class="fa gengduo nav2">&#xe62c;</i></a>
+                <div class="play-details-of" style="display:none;">
+                    <div class="play-top cor4">
+                        <p>
+                            <span>演员：
+                                {% for star in info.stars %}
+                                    <a href="/index.php/vod/search/actor/%E9%99%88%E8%8B%A5%E8%BD%A9.html" target="_blank">{{ star }}</a>&nbsp;
+                                {% endfor %}
+                            </span></p>
+                        <p>
+                            <span>导演：
+                                {% for direct in info.director %}
+                                    <a href="/index.php/vod/search/director/%E5%90%95%E8%A1%8C.html" target="_blank">{{ direct }}</a>&nbsp;
+                                {% endfor %}
+                            </span>
+                        </p>
                     </div>
-                    <div class="player-news r">
-                        <div class="news-list">
-                            <ul class="infoList cor4">
-                                <li><span class="news-tis">提醒</span>不要轻易相信视频中的广告，谨防上当受骗!</li>
-                                <li>如果无法播放请重新刷新页面，或者切换线路。</li>
-                                <li>视频载入速度跟网速有关，请耐心等待几秒钟。</li>
+                    {#                    <section class="actorhsta cl swiper-container3"> #}
+                    {#                        <ul class="swiper-wrapper"> #}
+                    {#                            <li class="swiper-slide"> #}
+                    {#                                <a href="/index.php/actor/detail/id/7769.html" title="皆川猿时"> #}
+                    {#                                    <div class="kmimg" style="padding: 0;"><img src="/upload/actor/20210820-8/6902094dbcc199abe61bff0204e42c92.jpg"></div> #}
+                    {#                                    <h2>皆川猿时</h2> #}
+                    {#                                </a> #}
+                    {#                            </li> #}
+                    {#                        </ul> #}
+                    {#                    </section> #}
+                    <div class="play-bottom">
+                        <p class="play-m-box cor4">概要 : {{ info.introduction }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="play-score cf back">
+                <div class="fraction">10.0</div>
+                <div id="detail-rating" class="cf l">
+                    <div id="rating" class="fn-left" data-mid="1" data-id="300378" data-score="5">
+                        <ul class="rating" id="fenshu">
+                            <li class="one  current active" title="很差" val="1">很差</li>
+                            <li class="two  current active" title="较差" val="2">较差</li>
+                            <li class="three  current active" title="还行" val="3">还行</li>
+                            <li class="four active" title="推荐" val="4">推荐</li>
+                            <li class="five active" title="力荐" val="5">力荐</li>
+                        </ul>
+                        <span id="ratewords" class="cor2">力荐
+</span>
+                    </div>
+                    <script type="text/javascript" src="/template/Ds-wap/js/qireobj.js"></script>
+                    <script type="text/javascript" src="/template/Ds-wap/js/gold.js"></script>
+                    <div class="cor4">818人已评分</div>
+                </div>
+            </div>
+        </div>
+        <div class="tag cl play-button">
+            <ul>
+                <li><a href="javascript:;" onclick="MAC.Gbook.Report('编号【300378】名称【如果，有一所只有帅哥的高中】不能观看请检查修复，页面地址' + location.href,'300378')" class="fa">&#xe8ca;</a>
+                    <p class="title cor2">报错</p></li>
+                <li><a href="javascript:;" class="fa rewardshow">&#xe8cb;</a>
+                    <p class="title cor2">入群</p></li>
+                <li><a href="javascript:;" class="fa mac_ulog" data-type="2" data-mid="1" data-id="300378">&#xe8c6;</a>
+                    <p class="title cor2">收藏</p></li>
+                <li><a href="javascript:;" id="ifshow" class="fa">&#xe8b7;</a>
+                    <p class="title cor2">分享</p></li>
+            </ul>
+        </div>
+        <div class="ec-gfqqqun ol1"><a href="#" class="text hidden">遇到视频卡顿请刷新页面或切换播放路线</a></div>
+        <div class="pannel cf">
+            <div class="box title-a cf">
+                <h2 class="l cor2">
+                    <span>播放列表</span>
+                </h2>
+                <div class="r siza">
+                    <a class="cor4 r-3 publicshow" href="javascript:;" title="播放技巧" style="font-size: .36rem;">观影技巧<i class="fa">&#xe8ae;</i></a>
+                    <a id="zxdaoxu" class="cor4 r-3" href="javascript:;" title="如果，有一所只有帅哥的高中影片选集排序" style="font-size: .36rem;">倒叙<i class="fa">&#xe66c;</i></a>
+                    <a id="selectedzk" class="cor4" href="javascript:;" title="如果，有一所只有帅哥的高中影片选集" style="font-size: .36rem;">展开列表<i class="fa">&#xe62d;</i></a>
+                </div>
+            </div>
+            <div class="play_source">
+                <div class="boxb b-b swiper-container3 play_source_tab swiper">
+                    <div class="cf swiper-wrapper" id="tag">
+                        <a href="javascript:void(0);" class='swiper-slide on' data-from="if101" alt="高清">高清<em>({{ info.play.1.list|length }})</em></a>
+                        {#                        <a href="javascript:void(0);" class='swiper-slide ' data-from="wjm3u8" alt="高清2">高清2<em>7</em></a> #}
+                        {#                        <a href="javascript:void(0);" class='swiper-slide ' data-from="dbm3u8" alt="高清1">高清1</a> #}
+                    </div>
+                </div>
+                <div class="ecxlqh"></div>
+                <div id="tagContent">
+                    <div id="playsx" class='play_list_box show daoxu'>
+                        <div class="box player_infotip cor4"><i class="fa">&#xe8d1;</i>&nbsp;当前资源高清提供&nbsp;-&nbsp;看视频 - 老虎TV TV，无VIP会员</div>
+                        <div class="card playlist_notfull swiper-container4">
+                            <ul id="nav-bar" class='content_playlist cf swiper-wrapper'>
+                                {% for key,vod in info.play.1.list %}
+                                    <li class='swiper-slide jujiselset '><a class="back" href="{{ path('play',{s_id:info.id,p_id:key}) }}">{{ vod.title }}</a></li>
+                                {% endfor %}
+                                <li class='swiper-slide jujiselset ecnav-dt'><a class="back" href="/index.php/vod/play/id/300378/sid/3/nid/1.html"><i class="fa on">1</i><em></em></a></li>
                             </ul>
                         </div>
                     </div>
-                    <script>jQuery(".player-news").slide({titCell: ".hd ul", mainCell: ".news-list ul", autoPage: true, effect: "top", autoPlay: true});</script>
-                </div>
-            </div>
-            <div class="player-right r cf">
-                <div class="top">
-                    <h2 class="title"><a style="color:#fff" href="{{ path('detail',{id:info.id}) }}">{{ info.title }}</a></h2>
-                    <div class="player-tips cor5" title="薇薇 -萤石眼之歌详情简介">→如若播放失败请切换解析或者线路尝试哟↓↓</div>
-                </div>
-                <div class="player-episode">
-                    <div class="player-xl-menu cor5 cf">
-                        <div class="l"><i class="fa">&#xe8b4;</i>片源:</div>
-                        <a class="cor5 l" id="zxdaoxu" href="javascript:;"><i class="fa">&#xe65a;</i>&nbsp;排序</a>
-                        <a class="cor5 l" id="antic" href="javascript:;"><i class="fa">&#xe8cc;</i>&nbsp;使用小技巧</a>
-                    </div>
-                    <div class="player-xl-switch top20 swiper-container2">
-                        <div class="swiper-wrapper cf">
-                            <a class='swiper-slide  zbs' data-from="if101" href="{{ path('play',{s_id:info.id,p_id:"0"}) }}">高清({{ info.vodTotal }})</a>
-                        </div>
-                    </div>
-                    <div class="player-xl-list top20 listdh size">
-                        <ul id="playsx" class="cf daoxu" style="display:block">
-                            {% for key,vod in info.play.1.list %}
-                                <li class="select-item {% if p_id == key %} current {% endif %}" curr-pages="1" style="font-size:13px;"><a href="{{ path('play',{s_id:info.id,p_id:key}) }}">{{ vod.title }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <div>
-                        <div></div>
-                    </div>
-                    {#                    <div class="list-a top10"> #}
-                    {#                        <div class="title-a cor4"><h3>相关推荐</h3><a href="/index.php/map/index.html" class="cor5 r">更多<i class="fa">&#xe62d;</i></a></div> #}
-                    {#                        <ul> #}
-                    {#                            {% for key,info in recommend_list %} #}
-                    {#                                <li class="cf"> #}
-                    {#                                    <a title="{{ info.title }}" href="{{ path('detail',{id:info.id}) }}"> #}
-                    {#                                        <div class="pack-packcover returl"> #}
-                    {#                                            <div class="aplus-exp ecimgbor"> #}
-                    {#                                                <div class="bj" style="background-image: url({{ path('img',{id:info.imgUrl}) }});"></div> #}
-                    {#                                                <span class="pack-bg"></span> #}
-                    {#                                            </div> #}
-                    {#                                        </div> #}
-                    {#                                        <div> #}
-                    {#                                            <p class="font16 cor4">{{ info.title }}</p> #}
-                    {#                                            <p class="item-date cor5">{{ info.vodRemarks }}</p> #}
-                    {#                                        </div> #}
-                    {#                                    </a> #}
-                    {#                                </li> #}
-                    {#                            {% endfor %} #}
-                    {#                        </ul> #}
+                    {#                    <div id="playsx" class='play_list_box '> #}
+                    {#                        <div class="box player_infotip cor4"><i class="fa">&#xe8d1;</i>&nbsp;当前资源由高清2提供&nbsp;-&nbsp;看视频 - 老虎TV TV，无VIP会员</div> #}
+                    {#                        <div class="card playlist_notfull swiper-container4"> #}
+                    {#                            <ul class='content_playlist cf swiper-wrapper'> #}
+                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/1.html">1</a></li> #}
+                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/2.html">2</a></li> #}
+                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/3.html">3</a></li> #}
+                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/4.html">4</a></li> #}
+                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/5.html">5</a></li> #}
+                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/6.html">6</a></li> #}
+                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/7.html">7</a></li> #}
+                    {#                            </ul> #}
+                    {#                        </div> #}
+                    {#                    </div> #}
+                    {#                    <div id="playsx" class='play_list_box '> #}
+                    {#                        <div class="box player_infotip cor4"><i class="fa">&#xe8d1;</i>&nbsp;当前资源由高清1提供&nbsp;-&nbsp;看视频 - 老虎TV TV，无VIP会员</div> #}
+                    {#                        <div class="card playlist_notfull swiper-container4"> #}
+                    {#                            <ul class='content_playlist cf swiper-wrapper'> #}
+                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/2/nid/1.html">1</a></li> #}
+                    {#                            </ul> #}
+                    {#                        </div> #}
                     {#                    </div> #}
                 </div>
             </div>
         </div>
-        <div class="cf wwp top20">
-            <div class="ecleft l">
-                <div class="play-detail">
-                    <h1 class="title"><span class="name cor4" title="{{ info.title }}">{{ info.title }}：第{{ p_id+1 }}集在线播放</span><span class="remarks">{{ info.vodRemarks }}</span></h1>
-                    <div class="play-tag cor3">
-                        <span class="play-hot"><span class="fa cor1 mr2">&#xe713;</span><span class="video-heat-text">10609</span></span>
-                        <span>
-                    <div id="ecbto" class="play-open">
-                        <div class="cut-line"></div>内容简介<span class="fa">&#xe62e;</span></div>
-                        <a href="/index.php/vod/search/area/%E6%97%A5%E9%9F%A9.html" target="_blank">{{ info.area }}</a>&nbsp;
-                            <a href="/index.php/vod/search/year/2021.html" target="_blank">{{ info.year }}</a>&nbsp;
-                            <a href="/index.php/vod/search/class/%E5%8A%A8%E6%BC%AB-%E7%A7%91%E5%B9%BB.html" target="_blank">{{ info.type }}</a>&nbsp;
-                        </span>
-                    </div>
-                </div>
-                <div class="intro-wrap intro-wrapec">
-                    <a class="poster bj l box" href="javascript:;" style="background-image: url({{ path('img',{id:info.imgUrl}) }});"></a>
-                    <div class="content-wrap">
-                        <div class="info-wrap" style="margin-bottom:12px;">
-                            <span class="title cor3">导演：</span>
-                            {% for direct in info.director %}
-                                <a href="/index.php/vod/search/director/%E5%90%95%E8%A1%8C.html" target="_blank">{{ direct }}</a>&nbsp;
-                            {% endfor %}
-                        </div>
-                        <div class="info-wrap" style="margin-bottom: 12px;">
-                            <span class="title cor3">主演：</span>
-                            {% for star in info.stars %}
-                                <a href="/index.php/vod/search/actor/%E9%99%88%E8%8B%A5%E8%BD%A9.html" target="_blank">{{ star }}</a>&nbsp;
-                            {% endfor %}
-                        </div>
-                        <div class="info-wrap cor3">
-                            <span class="title">概要：</span> {{ info.introduction }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="ecright r"></div>
-        </div>
-    </div>
-    <div class="palyconnt cf top20 wwp">
-        <div class="l playlist ecleft">
+        <div></div>
 
-            <div class="swiper-container3 top20">
-                <div class="cf swiper-wrapper">
-
-                    <br>
-                    <br>
-                </div>
+        <div>
+            <div class="title-a cf box">
+                <h2 class="l cor2">
+                    <span>相关推荐</span>
+                </h2>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':info.typeId1,'tag':info.type}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
-            {#            <div class="swiper-container3 top20"> #}
-            {#                <div class="cf swiper-wrapper"> #}
-            {#                        <span class="swiper-slide actorlist_item" style="display: inline-block;"> #}
-            {#                        <div class="actorlist_box ecdy back t-u"> #}
-            {#                            <a class="vodlist_thumb" href="/index.php/actor/detail/id/15627.html" title="种崎敦美"><img src="/upload/actor/20210821-7/c231dc42b12205d813d72365a25a7089.jpg" class="role-img"></a> #}
-            {#                            <div class="actorlist_tit anthology-wrap"> #}
-            {#                                <a class="albumtitle cor2" href="/index.php/actor/detail/id/15627.html" title="种崎敦美">种崎敦美</a> #}
-            {#                            </div> #}
-            {#                        </div> #}
-            {#                        </span> #}
-            {#                </div> #}
-            {#            </div> #}
-            <div class="ec-ad top20"><a href="https://www.pandaremit.com/googleSwap?invtCode=1AWA0H&countryLocation=IP&isFirstFee=1&registration=appStore" target="_blank"><img src="/upload/ad/20211007-1/b7d77696e5104b24c9036cbd10c02026.png" alt="播放页横幅广告位"></a></div>
-            <div class='index-hotnow wow fadeInUp top20'>
-                <div class="title-a cf">
-                    <h2 class="title-name l cf">
-                        <span>《{{ info.title }}》相关影视</span></a>
-                    </h2>
-                </div>
-                <div class="vodlist hotgrow size listdh">
+            <div class="list-a size swiper-container2 card">
+                <ul class="swiper-wrapper">
                     {% for key,info in recommend_list %}
-                        <div class="pack-ykpack play-vod-list playhid{{ key+1 }}">
-                            <div class="pack-packcover returl list-top-b">
-                                <a class="aplus-exp ecimgbor" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
-                                    <div class="bj eclazy" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }});"></div>
-                                    <span class="pack-bg"></span>
-                                    <span class="pack-prb hidden">{{ info.vodRemarks }}</span>
+                        <li class="swiper-slide list-width  volistwidthcb">
+                            <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                                <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
+                                    <div class="eclazy br" style="backg{round-image: url({{ path('img',{id:info.imgUrl}) }});"></div>
+                                    <span class="pack-bg br-bt"></span>
+                                    <span class="list-remarks hidden">{{ info.vodRemarks }}</span>
                                 </a>
                             </div>
-                            <div class="pack-infolist">
-                                <a class="vodname hidden" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}</a>
-                                <div class="pack-subtitle cor3 hidden">{{ info.stars| join(',') }}</div>
+                            <div class="bottom">
+                                <div class="title hidden">
+                                    <a href='{{ path('detail',{id:info.id}) }}' title="{{ info.title }}">{{ info.title }}</a>
+                                </div>
                             </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {#            <div class="title-a cf top20"> #}
-            {#                <h2 class="title-name l cf"> #}
-            {#                    <span>评论</span></a> #}
-            {#                </h2> #}
-            {#            </div> #}
-            {#            <div class="mac_comment" data-id="301055" data-mid="1"></div> #}
-        </div>
-        <div class="ecright r">
-            <div class="title-a cf">
-                <h2 class="title-name l cf">
-                    <span>{{ info.type }} · TOP</span><a class="url" href="/index.php/label/rb.html">更多<i class="fa tb3">&#xe62d;</i></a>
-                </h2>
-            </div>
-            <div class="hot-modular">
-                <ul class="rank-list">
-
-                    {% for k,info in topic %}
-                        <li class="rank-item cf">
-                            <a href="{{ path('detail',{id:info.id}) }}" class="rank-item-link" title="{{ info.title }}">
-                                <div class="mod-left">
-                                    <div class="rank-num-box">
-                                        <span class="ecrank-no">NO</span><i class="rank-nub cohot{{ k+1 }} cor3">{{ k+1 }}</i>
-                                    </div>
-                                </div>
-                                <div class="mod-right">
-                                    <h3 class="anthology-wrap main-title">{{ info.title }}</h3>
-                                    <div class="sub-box">
-                                        <div class="sub-right"><i class="fa">&#xe713;</i><span class="count cor3">{{ info.vodRemarks }}</span></div>
-                                        <p class="sub-des cor3 hidden">{{ info.stars| join(',') }}</p>
-                                    </div>
-                                </div>
-                            </a>
                         </li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="skill popup">
-        <div class="popup-bg"></div>
-        <div class="popup-box notice back topfadeInUp animated">
-            <h2 class="popup-title cor2">使用小技巧</h2>
-            <div class="popup-content cor2">1.如播卡顿或失败可切换片源。<br/>2.建议选择高清片源播放，速度更快画质更好，如播放失败可点击切换线路。<br/>3.请不要相信视频中的广告,视频中广告非本站所加。<br/></div>
-            <div class="popup-btn">
-                <a class="popup-conch buthide ol2" style="margin-right:9px;" href="javascript:;">朕已阅</a>
-                <a class="popup-subs buthide ol7" href="javascript:;">取消</a>
+
+    </section>
+    <section class="play-detail" style="display:none">
+        <div class="ui-box marg" id="pinglun">
+            <div class="mac_comment" data-id="300378" data-mid="1"></div>
+            <script>
+                $(function () {
+                    MAC.Comment.Login = 1;
+                    MAC.Comment.Verify = 1;
+                    MAC.Comment.Init();
+                    MAC.Comment.Show(1);
+                });
+            </script>
+        </div>
+    </section>
+    <section class="reward" style="display:none">
+        <div class="zdbj"></div>
+        <div class="bottom-box animated fadeInUp lcb">
+            <div class="share-panel-bd cf">
+                <span class="cor4">加入群聊，为您在线解决各种视频报错！</span>
+                <div class="qrcode"><img width="100%" src="/upload/site/20210915-1/a229b650ec849bc30a9763690a1d70e2.jpg" alt="打赏二维码">
+                    <p>微信二维码</p></div>
+                <div class="qrcode"><img width="100%" src="/upload/site/20211010-1/e3e7a018294fa3a4bac0fe8a29d75861.png" alt="打赏二维码">
+                    <p>微信二维码</p></div>
             </div>
+        </div>
+    </section>
+    <section class="ifhidden">
+        <div class="zdbj"></div>
+        <div class="bottom-box animated fadeInUp lcb">
+            <div class="botton-top">
+                <p class="cor4"><i class="fa">&#xe8cc;</i>复制链接地址分享给您的好友吧~~</p>
+                <textarea id="foo" rows="3" cols="20" class="share back cor2">https://chongtmtv.com/index.php/vod/detail/id/300378.html</textarea>
+            </div>
+            <div class="botton-btn share-btn b-t">
+                <button type="button" class="cor2 copyBtn" data-clipboard-target="#foo">复制链接</button>
+            </div>
+        </div>
+    </section>
+    <section class="selected" style="display:none">
+        <div class="zdbj"></div>
+        <div class="bottom-box animated fadeInUp lcb" style="top: 6.77rem;">
+            <div class="botton-top" style="height:100%">
+                <div class="title-a cf" style="margin:0;">
+                    <h2 class="l cor2"><span>选集</span></h2>
+                    <div class="r siza"><a id="selectedof" class="cor4" href="javascript:;" style="font-size: .36rem;"><i class="fa">&#xe64d;</i></a></div>
+                </div>
+                <div class='selectha'>
+                    <ul class='selectedhidden'></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="publicpu popup hide">
+        <div class="zdbj"></div>
+        <div class="popup-box lcb br">
+            <h2 class="popup-title cor2">观影小技巧</h2>
+            <div class="popup-content cor2">1.如播卡顿或失败可切换片源。<br/>2.建议选择高清片源播放，速度更快画质更好，如播放失败可点击切换线路。<br/>3.请不要相信视频中的广告,视频中广告非本站所加。<br/></div>
+            <div class="popup-btn"><a class="popup-conch buthide ol2" style="margin-right:4%;" href="javascript:;">朕已阅</a><a class="popup-subs buthide ol7" href="javascript:;">取消</a></div>
         </div>
     </div>
     <div style="display:none">
-        <span class="mac_ulog_set" data-type="4" data-mid="1" data-id="301055" data-sid="1" data-nid="1"></span>
-        <span class="mac_history_set" data-name="[{{ info.type }}]{{ info.title }}" data-mid="-第{{ p_id }}几集" data-pic="{{ path('img',{id:info.imgUrl}) }}"></span>
+        <span class="mac_ulog_set" data-type="4" data-mid="1" data-id="300378" data-sid="3" data-nid="1"></span>
+        <span class="mac_history_set" data-name="[日本剧]如果，有一所只有帅哥的高中" data-mid="-第1集" data-pic="/upload/vod/20220116-1/536dd477b5a50430ca4719148d666b83.jpg"></span>
         <span id="jxline">https://pull.chongtmtv.com/?url=</span>
         <span id="bfurl">qq|youku|mgtv|letv|pptv|shou|qiyi</span>
     </div>
-    <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/5.1.0/js/swiper.min.js"></script>
+    <script>let ec_deviation = new myUtil();
+        ec_deviation.deviation('#nav-bar', 'li.ecnav-dt');
+        ec_deviation.deviation('#tag', '.swiper-slide.on');</script>
     <script>
         var mySwiper2 = new Swiper('.swiper-container2', {
             paginationClickable: true,
