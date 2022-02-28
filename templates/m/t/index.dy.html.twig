@@ -37,13 +37,13 @@
     </div>
     <div class="nav-quick box" style="padding-top:.2rem;padding-bottom:.2rem;padding-right:2.42667rem;">
         <ul class="cf">
-            <li class="back"><a href="{{ path("show_category",{'type':"1",'tag':'动作片'}) }}" class="item"><span>动作片</span></a></li>
-            <li class="back"><a href="{{ path("show_category",{'type':"1",'tag':'伦理片'}) }}" class="item"><span>伦理片</span></a></li>
-            <li class="back"><a href="{{ path("show_category",{'type':"1",'tag':'喜剧片'}) }}" class="item"><span>喜剧片</span></a></li>
-            <li class="back"><a href="{{ path("show_category",{'type':"1",'tag':'爱情片'}) }}" class="item"><span>爱情片</span></a></li>
-            <li class="back"><a href="{{ path("show_category",{'type':"1",'tag':'科幻片'}) }}" class="item"><span>科幻片</span></a></li>
+            <li class="back"><a href="{{ path("show_category",{'type':type,'tag':'动作片'}) }}" class="item"><span>动作片</span></a></li>
+            <li class="back"><a href="{{ path("show_category",{'type':type,'tag':'伦理片'}) }}" class="item"><span>伦理片</span></a></li>
+            <li class="back"><a href="{{ path("show_category",{'type':type,'tag':'喜剧片'}) }}" class="item"><span>喜剧片</span></a></li>
+            <li class="back"><a href="{{ path("show_category",{'type':type,'tag':'爱情片'}) }}" class="item"><span>爱情片</span></a></li>
+            <li class="back"><a href="{{ path("show_category",{'type':type,'tag':'科幻片'}) }}" class="item"><span>科幻片</span></a></li>
         </ul>
-        <div class="more on"><i class="mbg"></i><a href="{{ path("show_category",{'type':"1"}) }}"><span class="back"><i class="fa">&#xe8c0;</i>全部</span></a></div>
+        <div class="more on"><i class="mbg"></i><a href="{{ path("show_category",{'type':type}) }}"><span class="back"><i class="fa">&#xe8c0;</i>全部</span></a></div>
     </div>
     <div class="box">
         <section>
@@ -84,7 +84,7 @@
                 <h2 class="l cor2">
                     <span class="weight">动作片</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'动作片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'动作片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
@@ -116,7 +116,7 @@
                 <h2 class="l cor2">
                     <span class="weight">喜剧片</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'喜剧片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'喜剧片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
@@ -148,7 +148,7 @@
                 <h2 class="l cor2">
                     <span class="weight">爱情片</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'爱情片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'爱情片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
@@ -180,7 +180,7 @@
                 <h2 class="l cor2">
                     <span class="weight">科幻片</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'科幻片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'科幻片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
@@ -212,7 +212,7 @@
                 <h2 class="l cor2">
                     <span class="weight">恐怖片</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'恐怖片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'恐怖片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
@@ -244,7 +244,7 @@
                 <h2 class="l cor2">
                     <span class="weight">犯罪片</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'犯罪片'}) }}l" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'犯罪片'}) }}l" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
@@ -276,7 +276,7 @@
                 <h2 class="l cor2">
                     <span class="weight">战争片</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'战争片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'战争片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
@@ -308,7 +308,7 @@
                 <h2 class="l cor2">
                     <span class="weight">动画片</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'动画片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'动画片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
@@ -340,7 +340,7 @@
                 <h2 class="l cor2">
                     <span class="weight">剧情片</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'剧情片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'剧情片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
@@ -372,7 +372,7 @@
                 <h2 class="l cor2">
                     <span class="weight">悬疑片</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'悬疑片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'悬疑片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
@@ -404,7 +404,7 @@
                 <h2 class="l cor2">
                     <span class="weight">奇幻片</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'奇幻片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'奇幻片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
