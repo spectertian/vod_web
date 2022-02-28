@@ -37,13 +37,13 @@
     </div>
     <div class="nav-quick box" style="padding-top:.2rem;padding-bottom:.2rem;padding-right:2.42667rem;">
         <ul class="cf">
-            <li class="back"><a href="{{ path("show_category",{'type':"1",'tag':'动作片'}) }}" class="item"><span>动作片</span></a></li>
-            <li class="back"><a href="{{ path("show_category",{'type':"1",'tag':'伦理片'}) }}" class="item"><span>伦理片</span></a></li>
-            <li class="back"><a href="{{ path("show_category",{'type':"1",'tag':'喜剧片'}) }}" class="item"><span>喜剧片</span></a></li>
-            <li class="back"><a href="{{ path("show_category",{'type':"1",'tag':'爱情片'}) }}" class="item"><span>爱情片</span></a></li>
-            <li class="back"><a href="{{ path("show_category",{'type':"1",'tag':'科幻片'}) }}" class="item"><span>科幻片</span></a></li>
+            <li class="back"><a href="{{ path("show_category",{'type':type,'tag':'国产剧'}) }}" class="item"><span>国产剧</span></a></li>
+            <li class="back"><a href="{{ path("show_category",{'type':type,'tag':'台湾剧'}) }}" class="item"><span>台湾剧</span></a></li>
+            <li class="back"><a href="{{ path("show_category",{'type':type,'tag':'香港剧'}) }}" class="item"><span>香港剧</span></a></li>
+            <li class="back"><a href="{{ path("show_category",{'type':type,'tag':'日本剧'}) }}" class="item"><span>日本剧</span></a></li>
+            <li class="back"><a href="{{ path("show_category",{'type':type,'tag':'海外剧'}) }}" class="item"><span>海外剧</span></a></li>
         </ul>
-        <div class="more on"><i class="mbg"></i><a href="{{ path("show_category",{'type':"1"}) }}"><span class="back"><i class="fa">&#xe8c0;</i>全部</span></a></div>
+        <div class="more on"><i class="mbg"></i><a href="{{ path("show_category",{'type':type}) }}"><span class="back"><i class="fa">&#xe8c0;</i>全部</span></a></div>
     </div>
     <div class="box">
         <section>
@@ -82,13 +82,13 @@
         <section>
             <div class="title-a cf">
                 <h2 class="l cor2">
-                    <span class="weight">动作片</span>
+                    <span class="weight">国产剧</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'动作片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'国产剧'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
-                    {% for k,info in dzList %}
+                    {% for k,info in gcList %}
                         <li class="list-width volistwidthb">
                             <div class="top list-hide volistheightb">
                                 <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
@@ -114,13 +114,13 @@
         <section>
             <div class="title-a cf">
                 <h2 class="l cor2">
-                    <span class="weight">喜剧片</span>
+                    <span class="weight">台湾剧</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'喜剧片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'台湾剧'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
-                    {% for k,info in xjList %}
+                    {% for k,info in twList %}
                         <li class="list-width volistwidthb">
                             <div class="top list-hide volistheightb">
                                 <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
@@ -146,13 +146,13 @@
         <section>
             <div class="title-a cf">
                 <h2 class="l cor2">
-                    <span class="weight">爱情片</span>
+                    <span class="weight">香港剧</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'爱情片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'香港剧'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
-                    {% for k,info in aqList %}
+                    {% for k,info in xgList %}
                         <li class="list-width volistwidthb">
                             <div class="top list-hide volistheightb">
                                 <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
@@ -178,13 +178,13 @@
         <section>
             <div class="title-a cf">
                 <h2 class="l cor2">
-                    <span class="weight">科幻片</span>
+                    <span class="weight">日本剧</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'科幻片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'日本剧'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
-                    {% for k,info in khList %}
+                    {% for k,info in rbList %}
                         <li class="list-width volistwidthb">
                             <div class="top list-hide volistheightb">
                                 <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
@@ -210,13 +210,13 @@
         <section>
             <div class="title-a cf">
                 <h2 class="l cor2">
-                    <span class="weight">恐怖片</span>
+                    <span class="weight">泰剧</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'恐怖片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'泰剧'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
-                    {% for k,info in kbList %}
+                    {% for k,info in tList %}
                         <li class="list-width volistwidthb">
                             <div class="top list-hide volistheightb">
                                 <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
@@ -242,13 +242,13 @@
         <section>
             <div class="title-a cf">
                 <h2 class="l cor2">
-                    <span class="weight">犯罪片</span>
+                    <span class="weight">海外剧</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'犯罪片'}) }}l" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'海外剧'}) }}l" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
-                    {% for k,info in fzList %}
+                    {% for k,info in hwList %}
                         <li class="list-width volistwidthb">
                             <div class="top list-hide volistheightb">
                                 <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
@@ -274,13 +274,13 @@
         <section>
             <div class="title-a cf">
                 <h2 class="l cor2">
-                    <span class="weight">战争片</span>
+                    <span class="weight">美国剧</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'战争片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'美国剧'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
-                    {% for k,info in zzList %}
+                    {% for k,info in mgList %}
                         <li class="list-width volistwidthb">
                             <div class="top list-hide volistheightb">
                                 <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
@@ -306,13 +306,13 @@
         <section>
             <div class="title-a cf">
                 <h2 class="l cor2">
-                    <span class="weight">动画片</span>
+                    <span class="weight">韩国剧</span>
                 </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'动画片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':type,'tag':'韩国剧'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
             </div>
             <div class="list-a size">
                 <ul>
-                    {% for k,info in dhList %}
+                    {% for k,info in hgList %}
                         <li class="list-width volistwidthb">
                             <div class="top list-hide volistheightb">
                                 <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
@@ -334,103 +334,6 @@
             </div>
         </section>
     </div>
-    <div class="box">
-        <section>
-            <div class="title-a cf">
-                <h2 class="l cor2">
-                    <span class="weight">剧情片</span>
-                </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'剧情片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
-            </div>
-            <div class="list-a size">
-                <ul>
-                    {% for k,info in jqList %}
-                        <li class="list-width volistwidthb">
-                            <div class="top list-hide volistheightb">
-                                <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
-                                    <div class="lazy eclazy br" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }}); display: block;"></div>
-                                    <span class="pack-bg br-bt"></span>
-                                    <span class="list-tag" style="background:#;">{{ info.area }}</span>
-                                    <span class="list-remarks hidden">{{ info.vodRemarks }}</span>
-                                </a>
-                            </div>
-                            <div class="bottom">
-                                <div class="title hidden">
-                                    <a href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}</a>
-                                </div>
-                                <div class="bt hidden cor4">{{ info.stars| join(',') }}</div>
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </section>
-    </div>
-    <div class="box">
-        <section>
-            <div class="title-a cf">
-                <h2 class="l cor2">
-                    <span class="weight">悬疑片</span>
-                </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'悬疑片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
-            </div>
-            <div class="list-a size">
-                <ul>
-                    {% for k,info in xyList %}
-                        <li class="list-width volistwidthb">
-                            <div class="top list-hide volistheightb">
-                                <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
-                                    <div class="lazy eclazy br" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }}); display: block;"></div>
-                                    <span class="pack-bg br-bt"></span>
-                                    <span class="list-tag" style="background:#;">{{ info.area }}</span>
-                                    <span class="list-remarks hidden">{{ info.vodRemarks }}</span>
-                                </a>
-                            </div>
-                            <div class="bottom">
-                                <div class="title hidden">
-                                    <a href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}</a>
-                                </div>
-                                <div class="bt hidden cor4">{{ info.stars| join(',') }}</div>
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </section>
-    </div>
-    <div class="box">
-        <section>
-            <div class="title-a cf">
-                <h2 class="l cor2">
-                    <span class="weight">奇幻片</span>
-                </h2>
-                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':"1",'tag':'奇幻片'}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
-            </div>
-            <div class="list-a size">
-                <ul>
-                    {% for k,info in qhList %}
-                        <li class="list-width volistwidthb">
-                            <div class="top list-hide volistheightb">
-                                <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
-                                    <div class="lazy eclazy br" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }}); display: block;"></div>
-                                    <span class="pack-bg br-bt"></span>
-                                    <span class="list-tag" style="background:#;">{{ info.area }}</span>
-                                    <span class="list-remarks hidden">{{ info.vodRemarks }}</span>
-                                </a>
-                            </div>
-                            <div class="bottom">
-                                <div class="title hidden">
-                                    <a href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}</a>
-                                </div>
-                                <div class="bt hidden cor4">{{ info.stars| join(',') }}</div>
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </section>
-    </div>
-
     <script type="text/javascript">
         var viewHeight = document.documentElement.clientHeight//获取可视区高度
         function lazyload() {
