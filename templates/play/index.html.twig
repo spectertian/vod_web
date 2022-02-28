@@ -169,7 +169,8 @@
             {#                        </span> #}
             {#                </div> #}
             {#            </div> #}
-            <div class="ec-ad top20"><a href="https://www.pandaremit.com/googleSwap?invtCode=1AWA0H&countryLocation=IP&isFirstFee=1&registration=appStore" target="_blank"><img src="/upload/ad/20211007-1/b7d77696e5104b24c9036cbd10c02026.png" alt="播放页横幅广告位"></a></div>
+            {#            <div class="ec-ad top20"><a href="#" target="_blank"> #}
+            {#                    <img src="#" alt="播放页横幅广告位"></a></div> #}
             <div class='index-hotnow wow fadeInUp top20'>
                 <div class="title-a cf">
                     <h2 class="title-name l cf">
@@ -204,7 +205,7 @@
         <div class="ecright r">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <span>{{ info.type }} · TOP</span><a class="url" href="/index.php/label/rb.html">更多<i class="fa tb3">&#xe62d;</i></a>
+                    <span>{{ info.type }} · TOP</span><a class="url" href="{{ path("show_category",{'type':info.typeId1,'tag':info.type}) }}">更多<i class="fa tb3">&#xe62d;</i></a>
                 </h2>
             </div>
             <div class="hot-modular">
@@ -246,8 +247,8 @@
     <div style="display:none">
         <span class="mac_ulog_set" data-type="4" data-mid="1" data-id="301055" data-sid="1" data-nid="1"></span>
         <span class="mac_history_set" data-name="[{{ info.type }}]{{ info.title }}" data-mid="-第{{ p_id }}几集" data-pic="{{ path('img',{id:info.imgUrl}) }}"></span>
-{#        <span id="jxline">https://pull.#/?url=</span>#}
-{#        <span id="bfurl">qq|youku|mgtv|letv|pptv|shou|qiyi</span>#}
+        {#        <span id="jxline">https://pull.#/?url=</span> #}
+        {#        <span id="bfurl">qq|youku|mgtv|letv|pptv|shou|qiyi</span> #}
     </div>
     <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/5.1.0/js/swiper.min.js"></script>
     <script>

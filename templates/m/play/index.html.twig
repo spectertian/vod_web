@@ -114,9 +114,12 @@
                         <div class="card playlist_notfull swiper-container4">
                             <ul id="nav-bar" class='content_playlist cf swiper-wrapper'>
                                 {% for key,vod in info.play.1.list %}
-                                    <li class='swiper-slide jujiselset '><a class="back" href="{{ path('play',{s_id:info.id,p_id:key}) }}">{{ vod.title }}</a></li>
+                                    {% if p_id == key %}
+                                        <li class='swiper-slide jujiselset ecnav-dt'><a class="back" href="{{ path('play',{s_id:info.id,p_id:key}) }}"><i class="fa on">{{ vod.title }}</i><em></em></a></li>
+                                    {% else %}
+                                        <li class='swiper-slide jujiselset '><a class="back" href="{{ path('play',{s_id:info.id,p_id:key}) }}">{{ vod.title }}</a></li>
+                                    {% endif %}
                                 {% endfor %}
-                                <li class='swiper-slide jujiselset ecnav-dt'><a class="back" href="/index.php/vod/play/id/300378/sid/3/nid/1.html"><i class="fa on">1</i><em></em></a></li>
                             </ul>
                         </div>
                     </div>
@@ -160,7 +163,7 @@
                         <li class="swiper-slide list-width  volistwidthcb">
                             <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
                                 <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
-                                    <div class="eclazy br" style="backg{round-image: url({{ path('img',{id:info.imgUrl}) }});"></div>
+                                    <div class="eclazy br" style="background-image: url({{ path('img',{id:info.imgUrl}) }});"></div>
                                     <span class="pack-bg br-bt"></span>
                                     <span class="list-remarks hidden">{{ info.vodRemarks }}</span>
                                 </a>
@@ -207,7 +210,7 @@
         <div class="bottom-box animated fadeInUp lcb">
             <div class="botton-top">
                 <p class="cor4"><i class="fa">&#xe8cc;</i>复制链接地址分享给您的好友吧~~</p>
-                <textarea id="foo" rows="3" cols="20" class="share back cor2">https://chongtmtv.com/index.php/vod/detail/id/300378.html</textarea>
+                <textarea id="foo" rows="3" cols="20" class="share back cor2">{{ path('detail',{id:info.id}) }}</textarea>
             </div>
             <div class="botton-btn share-btn b-t">
                 <button type="button" class="cor2 copyBtn" data-clipboard-target="#foo">复制链接</button>
@@ -239,53 +242,9 @@
     <div style="display:none">
         <span class="mac_ulog_set" data-type="4" data-mid="1" data-id="300378" data-sid="3" data-nid="1"></span>
         <span class="mac_history_set" data-name="[日本剧]如果，有一所只有帅哥的高中" data-mid="-第1集" data-pic="/upload/vod/20220116-1/536dd477b5a50430ca4719148d666b83.jpg"></span>
-        <span id="jxline">https://pull.chongtmtv.com/?url=</span>
-        <span id="bfurl">qq|youku|mgtv|letv|pptv|shou|qiyi</span>
+        {#        <span id="jxline">https://pull.#/?url=</span> #}
+        {#        <span id="bfurl">qq|youku|mgtv|letv|pptv|shou|qiyi</span> #}
     </div>
-    <script>let ec_deviation = new myUtil();
-        ec_deviation.deviation('#nav-bar', 'li.ecnav-dt');
-        ec_deviation.deviation('#tag', '.swiper-slide.on');</script>
-    <script>
-        var mySwiper2 = new Swiper('.swiper-container2', {
-            paginationClickable: true,
-            slidesPerView: 'auto',
-        });
-        var mySwiper3 = new Swiper('.swiper-container3', {
-            paginationClickable: true,
-            slidesPerView: 'auto',
-        });
-
-        $("#ecbto").click(function () {
-            $(".intro-wrap").toggle();
-        })
-
-        var viewHeight = document.documentElement.clientHeight//获取可视区高度
-        function lazyload() {
-            var eles = document.querySelectorAll('div[data-original]')
-            Array.prototype.forEach.call(eles, function (item, index) {
-                var rect
-                if (item.dataset.original === "")
-                    return
-                rect = item.getBoundingClientRect()// 用于获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
-                if (rect.bottom >= 0 && rect.top < viewHeight) {
-                    !function () {
-                        var img = new Image()
-                        img.src = item.dataset.original
-                        img.onload = function () {
-                            item.style.backgroundImage = "url(" + img.src + ")";
-
-                        }
-                        item.removeAttribute("data-original")//移除属性，下次不再遍历
-                        item.removeAttribute("lazyload")
-                    }()
-                }
-            })
-        }
-
-        lazyload()//刚开始还没滚动屏幕时，要先触发一次函数，初始化首页的页面图片
-        document.addEventListener("scroll", lazyload)
-    </script>
-
 
     <script src="//cdn.jsdelivr.net/npm/xgplayer/browser/index.js" charset="utf-8"></script>
     <script src="//cdn.jsdelivr.net/npm/xgplayer-hls.js/browser/index.js" charset="utf-8"></script>
