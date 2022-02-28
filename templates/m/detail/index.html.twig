@@ -1,0 +1,410 @@
+{% extends 'm/base.html.twig' %}
+{% block body %}
+    <div id="headtop" class="navbody nav-a inherit">
+        <div class="l"><a class="fa" href="javascript:MAC.GoBack()">&#xe716;</a></div>
+        <h2><a href="javascript:;">{{ info.type }}</a></h2>
+        <div class="r cf"><a id="ifshow" class="fa r" href="javascript:;">&#xe8b7;</a><a class="fa r mac_ulog" href="javascript:;" data-type="2" data-mid="1" data-id="300013">&#xe8c6;</a></div>
+    </div>
+    <div class="detail-a box ">
+        <div class="top-bg"><span class="mask" style="background-image:url({{ path('img',{id:info.imgUrl}) }})"></span></div>
+        <div class="top cf">
+            <div class="info-img l">
+                <div class="lazy eclazy br" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }});"></div>
+            </div>
+            <div class="dt-info-box r">
+                <h2 class="hidden">{{ info.title }}</h2>
+                <ul>
+                    <li class="data vodTag">
+                        <a href="/index.php/vod/search/year/2022.html" target="_blank">{{ info.year }}</a>&nbsp;<span class="slash">/</span>
+                        <a href="/index.php/vod/search/area/%E6%97%A5%E6%9C%AC.html" target="_blank">{{ info.area }}</a>&nbsp;<span class="slash">/</span>
+                        {{ info.language }}
+                    </li>
+                    <li class="data"><span>状态：</span>{{ info.vodRemarks }}</li>
+                    <li class="data"><span>主演：</span>
+                        {% for star in info.stars %}
+                            <a href="/index.php/vod/search/actor/%E5%B0%8F%E6%A0%97%E6%97%AC.html" target="_blank">{{ star }}</a>&nbsp;
+                        {% endfor %}
+                    </li>
+                    <li class="data"><span>导演：</span>
+                        {% for direct in info.director %}
+                            <a href="/index.php/vod/search/director/%E5%90%89%E7%94%B0%E7%85%A7%E5%B9%B8.html" target="_blank">{{ direct }}</a>&nbsp;
+                        {% endfor %}
+                </ul>
+                <a href="javascript:;" class="play_eq btn ol2"><i class="fa r-2">&#xe607;</i>立即播放</a>
+            </div>
+        </div>
+        <div class="comiis_svg_box">
+            <div class="comiis_svg_a"></div>
+            <div class="comiis_svg_b"></div>
+        </div>
+    </div>
+    {#    <div class="ec-ad top20"><a href="" target="_blank"><img src="#" alt="视频详情页广告"></a></div> #}
+    <div class="box m-box ecshow cor2">
+        <span class="weight cor4">详情：</span>{{ info.introduction }}。
+        {#        <div class="more-info on ectogg zkhide lcb">展开<i class="fa">&#xe62e;</i></div> #}
+        {#        <div class="more-info on ectogg sqhide lcb">收起<i class="fa">&#xe62c;</i></div> #}
+    </div>
+    <section class="actorhsta cl swiper-container3">
+        <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+                <a href="/index.php/actor/detail/id/24545.html" title="新垣结衣">
+                    <div class="kmimg" style="padding: 0;"><img src="/upload/actor/20210821-16/4044f44f067e506f8a1f67d88091afe6.jpg"></div>
+                    <h2>新垣结衣</h2>
+                </a>
+            </li>
+            <li class="swiper-slide">
+                <a href="/index.php/actor/detail/id/23658.html" title="野添义弘">
+                    <div class="kmimg" style="padding: 0;"><img src="/upload/actor/20210821-15/01b33b90e16550c02fbbbceec1626691.jpg"></div>
+                    <h2>野添义弘</h2>
+                </a>
+            </li>
+            <li class="swiper-slide">
+                <a href="/index.php/actor/detail/id/17504.html" title="杉本哲太">
+                    <div class="kmimg" style="padding: 0;"><img src="/upload/actor/20210821-9/5b6bc1ff24853e433887b17de41cdd35.jpg"></div>
+                    <h2>杉本哲太</h2>
+                </a>
+            </li>
+            <li class="swiper-slide">
+                <a href="/index.php/actor/detail/id/17429.html" title="小栗旬">
+                    <div class="kmimg" style="padding: 0;"><img src="/upload/actor/20210821-9/28168e4b9d0891ef56a3c9652434dd67.jpg"></div>
+                    <h2>小栗旬</h2>
+                </a>
+            </li>
+            <li class="swiper-slide">
+                <a href="/index.php/actor/detail/id/17257.html" title="菅田将晖">
+                    <div class="kmimg" style="padding: 0;"><img src="/upload/actor/20210821-9/3ef3f6392734999746a2858cbb2ca745.jpg"></div>
+                    <h2>菅田将晖</h2>
+                </a>
+            </li>
+            <li class="swiper-slide">
+                <a href="/index.php/actor/detail/id/17160.html" title="山本耕史">
+                    <div class="kmimg" style="padding: 0;"><img src="/upload/actor/20210821-8/e97067816e4b542c872155a6cf743c2a.jpg"></div>
+                    <h2>山本耕史</h2>
+                </a>
+            </li>
+            <li class="swiper-slide">
+                <a href="/index.php/actor/detail/id/17096.html" title="中村狮童">
+                    <div class="kmimg" style="padding: 0;"><img src="/upload/actor/20210821-8/d5992978486fea0732c30bdefbdc08b8.jpg"></div>
+                    <h2>中村狮童</h2>
+                </a>
+            </li>
+            <li class="swiper-slide">
+                <a href="/index.php/actor/detail/id/17029.html" title="佐藤二朗">
+                    <div class="kmimg" style="padding: 0;"><img src="/upload/actor/20210821-8/b43c51032a9ee8d0c926344c910f7f4b.jpg"></div>
+                    <h2>佐藤二朗</h2>
+                </a>
+            </li>
+            <li class="swiper-slide">
+                <a href="/index.php/actor/detail/id/16846.html" title="小池荣子">
+                    <div class="kmimg" style="padding: 0;"><img src="/upload/actor/20210821-8/92349cb7ecb1d5d8eeeda11043202d82.jpg"></div>
+                    <h2>小池荣子</h2>
+                </a>
+            </li>
+            <li class="swiper-slide">
+                <a href="/index.php/actor/detail/id/16593.html" title="宫泽理惠">
+                    <div class="kmimg" style="padding: 0;"><img src="/upload/actor/20210821-8/fee6bd0090a34a7e8d8e3fd6fc35aa1e.jpg"></div>
+                    <h2>宫泽理惠</h2>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section class="pannel cf">
+        <div class="box title-a cf">
+            <h2 class="l cor2">
+                <span>播放列表</span>
+            </h2>
+            <div class="r siza">
+{#                <a id="zxdaoxu" class="cor4 r-3" href="javascript:;" title="镰仓殿的13人影片选集排序">倒叙<i class="fa">&#xe66c;</i></a>#}
+{#                <a id="selectedzk" class="cor4" href="javascript:;" title="镰仓殿的13人影片选集">展开列表<i class="fa">&#xe62d;</i></a>#}
+            </div>
+        </div>
+        <div class="play_source">
+            <div class="boxb b-b swiper-container3 play_source_tab swiper">
+                <div class="cf swiper-wrapper" id="tag">
+                    <a href="javascript:void(0);" class='swiper-slide on' data-from="if101" alt="无广高清">无广高清<em>8</em></a>
+{#                    <a href="javascript:void(0);" class='swiper-slide ' data-from="wjm3u8" alt="高清2">高清2<em>8</em></a>#}
+{#                    <a href="javascript:void(0);" class='swiper-slide ' data-from="dbm3u8" alt="高清1">高清1</a>#}
+                </div>
+            </div>
+            <div class="ecxlqh"></div>
+            <div id="tagContent">
+                <div id="playsx" class='play_list_box show daoxu'>
+                    <div class="box player_infotip cor4"><i class="fa">&#xe8d1;</i>&nbsp;当前资源由无广高清提供&nbsp;-&nbsp;看视频 - 上冲TM TV，无VIP会员</div>
+                    <div class="card playlist_notfull swiper-container4">
+                        <ul class='content_playlist cf swiper-wrapper'>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/2/nid/1.html">1</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/2/nid/2.html">2</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/2/nid/3.html">3</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/2/nid/4.html">4</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/2/nid/5.html">5</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/2/nid/6.html">6</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/2/nid/7.html">7</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/2/nid/8.html">8</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="playsx" class='play_list_box '>
+                    <div class="box player_infotip cor4"><i class="fa">&#xe8d1;</i>&nbsp;当前资源由高清2提供&nbsp;-&nbsp;看视频 - 上冲TM TV，无VIP会员</div>
+                    <div class="card playlist_notfull swiper-container4">
+                        <ul class='content_playlist cf swiper-wrapper'>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/1/nid/1.html">1</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/1/nid/2.html">2</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/1/nid/3.html">3</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/1/nid/4.html">4</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/1/nid/5.html">5</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/1/nid/6.html">6</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/1/nid/7.html">7</a></li>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/1/nid/8.html">8</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="playsx" class='play_list_box '>
+                    <div class="box player_infotip cor4"><i class="fa">&#xe8d1;</i>&nbsp;当前资源由高清1提供&nbsp;-&nbsp;看视频 - 上冲TM TV，无VIP会员</div>
+                    <div class="card playlist_notfull swiper-container4">
+                        <ul class='content_playlist cf swiper-wrapper'>
+                            <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300013/sid/3/nid/1.html">1</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>let ec_deviation = new myUtil();
+        ec_deviation.deviation('#tag', '.swiper-slide.on');</script>
+
+    <div>
+        <div class="title-a cf box">
+            <h2 class="l cor2">
+                <span>相关推荐</span>
+            </h2>
+            <div class="r siza"><a class="cor4" href="/index.php/vod/show/id/32.html" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+        </div>
+        <div class="list-a size swiper-container2 card">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide list-width  volistwidthcb">
+                    <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                        <a class="img" href='/index.php/vod/detail/id/300364.html' title="鹿枫堂四色日和">
+                            <div class="eclazy br" style="background-image: url(/upload/vod/20220116-1/7355897d7081b1f8340392647e0d2d2d.jpg);"></div>
+                            <span class="pack-bg br-bt"></span>
+                            <span class="list-remarks hidden">更新至07集</span>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <div class="title hidden">
+                            <a href='/index.php/vod/detail/id/300364.html' title="鹿枫堂四色日和">鹿枫堂四色日和</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide list-width  volistwidthcb">
+                    <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                        <a class="img" href='/index.php/vod/detail/id/300378.html' title="如果，有一所只有帅哥的高中">
+                            <div class="eclazy br" style="background-image: url(/upload/vod/20220116-1/536dd477b5a50430ca4719148d666b83.jpg);"></div>
+                            <span class="pack-bg br-bt"></span>
+                            <span class="list-remarks hidden">更新至07集</span>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <div class="title hidden">
+                            <a href='/index.php/vod/detail/id/300378.html' title="如果，有一所只有帅哥的高中">如果，有一所只有帅哥的高中</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide list-width  volistwidthcb">
+                    <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                        <a class="img" href='/index.php/vod/detail/id/300013.html' title="镰仓殿的13人">
+                            <div class="eclazy br" style="background-image: url(/upload/vod/20220109-1/7a631e5281b14e0892567666a5e6768a.jpg);"></div>
+                            <span class="pack-bg br-bt"></span>
+                            <span class="list-remarks hidden">更新至08集</span>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <div class="title hidden">
+                            <a href='/index.php/vod/detail/id/300013.html' title="镰仓殿的13人">镰仓殿的13人</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide list-width  volistwidthcb">
+                    <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                        <a class="img" href='/index.php/vod/detail/id/252627.html' title="真凶标签">
+                            <div class="eclazy br" style="background-image: url(http://pic.wujinimg.com/upload/vod/20211011-1/086a84a597c68dd32d8ed1772caaf277.jpg);"></div>
+                            <span class="pack-bg br-bt"></span>
+                            <span class="list-remarks hidden">更新至18集+番外03+SP01</span>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <div class="title hidden">
+                            <a href='/index.php/vod/detail/id/252627.html' title="真凶标签">真凶标签</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide list-width  volistwidthcb">
+                    <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                        <a class="img" href='/index.php/vod/detail/id/300397.html' title="后宫婚">
+                            <div class="eclazy br" style="background-image: url(/upload/vod/20220117-1/3146392a6d6c72e148baad5ec61a48b3.jpg);"></div>
+                            <span class="pack-bg br-bt"></span>
+                            <span class="list-remarks hidden">更新至07集</span>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <div class="title hidden">
+                            <a href='/index.php/vod/detail/id/300397.html' title="后宫婚">后宫婚</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide list-width  volistwidthcb">
+                    <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                        <a class="img" href='/index.php/vod/detail/id/270551.html' title="和歌子酒 第三季">
+                            <div class="eclazy br" style="background-image: url(https://img.52swat.cn/upload/vod/20201211-1/793ebfd6a1ccf93238f6f94dd059d361.jpg);"></div>
+                            <span class="pack-bg br-bt"></span>
+                            <span class="list-remarks hidden">更新至1集</span>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <div class="title hidden">
+                            <a href='/index.php/vod/detail/id/270551.html' title="和歌子酒 第三季">和歌子酒 第三季</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide list-width  volistwidthcb">
+                    <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                        <a class="img" href='/index.php/vod/detail/id/300898.html' title="大叔在为我的恋情应援（脑内）">
+                            <div class="eclazy br" style="background-image: url(/upload/vod/20220215-1/ddbd7da35dd14f831508142a465fc7a6.png);"></div>
+                            <span class="pack-bg br-bt"></span>
+                            <span class="list-remarks hidden">更新至2集</span>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <div class="title hidden">
+                            <a href='/index.php/vod/detail/id/300898.html' title="大叔在为我的恋情应援（脑内）">大叔在为我的恋情应援（脑内）</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide list-width  volistwidthcb">
+                    <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                        <a class="img" href='/index.php/vod/detail/id/301178.html' title="来自星星的你(日版)">
+                            <div class="eclazy br" style="background-image: url(/upload/vod/20220225-1/1d96e953ad123f290789b8e118e11209.jpg);"></div>
+                            <span class="pack-bg br-bt"></span>
+                            <span class="list-remarks hidden">更新至2集</span>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <div class="title hidden">
+                            <a href='/index.php/vod/detail/id/301178.html' title="来自星星的你(日版)">来自星星的你(日版)</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide list-width  volistwidthcb">
+                    <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                        <a class="img" href='/index.php/vod/detail/id/300110.html' title="和歌子酒 第六季">
+                            <div class="eclazy br" style="background-image: url(/upload/vod/20220111-1/35a0492d3129dc862d99d7b2624734ca.jpg);"></div>
+                            <span class="pack-bg br-bt"></span>
+                            <span class="list-remarks hidden">更新至7集</span>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <div class="title hidden">
+                            <a href='/index.php/vod/detail/id/300110.html' title="和歌子酒 第六季">和歌子酒 第六季</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide list-width  volistwidthcb">
+                    <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                        <a class="img" href='/index.php/vod/detail/id/299954.html' title="40岁开始">
+                            <div class="eclazy br" style="background-image: url(/upload/vod/20220108-1/6025ef2a9d8adc77444b6d49b4eb47ab.jpg);"></div>
+                            <span class="pack-bg br-bt"></span>
+                            <span class="list-remarks hidden">更新至8集</span>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <div class="title hidden">
+                            <a href='/index.php/vod/detail/id/299954.html' title="40岁开始">40岁开始</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide list-width  volistwidthcb">
+                    <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                        <a class="img" href='/index.php/vod/detail/id/299709.html' title="铁宅道子、2万公里">
+                            <div class="eclazy br" style="background-image: url(/upload/vod/20220103-1/ee010469dc890ea9a33b5d003a45c07f.jpg);"></div>
+                            <span class="pack-bg br-bt"></span>
+                            <span class="list-remarks hidden">更新至7集</span>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <div class="title hidden">
+                            <a href='/index.php/vod/detail/id/299709.html' title="铁宅道子、2万公里">铁宅道子、2万公里</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide list-width  volistwidthcb">
+                    <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                        <a class="img" href='/index.php/vod/detail/id/300031.html' title="喂帅哥！！">
+                            <div class="eclazy br" style="background-image: url(/upload/vod/20220110-1/bd677c41d97e9e2d604e215f72185c52.jpg);"></div>
+                            <span class="pack-bg br-bt"></span>
+                            <span class="list-remarks hidden">完结</span>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <div class="title hidden">
+                            <a href='/index.php/vod/detail/id/300031.html' title="喂帅哥！！">喂帅哥！！</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="ifhidden">
+        <div class="zdbj"></div>
+        <div class="bottom-box animated fadeInUp lcb">
+            <div class="botton-top">
+                <p class="cor4"><i class="fa">&#xe8cc;</i>复制链接地址分享给您的好友吧~~</p>
+                <textarea id="foo" rows="3" cols="20" class="share back cor2">https://chongtmtv.com/index.php/vod/detail/id/300013.html</textarea>
+            </div>
+            <div class="botton-btn share-btn b-t">
+                <button type="button" class="cor2 copyBtn" data-clipboard-target="#foo">复制链接</button>
+            </div>
+        </div>
+    </section>
+    <section class="selected" style="display:none">
+        <div class="zdbj"></div>
+        <div class="bottom-box animated fadeInUp lcb" style="top: 6.77rem;">
+            <div class="botton-top" style="height:100%">
+                <div class="title-a cf" style="margin:0;">
+                    <h2 class="l cor2"><span>选集</span></h2>
+                    <div class="r siza"><a id="selectedof" class="cor4" href="javascript:;" style="font-size: .36rem;"><i class="fa">&#xe64d;</i></a></div>
+                </div>
+                <div class='selectha'>
+                    <ul class='selectedhidden'></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var viewHeight = document.documentElement.clientHeight//获取可视区高度
+        function lazyload() {
+            var eles = document.querySelectorAll('div[data-original]')
+            Array.prototype.forEach.call(eles, function (item, index) {
+                var rect
+                if (item.dataset.original === "")
+                    return
+                rect = item.getBoundingClientRect()// 用于获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
+                if (rect.bottom >= 0 && rect.top < viewHeight) {
+                    !function () {
+                        var img = new Image()
+                        img.src = item.dataset.original
+                        img.onload = function () {
+                            item.style.backgroundImage = "url(" + img.src + ")";
+
+                        }
+                        item.removeAttribute("data-original")//移除属性，下次不再遍历
+                        item.removeAttribute("lazyload")
+                    }()
+                }
+            })
+        }
+
+        lazyload()//刚开始还没滚动屏幕时，要先触发一次函数，初始化首页的页面图片
+        document.addEventListener("scroll", lazyload)
+    </script>
+{% endblock %}
