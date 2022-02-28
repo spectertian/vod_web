@@ -1,6 +1,14 @@
 {% extends 'm/base.html.twig' %}
 {% block body %}
     <div class="head-c">
+        <style>
+            /*.swiper-slide img {*/
+            /*    display: block;*/
+            /*    width:auto;*/
+            /*    height: auto;*/
+            /*    object-fit: cover;*/
+            /*}*/
+        </style>
         <div class="cf ol2" style="position:fixed;z-index: 99;left: 0;right: 0;top: 0;">
             <div class="nav-a" style="position: relative;background:inherit">
                 <div class="l" style="width: 1.6rem;"><a class="logo" style="background-image: url({{ asset("cy/kt.png") }});" href="{{ path("index") }}"></a></div>
@@ -26,15 +34,13 @@
                 <div class="swiper-wrapper">
                     {% for k,info in topicList %}
                         <div class="swiper-slide swiper-color" edata-color="#333">
-                            <a class="index-swiper-bg" href="{{ path('detail',{id:info.id}) }}" title="人世间" style='background-image: url({{ path('img',{id:info.imgUrl}) }});' alt="{{ info.title }}{{ info.vodRemarks }}"></a>
+                            <a class="index-swiper-bg" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}" style='background-image: url({{ path('img',{id:info.imgUrl}) }});' alt="{{ info.title }}{{ info.vodRemarks }}"></a>
                             <div class="ec-swiper-bottom" style="bottom:.2rem;"><h1 class="title h1 hidden">{{ info.title }}·{{ info.vodRemarks }}</h1></div>
                         </div>
                     {% endfor %}
                 </div>
-                <div class="swiper-pagination swiper-pagination-bullets"><span class="swiper-pagination-bullet">
-                    </span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span>
-                </div>
-                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
     </div>
     <div class="tag cl">
@@ -241,15 +247,21 @@
         lazyload()//刚开始还没滚动屏幕时，要先触发一次函数，初始化首页的页面图片
         document.addEventListener("scroll", lazyload)
 
-        var mySwiper = new Swiper(".swiper-wrapper", {
-            autoplay: 1000, //-每秒中轮播一次
-            loop: true,//--可以让图片循环轮播
-            autoplayDisableOnInteraction: false,//--在点击之后可以继续实现轮播
-            pagination: ".swiper-pagination",//--让小圆点显示
-            paginationClickable: true,//--实现小圆点点击
-            prevButton: ".swiper-button-prev",//--实现上一页的点击
-            nextButton: ".swiper-button-next",//--实现下一页的点击
-            effect: "flip"//--可以实现3D效果的轮播
-        })
+        var swiper = new Swiper(".swiper-container1", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
     </script>
 {% endblock %}
