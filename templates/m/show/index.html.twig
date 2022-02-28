@@ -1,73 +1,593 @@
-{% extends 'base.html.twig' %}
+{% extends 'm/base.html.twig' %}
 {% block body %}
-    <div class="headtopnull"></div>
-    <div class="wwp">
-{#        <div class="ec-ad top20"><a href="" target="_blank"><img src="#" alt="影视筛选页广告位"></a></div>#}
-        <div class="show-filter back br top20">
-            <div class="filter_line">
-                <span class="filter_label cor3">频道</span>
+    <style>
+        .f-head-color {
+            color:
+        }
+
+        .f-head-bj {
+            background:
+        }
+    </style>
+    <div class="navbody stretch nav-a lcb bottomb-b f-head-bj">
+        <div class="l"><a class="f-head-color fa" href="javascript:MAC.GoBack()">&#xe716;</a></div>
+        <h2 id="zhankai"><a class="f-head-color" href="javascript:;">喜剧片<i class="fa gengduo nav1">&#xe62e;</i><i class="fa gengduo nav2">&#xe62c;</i></a></h2>
+        <div class="r cf"><a style="font-size:.56rem" class="f-head-color fa r" href="{{ path("search") }}">&#xe632;</a>
+{#            <a class="fa r f-head-color" href="/index.php/label/rank.html">&#xe782;</a>#}
+        </div>
+        <div class="show-zhankai lcb bottomb-b f-head-bj">
+            <ul>
                 {% for k,info in typeList.class %}
                     <a class="filter_item {% if type == k %}zbs{% endif %}" href="{{ path("show_category",{'type':k}) }}">{{ info }}</a>
+                    <li><a class="f-head-color" href="{{ path("show_category",{'type':k}) }}">{{ info }}</a></li>
                 {% endfor %}
-            </div>
-            <div class="filter_line">
-                <span class="filter_label cor3">分类</span>
-                {% for k,info in attribute(typeList.list,type).tag %}
-                    <a class="filter_item {% if tag == k %}zbs{% endif %}" href="{{ path("show_category",{'type':type, 'tag' : k, 'area' :area, 'year' :year}) }}">{{ info }}</a>
-                {% endfor %}
-            </div>
-            <div class="filter_line">
-                <span class="filter_label cor3">地区</span>
-                {% for k,info in attribute(typeList.list,type).area %}
-                    <a class="filter_item {% if area == k %}zbs{% endif %}" href="{{ path("show_category",{'type' : type, 'tag' : tag, 'area' : k, 'year' : year}) }}">{{ info }}</a>
-                {% endfor %}
-            </div>
-            <div class="filter_line">
-                <span class="filter_label cor3">年代</span>
-                {% for k,info in attribute(typeList.list,type).year %}
-                    <a class="filter_item {% if year == k %}zbs{% endif %}" href="{{ path("show_category",{'type' : type, 'tag' :tag, 'area' : area, 'year':k}) }}">{{ info }}</a>
-                {% endfor %}
-            </div>
+            </ul>
         </div>
-        {% if pagination.count >0 %}
-            <div class="vodlist hotgrow size listdh top20 wow fadeInUp">
-                {% for info in pagination %}
-
-                    <div class="pack-ykpack ">
-                        <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
-                                <div class="bj eclazy" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }});"></div>
-                                <span class="pack-bg"></span>
-                                <span class="pack-prb hidden">{{ info.vodRemarks }}</span>
+    </div>
+    <div class="navtop"></div>
+    <div class="ec-ad top20">
+{#        <a href="" target="_blank"><img src="#" alt="影视筛选头部广告"></a>#}
+    </div>
+    <div class="ec-casc-list">
+        <div class="swiper-container2">
+            <ul id="nav-bar1" class="swiper-wrapper">
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/1.html">全部</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/20.html">动作片</a></li>
+                <li class="swiper-slide ecnav-dt"><a href="/index.php/vod/show/id/21.html">喜剧片</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/22.html">爱情片</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/23.html">科幻片</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/24.html">恐怖片</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/25.html">犯罪片</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/26.html">战争片</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/27.html">动画片</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/28.html">剧情片</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/60.html">悬疑片</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/61.html">奇幻片</a></li>
+            </ul>
+        </div>
+        <div class="swiper-container3">
+            <ul id="nav-bar2" class="swiper-wrapper">
+                <li class="swiper-slide  ecnav-dt"><a href="/index.php/vod/show/id/21.html">全部</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E5%A4%A7%E9%99%86/id/21.html">大陆</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E9%A6%99%E6%B8%AF/id/21.html">香港</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E5%8F%B0%E6%B9%BE/id/21.html">台湾</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E7%BE%8E%E5%9B%BD/id/21.html">美国</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E6%B3%95%E5%9B%BD/id/21.html">法国</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E8%8B%B1%E5%9B%BD/id/21.html">英国</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E6%97%A5%E6%9C%AC/id/21.html">日本</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E9%9F%A9%E5%9B%BD/id/21.html">韩国</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E5%BE%B7%E5%9B%BD/id/21.html">德国</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E6%B3%B0%E5%9B%BD/id/21.html">泰国</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E5%8D%B0%E5%BA%A6/id/21.html">印度</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E6%84%8F%E5%A4%A7%E5%88%A9/id/21.html">意大利</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E8%A5%BF%E7%8F%AD%E7%89%99/id/21.html">西班牙</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E5%8A%A0%E6%8B%BF%E5%A4%A7/id/21.html">加拿大</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/area/%E5%85%B6%E4%BB%96/id/21.html">其他</a></li>
+            </ul>
+        </div>
+        <div class="swiper-container4">
+            <ul id="nav-bar3" class="swiper-wrapper">
+                <li class="swiper-slide  ecnav-dt"><a href="/index.php/vod/show/id/21.html">全部</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/21/year/2022.html">2022</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/21/year/2021.html">2021</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/21/year/2020.html">2020</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/21/year/2019.html">2019</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/21/year/2018.html">2018</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/21/year/2017.html">2017</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/21/year/2016.html">2016</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/21/year/2015.html">2015</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/21/year/2014.html">2014</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/21/year/2013.html">2013</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/21/year/2012.html">2012</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/21/year/2011.html">2011</a></li>
+                <li class="swiper-slide "><a href="/index.php/vod/show/id/21/year/2010.html">2010</a></li>
+            </ul>
+        </div>
+        <div class="title-a cf">
+            <h2 class="l cor2">
+                <a class="weight  on" href="/index.php/vod/show/by/time/id/21.html">按时间</a>
+                <a class="weight " href="/index.php/vod/show/by/hits/id/21.html">按人气</a>
+                <a class="weight " href="/index.php/vod/show/by/score/id/21.html">按评分</a>
+            </h2>
+            <div class="r siza"><a class="cor4" href="/index.php/vod/show/id/21.html" title="更多热映影视点击这里"><i class="fa">&#xe8c8;</i>重置</a></div>
+        </div>
+    </div>
+    <div class="box">
+        <section>
+            <div class="list-a size">
+                <ul>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/301216.html' title="黑疯婆子圣母归来">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220226-1/72758912549af21a2b08e38f91fc2240.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">12203播放</span>
                             </a>
                         </div>
-                        <div class="pack-infolist">
-                            <a class="vodname hidden" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}"</a>
-                            <div class="pack-subtitle cor3 hidden">{{ info.stars| join(',') }}</div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/301216.html' title="黑疯婆子圣母归来">黑疯婆子圣母归来</a>
+                            </div>
+                            <div class="bt hidden cor4">泰勒·派瑞,布伦丹·奥卡罗尔,Tamela,J.,Mann,David,Mann,凯西·戴维斯,Jennifer,Gibney,Brandon,Black,Isha,Blaaker,加布里埃尔·丹尼斯,Candace,Maxwell,Geneva,Maccarone,Kevin,Brown,Rickey,Atkins,Jr.,Elijahawon,Perrin,杰伊·古铁雷斯</div>
                         </div>
-                    </div>
-                {% endfor %}
-
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/301215.html' title="带你去见我妈">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220226-1/55a510e516ad6fed658d38ea260b03c6.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">14863播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/301215.html' title="带你去见我妈">带你去见我妈</a>
+                            </div>
+                            <div class="bt hidden cor4">郑润奇,钟少贤,卢珊,郑鹏生,连锡龙,连映珠,范婵真,李树浩,卢敏敏,黄庚州</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/301126.html' title="总理的丈夫">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220222-1/3ef1cfd4f5322332f0aa7317fa1c9bc0.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">13572播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/301126.html' title="总理的丈夫">总理的丈夫</a>
+                            </div>
+                            <div class="bt hidden cor4">田中圭,中谷美纪,贯地谷栞,工藤阿须加,松井爱莉,木下邦家,长田成哉,余贵美子,岸部一德</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/301041.html' title="东北虎">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220219-1/78b558c457fe54b7f626d9d6da7e1542.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">本周日10:00上线</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/301041.html' title="东北虎">东北虎</a>
+                            </div>
+                            <div class="bt hidden cor4">章宇,马丽,张志勇,徐刚,郭月,张迅,袁利国,薛宝鹤</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/301042.html' title="欢迎来到瑜伽村">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220219-1/4a4eaae0d9d16e000860e621cafde9e4.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">8962播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/301042.html' title="欢迎来到瑜伽村">欢迎来到瑜伽村</a>
+                            </div>
+                            <div class="bt hidden cor4">唐鉴军,孙艺杨,房程程,石小满</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/301040.html' title="陈翔六点半之拳王妈妈">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220219-1/667c9377878eedbd9893ddc23ba013c3.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">8853播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/301040.html' title="陈翔六点半之拳王妈妈">陈翔六点半之拳王妈妈</a>
+                            </div>
+                            <div class="bt hidden cor4">冷檬,毛台,王炸,应宝林,吴妈,陈翔,蘑菇头,润土,米线儿,猪小明,纪文君</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300980.html' title="威龙行动">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220217-1/f33ebf5ab7c614127805d25aff507472.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">11452播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300980.html' title="威龙行动">威龙行动</a>
+                            </div>
+                            <div class="bt hidden cor4">许华升,黄汝富,广东雨神</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300979.html' title="和我结婚">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220217-1/904c86e65c2abea0a3f271df5e832160.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">11009播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300979.html' title="和我结婚">和我结婚</a>
+                            </div>
+                            <div class="bt hidden cor4">詹妮弗·洛佩兹,欧文·威尔逊,胡安·路易斯·隆东纽·阿利阿斯,萨拉·西尔弗曼,约翰·C·布莱德利,克洛伊·科尔曼,吉米·法伦,布雷迪·诺恩,蜜雪儿·伯托,乌特卡什·安邦德卡尔,基思·埃威尔,杰奎琳·霍努力克,卡特里娜·坎宁安,斯蒂芬·沃勒,劳伦斯·史密斯,莱恩·瓦莱丽,布莱斯·科里根,洛根·克劳福德,朱塞佩·阿迪佐内,赫纳多·罗德里格斯,亚历克斯·佩雷斯,瑞娜·郑,乔纳森·M·帕里森,,马科·查卡,桃乐丝·麦卡锡</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300914.html' title="欢喜冤家">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220215-1/6a14c5072932ab671201c7e237e423de.webp" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">12386播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300914.html' title="欢喜冤家">欢喜冤家</a>
+                            </div>
+                            <div class="bt hidden cor4">露西·海尔,奥斯汀·斯托维尔,Damon,Daunno,沙基纳·贾弗里,柯宾·伯恩森,雅莎·杰克逊,Sean,Cullen,Nance,Williamson,Shona,Tucker,布罗克·尤利,Robby,Johnson,Tania,Asnes,尼古拉斯·巴迪,David,Ebert,Kathryn,Boswell</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300855.html' title="回心转意">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220213-1/c7db12d90dd1bf0b6f1359fe0b6ac66a.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">11954播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300855.html' title="回心转意">回心转意</a>
+                            </div>
+                            <div class="bt hidden cor4">查理·戴,珍妮·斯蕾特,斯科特·伊斯特伍德,吉娜·罗德里格兹,曼尼·贾希尼托,克拉克·巴茨科,卢克·大卫·布鲁姆,Giselle,Torres,伊莎贝尔·梅,Quinn,Cooke,Claudia,Rocafort,Kysen,Acevedo,Lauren,Halperin,杰米·格尔兹,Betsy,Sligh,约旦·卡洛斯,弗兰科·卡斯坦,迪兰·格鲁拉,梅森·古丁,洁西·高伊,林恩·阿什</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300854.html' title="巨型漏洞">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220213-1/4c4f632782031b11e32a87ac8106e08d.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">12982播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300854.html' title="巨型漏洞">巨型漏洞</a>
+                            </div>
+                            <div class="bt hidden cor4">艾尔莎·泽贝斯坦,伊莎贝尔·南蒂,斯特凡·德·胡特,多米尼克·皮侬,奥尔本·勒努瓦,安德烈·杜索里埃,克洛德·佩隆,塞夫·哈杰迪,弗朗西斯·利范德,Claire,Chust,Sébastien,Gill,Guy,Donald,Koukissa,Koukissa,Guy,Donald</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300805.html' title="大话西游：缘起">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220212-1/1e9fb4e6b2a48f53143c5b3994bcfee8.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">13067播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300805.html' title="大话西游：缘起">大话西游：缘起</a>
+                            </div>
+                            <div class="bt hidden cor4">吴昊宸,马瑞,吴孟达,九孔,毕雪,杨凯迪,郑冀峰,杨能,袁祥仁,张美娥</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300050.html' title="王牌特工：源起">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220110-1/b06706faf67d7140c146b886827f328d.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">11813播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300050.html' title="王牌特工：源起">王牌特工：源起</a>
+                            </div>
+                            <div class="bt hidden cor4">拉尔夫·费因斯,哈里斯·迪金森,瑞斯·伊凡斯,杰曼·翰苏,杰玛·阿特登,马修·古迪,丹尼尔·布鲁赫,查尔斯·丹斯,亚伦·泰勒-约翰逊,奥古斯特·迪赫,汤姆·霍兰德,艾莉森·斯戴曼,斯坦利·图齐,乔尔·巴斯曼,亚历山德拉·玛丽亚·拉娜,尼尔·杰克逊,奥利维尔·里希特斯,罗伯特·阿拉马约,布兰卡·卡蒂奇,罗斯·安德森,玛雅·西蒙森,托德·博伊斯,哈尔·福勒,康斯坦丁·格雷戈里,雷纳斯·拉特科夫斯基,史蒂威·戴维斯,杰茜·维宁,保罗·菲利普·克拉克,亚伦·沃多沃兹,查理·詹恩威</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300734.html' title="暴走财神3">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220207-1/9ca5ee08a3ac4c2eb131c313432bb4f3.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">11618播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300734.html' title="暴走财神3">暴走财神3</a>
+                            </div>
+                            <div class="bt hidden cor4">孙越,尹菲,叨叨,矢野浩二</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300715.html' title="这个杀手不太冷静">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220205-1/155b0dcef47d1606a02da48d2b041801.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">14016播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300715.html' title="这个杀手不太冷静">这个杀手不太冷静</a>
+                            </div>
+                            <div class="bt hidden cor4">马丽,魏翔,陈明昊,周大勇,黄才伦,艾伦,高海宝,韩笑,孙贵权,全容杓,许猛,卜俊男</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300710.html' title="隔窗恋爱">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220205-1/580f39310899e7b4784c97b867326991.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">14876播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300710.html' title="隔窗恋爱">隔窗恋爱</a>
+                            </div>
+                            <div class="bt hidden cor4">胡利奥·佩纳,克拉拉·加勒,佩拉·卡斯特罗,雨果·阿布斯,艾瑞克·马西普,吉列尔莫·拉什拉斯,Rachel,Lascar,Lucía,de,la,Puerta,Natalia,Azahara,Marià,Casals,Emilia,Lazo</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300659.html' title="李茂扮太子">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220201-1/e5a62bf038c09c0f320f3aca61f9da3c.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">9366播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300659.html' title="李茂扮太子">李茂扮太子</a>
+                            </div>
+                            <div class="bt hidden cor4">马丽,常远,艾伦,魏翔,王成思,杜晓宇,陈冰,冯秦川,李海银,克拉拉,刘冠麟,宋小宝,于洋,张一鸣,黄才伦,张子栋,谢锐韬</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300651.html' title="我不是酒神">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220131-1/194d614dcba82190409d737e9bc02830.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">13151播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300651.html' title="我不是酒神">我不是酒神</a>
+                            </div>
+                            <div class="bt hidden cor4">南北酒神爆笑开整</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300623.html' title="缩小人特攻队">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220129-1/3e3fc4f2d403d453c692ab026ec8feaa.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">10898播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300623.html' title="缩小人特攻队">缩小人特攻队</a>
+                            </div>
+                            <div class="bt hidden cor4">范明,张子栋,陈昊明,王雪东</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300556.html' title="新推销员之死">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220125-1/4516799ff9c3d22c19a3dcece1978a6f.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">8552播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300556.html' title="新推销员之死">新推销员之死</a>
+                            </div>
+                            <div class="bt hidden cor4">海利·乔·奥斯蒙,阿丽莎·温赖特,杰基·厄尔·哈利,马特·麦高瑞,拉蒙尼·莫里斯,苏贾塔·戴,Gil,Ozeri,伊恩·凡尔登,Woody,McClain,斯塔尔勒塔·杜波利斯,大卫·索,AprilAnn,Dais,Fernando,Martinez,Gwen,Gottlieb,Jeffrey,Trzepkowski</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/260664.html' title="不日成婚">
+                                <div class="lazy eclazy br" data-original="https://img.52swat.cn/upload/vod/20210412-1/4754c36771af0debbf315f3b44ca5338.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">香港</span>
+                                <span class="list-remarks hidden">HD</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/260664.html' title="不日成婚">不日成婚</a>
+                            </div>
+                            <div class="bt hidden cor4">Ready or Knot</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300494.html' title="皇室造型">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220121-1/592d40085d2e418d23c978d8251c3a04.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">9913播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300494.html' title="皇室造型">皇室造型</a>
+                            </div>
+                            <div class="bt hidden cor4">劳拉·马兰洛,梅纳·玛索德</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300450.html' title="这不是喜剧">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220119-1/c735c8f33df715c4c7ec026649eba667.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">13466播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300450.html' title="这不是喜剧">这不是喜剧</a>
+                            </div>
+                            <div class="bt hidden cor4">Gabriel,Nuncio,卡珊德拉·钱盖罗蒂,阿德里安娜·帕兹,塞西莉亚·苏亚雷斯,Alejandro,Saevich,Eduardo,Donjuan</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/300206.html' title="澡堂也疯狂">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220113-1/6f30f7a7057c76a3ec08bc3ced0af26f.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">13191播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/300206.html' title="澡堂也疯狂">澡堂也疯狂</a>
+                            </div>
+                            <div class="bt hidden cor4">周云鹏,苏士为,王轶玲,赵骏,侯添方,智泓</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/299996.html' title="黑色星期五">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220109-1/e602c22161dc5a9a9ff34caab43e5748.webp" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">12325播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/299996.html' title="黑色星期五">黑色星期五</a>
+                            </div>
+                            <div class="bt hidden cor4">迈克尔·加·怀特,戴文·萨瓦,布鲁斯·坎贝尔</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/299905.html' title="圣诞千里情">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220107-1/1e402f225952151f8960ee311c552293.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">8815播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/299905.html' title="圣诞千里情">圣诞千里情</a>
+                            </div>
+                            <div class="bt hidden cor4">未知</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/299771.html' title="超能敢死队">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20220105-1/7c7e0a43b9209e30e503f2315ea9b0e1.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">电影</span>
+                                <span class="list-remarks hidden">12188播放</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/299771.html' title="超能敢死队">超能敢死队</a>
+                            </div>
+                            <div class="bt hidden cor4">菲恩·伍法德,麦肯娜·格瑞丝,保罗·路德,凯莉·库恩,,洛根金,,塞莱斯特·奥康纳,安妮·波茨,比尔·默瑞,丹·艾克罗伊德,埃涅·赫德森,西格妮·韦弗,鲍勃·冈顿,J·K·西蒙斯,肖恩·西沃德,比利·布莱克,悉尼·梅·迪亚兹,博基姆·伍德拜因,乔什·加德,索瑞·安达斯鲁,奥利弗·库珀,奥利维亚·王尔德,谢尔碧·杨</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/299336.html' title="不要抬头">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20211224-1/94c86cf86bbaace31f6a701f8b12ffb5.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">喜剧</span>
+                                <span class="list-remarks hidden">HD</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/299336.html' title="不要抬头">不要抬头</a>
+                            </div>
+                            <div class="bt hidden cor4">莱昂纳多·迪卡普里奥,詹妮弗·劳伦斯,蒂莫西·柴勒梅德,克里斯·埃文斯,凯特·布兰切特,梅丽尔·斯特里普,乔纳·希尔,梅兰妮·林斯基,马修·派瑞,朗·普尔曼,爱莉安娜·格兰德,希米什·帕特尔,泰勒·派瑞,卡迪小子,马克·里朗斯,罗布·摩根,托莫·希思黎,罗曼·米蒂齐扬,阿什利·班菲尔德,塔玛拉·希基,布里安娜·温,本·锡德尔,爱德华德·弗莱彻,马科·查卡,托马斯·马里亚诺,迈克尔·切克利斯</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/299245.html' title="暴躁圣诞节">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20211222-1/dbcf22f835041a3c3cc0785760272c5e.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">喜剧</span>
+                                <span class="list-remarks hidden">HD</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/299245.html' title="暴躁圣诞节">暴躁圣诞节</a>
+                            </div>
+                            <div class="bt hidden cor4">雷娜塔·诺特尼,安赫丽卡·玛丽亚,胡安·巴勃罗·德·圣地亚哥,爱德华多·塔努斯</div>
+                        </div>
+                    </li>
+                    <li class="list-width volistwidthb">
+                        <div class="top list-hide volistheightb">
+                            <a class="img" href='/index.php/vod/detail/id/298944.html' title="法兰西特派">
+                                <div class="lazy eclazy br" data-original="/upload/vod/20211214-1/74ff7a37036baf5f86c389a29d942f89.jpg" style="background-image: url(/upload/site/20210816-1/f5a053342f2ddf5ee8002e77d7d2b001.png);"></div>
+                                <span class="pack-bg br-bt"></span>
+                                <span class="list-tag" style="background:#;">喜剧</span>
+                                <span class="list-remarks hidden">HD</span>
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="title hidden">
+                                <a href='/index.php/vod/detail/id/298944.html' title="法兰西特派">法兰西特派</a>
+                            </div>
+                            <div class="bt hidden cor4">弗兰西斯·麦克多蒙德,蒂莫西·柴勒梅德,西尔莎·罗南,蒂尔达·斯文顿,爱德华·诺顿,蕾雅·赛杜,伊丽莎白·莫斯,欧文·威尔逊,克里斯托弗·瓦尔兹,艾德里安·布洛迪,威廉·达福,比尔·默瑞,本尼西奥·德尔·托罗,费舍·史蒂芬斯,鲁伯特·弗兰德,詹森·舒瓦兹曼,列维·施瑞博尔,杰弗里·怀特,安杰丽卡·休斯顿,塞西尔·德·弗朗斯,格里芬·邓恩,罗伊丝·史密斯,亨利·温克勒,马修·阿马立克,鲍勃·巴拉班,埃里克斯·劳瑟,托尼·雷沃罗利,莫嘉娜·波兰斯基,安杰丽卡·贝蒂·费利尼,德尼·梅诺谢,斯蒂夫·朴,托希布·吉</div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-
-            <div class="mac_pages">
-                {{ knp_pagination_render(pagination) }}
-            </div>
-
-            {#            <div class="mac_pages"> #}
-            {#                <div class="page_tip cor3">共17435条数据,当前1/364页</div> #}
-            {#                {{ knp_pagination_render(pagination) }} #}
-            {#            </div> #}
-        {% else %}
-            <div class="vodlist hotgrow size listdh top20 wow fadeInUp">
-            </div>
-            <div style="text-align:center;">
-                <div>
-                    <img src="{{ asset("cy/null.png") }}" alt="暂无数据">
-                </div>
-                <p class="top20 cor3">暂无数据</p>
-            </div>
-        {% endif %}
+        </section>
+        <div class="tag mac_pages">
+            <ul>
+                <li class="page_link"><a style="margin:0;" class="back" href="/index.php/vod/show/id/21/page/1.html"><i class="fa">&#xe7ea;</i></a></li>
+                <li><a class="back" href="/index.php/vod/show/id/21/page/1.html"><i class="fa">&#xe716;</i></a></li>
+                <li class="page_tip"><a class="back" href="javascript:;">1&nbsp;/&nbsp;90</a></li>
+                <li><a class="back" href="/index.php/vod/show/id/21/page/2.html"><i class="fa">&#xe62d;</i></a></li>
+                <li class="page_link"><a style="margin:0;" class="back" href="/index.php/vod/show/id/21/page/90.html"><i class="fa">&#xe7eb;</i></a></li>
+            </ul>
+        </div>
     </div>
     <script>
         var viewHeight = document.documentElement.clientHeight//获取可视区高度
