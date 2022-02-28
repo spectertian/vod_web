@@ -38,12 +38,11 @@ class IndexController extends AbstractController
 
 
         if ($mobile_Detect->isMobile()) {
-            dump($mobile_Detect->getUserAgent());
             $tmp = 'm/index/index.html.twig';
         } else {
             $tmp = 'index/index.html.twig';
-
         }
+
         return $this->render($tmp, [
             'topicList' => $topicList,
             'hotPlay'   => $hotPlay,
