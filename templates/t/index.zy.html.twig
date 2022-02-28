@@ -84,7 +84,8 @@
     <div class="wwp index-hotnow wow fadeInUp top20 animated" style="visibility: visible; animation-name: fadeInUp;">
         <div class="title-a cf">
             <h2 class="title-name l cf">
-                <img src="{{ asset("cy/7.png") }}"><span>正在热播</span><a class="url" href="https://chongtmtv.com/index.php/label/rb.html" onselectstart="return false;">更多<i class="fa tb3"></i></a>
+                <img src="{{ asset("cy/7.png") }}"><span>正在热播</span>
+                {#                <a class="url" href="#" onselectstart="return false;">更多<i class="fa tb3"></i></a> #}
             </h2>
         </div>
         <div class="vodlist hotgrow size listdh" id="hot1">
@@ -106,13 +107,13 @@
         </div>
     </div>
     <div class="wwp">
-        <div class="ec-ad top20"><a href="https://chongtmtv.com/index.php/vod/type/id/1.html" target="_blank"><img src="{{ asset("cy//c368ab3bd91d2cf894a9f78d02cec598.png") }}" alt="影视列表分类横幅广告位"></a></div>
+        {#        <div class="ec-ad top20"><a href="#" target="_blank"><img src="{{ asset("cy//c368ab3bd91d2cf894a9f78d02cec598.png") }}" alt="影视列表分类横幅广告位"></a></div> #}
     </div>
     <div class="wwp wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
         <div class="wwp public wow fadeInUp top20 animated" style="visibility: visible; animation-name: fadeInUp;">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <span>大陆综艺</span><a class="url" href="https://chongtmtv.com/index.php/vod/show/id/20.html">更多<i class="fa tb3"></i></a>
+                    <span>大陆综艺</span><a class="url" href="{{ path("show_category",{'type':type,'tag':'大陆综艺'}) }}">更多<i class="fa tb3"></i></a>
                 </h2>
                 <div class="title-tab l">
                 </div>
@@ -138,7 +139,7 @@
         <div class="wwp public wow fadeInUp top20 animated" style="visibility: visible; animation-name: fadeInUp;">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <span>日韩综艺</span><a class="url" href="https://chongtmtv.com/index.php/vod/show/id/21.html">更多<i class="fa tb3"></i></a>
+                    <span>日韩综艺</span><a class="url" href="{{ path("show_category",{'type':type,'tag':'日韩综艺'}) }}">更多<i class="fa tb3"></i></a>
                 </h2>
                 <div class="title-tab l">
                 </div>
@@ -164,7 +165,7 @@
         <div class="wwp public wow fadeInUp top20 animated" style="visibility: visible; animation-name: fadeInUp;">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <span>港台综艺</span><a class="url" href="https://chongtmtv.com/index.php/vod/show/id/22.html">更多<i class="fa tb3"></i></a>
+                    <span>港台综艺</span><a class="url" href="{{ path("show_category",{'type':type,'tag':'港台综艺'}) }}">更多<i class="fa tb3"></i></a>
                 </h2>
                 <div class="title-tab l">
                 </div>
@@ -190,7 +191,7 @@
         <div class="wwp public wow fadeInUp top20 animated" style="visibility: visible; animation-name: fadeInUp;">
             <div class="title-a cf">
                 <h2 class="title-name l cf">
-                    <span>欧美综艺</span><a class="url" href="https://chongtmtv.com/index.php/vod/show/id/23.html">更多<i class="fa tb3"></i></a>
+                    <span>欧美综艺</span><a class="url" href="{{ path("show_category",{'type':type,'tag':'欧美综艺'}) }}">更多<i class="fa tb3"></i></a>
                 </h2>
                 <div class="title-tab l">
                 </div>
