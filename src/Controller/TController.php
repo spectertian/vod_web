@@ -2,24 +2,24 @@
 
 namespace App\Controller;
 
-use App\DocumentRepository\VodListRepository;
-use App\Service\RecommendList;
 use App\Service\TypeRecommendList;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\DocumentRepository\ListsRepository;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Yaml\Yaml;
-
+use Mobile_Detect;
 
 class TController extends AbstractController
 {
     #[Route('/t_dy.html', name: 'dy', options: ['sitemap' => true])]
-    public function dy(TypeRecommendList $typeRecommendList): Response
+    public function dy(TypeRecommendList $typeRecommendList, Mobile_Detect $mobile_Detect): Response
     {
-        return $this->render('t/index.dy.html.twig', [
+        if ($mobile_Detect->isMobile()) {
+            $tmp = 'm/t/index.dy.html.twig';
+        } else {
+            $tmp = 't/index.dy.html.twig';
+        }
+        return $this->render($tmp, [
             'topicList' => $typeRecommendList->getTopicByDy(),
             'hotList'   => $typeRecommendList->getDyByHot(),
             'dzList'    => $typeRecommendList->getDyByTypeName("动作片"),
@@ -35,15 +35,18 @@ class TController extends AbstractController
             'qhList'    => $typeRecommendList->getDyByTypeName("奇幻片"),
             'type'      => 1,
             'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/web_tag.yaml')
-
         ]);
     }
 
     #[Route('/t_tv.html', name: 'tv')]
-    public function tv(TypeRecommendList $typeRecommendList): Response
+    public function tv(TypeRecommendList $typeRecommendList, Mobile_Detect $mobile_Detect): Response
     {
-
-        return $this->render('t/index.tv.html.twig', [
+        if ($mobile_Detect->isMobile()) {
+            $tmp = 'm/t/index.tv.html.twig';
+        } else {
+            $tmp = 't/index.tv.html.twig';
+        }
+        return $this->render($tmp, [
             'topicList' => $typeRecommendList->getTopicByTv(),
             'hotList'   => $typeRecommendList->getTvByHot(),
             'gcList'    => $typeRecommendList->getTvByTypeName("国产剧"),
@@ -59,25 +62,15 @@ class TController extends AbstractController
         ]);
     }
 
-    #[Route('/t_dm.html', name: 'dm')]
-    public function dm(TypeRecommendList $typeRecommendList): Response
-    {
-        return $this->render('t/index.dm.html.twig', [
-            'topicList' => $typeRecommendList->getTopicByDm(),
-            'hotList'   => $typeRecommendList->getDmByHot(),
-            'gcList'    => $typeRecommendList->getDmByTypeName("国产动漫"),
-            'rhList'    => $typeRecommendList->getDmByTypeName("日韩动漫"),
-            'omList'    => $typeRecommendList->getDmByTypeName("欧美动漫"),
-            'type'      => 4,
-            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/web_tag.yaml')
-        ]);
-    }
-
-
     #[Route('/t_zy.html', name: 'zy')]
-    public function zy(TypeRecommendList $typeRecommendList): Response
+    public function zy(TypeRecommendList $typeRecommendList, Mobile_Detect $mobile_Detect): Response
     {
-        return $this->render('t/index.zy.html.twig', [
+        if ($mobile_Detect->isMobile()) {
+            $tmp = 'm/t/index.zy.html.twig';
+        } else {
+            $tmp = 't/index.zy.html.twig';
+        }
+        return $this->render($tmp, [
             'topicList' => $typeRecommendList->getTopicByZy(),
             'hotList'   => $typeRecommendList->getZyByHot(),
             'dlList'    => $typeRecommendList->getZyByTypeName("大陆综艺"),
@@ -85,6 +78,25 @@ class TController extends AbstractController
             'gtList'    => $typeRecommendList->getZyByTypeName("港台综艺"),
             'omList'    => $typeRecommendList->getZyByTypeName("欧美综艺"),
             'type'      => 3,
+            'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/web_tag.yaml')
+        ]);
+    }
+
+    #[Route('/t_dm.html', name: 'dm')]
+    public function dm(TypeRecommendList $typeRecommendList, Mobile_Detect $mobile_Detect): Response
+    {
+        if ($mobile_Detect->isMobile()) {
+            $tmp = 'm/t/index.dm.html.twig';
+        } else {
+            $tmp = 't/index.dm.html.twig';
+        }
+        return $this->render($tmp, [
+            'topicList' => $typeRecommendList->getTopicByDm(),
+            'hotList'   => $typeRecommendList->getDmByHot(),
+            'gcList'    => $typeRecommendList->getDmByTypeName("国产动漫"),
+            'rhList'    => $typeRecommendList->getDmByTypeName("日韩动漫"),
+            'omList'    => $typeRecommendList->getDmByTypeName("欧美动漫"),
+            'type'      => 4,
             'typeList'  => Yaml::parseFile(dirname(__DIR__) . '/../config/web_tag.yaml')
         ]);
     }
