@@ -58,16 +58,16 @@
             <div class="play-score cf back">
                 <div class="fraction">10.0</div>
                 <div id="detail-rating" class="cf l">
-                    <div id="rating" class="fn-left" data-mid="1" data-id="300378" data-score="5">
+                    <div id="rating" class="fn-left" data-mid="1" data-id="300378" data-score="{{ info.rating }}">
+                        {% set ss = "" %}
                         <ul class="rating" id="fenshu">
-                            <li class="one  current active" title="很差" val="1">很差</li>
-                            <li class="two  current active" title="较差" val="2">较差</li>
-                            <li class="three  current active" title="还行" val="3">还行</li>
-                            <li class="four active" title="推荐" val="4">推荐</li>
-                            <li class="five active" title="力荐" val="5">力荐</li>
+                            <li class="one  {% if info.rating >=0 %}{% set ss="很差" %} current active{% endif %}" title="很差" val="1">很差</li>
+                            <li class="two  {% if info.rating >3 %}{% set ss="较差" %} current active{% endif %}" title="较差" val="2">较差</li>
+                            <li class="three {% if info.rating >6 %}{% set ss="还行" %} current active{% endif %}" title="还行" val="3">还行</li>
+                            <li class="four {% if info.rating >=7 %}{% set ss="推荐" %} current active{% endif %}" title="推荐" val="4">推荐</li>
+                            <li class="five {% if info.rating >=8 %}{% set ss="力荐" %} current active{% endif %}" title="力荐" val="5">力荐</li>
                         </ul>
-                        <span id="ratewords" class="cor2">力荐
-</span>
+                        <span id="ratewords">{{ ss }}</span>
                     </div>
                     <script type="text/javascript" src="/template/Ds-wap/js/qireobj.js"></script>
                     <script type="text/javascript" src="/template/Ds-wap/js/gold.js"></script>
