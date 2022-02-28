@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="headtopnull"></div>
+    <div class="wwp">
+{#        <div class="ec-ad top20"><a href="" target="_blank"><img src="#" alt="影视筛选页广告位"></a></div>#}
+        <div class="show-filter back br top20">
+            <div class="filter_line">
+                <span class="filter_label cor3">频道</span>
+                {% for k,info in typeList.class %}
+                    <a class="filter_item {% if type == k %}zbs{% endif %}" href="{{ path("show_category",{'type':k}) }}">{{ info }}</a>
+                {% endfor %}
+            </div>
+            <div class="filter_line">
+                <span class="filter_label cor3">分类</span>
+                {% for k,info in attribute(typeList.list,type).tag %}
+                    <a class="filter_item {% if tag == k %}zbs{% endif %}" href="{{ path("show_category",{'type':type, 'tag' : k, 'area' :area, 'year' :year}) }}">{{ info }}</a>
+                {% endfor %}
+            </div>
+            <div class="filter_line">
+                <span class="filter_label cor3">地区</span>
+                {% for k,info in attribute(typeList.list,type).area %}
+                    <a class="filter_item {% if area == k %}zbs{% endif %}" href="{{ path("show_category",{'type' : type, 'tag' : tag, 'area' : k, 'year' : year}) }}">{{ info }}</a>
+                {% endfor %}
+            </div>
+            <div class="filter_line">
+                <span class="filter_label cor3">年代</span>
+                {% for k,info in attribute(typeList.list,type).year %}
+                    <a class="filter_item {% if year == k %}zbs{% endif %}" href="{{ path("show_category",{'type' : type, 'tag' :tag, 'area' : area, 'year':k}) }}">{{ info }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        {% if pagination.count >0 %}
+            <div class="vodlist hotgrow size listdh top20 wow fadeInUp">
+                {% for info in pagination %}
+
+                    <div class="pack-ykpack ">
+                        <div class="pack-packcover returl list-top-b">
+                            <a class="aplus-exp ecimgbor" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
+                                <div class="bj eclazy" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }});"></div>
+                                <span class="pack-bg"></span>
+                                <span class="pack-prb hidden">{{ info.vodRemarks }}</span>
+                            </a>
+                        </div>
+                        <div class="pack-infolist">
+                            <a class="vodname hidden" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}"</a>
+                            <div class="pack-subtitle cor3 hidden">{{ info.stars| join(',') }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="mac_pages">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+
+            {#            <div class="mac_pages"> #}
+            {#                <div class="page_tip cor3">共17435条数据,当前1/364页</div> #}
+            {#                {{ knp_pagination_render(pagination) }} #}
+            {#            </div> #}
+        {% else %}
+            <div class="vodlist hotgrow size listdh top20 wow fadeInUp">
+            </div>
+            <div style="text-align:center;">
+                <div>
+                    <img src="{{ asset("cy/null.png") }}" alt="暂无数据">
+                </div>
+                <p class="top20 cor3">暂无数据</p>
+            </div>
+        {% endif %}
+    </div>
+    <script>
+        var viewHeight = document.documentElement.clientHeight//获取可视区高度
+        function lazyload() {
+            var eles = document.querySelectorAll('div[data-original]')
+            Array.prototype.forEach.call(eles, function (item, index) {
+                var rect
+                if (item.dataset.original === "")
+                    return
+                rect = item.getBoundingClientRect()// 用于获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
+                if (rect.bottom >= 0 && rect.top < viewHeight) {
+                    !function () {
+                        var img = new Image()
+                        img.src = item.dataset.original
+                        img.onload = function () {
+                            item.style.backgroundImage = "url(" + img.src + ")";
+
+                        }
+                        item.removeAttribute("data-original")//移除属性，下次不再遍历
+                        item.removeAttribute("lazyload")
+                    }()
+                }
+            })
+        }
+
+        lazyload()//刚开始还没滚动屏幕时，要先触发一次函数，初始化首页的页面图片
+        document.addEventListener("scroll", lazyload)
+    </script>
+{% endblock %}
