@@ -37,14 +37,15 @@ class ShowController extends AbstractController
 
 
         if ($mobile_Detect->isMobile()) {
-            $tmp = 'm/show/index.html.twig';
-            $pg  = 24;
+            $tmp   = 'm/show/index.html.twig';
+            $tmpPg = 'm/show/pagination.html.twig';
+            $pg    = 24;
 
         } else {
-            $tmp = 'show/index.html.twig';
-            $pg  = 32;
+            $tmp   = 'show/index.html.twig';
+            $tmpPg = 'show/pagination.html.twig';
+            $pg    = 32;
         }
-
 
         $pagination = $paginator->paginate(
             $query,
@@ -52,7 +53,7 @@ class ShowController extends AbstractController
             $pg
         );
 
-        $pagination->setTemplate('show/pagination.html.twig');
+        $pagination->setTemplate($tmpPg);
 
         return $this->render($tmp, [
             'pagination' => $pagination,

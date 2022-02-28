@@ -1,46 +1,17 @@
 {% if pageCount > 1 %}
-    <div class="page_tip cor3">共{{ pageCount }}条数据,当前{{ current }}/{{ pageCount }}页</div>
-    <div class="page_info">
+    <ul>
+        <li class="page_link"><a style="margin:0;" class="back" href="{{ path(route, query|merge({(pageParameterName): 1})) }}"><i class="fa">&#xe7ea;</i></a></li>
         {% if previous is defined %}
-            <a class="page_link back" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&laquo;&nbsp;{{ 'label_previous'|trans([], 'KnpPaginatorBundle') }}</a>
+            <li><a class="back" href="{{ path(route, query|merge({(pageParameterName): previous})) }}"><i class="fa">&#xe716;</i></a></li>
         {% else %}
-            <a class="page_link back ">&laquo;&nbsp;{{ 'label_previous'|trans([], 'KnpPaginatorBundle') }}</a>
+            <li><a class="back"><i class="fa">&#xe716;</i></a></li>
         {% endif %}
-
-        {% if startPage > 1 %}
-
-            <a class="page_link back" href="{{ path(route, query|merge({(pageParameterName): 1})) }}">1</a>
-            {% if startPage == 3 %}
-                <a class="page_link back" href="{{ path(route, query|merge({(pageParameterName): 2})) }}">2</a>
-            {% elseif startPage != 2 %}
-                <a class="page_link back">&hellip;</a>
-            {% endif %}
-        {% endif %}
-
-        {% for page in pagesInRange %}
-            {% if page != current %}
-                <a class="page_link back" href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
-            {% else %}
-                <a class="page_link back zbs">{{ page }}</a>
-            {% endif %}
-
-        {% endfor %}
-
-        {% if pageCount > endPage %}
-            {% if pageCount > (endPage + 1) %}
-                {% if pageCount > (endPage + 2) %}
-                    <a class="page_link back">&hellip;</a>
-                {% else %}
-                    <a class="page_link back" href="{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}">{{ pageCount -1 }}</a>
-                {% endif %}
-            {% endif %}
-            <a class="page_link back" href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}">{{ pageCount }}</a>
-        {% endif %}
-
+        <li class="page_tip"><a class="back" href="javascript:;">{{ current }}&nbsp;/&nbsp;{{ pageCount }}</a></li>
         {% if next is defined %}
-            <a class="page_link back" href="{{ path(route, query|merge({(pageParameterName): next})) }}">{{ 'label_next'|trans([], 'KnpPaginatorBundle') }}&nbsp;&raquo;</a>
+            <li><a class="back" href="{{ path(route, query|merge({(pageParameterName): next})) }}"><i class="fa">&#xe62d;</i></a></li>
         {% else %}
-            <a class="page_link back">{{ 'label_next'|trans([], 'KnpPaginatorBundle') }}&nbsp;&raquo;</a>
+            <li><a class="back"><i class="fa">&#xe62d;</i></a></li>
         {% endif %}
-    </div>
+        <li class="page_link"><a style="margin:0;" class="back" href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}"><i class="fa">&#xe7eb;</i></a></li>
+    </ul>
 {% endif %}
