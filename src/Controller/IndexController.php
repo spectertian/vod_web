@@ -8,14 +8,17 @@ use App\DocumentRepository\VodListRepository;
 use App\Message\UserClick;
 use App\Service\RecommendList;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Mobile_Detect;
+
 class IndexController extends AbstractController
 {
     #[Route('/index.html', name: 'index', options: ['sitemap' => true])]
-    public function index(VodListRepository $vodListRepository, RecommendList $recommendList): Response
+    public function index(VodListRepository $vodListRepository, RecommendList $recommendList, Mobile_Detect $mobile_Detect): Response
     {
         $topicList = $recommendList->getTopic();
         $hotPlay   = $recommendList->getHotPlay();
@@ -32,7 +35,16 @@ class IndexController extends AbstractController
         $hotDm     = $recommendList->getHotPlayDm();
         $goodTy    = $recommendList->getOneGoodTy();
         $goodZy    = $recommendList->getOneGoodZy();
-        return $this->render('index/index.html.twig', [
+
+
+        if ($mobile_Detect->isMobile()) {
+            dump($mobile_Detect->getUserAgent());
+            $tmp = 'm/index/index.html.twig';
+        } else {
+            $tmp = 'index/index.html.twig';
+
+        }
+        return $this->render($tmp, [
             'topicList' => $topicList,
             'hotPlay'   => $hotPlay,
             'dsj'       => $dsj,

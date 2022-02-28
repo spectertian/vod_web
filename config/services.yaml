@@ -31,7 +31,12 @@ services:
         arguments:
             - '@doctrine_mongodb.odm.default_connection'
             - { database: 'customer_session', collection: 'guid'}
-#    app.sitemap.blog_post_subscriber:
+    Mobile_Detect: '@mobile_detect_alis'
+    mobile_detect_alis:
+        class:  Mobile_Detect
+        public: true
+
+    #    app.sitemap.blog_post_subscriber:
 #        class: App\EventListener\SitemapSubscriber
 #        arguments:
 #            - App\DocumentRepository\ListsRepository
