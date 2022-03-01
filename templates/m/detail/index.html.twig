@@ -1,7 +1,7 @@
 {% extends 'm/base.html.twig' %}
 {% block body %}
     <div id="headtop" class="navbody nav-a inherit">
-        <div class="l"><a class="fa" href="javascript:MAC.GoBack()">&#xe716;</a></div>
+        <div class="l"><a class="fa" href="javascript:GoBack()">&#xe716;</a></div>
         <h2><a href="javascript:;">{{ info.type }}</a></h2>
         <div class="r cf"><a id="ifshow" class="fa r" href="javascript:;">&#xe8b7;</a><a class="fa r mac_ulog" href="javascript:;" data-type="2" data-mid="1" data-id="300013">&#xe8c6;</a></div>
     </div>
@@ -223,6 +223,11 @@
     <script src="{{ asset("cy/m/message/js/message.min.js") }}" charset="utf-8"></script>
     <link rel="stylesheet" href="{{ asset("cy/m/message/css/message.css") }}">
     <script>
+
+        function GoBack() {
+            history.back()
+        }
+
         $('#selectedzk').click(function () {
             $('.selected').toggle()
             $('.selectedhidden').html($('.content_playlist').html())
