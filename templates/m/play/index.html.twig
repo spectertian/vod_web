@@ -248,8 +248,9 @@
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/xgplayer/browser/index.js" charset="utf-8"></script>
     <script src="//cdn.jsdelivr.net/npm/xgplayer-hls.js/browser/index.js" charset="utf-8"></script>
+    <script src="{{ asset("cy/m/message/js/message.min.js") }}" charset="utf-8"></script>
+    <link rel="stylesheet" href="{{ asset("cy/m/message/css/message.css") }}">
     <script>
-
         $('#selectedzk').click(function () {
             $('.selected').toggle()
             $('.selectedhidden').html($('.content_playlist').html())
@@ -263,18 +264,15 @@
             $('.ifhidden').show()
         })
 
-        // $('.copyBtn').click(function () {
-        //     $('.ifhidden').hide()
-        // })
-
-
         const clipboard = new ClipboardJS('.copyBtn');
-
         clipboard.on('success', function (e) {
             e.clearSelection();
+            Qmsg.success("复制成功")
+
             $('.ifhidden').hide()
         });
         clipboard.on('error', function (e) {
+            Qmsg.error("复制失败")
             $('.ifhidden').hide()
         });
 
