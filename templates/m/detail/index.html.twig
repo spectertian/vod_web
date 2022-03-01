@@ -115,7 +115,7 @@
             </h2>
             <div class="r siza">
                 {#                <a id="zxdaoxu" class="cor4 r-3" href="javascript:;" title="镰仓殿的13人影片选集排序">倒叙<i class="fa">&#xe66c;</i></a> #}
-                {#                <a id="selectedzk" class="cor4" href="javascript:;" title="镰仓殿的13人影片选集">展开列表<i class="fa">&#xe62d;</i></a> #}
+                <a id="selectedzk" class="cor4" href="javascript:;" title="{{ info.title }}影片选集">展开列表<i class="fa">&#xe62d;</i></a>
             </div>
         </div>
         <div class="play_source">
@@ -198,7 +198,7 @@
         <div class="bottom-box animated fadeInUp lcb">
             <div class="botton-top">
                 <p class="cor4"><i class="fa">&#xe8cc;</i>复制链接地址分享给您的好友吧~~</p>
-                <textarea id="foo" rows="3" cols="20" class="share back cor2">{{ path('detail',{id:info.id}) }}</textarea>
+                <textarea id="foo" rows="3" cols="20" class="share back cor2">{{ app.request.getSchemeAndHttpHost() }}{{ path('detail',{id:info.id}) }}</textarea>
             </div>
             <div class="botton-btn share-btn b-t">
                 <button type="button" class="cor2 copyBtn" data-clipboard-target="#foo">复制链接</button>
@@ -220,8 +220,17 @@
         </div>
     </section>
     <script>
-        $('.play_eq').click(function () {
-            window.location.href = "{{ path('play',{s_id:info.id,p_id:0}) }}";
+        $('#selectedzk').click(function () {
+            $('.selected').toggle()
+            $('.selectedhidden').html($('.content_playlist').html())
+        })
+
+        $('#selectedof').click(function () {
+            $('.selected').toggle()
+        })
+
+        $('#ifshow').click(function () {
+            $('.ifhidden').show()
         })
 
         var viewHeight = document.documentElement.clientHeight//获取可视区高度

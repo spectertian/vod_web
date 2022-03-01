@@ -14,8 +14,8 @@
             <div class="r qiansebei">
                 {#                <a href="" class="btns_disad cor4"><i class="fa">&#xe7ea;</i>上集</a> #}
                 {#                <a href="/index.php/vod/play/id/300378/sid/3/nid/2.html" class="">下集<i class="fa">&#xe7eb;</i></a> #}
-                {#            </div> #}
             </div>
+        </div>
     </section>
     <div style="height:6.6rem"></div>
     <section class="play-detail">
@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="play-score cf back">
-                <div class="fraction">10.0</div>
+                <div class="fraction">{{ info.rating }}</div>
                 <div id="detail-rating" class="cf l">
                     <div id="rating" class="fn-left" data-mid="1" data-id="300378" data-score="{{ info.rating }}">
                         {% set ss = "" %}
@@ -69,8 +69,8 @@
                         </ul>
                         <span id="ratewords">{{ ss }}</span>
                     </div>
-{#                    <script type="text/javascript" src="/template/Ds-wap/js/qireobj.js"></script>#}
-{#                    <script type="text/javascript" src="/template/Ds-wap/js/gold.js"></script>#}
+                    {#                    <script type="text/javascript" src="/template/Ds-wap/js/qireobj.js"></script> #}
+                    {#                    <script type="text/javascript" src="/template/Ds-wap/js/gold.js"></script> #}
                     <div class="cor4">818人已评分</div>
                 </div>
             </div>
@@ -185,10 +185,10 @@
             <div class="mac_comment" data-id="300378" data-mid="1"></div>
             <script>
                 $(function () {
-                    MAC.Comment.Login = 1;
-                    MAC.Comment.Verify = 1;
-                    MAC.Comment.Init();
-                    MAC.Comment.Show(1);
+                    // MAC.Comment.Login = 1;
+                    // MAC.Comment.Verify = 1;
+                    // MAC.Comment.Init();
+                    // MAC.Comment.Show(1);
                 });
             </script>
         </div>
@@ -210,10 +210,10 @@
         <div class="bottom-box animated fadeInUp lcb">
             <div class="botton-top">
                 <p class="cor4"><i class="fa">&#xe8cc;</i>复制链接地址分享给您的好友吧~~</p>
-                <textarea id="foo" rows="3" cols="20" class="share back cor2">{{ path('detail',{id:info.id}) }}</textarea>
+                <textarea id="foo" rows="3" cols="20" class="share back cor2">{{ app.request.getSchemeAndHttpHost() }}{{ path('detail',{id:info.id}) }}</textarea>
             </div>
             <div class="botton-btn share-btn b-t">
-                <button type="button" class="cor2 copyBtn" data-clipboard-target="#foo">复制链接</button>
+                <button type="button" class="cor2 copyBtn" data-clipboard-target="#foo" data-rel="popup">复制链接</button>
             </div>
         </div>
     </section>
@@ -245,10 +245,39 @@
         {#        <span id="jxline">https://pull.#/?url=</span> #}
         {#        <span id="bfurl">qq|youku|mgtv|letv|pptv|shou|qiyi</span> #}
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/xgplayer/browser/index.js" charset="utf-8"></script>
     <script src="//cdn.jsdelivr.net/npm/xgplayer-hls.js/browser/index.js" charset="utf-8"></script>
     <script>
+
+        $('#selectedzk').click(function () {
+            $('.selected').toggle()
+            $('.selectedhidden').html($('.content_playlist').html())
+        })
+
+        $('#selectedof').click(function () {
+            $('.selected').toggle()
+        })
+
+        $('#ifshow').click(function () {
+            $('.ifhidden').show()
+        })
+
+        // $('.copyBtn').click(function () {
+        //     $('.ifhidden').hide()
+        // })
+
+
+        const clipboard = new ClipboardJS('.copyBtn');
+
+        clipboard.on('success', function (e) {
+            e.clearSelection();
+            $('.ifhidden').hide()
+        });
+        clipboard.on('error', function (e) {
+            $('.ifhidden').hide()
+        });
+
         let player = new HlsJsPlayer({
             "id": "mse",
             "url": "{{ play_url }}",
