@@ -33,7 +33,7 @@
             {% for info in pagination %}
                 <li class="cf list-width">
                     <div class="top list-hide l">
-                        <a class="img lazy eclazy br" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }}); display: block;" href="{{ path('detail',{id:info.id}) }}l" title="{{ info.title }}">
+                        <a class="img lazy eclazy br" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }})" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
                             <span class="pack-bg br-bt"></span>
                             <span class="list-remarks hidden">更新至08集</span>
                         </a>
@@ -131,7 +131,7 @@
 <script>
     var viewHeight = document.documentElement.clientHeight//获取可视区高度
     function lazyload() {
-        var eles = document.querySelectorAll('div[data-original]')
+        var eles = document.querySelectorAll('a[data-original]')
         Array.prototype.forEach.call(eles, function (item, index) {
             var rect
             if (item.dataset.original === "")
