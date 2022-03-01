@@ -54,13 +54,14 @@ class SearchController extends AbstractController
     }
 
     #[Route('/search_m.html', name: 'search_m')]
-    public function m(VodListRepository $vodListRepository, Request $request, PaginatorInterface $paginator, RecommendList $recommendList, Mobile_Detect $mobile_Detect): Response
+    public function m(VodListRepository $vodListRepository, RecommendList $recommendList): Response
     {
-        $topicList = $recommendList->getTopic(8);
-
         return $this->render('m/search/m.html.twig', [
-            'title'     => '搜索结果',
-            'topicList' => $topicList,
+            'dy'    => $recommendList->getHotMovie(6),
+            'dsj'   => $recommendList->getHotDsj(6),
+            'zy'    => $recommendList->getHotZy(6),
+            'dm'    => $recommendList->getHotDm(6),
+            'topic' => $recommendList->getTopic(6),
         ]);
     }
 }

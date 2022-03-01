@@ -223,6 +223,9 @@
     <script src="{{ asset("cy/m/message/js/message.min.js") }}" charset="utf-8"></script>
     <link rel="stylesheet" href="{{ asset("cy/m/message/css/message.css") }}">
     <script>
+        $('.play_eq').click(function () {
+            window.location.href = "{{ path('play',{s_id:info.id,p_id:0}) }}";
+        })
 
         function GoBack() {
             history.back()
@@ -240,7 +243,6 @@
         $('#ifshow').click(function () {
             $('.ifhidden').show()
         })
-
 
         const clipboard = new ClipboardJS('.copyBtn');
         clipboard.on('success', function (e) {

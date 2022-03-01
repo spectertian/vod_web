@@ -14,6 +14,10 @@
     <script src="{{ asset("cy/m/swiper.min.js") }}"></script>
     <link rel="icon" href="{{ asset("cy/favicon.ico") }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset("cy/favicon.ico") }}" type="image/x-icon">
+
+    {#    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css"> #}
+    {#    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script> #}
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body data-new-gr-c-s-check-loaded="14.1050.0" data-gr-ext-installed="">
 <div class="sowindow bcrd">
@@ -41,8 +45,9 @@
             </h2>
         </div>
         <div class="scbar_hot size">
-            <a class="back" href="{{ path("search") }}">雪中悍刀行</a>
-            <a class="back" href="{{ path("search") }}">国王排名</a>
+            {% for info in topic %}
+                <a class="back" href="{{ path("search",{'wd':info.title}) }}">{{ info.title }}</a>
+            {% endfor %}
         </div>
     </div>
     <div class="leo-pop-item">
@@ -53,52 +58,85 @@
             <div class="r siza cor4">不负好时光~</div>
         </div>
         <div class="play-catalog cor2 cf">
-            <span class="on mr">电影<i></i></span>
-            <span class="mr">剧集<i></i></span>
-            <span class="mr">综艺<i></i></span>
-            <span class="mr">动漫<i></i></span>
+            <span class="on mr" atr="info_1">电影<i></i></span>
+            <span class="mr" atr="info_2">剧集<i></i></span>
+            <span class="mr" atr="info_3">综艺<i></i></span>
+            <span class="mr" atr="info_4">动漫<i></i></span>
         </div>
-        <div class="ec-pop-rank-body play-detail box" style="display:block">
+        <div id="info_1" class="ec-pop-rank-body play-detail box" style="display:block">
             <ul class="ec-pop-rank-item">
-                <li><i class="co1">1</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/145706/sid/1/nid/1.html">X特遣队：全员集结</a></span><em class="cor4">人气：619217</em></li>
-                <li><i class="co2">2</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/253151/sid/1/nid/1.html">尚气与十环传奇</a></span><em class="cor4">人气：613481</em></li>
-                <li><i class="co3">3</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/253080/sid/1/nid/1.html">沙丘</a></span><em class="cor4">人气：569814</em></li>
-                <li><i class="co4">4</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/251613/sid/1/nid/1.html">毒液2</a></span><em class="cor4">人气：392621</em></li>
-                <li><i class="co5">5</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/286239/sid/1/nid/1.html">扬名立万</a></span><em class="cor4">人气：329414</em></li>
-                <li><i class="co6">6</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/286229/sid/1/nid/1.html">误杀2</a></span><em class="cor4">人气：328437</em></li>
+                {% for k,info in dy %}
+                    <li><i class="co{{ k+1 }}">{{ k+1 }}</i><span class="hidden"><a href="{{ path('play',{s_id:info.id,p_id:0}) }}">{{ info.title }}</a></span><em class="cor4">{{ info.vodRemarks }}</em></li>
+                {% endfor %}
             </ul>
         </div>
-        <div class="ec-pop-rank-body play-detail box">
+        <div id="info_2" class="ec-pop-rank-body play-detail box">
             <ul class="ec-pop-rank-item">
-                <li><i class="co1">1</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/249283/sid/1/nid/1.html">鱿鱼游戏</a></span><em class="cor4">人气：716521</em></li>
-                <li><i class="co2">2</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/145228/sid/1/nid/1.html">扫黑风暴</a></span><em class="cor4">人气：605148</em></li>
-                <li><i class="co3">3</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/285822/sid/1/nid/1.html">斛珠夫人</a></span><em class="cor4">人气：568821</em></li>
-                <li><i class="co4">4</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/252809/sid/1/nid/1.html">八角亭谜雾</a></span><em class="cor4">人气：462615</em></li>
-                <li><i class="co5">5</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/250569/sid/1/nid/1.html">启航：当风起时</a></span><em class="cor4">人气：396184</em></li>
-                <li><i class="co6">6</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/246582/sid/1/nid/1.html">云南虫谷</a></span><em class="cor4">人气：365821</em></li>
+                {% for k,info in dsj %}
+                    <li><i class="co{{ k+1 }}">{{ k+1 }}</i><span class="hidden"><a href="{{ path('play',{s_id:info.id,p_id:0}) }}">{{ info.title }}</a></span><em class="cor4">{{ info.vodRemarks }}</em></li>
+                {% endfor %}
             </ul>
         </div>
-        <div class="ec-pop-rank-body play-detail box">
+        <div id="info_3" class="ec-pop-rank-body play-detail box">
             <ul class="ec-pop-rank-item">
-                <li><i class="co1">1</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/285764/sid/1/nid/1.html">令人心动的offer 第三季</a></span><em class="cor4">人气：263165</em></li>
-                <li><i class="co2">2</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/299429/sid/1/nid/1.html">单身即地狱</a></span><em class="cor4">人气：235508</em></li>
-                <li><i class="co3">3</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/286041/sid/1/nid/1.html">哈哈哈哈哈 第二季</a></span><em class="cor4">人气：230614</em></li>
-                <li><i class="co4">4</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/287409/sid/1/nid/1.html">令人心动的offer 第三季</a></span><em class="cor4">人气：222305</em></li>
-                <li><i class="co5">5</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/175821/sid/1/nid/1.html">女儿们的恋爱第四季</a></span><em class="cor4">人气：195821</em></li>
-                <li><i class="co6">6</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/300007/sid/1/nid/1.html">麻花特开心</a></span><em class="cor4">人气：194116</em></li>
+                {% for k,info in zy %}
+                    <li><i class="co{{ k+1 }}">{{ k+1 }}</i><span class="hidden"><a href="{{ path('play',{s_id:info.id,p_id:0}) }}">{{ info.title }}</a></span><em class="cor4">{{ info.vodRemarks }}</em></li>
+                {% endfor %}
             </ul>
         </div>
-        <div class="ec-pop-rank-body play-detail box">
+        <div id="info_4" class="ec-pop-rank-body play-detail box">
             <ul class="ec-pop-rank-item">
-                <li><i class="co1">1</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/233287/sid/1/nid/1.html">海贼王</a></span><em class="cor4">人气：891654</em></li>
-                <li><i class="co2">2</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/252866/sid/1/nid/1.html">国王排名</a></span><em class="cor4">人气：593216</em></li>
-                <li><i class="co3">3</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/233302/sid/1/nid/1.html">斗罗大陆</a></span><em class="cor4">人气：592148</em></li>
-                <li><i class="co4">4</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/287200/sid/1/nid/1.html">鬼灭之刃游郭篇</a></span><em class="cor4">人气：314780</em></li>
-                <li><i class="co5">5</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/285702/sid/1/nid/1.html">斗破苍穹三年之约</a></span><em class="cor4">人气：306235</em></li>
-                <li><i class="co6">6</i><span class="hidden"><a href="https://chongtmtv.com/index.php/vod/play/id/285668/sid/1/nid/1.html">英雄联盟：双城之战</a></span><em class="cor4">人气：236584</em></li>
+                {% for k,info in dm %}
+                    <li><i class="co{{ k+1 }}">{{ k+1 }}</i><span class="hidden"><a href="{{ path('play',{s_id:info.id,p_id:0}) }}">{{ info.title }}</a></span><em class="cor4">{{ info.vodRemarks }}</em></li>
+                {% endfor %}
             </ul>
         </div>
     </div>
 </div>
+
+{# <ul id="myTab" class="nav nav-tabs"> #}
+{#    <li class="active"> #}
+{#        <span href="#home" data-toggle="tab"> #}
+{#             菜鸟教程 #}
+{#        </span> #}
+{#    </li> #}
+{#    <li><a href="#ios" data-toggle="tab">iOS</a></li> #}
+{#    <li class="dropdown"> #}
+{#        <a href="#" id="myTabDrop1" class="dropdown-toggle" #}
+{#           data-toggle="dropdown">Java #}
+{#            <b class="caret"></b> #}
+{#        </a> #}
+{#        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1"> #}
+{#            <li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a></li> #}
+{#            <li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a></li> #}
+{#        </ul> #}
+{#    </li> #}
+{# </ul> #}
+{# <div id="myTabContent" class="tab-content"> #}
+{#    <div class="tab-pane fade in active" id="home"> #}
+{#        <p>菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p> #}
+{#    </div> #}
+{#    <div class="tab-pane fade" id="ios"> #}
+{#        <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple #}
+{#            TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p> #}
+{#    </div> #}
+{#    <div class="tab-pane fade" id="jmeter"> #}
+{#        <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p> #}
+{#    </div> #}
+{#    <div class="tab-pane fade" id="ejb"> #}
+{#        <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。 #}
+{#        </p> #}
+{#    </div> #}
+{# </div> #}
 </body>
+<script>
+    $('.play-catalog span').click(function (k, v) {
+        $('.play-catalog span').removeClass("on")
+        $(this).addClass("on")
+        var atr = $(this).attr("atr")
+        $('.ec-pop-rank-body').hide()
+        console.log(atr)
+        $("#" + atr).show()
+    });
+</script>
 </html>
