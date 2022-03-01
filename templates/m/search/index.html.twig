@@ -26,7 +26,7 @@
     </div>
 </div>
 <div class="navtop"></div>
-<div class="notice back cor4"><i class="fa on"></i>搜索"{{ wd }}" 结果 " <span class="mac_total blue">{{ pagination.count }}</span>" 个资源</div>
+<div class="notice back cor4"><i class="fa on"></i>搜索"{{ wd }}" 结果 " <span class="mac_total blue">{{ pagination.getTotalItemCount }}</span>" 个资源</div>
 <div class="searchlilst">
     <ul>
         {% if pagination.count >0 %}
