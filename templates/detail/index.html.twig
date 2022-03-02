@@ -20,12 +20,12 @@
                             <a href="{{ path('search',{'wd':direct}) }}" target="_blank">{{ direct }}</a>&nbsp;
                         {% endfor %}
                     </p>
-                    <p class="item"><span>地区：</span> <a href="{{ path('search',{'wd':area}) }}" target="_blank">{{ info.area }}</a>&nbsp;</p>
-                    <p class="item item-actor"><span>年代：</span> <a href="{{ path('search',{'wd':year}) }}" target="_blank">{{ info.year }}</a>&nbsp; </p>
+                    <p class="item"><span>地区：</span> <a href="{{ path('search',{'wd':info.area}) }}" target="_blank">{{ info.area }}</a>&nbsp;</p>
+                    <p class="item item-actor"><span>年代：</span> <a href="{{ path('search',{'wd':info.year}) }}" target="_blank">{{ info.year }}</a>&nbsp; </p>
                     <p class="item item-actor"><span>语言：</span> {{ info.language }}</p>
                     <p style="clear:both"></p>
-                    <p class="item item-director"><span>类型：</span><a href="{{ path('search',{'wd':type}) }}" target="_blank">{{ info.type }}</a>&nbsp; </p>
-                    <p class="item item-actor">上映：<a href="{{ path('search',{'wd':star}) }}" target="_blank">2022</a>&nbsp;</p>
+                    <p class="item item-director"><span>类型：</span><a href="{{ path('search',{'wd':info.type}) }}" target="_blank">{{ info.type }}</a>&nbsp; </p>
+                    <p class="item item-actor">上映：<a href="{{ path('search',{'wd':info.year}) }}" target="_blank">{{ info.year }}</a>&nbsp;</p>
                     <p class="item item-type">片源：正片</p>
                     <p class="item-desc js-open-wrap hidden"><span class="desc">简介：</span><span id="cText">{{ info.introduction }}</span></p>
                 </div>

@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <a href="" class="btns_disad"><i class="fa" aria-hidden="true">&#xe7ea;</i>上集</a>
-                        <a href="/index.php/vod/play/id/301055/sid/1/nid/2.html" class="">下集<i class="fa" style="margin-left:6px" aria-hidden="true">&#xe7eb;</i></a>
+                        <a href="" class="">下集<i class="fa" style="margin-left:6px" aria-hidden="true">&#xe7eb;</i></a>
                     </div>
                     <div class="player-news r">
                         <div class="news-list">
@@ -117,9 +117,9 @@
                         <span>
                     <div id="ecbto" class="play-open">
                         <div class="cut-line"></div>内容简介<span class="fa">&#xe62e;</span></div>
-                        <a href="/index.php/vod/search/area/%E6%97%A5%E9%9F%A9.html" target="_blank">{{ info.area }}</a>&nbsp;
-                            <a href="/index.php/vod/search/year/2021.html" target="_blank">{{ info.year }}</a>&nbsp;
-                            <a href="/index.php/vod/search/class/%E5%8A%A8%E6%BC%AB-%E7%A7%91%E5%B9%BB.html" target="_blank">{{ info.type }}</a>&nbsp;
+                        <a href="{{ path('search',{'wd':info.area}) }}" target="_blank">{{ info.area }}</a>&nbsp;
+                            <a href="{{ path('search',{'wd':info.year}) }}" target="_blank">{{ info.year }}</a>&nbsp;
+                            <a href="{{ path('search',{'wd':info.type}) }}" target="_blank">{{ info.type }}</a>&nbsp;
                         </span>
                     </div>
                 </div>
@@ -129,13 +129,13 @@
                         <div class="info-wrap" style="margin-bottom:12px;">
                             <span class="title cor3">导演：</span>
                             {% for direct in info.director %}
-                                <a href="/index.php/vod/search/director/%E5%90%95%E8%A1%8C.html" target="_blank">{{ direct }}</a>&nbsp;
+                                <a href="{{ path('search',{'wd':direct}) }}" target="_blank">{{ direct }}</a>&nbsp;
                             {% endfor %}
                         </div>
                         <div class="info-wrap" style="margin-bottom: 12px;">
                             <span class="title cor3">主演：</span>
                             {% for star in info.stars %}
-                                <a href="/index.php/vod/search/actor/%E9%99%88%E8%8B%A5%E8%BD%A9.html" target="_blank">{{ star }}</a>&nbsp;
+                                <a href="{{ path('search',{'wd':star}) }}" target="_blank">{{ star }}</a>&nbsp;
                             {% endfor %}
                         </div>
                         <div class="info-wrap cor3">
