@@ -123,30 +123,9 @@
                             </ul>
                         </div>
                     </div>
-                    {#                    <div id="playsx" class='play_list_box '> #}
-                    {#                        <div class="box player_infotip cor4"><i class="fa">&#xe8d1;</i>&nbsp;当前资源由高清2提供&nbsp;-&nbsp;看视频 - 老虎TV TV，无VIP会员</div> #}
-                    {#                        <div class="card playlist_notfull swiper-container4"> #}
-                    {#                            <ul class='content_playlist cf swiper-wrapper'> #}
-                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/1.html">1</a></li> #}
-                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/2.html">2</a></li> #}
-                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/3.html">3</a></li> #}
-                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/4.html">4</a></li> #}
-                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/5.html">5</a></li> #}
-                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/6.html">6</a></li> #}
-                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/1/nid/7.html">7</a></li> #}
-                    {#                            </ul> #}
-                    {#                        </div> #}
-                    {#                    </div> #}
-                    {#                    <div id="playsx" class='play_list_box '> #}
-                    {#                        <div class="box player_infotip cor4"><i class="fa">&#xe8d1;</i>&nbsp;当前资源由高清1提供&nbsp;-&nbsp;看视频 - 老虎TV TV，无VIP会员</div> #}
-                    {#                        <div class="card playlist_notfull swiper-container4"> #}
-                    {#                            <ul class='content_playlist cf swiper-wrapper'> #}
-                    {#                                <li class='swiper-slide jujiselset '><a class="back" href="/index.php/vod/play/id/300378/sid/2/nid/1.html">1</a></li> #}
-                    {#                            </ul> #}
-                    {#                        </div> #}
-                    {#                    </div> #}
                 </div>
             </div>
+        </div>
         </div>
         <div></div>
 
@@ -251,6 +230,17 @@
     <script src="{{ asset("cy/m/message/js/message.min.js") }}" charset="utf-8"></script>
     <link rel="stylesheet" href="{{ asset("cy/m/message/css/message.css") }}">
     <script>
+        var swiper = new Swiper(".swiper-container4", {
+            initialSlide: 0,
+            observer: true,
+            observeParents: true,
+            direction: 'horizontal',
+            slidesPerView: 1,
+            loop: false,
+            slidesPerGroup: 4,//表示当前页面显示三张轮播图，然后三张轮播图为一组，每次切换时直接是切换到另外三张轮播图
+
+        });
+        swiper.slideTo({{ ((p_id+1)/4)|round(0, 'floor') }}, 1000, false)
 
         $('.publicshow').click(function () {
             $(".publicpu").toggle()
