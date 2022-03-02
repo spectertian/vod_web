@@ -29,13 +29,13 @@
                         <p>
                             <span>演员：
                                 {% for star in info.stars %}
-                                    <a href="/index.php/vod/search/actor/%E9%99%88%E8%8B%A5%E8%BD%A9.html" target="_blank">{{ star }}</a>&nbsp;
+                                    <a href="{{ path('search',{'wd':star}) }}" target="_blank">{{ star }}</a>&nbsp;
                                 {% endfor %}
                             </span></p>
                         <p>
                             <span>导演：
                                 {% for direct in info.director %}
-                                    <a href="/index.php/vod/search/director/%E5%90%95%E8%A1%8C.html" target="_blank">{{ direct }}</a>&nbsp;
+                                    <a href="{{ path("search",{'wd':direct}) }}" target="_blank">{{ direct }}</a>&nbsp;
                                 {% endfor %}
                             </span>
                         </p>
@@ -197,11 +197,11 @@
         <div class="zdbj"></div>
         <div class="bottom-box animated fadeInUp lcb">
             <div class="share-panel-bd cf">
-{#                <span class="cor4">加入群聊，为您在线解决各种视频报错！</span>#}
-{#                <div class="qrcode"><img width="100%" src="/upload/site/20210915-1/a229b650ec849bc30a9763690a1d70e2.jpg" alt="打赏二维码">#}
-{#                    <p>微信二维码</p></div>#}
-{#                <div class="qrcode"><img width="100%" src="/upload/site/20211010-1/e3e7a018294fa3a4bac0fe8a29d75861.png" alt="打赏二维码">#}
-{#                    <p>微信二维码</p></div>#}
+                {#                <span class="cor4">加入群聊，为您在线解决各种视频报错！</span> #}
+                {#                <div class="qrcode"><img width="100%" src="/upload/site/20210915-1/a229b650ec849bc30a9763690a1d70e2.jpg" alt="打赏二维码"> #}
+                {#                    <p>微信二维码</p></div> #}
+                {#                <div class="qrcode"><img width="100%" src="/upload/site/20211010-1/e3e7a018294fa3a4bac0fe8a29d75861.png" alt="打赏二维码"> #}
+                {#                    <p>微信二维码</p></div> #}
             </div>
         </div>
     </section>
@@ -251,6 +251,11 @@
     <script src="{{ asset("cy/m/message/js/message.min.js") }}" charset="utf-8"></script>
     <link rel="stylesheet" href="{{ asset("cy/m/message/css/message.css") }}">
     <script>
+
+        $("#zhankai").click(function (e) {
+            $(".play-details-of").toggle()
+        })
+
         $('#selectedzk').click(function () {
             $('.selected').toggle()
             $('.selectedhidden').html($('.content_playlist').html())
