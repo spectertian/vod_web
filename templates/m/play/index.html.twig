@@ -236,7 +236,7 @@
         <div class="popup-box lcb br">
             <h2 class="popup-title cor2">观影小技巧</h2>
             <div class="popup-content cor2">1.如播卡顿或失败可切换片源。<br/>2.建议选择高清片源播放，速度更快画质更好，如播放失败可点击切换线路。<br/>3.请不要相信视频中的广告,视频中广告非本站所加。<br/></div>
-            <div class="popup-btn"><a class="popup-conch buthide ol2" style="margin-right:4%;" href="javascript:;">朕已阅</a><a class="popup-subs buthide ol7" href="javascript:;">取消</a></div>
+            <div class="popup-btn"><a class="popup-conch buthide ol2" style="margin-right:4%;" href="javascript:;">已阅</a><a class="popup-subs buthide ol7" href="javascript:;">取消</a></div>
         </div>
     </div>
     <div style="display:none">
@@ -251,6 +251,18 @@
     <script src="{{ asset("cy/m/message/js/message.min.js") }}" charset="utf-8"></script>
     <link rel="stylesheet" href="{{ asset("cy/m/message/css/message.css") }}">
     <script>
+
+        $('.publicshow').click(function () {
+            $(".publicpu").toggle()
+        })
+
+        $('.ol2').click(function () {
+            $(".publicpu").toggle()
+        })
+
+        $('.ol7').click(function () {
+            $(".publicpu").toggle()
+        })
 
         $("#zhankai").click(function (e) {
             $(".play-details-of").toggle()
