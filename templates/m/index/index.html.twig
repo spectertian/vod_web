@@ -17,7 +17,7 @@
                     <li class="swiper-slide"><a href="{{ path('tv') }}">电视剧</a></li>
                     <li class="swiper-slide"><a href="{{ path('zy') }}">综艺</a></li>
                     <li class="swiper-slide"><a href="{{ path('dm') }}">动漫</a></li>
-                    <li class="swiper-slide"><a href="#">午夜剧场</a></li>
+                    <li class="swiper-slide"><a href="javascript:alerts">午夜剧场</a></li>
                 </ul>
                 <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
         </div>
@@ -211,8 +211,14 @@
             </div>
         </section>
     </div>
-
+    <script src="{{ asset("cy/m/message/js/message.min.js") }}" charset="utf-8"></script>
+    <link rel="stylesheet" href="{{ asset("cy/m/message/css/message.css") }}">
     <script type="text/javascript">
+
+        function alerts() {
+            Qmsg.info("稍等,数据准备中...")
+        }
+
         var viewHeight = document.documentElement.clientHeight//获取可视区高度
         function lazyload() {
             var eles = document.querySelectorAll('div[data-original]')
