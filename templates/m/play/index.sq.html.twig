@@ -1,0 +1,309 @@
+{% extends 'm/base.html.twig' %}
+{% block body %}
+    <section class="playtopfixed">
+        <div id="detail-box">
+            <div class="player-height" id="bofang_box">
+                <div id="mse"></div>
+            </div>
+        </div>
+        <div class="play-catalog b-b lcb cf cor2">
+            <div class="l">
+                {#                <span class="on mr">视频<i></i></span> #}
+                {#                <span class="ml">评论<i></i></span> #}
+            </div>
+            <div class="r qiansebei">
+                {#                <a href="" class="btns_disad cor4"><i class="fa">&#xe7ea;</i>上集</a> #}
+                {#                <a href="/index.php/vod/play/id/300378/sid/3/nid/2.html" class="">下集<i class="fa">&#xe7eb;</i></a> #}
+            </div>
+        </div>
+    </section>
+    <div style="height:6.6rem"></div>
+    <section class="play-detail">
+        <div class="box">
+            <div class="ec-playnam stretch">
+                <h2 class="play-title cor2"><span class="buttom">{{ info.type }}</span>{{ info.title }}</h2>
+                <div class="play-news cor4">{{ info.language }}<span>/</span>{{ info.area }}<span>/</span>{{ info.vodRemarks }}</div>
+                <a id="zhankai" class="play-details cor4">详情<i class="fa gengduo nav1">&#xe62e;</i><i class="fa gengduo nav2">&#xe62c;</i></a>
+                <div class="play-details-of" style="display:none;">
+                    <div class="play-top cor4">
+                        <p>
+                            <span>演员：
+                                {% for star in info.stars %}
+                                    <a href="{{ path('search',{'wd':star}) }}" target="_blank">{{ star }}</a>&nbsp;
+                                {% endfor %}
+                            </span></p>
+                        <p>
+                            <span>导演：
+                                {% for direct in info.director %}
+                                    <a href="{{ path("search",{'wd':direct}) }}" target="_blank">{{ direct }}</a>&nbsp;
+                                {% endfor %}
+                            </span>
+                        </p>
+                    </div>
+                    {#                    <section class="actorhsta cl swiper-container3"> #}
+                    {#                        <ul class="swiper-wrapper"> #}
+                    {#                            <li class="swiper-slide"> #}
+                    {#                                <a href="/index.php/actor/detail/id/7769.html" title="皆川猿时"> #}
+                    {#                                    <div class="kmimg" style="padding: 0;"><img src="/upload/actor/20210820-8/6902094dbcc199abe61bff0204e42c92.jpg"></div> #}
+                    {#                                    <h2>皆川猿时</h2> #}
+                    {#                                </a> #}
+                    {#                            </li> #}
+                    {#                        </ul> #}
+                    {#                    </section> #}
+                    <div class="play-bottom">
+                        <p class="play-m-box cor4">概要 : {{ info.introduction }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="play-score cf back">
+                <div class="fraction">{{ info.rating }}</div>
+                <div id="detail-rating" class="cf l">
+                    <div id="rating" class="fn-left" data-mid="1" data-id="300378" data-score="{{ info.rating }}">
+                        {% set ss = "" %}
+                        <ul class="rating" id="fenshu">
+                            <li class="one  {% if info.rating >=0 %}{% set ss="很差" %} current active{% endif %}" title="很差" val="1">很差</li>
+                            <li class="two  {% if info.rating >3 %}{% set ss="较差" %} current active{% endif %}" title="较差" val="2">较差</li>
+                            <li class="three {% if info.rating >6 %}{% set ss="还行" %} current active{% endif %}" title="还行" val="3">还行</li>
+                            <li class="four {% if info.rating >=7 %}{% set ss="推荐" %} current active{% endif %}" title="推荐" val="4">推荐</li>
+                            <li class="five {% if info.rating >=8 %}{% set ss="力荐" %} current active{% endif %}" title="力荐" val="5">力荐</li>
+                        </ul>
+                        <span id="ratewords">{{ ss }}</span>
+                    </div>
+                    {#                    <script type="text/javascript" src="/template/Ds-wap/js/qireobj.js"></script> #}
+                    {#                    <script type="text/javascript" src="/template/Ds-wap/js/gold.js"></script> #}
+                    <div class="cor4">818人已评分</div>
+                </div>
+            </div>
+        </div>
+        <div class="tag cl play-button">
+            <ul>
+                <li><a href="javascript:;" onclick="MAC.Gbook.Report('编号【300378】名称【如果，有一所只有帅哥的高中】不能观看请检查修复，页面地址' + location.href,'300378')" class="fa">&#xe8ca;</a>
+                    <p class="title cor2">报错</p></li>
+                <li><a href="javascript:;" class="fa rewardshow">&#xe8cb;</a>
+                    <p class="title cor2">入群</p></li>
+                <li><a href="javascript:;" class="fa mac_ulog" data-type="2" data-mid="1" data-id="300378">&#xe8c6;</a>
+                    <p class="title cor2">收藏</p></li>
+                <li><a href="javascript:;" id="ifshow" class="fa">&#xe8b7;</a>
+                    <p class="title cor2">分享</p></li>
+            </ul>
+        </div>
+        <div class="ec-gfqqqun ol1"><a href="#" class="text hidden">播放不了请使用谷歌等主流浏览器,遇到视频卡顿请刷新页面或切换播放路线</a></div>
+        <div class="pannel cf">
+            <div class="box title-a cf">
+                <h2 class="l cor2">
+                    <span>播放列表</span>
+                </h2>
+                <div class="r siza">
+                    <a class="cor4 r-3 publicshow" href="javascript:;" title="播放技巧" style="font-size: .36rem;">观影技巧<i class="fa">&#xe8ae;</i></a>
+                    <a id="zxdaoxu" class="cor4 r-3" href="javascript:;" title="如果，有一所只有帅哥的高中影片选集排序" style="font-size: .36rem;">倒叙<i class="fa">&#xe66c;</i></a>
+                    <a id="selectedzk" class="cor4" href="javascript:;" title="如果，有一所只有帅哥的高中影片选集" style="font-size: .36rem;">展开列表<i class="fa">&#xe62d;</i></a>
+                </div>
+            </div>
+            <div class="play_source">
+                <div class="boxb b-b swiper-container3 play_source_tab swiper">
+                    <div class="cf swiper-wrapper" id="tag">
+                        <a href="javascript:void(0);" class='swiper-slide on' data-from="if101" alt="高清">高清<em>({{ info.play.1.list|length }})</em></a>
+                        {#                        <a href="javascript:void(0);" class='swiper-slide ' data-from="wjm3u8" alt="高清2">高清2<em>7</em></a> #}
+                        {#                        <a href="javascript:void(0);" class='swiper-slide ' data-from="dbm3u8" alt="高清1">高清1</a> #}
+                    </div>
+                </div>
+                <div class="ecxlqh"></div>
+                <div id="tagContent">
+                    <div id="playsx" class='play_list_box show daoxu'>
+                        <div class="box player_infotip cor4"><i class="fa">&#xe8d1;</i>&nbsp;当前资源高清提供&nbsp;-&nbsp;看视频 - 老虎TV TV，无VIP会员</div>
+                        <div class="card playlist_notfull swiper-container4">
+                            <ul id="nav-bar" class='content_playlist cf swiper-wrapper'>
+                                {% for key,vod in info.play.1.list %}
+                                    {% if p_id == key %}
+                                        <li class='swiper-slide jujiselset ecnav-dt'><a class="back" href="{{ path('play',{s_id:info.id,p_id:key}) }}"><i class="fa on">{{ vod.title }}</i><em></em></a></li>
+                                    {% else %}
+                                        <li class='swiper-slide jujiselset '><a class="back" href="{{ path('play',{s_id:info.id,p_id:key}) }}">{{ vod.title }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div></div>
+
+        <div>
+            <div class="title-a cf box">
+                <h2 class="l cor2">
+                    <span>相关推荐</span>
+                </h2>
+                <div class="r siza"><a class="cor4" href="{{ path("show_category",{'type':info.typeId1,'tag':info.type}) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+            </div>
+            <div class="list-a size swiper-container2 card">
+                <ul class="swiper-wrapper">
+                    {% for key,info in recommend_list %}
+                        <li class="swiper-slide list-width  volistwidthcb">
+                            <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
+                                <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
+                                    <div class="eclazy br" style="background-image: url({{ path('img',{id:info.imgUrl}) }});"></div>
+                                    <span class="pack-bg br-bt"></span>
+                                    <span class="list-remarks hidden">{{ info.vodRemarks }}</span>
+                                </a>
+                            </div>
+                            <div class="bottom">
+                                <div class="title hidden">
+                                    <a href='{{ path('detail',{id:info.id}) }}' title="{{ info.title }}">{{ info.title }}</a>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </section>
+    <section class="play-detail" style="display:none">
+        <div class="ui-box marg" id="pinglun">
+            <div class="mac_comment" data-id="300378" data-mid="1"></div>
+            <script>
+                $(function () {
+                    // MAC.Comment.Login = 1;
+                    // MAC.Comment.Verify = 1;
+                    // MAC.Comment.Init();
+                    // MAC.Comment.Show(1);
+                });
+            </script>
+        </div>
+    </section>
+    <section class="reward" style="display:none">
+        <div class="zdbj"></div>
+        <div class="bottom-box animated fadeInUp lcb">
+            <div class="share-panel-bd cf">
+                {#                <span class="cor4">加入群聊，为您在线解决各种视频报错！</span> #}
+                {#                <div class="qrcode"><img width="100%" src="/upload/site/20210915-1/a229b650ec849bc30a9763690a1d70e2.jpg" alt="打赏二维码"> #}
+                {#                    <p>微信二维码</p></div> #}
+                {#                <div class="qrcode"><img width="100%" src="/upload/site/20211010-1/e3e7a018294fa3a4bac0fe8a29d75861.png" alt="打赏二维码"> #}
+                {#                    <p>微信二维码</p></div> #}
+            </div>
+        </div>
+    </section>
+    <section class="ifhidden">
+        <div class="zdbj"></div>
+        <div class="bottom-box animated fadeInUp lcb">
+            <div class="botton-top">
+                <p class="cor4"><i class="fa">&#xe8cc;</i>复制链接地址分享给您的好友吧~~</p>
+                <textarea id="foo" rows="3" cols="20" class="share back cor2">{{ app.request.getSchemeAndHttpHost() }}{{ path('detail',{id:info.id}) }}</textarea>
+            </div>
+            <div class="botton-btn share-btn b-t">
+                <button type="button" class="cor2 copyBtn" data-clipboard-target="#foo" data-rel="popup">复制链接</button>
+            </div>
+        </div>
+    </section>
+    <section class="selected" style="display:none">
+        <div class="zdbj"></div>
+        <div class="bottom-box animated fadeInUp lcb" style="top: 6.77rem;">
+            <div class="botton-top" style="height:100%">
+                <div class="title-a cf" style="margin:0;">
+                    <h2 class="l cor2"><span>选集</span></h2>
+                    <div class="r siza"><a id="selectedof" class="cor4" href="javascript:;" style="font-size: .36rem;"><i class="fa">&#xe64d;</i></a></div>
+                </div>
+                <div class='selectha'>
+                    <ul class='selectedhidden'></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="publicpu popup hide">
+        <div class="zdbj"></div>
+        <div class="popup-box lcb br">
+            <h2 class="popup-title cor2">观影小技巧</h2>
+            <div class="popup-content cor2">1.如播卡顿或失败可切换片源。<br/>2.建议选择高清片源播放，速度更快画质更好，如播放失败可点击切换线路。<br/>3.请不要相信视频中的广告,视频中广告非本站所加。<br/></div>
+            <div class="popup-btn"><a class="popup-conch buthide ol2" style="margin-right:4%;" href="javascript:;">已阅</a><a class="popup-subs buthide ol7" href="javascript:;">取消</a></div>
+        </div>
+    </div>
+    <div style="display:none">
+        <span class="mac_ulog_set" data-type="4" data-mid="1" data-id="300378" data-sid="3" data-nid="1"></span>
+        <span class="mac_history_set" data-name="[日本剧]如果，有一所只有帅哥的高中" data-mid="-第1集" data-pic="/upload/vod/20220116-1/536dd477b5a50430ca4719148d666b83.jpg"></span>
+        {#        <span id="jxline">https://pull.#/?url=</span> #}
+        {#        <span id="bfurl">qq|youku|mgtv|letv|pptv|shou|qiyi</span> #}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/xgplayer/browser/index.js" charset="utf-8"></script>
+    <script src="//cdn.jsdelivr.net/npm/xgplayer-hls.js/browser/index.js" charset="utf-8"></script>
+    <script src="{{ asset("cy/m/message/js/message.min.js") }}" charset="utf-8"></script>
+    <link rel="stylesheet" href="{{ asset("cy/m/message/css/message.css") }}">
+    <script>
+        var swiper = new Swiper(".swiper-container4", {
+            initialSlide: 0,
+            observer: true,
+            observeParents: true,
+            direction: 'horizontal',
+            slidesPerView: 1,
+            loop: false,
+            slidesPerGroup: 4,//表示当前页面显示三张轮播图，然后三张轮播图为一组，每次切换时直接是切换到另外三张轮播图
+
+        });
+        swiper.slideTo({{ ((p_id+1)/4)|round(0, 'floor') }}, 1000, false)
+
+        $('.publicshow').click(function () {
+            $(".publicpu").toggle()
+        })
+
+        $('.ol2').click(function () {
+            $(".publicpu").toggle()
+        })
+
+        $('.ol7').click(function () {
+            $(".publicpu").toggle()
+        })
+
+        $("#zhankai").click(function (e) {
+            $(".play-details-of").toggle()
+        })
+
+        $('#selectedzk').click(function () {
+            $('.selected').toggle()
+            $('.selectedhidden').html($('.content_playlist').html())
+        })
+
+        $('#selectedof').click(function () {
+            $('.selected').toggle()
+        })
+
+        $('#ifshow').click(function () {
+            $('.ifhidden').show()
+        })
+
+        const clipboard = new ClipboardJS('.copyBtn');
+        clipboard.on('success', function (e) {
+            e.clearSelection();
+            Qmsg.success("复制成功")
+
+            $('.ifhidden').hide()
+        });
+        clipboard.on('error', function (e) {
+            Qmsg.error("复制失败")
+            $('.ifhidden').hide()
+        });
+
+        let player = new HlsJsPlayer({
+            "id": "mse",
+            "url": "{{ play_url }}",
+            "playsinline": true,
+            "whitelist": [
+                ""
+            ],
+            "poster": "{{ path('img',{id:info.imgUrl}) }}",
+            "fluid": true,
+            "playbackRate": [
+                0.5,
+                1,
+                2,
+                3
+            ],
+            "rotate": {
+                "clockwise": false,
+                "innerRotate": false
+            },
+            "pip": true
+        });
+
+    </script>
+{% endblock %}

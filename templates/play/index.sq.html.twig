@@ -1,0 +1,322 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="player-bj">
+        <div class="player cf wwp">
+            <div class="player-left l cf">
+                <div class="player-height" id="bofang_box">
+                    <div id="mse"></div>
+                </div>
+                <div class="cf">
+                    <div class="player-menu l">
+                        <a href="javascript:;" onclick="MAC.Gbook.Report('编号【{{ info.id }}】名称【{{ info.title }}】不能观看请检查修复，页面地址' + location.href,'{{ info.id }}')"><i class="fa" aria-hidden="true">&#xe8ca;</i>报错</a>
+                        <a href="javascript:;" class="mac_ulog" data-type="2" data-mid="1" data-id="{{ info.id }}"><i class="fa" aria-hidden="true">&#xe8d0;</i>收藏</a>
+                        <div class="play_share" style="width:100%;position:relative">
+                            <a href="javascript:;"><i class="fa" aria-hidden="true">&#xe8b7;</i>分享</a>
+                            <div class="ecfnx fn-panel topfadeInUp animated">
+                                <div class="arrow"></div>
+                                <div class="modpop-actionhd"></div>
+                                <div class="fn-panel-body box cf">
+                                    <dl class="share-panel-left l">
+                                        <dt style="margin:26px 0">复制地址分享给你的好友</dt>
+                                        <dt style="position:relative;">
+                                            <input type="text" class="videoURL fn-share-input box" value="{{ path('detail',{id:info.id}) }}">
+                                            <div class="fn-share-code-btn fn-sharebtn-container ol2">复制地址</div>
+                                        </dt>
+                                    </dl>
+                                    <dl class="share-panel-right l b-l">
+                                        <dt><img class="ecerwiema" src="https://api.pwmqr.com/qrcode/create/?url=http://chongtmtv.com/index.php/vod/detail/id/301055.html"/></dt>
+                                        <dd>扫二维码直接进入</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="play_share hidden_xs ecfx" style="width: 100%;position: relative;"><a href="javascript:;"><i class="fa" aria-hidden="true">&#xe6e0;</i>打赏</a>
+                            <div class="ecdash fn-panel topfadeInUp animated">
+                                <div class="arrow"></div>
+                                <div class="modpop-actionhd"></div>
+                                <div class="fn-panel-body box cf">
+                                    <div class="share-panel-bd clear">
+                                        <span class="title col1b">感谢您的支持，我会继续努力的!</span>
+                                        {#                                        <span class="qrcode"><img width="100%" src="" alt="支付宝打赏二维码"/><p>支付宝</p></span> #}
+                                        {#                                        <span class="qrcode"><img width="100%" src="" alt="微信打赏二维码"/><p>微信</p></span> #}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="" class="btns_disad"><i class="fa" aria-hidden="true">&#xe7ea;</i>上集</a>
+                        <a href="" class="">下集<i class="fa" style="margin-left:6px" aria-hidden="true">&#xe7eb;</i></a>
+                    </div>
+                    <div class="player-news r">
+                        <div class="news-list">
+                            <ul class="infoList cor4">
+                                <li><span class="news-tis">提醒</span>不要轻易相信视频中的广告，谨防上当受骗!</li>
+                                <li>如果无法播放请重新刷新页面，或者切换线路。</li>
+                                <li>视频载入速度跟网速有关，请耐心等待几秒钟。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <script>jQuery(".player-news").slide({titCell: ".hd ul", mainCell: ".news-list ul", autoPage: true, effect: "top", autoPlay: true});</script>
+                </div>
+            </div>
+            <div class="player-right r cf">
+                <div class="top">
+                    <h2 class="title"><a style="color:#fff" href="{{ path('detail',{id:info.id}) }}">{{ info.title }}</a></h2>
+                    <div class="player-tips cor5" title="薇薇 -萤石眼之歌详情简介">→如若播放失败请切换解析或者线路尝试哟↓↓</div>
+                </div>
+                <div class="player-episode">
+                    <div class="player-xl-menu cor5 cf">
+                        <div class="l"><i class="fa">&#xe8b4;</i>片源:</div>
+                        <a class="cor5 l" id="zxdaoxu" href="javascript:;"><i class="fa">&#xe65a;</i>&nbsp;排序</a>
+                        <a class="cor5 l" id="antic" href="javascript:;"><i class="fa">&#xe8cc;</i>&nbsp;使用小技巧</a>
+                    </div>
+                    <div class="player-xl-switch top20 swiper-container2">
+                        <div class="swiper-wrapper cf">
+                            <a class='swiper-slide  zbs' data-from="if101" href="{{ path('play',{s_id:info.id,p_id:"0"}) }}">高清({{ info.vodTotal }})</a>
+                        </div>
+                    </div>
+                    <div class="player-xl-list top20 listdh size">
+                        <ul id="playsx" class="cf daoxu" style="display:block">
+                            {% for key,vod in info.play.0.list %}
+                                <li class="select-item {% if p_id == key %} current {% endif %}" curr-pages="1" style="font-size:13px;"><a href="{{ path('play',{s_id:info.id,p_id:key}) }}">{{ vod.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div>
+                        <div></div>
+                    </div>
+                    {#                    <div class="list-a top10"> #}
+                    {#                        <div class="title-a cor4"><h3>相关推荐</h3><a href="/index.php/map/index.html" class="cor5 r">更多<i class="fa">&#xe62d;</i></a></div> #}
+                    {#                        <ul> #}
+                    {#                            {% for key,info in recommend_list %} #}
+                    {#                                <li class="cf"> #}
+                    {#                                    <a title="{{ info.title }}" href="{{ path('detail',{id:info.id}) }}"> #}
+                    {#                                        <div class="pack-packcover returl"> #}
+                    {#                                            <div class="aplus-exp ecimgbor"> #}
+                    {#                                                <div class="bj" style="background-image: url({{ path('img',{id:info.imgUrl}) }});"></div> #}
+                    {#                                                <span class="pack-bg"></span> #}
+                    {#                                            </div> #}
+                    {#                                        </div> #}
+                    {#                                        <div> #}
+                    {#                                            <p class="font16 cor4">{{ info.title }}</p> #}
+                    {#                                            <p class="item-date cor5">{{ info.vodRemarks }}</p> #}
+                    {#                                        </div> #}
+                    {#                                    </a> #}
+                    {#                                </li> #}
+                    {#                            {% endfor %} #}
+                    {#                        </ul> #}
+                    {#                    </div> #}
+                </div>
+            </div>
+        </div>
+        <div class="cf wwp top20">
+            <div class="ecleft l">
+                <div class="play-detail">
+                    <h1 class="title"><span class="name cor4" title="{{ info.title }}">{{ info.title }}：第{{ p_id+1 }}集在线播放</span><span class="remarks">{{ info.vodRemarks }}</span></h1>
+                    <div class="play-tag cor3">
+                        <span class="play-hot"><span class="fa cor1 mr2">&#xe713;</span><span class="video-heat-text">10609</span></span>
+                        <span>
+                    <div id="ecbto" class="play-open">
+                        <div class="cut-line"></div>内容简介<span class="fa">&#xe62e;</span></div>
+                        <a href="{{ path('search',{'wd':info.area}) }}" target="_blank">{{ info.area }}</a>&nbsp;
+                            <a href="{{ path('search',{'wd':info.year}) }}" target="_blank">{{ info.year }}</a>&nbsp;
+                            <a href="{{ path('search',{'wd':info.type}) }}" target="_blank">{{ info.type }}</a>&nbsp;
+                        </span>
+                    </div>
+                </div>
+                <div class="intro-wrap intro-wrapec">
+                    <a class="poster bj l box" href="javascript:;" style="background-image: url({{ path('img',{id:info.imgUrl}) }});"></a>
+                    <div class="content-wrap">
+                        <div class="info-wrap" style="margin-bottom:12px;">
+                            <span class="title cor3">导演：</span>
+                            {% for direct in info.director %}
+                                <a href="{{ path('search',{'wd':direct}) }}" target="_blank">{{ direct }}</a>&nbsp;
+                            {% endfor %}
+                        </div>
+                        <div class="info-wrap" style="margin-bottom: 12px;">
+                            <span class="title cor3">主演：</span>
+                            {% for star in info.stars %}
+                                <a href="{{ path('search',{'wd':star}) }}" target="_blank">{{ star }}</a>&nbsp;
+                            {% endfor %}
+                        </div>
+                        <div class="info-wrap cor3">
+                            <span class="title">概要：</span> {{ info.introduction }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ecright r"></div>
+        </div>
+    </div>
+    <div class="palyconnt cf top20 wwp">
+        <div class="l playlist ecleft">
+
+            <div class="swiper-container3 top20">
+                <div class="cf swiper-wrapper">
+
+                    <br>
+                    <br>
+                </div>
+            </div>
+            {#            <div class="swiper-container3 top20"> #}
+            {#                <div class="cf swiper-wrapper"> #}
+            {#                        <span class="swiper-slide actorlist_item" style="display: inline-block;"> #}
+            {#                        <div class="actorlist_box ecdy back t-u"> #}
+            {#                            <a class="vodlist_thumb" href="/index.php/actor/detail/id/15627.html" title="种崎敦美"><img src="/upload/actor/20210821-7/c231dc42b12205d813d72365a25a7089.jpg" class="role-img"></a> #}
+            {#                            <div class="actorlist_tit anthology-wrap"> #}
+            {#                                <a class="albumtitle cor2" href="/index.php/actor/detail/id/15627.html" title="种崎敦美">种崎敦美</a> #}
+            {#                            </div> #}
+            {#                        </div> #}
+            {#                        </span> #}
+            {#                </div> #}
+            {#            </div> #}
+            {#            <div class="ec-ad top20"><a href="#" target="_blank"> #}
+            {#                    <img src="#" alt="播放页横幅广告位"></a></div> #}
+            <div class='index-hotnow wow fadeInUp top20'>
+                <div class="title-a cf">
+                    <h2 class="title-name l cf">
+                        <span>《{{ info.title }}》相关影视</span></a>
+                    </h2>
+                </div>
+                <div class="vodlist hotgrow size listdh">
+                    {% for key,info in recommend_list %}
+                        <div class="pack-ykpack play-vod-list playhid{{ key+1 }}">
+                            <div class="pack-packcover returl list-top-b">
+                                <a class="aplus-exp ecimgbor" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
+                                    <div class="bj eclazy" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }});"></div>
+                                    <span class="pack-bg"></span>
+                                    <span class="pack-prb hidden">{{ info.vodRemarks }}</span>
+                                </a>
+                            </div>
+                            <div class="pack-infolist">
+                                <a class="vodname hidden" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}</a>
+                                <div class="pack-subtitle cor3 hidden">{{ info.stars| join(',') }}</div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {#            <div class="title-a cf top20"> #}
+            {#                <h2 class="title-name l cf"> #}
+            {#                    <span>评论</span></a> #}
+            {#                </h2> #}
+            {#            </div> #}
+            {#            <div class="mac_comment" data-id="301055" data-mid="1"></div> #}
+        </div>
+        <div class="ecright r">
+            <div class="title-a cf">
+                <h2 class="title-name l cf">
+                    <span>{{ info.type }} · TOP</span><a class="url" href="{{ path("show_category",{'type':info.typeId1,'tag':info.type}) }}">更多<i class="fa tb3">&#xe62d;</i></a>
+                </h2>
+            </div>
+            <div class="hot-modular">
+                <ul class="rank-list">
+
+                    {% for k,info in topic %}
+                        <li class="rank-item cf">
+                            <a href="{{ path('detail',{id:info.id}) }}" class="rank-item-link" title="{{ info.title }}">
+                                <div class="mod-left">
+                                    <div class="rank-num-box">
+                                        <span class="ecrank-no">NO</span><i class="rank-nub cohot{{ k+1 }} cor3">{{ k+1 }}</i>
+                                    </div>
+                                </div>
+                                <div class="mod-right">
+                                    <h3 class="anthology-wrap main-title">{{ info.title }}</h3>
+                                    <div class="sub-box">
+                                        <div class="sub-right"><i class="fa">&#xe713;</i><span class="count cor3">{{ info.vodRemarks }}</span></div>
+                                        <p class="sub-des cor3 hidden">{{ info.stars| join(',') }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="skill popup">
+        <div class="popup-bg"></div>
+        <div class="popup-box notice back topfadeInUp animated">
+            <h2 class="popup-title cor2">使用小技巧</h2>
+            <div class="popup-content cor2">1.如播卡顿或失败可切换片源。<br/>2.建议选择高清片源播放，速度更快画质更好，如播放失败可点击切换线路。<br/>3.请不要相信视频中的广告,视频中广告非本站所加。<br/></div>
+            <div class="popup-btn">
+                <a class="popup-conch buthide ol2" style="margin-right:9px;" href="javascript:;">朕已阅</a>
+                <a class="popup-subs buthide ol7" href="javascript:;">取消</a>
+            </div>
+        </div>
+    </div>
+    <div style="display:none">
+        <span class="mac_ulog_set" data-type="4" data-mid="1" data-id="301055" data-sid="1" data-nid="1"></span>
+        <span class="mac_history_set" data-name="[{{ info.type }}]{{ info.title }}" data-mid="-第{{ p_id }}几集" data-pic="{{ path('img',{id:info.imgUrl}) }}"></span>
+        {#        <span id="jxline">https://pull.#/?url=</span> #}
+        {#        <span id="bfurl">qq|youku|mgtv|letv|pptv|shou|qiyi</span> #}
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/5.1.0/js/swiper.min.js"></script>
+    <script>
+        var mySwiper2 = new Swiper('.swiper-container2', {
+            paginationClickable: true,
+            slidesPerView: 'auto',
+        });
+        var mySwiper3 = new Swiper('.swiper-container3', {
+            paginationClickable: true,
+            slidesPerView: 'auto',
+        });
+
+        $("#ecbto").click(function () {
+            $(".intro-wrap").toggle();
+        })
+
+        var viewHeight = document.documentElement.clientHeight//获取可视区高度
+        function lazyload() {
+            var eles = document.querySelectorAll('div[data-original]')
+            Array.prototype.forEach.call(eles, function (item, index) {
+                var rect
+                if (item.dataset.original === "")
+                    return
+                rect = item.getBoundingClientRect()// 用于获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
+                if (rect.bottom >= 0 && rect.top < viewHeight) {
+                    !function () {
+                        var img = new Image()
+                        img.src = item.dataset.original
+                        img.onload = function () {
+                            item.style.backgroundImage = "url(" + img.src + ")";
+
+                        }
+                        item.removeAttribute("data-original")//移除属性，下次不再遍历
+                        item.removeAttribute("lazyload")
+                    }()
+                }
+            })
+        }
+
+        lazyload()//刚开始还没滚动屏幕时，要先触发一次函数，初始化首页的页面图片
+        document.addEventListener("scroll", lazyload)
+    </script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/xgplayer/browser/index.js" charset="utf-8"></script>
+    <script src="//cdn.jsdelivr.net/npm/xgplayer-hls.js/browser/index.js" charset="utf-8"></script>
+    <script>
+        let player = new HlsJsPlayer({
+            "id": "mse",
+            "url": "{{ play_url }}",
+            "playsinline": true,
+            "whitelist": [
+                ""
+            ],
+            "poster": "{{ path('img',{id:info.imgUrl}) }}",
+            "fluid": true,
+            "playbackRate": [
+                0.5,
+                1,
+                2,
+                3
+            ],
+            "rotate": {
+                "clockwise": false,
+                "innerRotate": false
+            },
+            "pip": true
+        });
+
+    </script>
+{% endblock %}

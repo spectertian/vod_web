@@ -1,0 +1,146 @@
+{% extends 'm/base.html.twig' %}
+{% block body %}
+    <div class="navbody stretch nav-a lcb bottomb-b f-head-bj">
+        <div class="l"><a class="f-head-color fa" href="javascript:history.go(-1)">&#xe716;</a></div>
+        <h2 id="zhankai"><a class="f-head-color" href="javascript:;">{{attribute(typeList.class,type)}}<i class="fa gengduo nav1">&#xe62e;</i><i class="fa gengduo nav2">&#xe62c;</i></a></h2>
+        <div class="r cf"><a style="font-size:.56rem" class="f-head-color fa r" href="{{ path("search") }}">&#xe632;</a>
+            {#            <a class="fa r f-head-color" href="/index.php/label/rank.html">&#xe782;</a> #}
+        </div>
+        <div class="show-zhankai lcb bottomb-b f-head-bj">
+            <ul>
+                {% for k,info in typeList.class %}
+                    <li><a class="f-head-color" href="{{ path("show_category_sq",{'type':k}) }}">{{ info }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="navtop"></div>
+    <div class="ec-ad top20">
+        {#        <a href="" target="_blank"><img src="#" alt="影视筛选头部广告"></a> #}
+    </div>
+    <div class="ec-casc-list">
+        <div class="swiper-container2">
+            <ul id="nav-bar1" class="swiper-wrapper">
+                {% for k,info in attribute(typeList.list,type).tag %}
+                    <li class="swiper-slide {% if tag == k %}ecnav-dt{% endif %}"><a href="{{ path("show_category_sq",{'type':type, 'tag' : k, 'area' :area, 'year' :year}) }}">{{ info }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="swiper-container3">
+            <ul id="nav-bar2" class="swiper-wrapper">
+                {% for k,info in attribute(typeList.list,type).area %}
+                    <li class="swiper-slide {% if area == k %}ecnav-dt{% endif %}"><a href="{{ path("show_category_sq",{'type':type, 'tag' : tag, 'area' :k, 'year' :year}) }}">{{ info }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="swiper-container4">
+            <ul id="nav-bar3" class="swiper-wrapper">
+                {% for k,info in attribute(typeList.list,type).year %}
+                    <li class="swiper-slide {% if year == k %}ecnav-dt{% endif %}"><a href="{{ path("show_category_sq",{'type':type, 'tag' : tag, 'area' :area, 'year' :k}) }}">{{ info }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {#        <div class="title-a cf"> #}
+        {#            <h2 class="l cor2"> #}
+        {#                <a class="weight  on" href="/index.php/vod/show/by/time/id/21.html">按时间</a> #}
+        {#                <a class="weight " href="/index.php/vod/show/by/hits/id/21.html">按人气</a> #}
+        {#                <a class="weight " href="/index.php/vod/show/by/score/id/21.html">按评分</a> #}
+        {#            </h2> #}
+        {#            <div class="r siza"><a class="cor4" href="/index.php/vod/show/id/21.html" title="更多热映影视点击这里"><i class="fa">&#xe8c8;</i>重置</a></div> #}
+        {#        </div> #}
+    </div>
+
+    {% if pagination.count >0 %}
+        <div class="box">
+            <section>
+                <div class="list-a size">
+                    <ul>
+                        {% for info in pagination %}
+                            <li class="list-width volistwidthb">
+                                <div class="top list-hide volistheightb">
+                                    <a class="img" href='{{ path('detail',{id:info.id}) }}' title="{{ info.title }}">
+                                        <div class="lazy eclazy br" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }});"></div>
+                                        <span class="pack-bg br-bt"></span>
+                                        <span class="list-tag" style="background:#;">{{ info.type }}</span>
+                                        <span class="list-remarks hidden">{{ info.vodRemarks }}</span>
+                                    </a>
+                                </div>
+                                <div class="bottom">
+                                    <div class="title hidden">
+                                        <a href='{{ path('detail',{id:info.id}) }}' title="{{ info.title }}">{{ info.title }}</a>
+                                    </div>
+                                    <div class="bt hidden cor4">{{ info.stars| join(',') }}</div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+            <div class="tag mac_pages">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+    {% else %}
+        <div class="box">
+            <section>
+                <div class="list-a size">
+                    <ul>
+                    </ul>
+                </div>
+            </section>
+            <div style="text-align:center;">
+                <div>
+                    <img style="width:48%" src="{{ asset("cy/null.png") }}" alt="暂无数据">
+                </div>
+                <p style="font-size: .36rem;margin-top: .4rem;color: #999">暂无数据</p>
+            </div>
+        </div>
+    {% endif %}
+
+    <script>
+        var viewHeight = document.documentElement.clientHeight//获取可视区高度
+        function lazyload() {
+            var eles = document.querySelectorAll('div[data-original]')
+            Array.prototype.forEach.call(eles, function (item, index) {
+                var rect
+                if (item.dataset.original === "")
+                    return
+                rect = item.getBoundingClientRect()// 用于获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
+                if (rect.bottom >= 0 && rect.top < viewHeight) {
+                    !function () {
+                        var img = new Image()
+                        img.src = item.dataset.original
+                        img.onload = function () {
+                            item.style.backgroundImage = "url(" + img.src + ")";
+
+                        }
+                        item.removeAttribute("data-original")//移除属性，下次不再遍历
+                        item.removeAttribute("lazyload")
+                    }()
+                }
+            })
+        }
+
+        lazyload()//刚开始还没滚动屏幕时，要先触发一次函数，初始化首页的页面图片
+        document.addEventListener("scroll", lazyload)
+
+        $("#zhankai").click(function (e) {
+            var hasC = $(".navbody").hasClass('navshow')
+            if (hasC) {
+                $(".navbody").removeClass('navshow')
+            } else {
+                $(".navbody").addClass('navshow')
+
+            }
+            e.preventDefault();
+        })
+
+        // var nav = document.getElementById('zhankai');
+        // var body = document.getElementsByClassName('navbody');
+        //
+        // nav.addEventListener('click', function (e) {
+        //     body.className = body.className ? '' : 'navshow';
+        //     e.preventDefault();
+        // });
+    </script>
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends 'm/base.html.twig' %}
+{% block body %}
+    <div class="head-c">
+        <div class="cf ol2" style="position:fixed;z-index: 99;left: 0;right: 0;top: 0;">
+            <div class="nav-a" style="position: relative;background:inherit">
+                <div class="l" style="width: 1.6rem;"><a class="logo" style="background-image: url({{ asset("cy/kt.png") }});" href="{{ path("index") }}"></a></div>
+                <h2><a href="{{ path("search_m") }}" class="search cf"><span class="l sotitle">输入影片或演员名称</span><span class="soinoc fa r"></span></a></h2>
+                <div class="r cf">
+                    {#                    <a class="fa r" href=""></a> #}
+                    <a class="fa r leftlistshow listNav" href="javascript:;"></a>
+                </div>
+            </div>
+            <div class="swiper-container2 l hidden swiper-container-initialized swiper-container-horizontal swiper-container-android">
+                <ul id="nav-bar" class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                    <li class="swiper-slide ecnav-dt swiper-slide-active"><a href="{{ asset("index") }}">首页</a></li>
+                    <li class="swiper-slide swiper-slide-next"><a href="{{ path('dy') }}">电影</a></li>
+                    <li class="swiper-slide"><a href="{{ path('tv') }}">电视剧</a></li>
+                    <li class="swiper-slide"><a href="{{ path('zy') }}">综艺</a></li>
+                    <li class="swiper-slide"><a href="{{ path('dm') }}">动漫</a></li>
+                    <li class="swiper-slide"><a href="{{ path('wy') }}">午夜剧场</a></li>
+                </ul>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+        </div>
+        <div style="height:2.22rem"></div>
+    </div>
+    <div class="nav-quick box" style="padding-top:.2rem;padding-bottom:.2rem;padding-right:2.42667rem;">
+        <ul class="cf">
+            <li class="back"><a href="{{ path("show_category_sq",{'type':1,'tag':'国产精品'}) }}" class="item"><span>国产精品</span></a></li>
+            <li class="back"><a href="{{ path("show_category_sq",{'type':1,'tag':'自拍偷拍'}) }}" class="item"><span>自拍偷拍</span></a></li>
+            <li class="back"><a href="{{ path("show_category_sq",{'type':1,'tag':'主播直播'}) }}" class="item"><span>主播直播</span></a></li>
+        </ul>
+        <div class="more on"><i class="mbg"></i><a href="{{ path("show_category_sq",{'type':"1"}) }}"><span class="back"><i class="fa">&#xe8c0;</i>全部</span></a></div>
+    </div>
+    <div class="box">
+        <section>
+            <div class="title-a cf">
+                <h2 class="l cor2"><span class="weight"><i class="fa on">&#xe7c4;</i>热映推荐</span>
+                    {#                                    <a class="cor4" href="/index.php/label/rb.html" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a> #}
+                </h2>
+                {#                <div class="r siza on"> 共"17449"部影视</div> #}
+            </div>
+            <div class="list-a size">
+                <ul>
+                    {% for k,info in hotList %}
+                        <li class="list-width volistwidthb">
+                            <div class="top list-hide volistheightb">
+                                <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
+                                    <div class="lazy eclazy br" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }}); display: block;"></div>
+                                    <span class="pack-bg br-bt"></span>
+                                    <span class="list-tag" style="background:#;">{{ info.area }}</span>
+                                    <span class="list-remarks hidden">{{ info.vodRemarks }}</span>
+                                </a>
+                            </div>
+                            <div class="bottom">
+                                <div class="title hidden">
+                                    <a href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}</a>
+                                </div>
+                                <div class="bt hidden cor4">{{ info.stars| join(',') }}</div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </div>
+    {#    <div class="ec-ad top20"><a href="" target="_blank"><img src="#" alt="分类页广告位"></a></div> #}
+
+
+    {% for key,infos in list %}
+        <div class="box">
+            <section>
+                <div class="title-a cf">
+                    <h2 class="l cor2">
+                        <span class="weight">{{ nameList[key] }}</span>
+                    </h2>
+                    <div class="r siza"><a class="cor4" href="{{ path("show_category_sq",{'type':1,'tag': nameList[key] }) }}" title="更多热映影视点击这里">更多<i class="fa">&#xe62d;</i></a></div>
+                </div>
+                <div class="list-a size">
+                    <ul>
+                        {% for k,info in infos %}
+                            <li class="list-width volistwidthb">
+                                <div class="top list-hide volistheightb">
+                                    <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
+                                        <div class="lazy eclazy br" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }}); display: block;"></div>
+                                        <span class="pack-bg br-bt"></span>
+                                        <span class="list-tag" style="background:#;">{{ info.area }}</span>
+                                        <span class="list-remarks hidden">{{ info.vodRemarks }}</span>
+                                    </a>
+                                </div>
+                                <div class="bottom">
+                                    <div class="title hidden">
+                                        <a href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">{{ info.title }}</a>
+                                    </div>
+                                    <div class="bt hidden cor4">{{ info.stars| join(',') }}</div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </div>
+    {% endfor %}
+    <script type="text/javascript">
+        var viewHeight = document.documentElement.clientHeight//获取可视区高度
+        function lazyload() {
+            var eles = document.querySelectorAll('div[data-original]')
+            Array.prototype.forEach.call(eles, function (item, index) {
+                var rect
+                if (item.dataset.original === "")
+                    return
+                rect = item.getBoundingClientRect()// 用于获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
+                if (rect.bottom >= 0 && rect.top < viewHeight) {
+                    !function () {
+                        var img = new Image()
+                        img.src = item.dataset.original
+                        img.onload = function () {
+                            item.style.backgroundImage = "url(" + img.src + ")";
+
+                        }
+                        item.removeAttribute("data-original")//移除属性，下次不再遍历
+                        item.removeAttribute("lazyload")
+                    }()
+                }
+            })
+        }
+
+        lazyload()//刚开始还没滚动屏幕时，要先触发一次函数，初始化首页的页面图片
+        document.addEventListener("scroll", lazyload)
+
+        var swiper = new Swiper(".swiper-container1", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+{% endblock %}
