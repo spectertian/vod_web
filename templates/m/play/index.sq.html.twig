@@ -189,7 +189,7 @@
         <div class="bottom-box animated fadeInUp lcb">
             <div class="botton-top">
                 <p class="cor4"><i class="fa">&#xe8cc;</i>复制链接地址分享给您的好友吧~~</p>
-                <textarea id="foo" rows="3" cols="20" class="share back cor2">{{ app.request.getSchemeAndHttpHost() }}{{ path('detail',{id:info.id}) }}</textarea>
+                <textarea id="foo" rows="3" cols="20" class="share back cor2">{{ app.request.getSchemeAndHttpHost() }}{{ path('play_sq',{s_id:info.id,p_id:0}) }}</textarea>
             </div>
             <div class="botton-btn share-btn b-t">
                 <button type="button" class="cor2 copyBtn" data-clipboard-target="#foo" data-rel="popup">复制链接</button>
