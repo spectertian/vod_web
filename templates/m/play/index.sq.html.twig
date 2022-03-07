@@ -115,9 +115,9 @@
                             <ul id="nav-bar" class='content_playlist cf swiper-wrapper'>
                                 {% for key,vod in info.play.0.list %}
                                     {% if p_id == key %}
-                                        <li class='swiper-slide jujiselset ecnav-dt'><a class="back" href="{{ path('play',{s_id:info.id,p_id:key}) }}"><i class="fa on">{{ vod.title }}</i><em></em></a></li>
+                                        <li class='swiper-slide jujiselset ecnav-dt'><a class="back" href="{{ path('play_sq',{s_id:info.id,p_id:key}) }}"><i class="fa on">{{ vod.title }}</i><em></em></a></li>
                                     {% else %}
-                                        <li class='swiper-slide jujiselset '><a class="back" href="{{ path('play',{s_id:info.id,p_id:key}) }}">{{ vod.title }}</a></li>
+                                        <li class='swiper-slide jujiselset '><a class="back" href="{{ path('play_sq',{s_id:info.id,p_id:key}) }}">{{ vod.title }}</a></li>
                                     {% endif %}
                                 {% endfor %}
                             </ul>
@@ -141,7 +141,7 @@
                     {% for key,info in recommend_list %}
                         <li class="swiper-slide list-width  volistwidthcb">
                             <div class="top list-hide volistheightb" style=" margin-right: .14rem;">
-                                <a class="img" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
+                                <a class="img" href="{{ path('play_sq',{s_id:info.id,p_id:0}) }}" title="{{ info.title }}">
                                     <div class="eclazy br" style="background-image: url({{ path('img',{id:info.imgUrl}) }});"></div>
                                     <span class="pack-bg br-bt"></span>
                                     <span class="list-remarks hidden">{{ info.vodRemarks }}</span>
@@ -149,7 +149,7 @@
                             </div>
                             <div class="bottom">
                                 <div class="title hidden">
-                                    <a href='{{ path('detail',{id:info.id}) }}' title="{{ info.title }}">{{ info.title }}</a>
+                                    <a href='{{ path('play_sq',{s_id:info.id,p_id:0}) }}' title="{{ info.title }}">{{ info.title }}</a>
                                 </div>
                             </div>
                         </li>
