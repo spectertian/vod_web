@@ -36,8 +36,7 @@ class PlayController extends AbstractController
     #[Route('/play/sq/{s_id}/{p_id}', name: 'play_sq')]
     public function sq(VodWyListRepository $vodWyListRepository, WyRecommendList $wyRecommendList, Mobile_Detect $mobile_Detect, $s_id, $p_id): Response
     {
-        $info = $vodWyListRepository->find($s_id);
-        dump($info);
+        $info     = $vodWyListRepository->find($s_id);
         $play_url = $info->getPlay()[0]['list'][$p_id]['url'];
         if ($mobile_Detect->isMobile()) {
             $tmp = 'm/play/index.sq.html.twig';

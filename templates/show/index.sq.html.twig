@@ -2,7 +2,7 @@
 {% block body %}
     <div class="headtopnull"></div>
     <div class="wwp">
-{#        <div class="ec-ad top20"><a href="" target="_blank"><img src="#" alt="影视筛选页广告位"></a></div>#}
+        {#        <div class="ec-ad top20"><a href="" target="_blank"><img src="#" alt="影视筛选页广告位"></a></div> #}
         <div class="show-filter back br top20">
             <div class="filter_line">
                 <span class="filter_label cor3">频道</span>
@@ -35,7 +35,7 @@
 
                     <div class="pack-ykpack ">
                         <div class="pack-packcover returl list-top-b">
-                            <a class="aplus-exp ecimgbor" target="_self" href="{{ path('detail',{id:info.id}) }}" title="{{ info.title }}">
+                            <a class="aplus-exp ecimgbor" target="_self" href="{{ path('play_sq',{s_id:info.id,p_id:0}) }}" title="{{ info.title }}">
                                 <div class="bj eclazy" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }});"></div>
                                 <span class="pack-bg"></span>
                                 <span class="pack-prb hidden">{{ info.vodRemarks }}</span>

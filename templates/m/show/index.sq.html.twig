@@ -58,7 +58,7 @@
                         {% for info in pagination %}
                             <li class="list-width volistwidthb">
                                 <div class="top list-hide volistheightb">
-                                    <a class="img" href='{{ path('detail',{id:info.id}) }}' title="{{ info.title }}">
+                                    <a class="img" href='{{ path('play_sq',{s_id:info.id,p_id:0}) }}"' title="{{ info.title }}">
                                         <div class="lazy eclazy br" data-original="{{ path('img',{id:info.imgUrl}) }}" style="background-image: url({{ asset("cy/lh.png") }});"></div>
                                         <span class="pack-bg br-bt"></span>
                                         <span class="list-tag" style="background:#;">{{ info.type }}</span>

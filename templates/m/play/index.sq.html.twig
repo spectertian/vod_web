@@ -102,7 +102,7 @@
             <div class="play_source">
                 <div class="boxb b-b swiper-container3 play_source_tab swiper">
                     <div class="cf swiper-wrapper" id="tag">
-                        <a href="javascript:void(0);" class='swiper-slide on' data-from="if101" alt="高清">高清<em>({{ info.play.1.list|length }})</em></a>
+                        <a href="javascript:void(0);" class='swiper-slide on' data-from="if101" alt="高清">高清<em>({{ info.play.0.list|length }})</em></a>
                         {#                        <a href="javascript:void(0);" class='swiper-slide ' data-from="wjm3u8" alt="高清2">高清2<em>7</em></a> #}
                         {#                        <a href="javascript:void(0);" class='swiper-slide ' data-from="dbm3u8" alt="高清1">高清1</a> #}
                     </div>
@@ -113,7 +113,7 @@
                         <div class="box player_infotip cor4"><i class="fa">&#xe8d1;</i>&nbsp;当前资源高清提供&nbsp;-&nbsp;看视频 - 老虎TV TV，无VIP会员</div>
                         <div class="card playlist_notfull swiper-container4">
                             <ul id="nav-bar" class='content_playlist cf swiper-wrapper'>
-                                {% for key,vod in info.play.1.list %}
+                                {% for key,vod in info.play.0.list %}
                                     {% if p_id == key %}
                                         <li class='swiper-slide jujiselset ecnav-dt'><a class="back" href="{{ path('play',{s_id:info.id,p_id:key}) }}"><i class="fa on">{{ vod.title }}</i><em></em></a></li>
                                     {% else %}
