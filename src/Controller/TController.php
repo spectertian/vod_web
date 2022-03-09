@@ -40,7 +40,7 @@ class TController extends AbstractController
         ]);
     }
 
-    #[Route('/t_tv.html', name: 'tv')]
+    #[Route('/t_tv.html', name: 'tv', options: ['sitemap' => true])]
     public function tv(TypeRecommendList $typeRecommendList, Mobile_Detect $mobile_Detect): Response
     {
         if ($mobile_Detect->isMobile()) {
@@ -66,7 +66,7 @@ class TController extends AbstractController
         ]);
     }
 
-    #[Route('/t_zy.html', name: 'zy')]
+    #[Route('/t_zy.html', name: 'zy', options: ['sitemap' => true])]
     public function zy(TypeRecommendList $typeRecommendList, Mobile_Detect $mobile_Detect): Response
     {
         if ($mobile_Detect->isMobile()) {
@@ -88,7 +88,7 @@ class TController extends AbstractController
         ]);
     }
 
-    #[Route('/t_dm.html', name: 'dm')]
+    #[Route('/t_dm.html', name: 'dm', options: ['sitemap' => true])]
     public function dm(TypeRecommendList $typeRecommendList, Mobile_Detect $mobile_Detect): Response
     {
         if ($mobile_Detect->isMobile()) {

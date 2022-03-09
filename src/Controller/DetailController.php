@@ -12,7 +12,7 @@ use Mobile_Detect;
 
 class DetailController extends AbstractController
 {
-    #[Route('/detail/{id}.html', name: 'detail', methods: ['GET'])]
+    #[Route('/detail/{id}.html', name: 'detail', methods: ['GET'], options: ['sitemap' => true])]
     public function index(VodListRepository $vodListRepository, Request $request, RecommendList $recommendList, Mobile_Detect $mobile_Detect): Response
     {
         $id   = $request->get('id');

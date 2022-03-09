@@ -14,7 +14,7 @@ use Mobile_Detect;
 
 class ShowController extends AbstractController
 {
-    #[Route('/show_category/{type}-{tag}-{area}-{year}.html', name: 'show_category', defaults: ['type' => "1", 'tag' => 0, 'area' => 0, 'year' => 0])]
+    #[Route('/show_category/{type}-{tag}-{area}-{year}.html', name: 'show_category', defaults: ['type' => "1", 'tag' => 0, 'area' => 0, 'year' => 0], options: ['sitemap' => true])]
     public function category(VodListRepository $vodListRepository, Request $request, PaginatorInterface $paginator, Mobile_Detect $mobile_Detect, $type, $tag, $area, $year): Response
     {
         $query = $vodListRepository->createQueryBuilder();
@@ -66,7 +66,7 @@ class ShowController extends AbstractController
         ]);
     }
 
-    #[Route('/show_category_sq/{type}-{tag}-{area}-{year}.html', name: 'show_category_sq', defaults: ['type' => "1", 'tag' => 0, 'area' => 0, 'year' => 0])]
+    #[Route('/show_category_sq/{type}-{tag}-{area}-{year}.html', name: 'show_category_sq', defaults: ['type' => "1", 'tag' => 0, 'area' => 0, 'year' => 0], options: ['sitemap' => true])]
     public function category_sq(VodWyListRepository $vodWyListRepository, Request $request, PaginatorInterface $paginator, Mobile_Detect $mobile_Detect, $type, $tag, $area, $year): Response
     {
         $query = $vodWyListRepository->createQueryBuilder();

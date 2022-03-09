@@ -7,7 +7,7 @@ parameters:
     env(MONGODB_URL): ''
     env(MONGODB_DB): ''
     router.request_context.scheme: 'https'
-    router.request_context.host: 'www.hilaiya.com'
+    router.request_context.host: 'vod.hilaiya.com'
     asset.request_context.secure: true
 
 services:

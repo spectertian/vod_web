@@ -2,20 +2,24 @@
 
 namespace App\EventSubscriber;
 
-use App\DocumentRepository\ListsRepository;
+use App\DocumentRepository\VodListRepository;
+use App\DocumentRepository\VodWyListRepository;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Presta\SitemapBundle\Event\SitemapPopulateEvent;
 use Presta\SitemapBundle\Service\UrlContainerInterface;
 use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
 
+
 class SitemapSubscriber implements EventSubscriberInterface
 {
-    private $listsRepository;
+    private $vodWyListRepository;
+    private $vodListRepository;
 
-    public function __construct(ListsRepository $listsRepository)
+    public function __construct(VodWyListRepository $vodWyListRepository, VodListRepository $vodListRepository)
     {
-        $this->listsRepository = $listsRepository;
+        $this->vodWyListRepository = $vodWyListRepository;
+        $this->vodListRepository   = $vodListRepository;
     }
 
     public function onEventSubscriberInterface($event)
@@ -45,7 +49,7 @@ class SitemapSubscriber implements EventSubscriberInterface
     public function registerDetailUrls(UrlContainerInterface $urls, UrlGeneratorInterface $router): void
     {
         $all = [
-            'index', 'dz', 'kh', 'aq', 'xj', 'kb', 'zz', 'jq', 'jl', 'dh', 'dsj', 'message', 'news'
+            'index', 'search', 'dy', 'tv', 'zy', 'dm', 'show_category', 'show_category_sq', 'search_m', 'wy'
         ];
         foreach ($all as $v) {
             $urls->addUrl(
@@ -55,7 +59,7 @@ class SitemapSubscriber implements EventSubscriberInterface
             );
         }
 
-        $lists = $this->listsRepository->findAll();
+        $lists = $this->vodListRepository->findAll();
         foreach ($lists as $info) {
             $urls->addUrl(
                 new UrlConcrete($router->generate('detail', ['id' => $info->getId()], UrlGeneratorInterface::ABSOLUTE_URL)
@@ -63,5 +67,16 @@ class SitemapSubscriber implements EventSubscriberInterface
                 'detail'
             );
         }
+
+        $lists = $this->vodWyListRepository->findAll();
+        foreach ($lists as $info) {
+            $urls->addUrl(
+                new UrlConcrete($router->generate('play_sq', ['s_id' => $info->getId(), 'p_id' => 0], UrlGeneratorInterface::ABSOLUTE_URL)
+                ),
+                'play_adu'
+            );
+        }
+
+
     }
 }

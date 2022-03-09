@@ -13,7 +13,7 @@ use Mobile_Detect;
 
 class PlayController extends AbstractController
 {
-    #[Route('/play/{s_id}/{p_id}', name: 'play')]
+    #[Route('/play/{s_id}/{p_id}', name: 'play', options: ['sitemap' => true])]
     public function index(VodListRepository $vodListRepository, RecommendList $recommendList, Mobile_Detect $mobile_Detect, $s_id, $p_id): Response
     {
         $info     = $vodListRepository->find($s_id);
@@ -33,7 +33,7 @@ class PlayController extends AbstractController
     }
 
 
-    #[Route('/play/sq/{s_id}/{p_id}', name: 'play_sq')]
+    #[Route('/play/sq/{s_id}/{p_id}', name: 'play_sq', options: ['sitemap' => true])]
     public function sq(VodWyListRepository $vodWyListRepository, WyRecommendList $wyRecommendList, Mobile_Detect $mobile_Detect, $s_id, $p_id): Response
     {
         $info     = $vodWyListRepository->find($s_id);
