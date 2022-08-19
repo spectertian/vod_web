@@ -59,7 +59,7 @@ class SitemapSubscriber implements EventSubscriberInterface
             );
         }
 
-        $lists = $this->vodListRepository->findAll();
+        $lists = $this->vodListRepository->findBy([],[],10);
         foreach ($lists as $info) {
             $urls->addUrl(
                 new UrlConcrete($router->generate('detail', ['id' => $info->getId()], UrlGeneratorInterface::ABSOLUTE_URL)
@@ -68,7 +68,7 @@ class SitemapSubscriber implements EventSubscriberInterface
             );
         }
 
-        $lists = $this->vodWyListRepository->findAll();
+        $lists = $this->vodWyListRepository->findBy([],[],10);
         foreach ($lists as $info) {
             $urls->addUrl(
                 new UrlConcrete($router->generate('play_sq', ['s_id' => $info->getId(), 'p_id' => 0], UrlGeneratorInterface::ABSOLUTE_URL)
